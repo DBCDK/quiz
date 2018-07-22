@@ -1,3 +1,7 @@
+[![Coveralls](https://img.shields.io/coveralls/github/solsort/quiz.svg&style=for-the-badge)](https://coveralls.io/github/solsort/quiz)
+[![Waffle](https://img.shields.io/badge/waffle--green.svg&style=for-the-badge)](https://waffle.io/solsort/quiz)
+[![Travis](https://img.shields.io/travis/solsort/quiz.svg&style=for-the-badge)](https://travis-ci.org/solsort/quiz)
+
 # Quiz
 
 In development, nothing to see here yet.
@@ -6,21 +10,21 @@ In development, nothing to see here yet.
 
 Clone the quiz-branch of <https://openplatform.dbc.dk/>, and run it locally:
 
-```
+````
 git clone https://github.com/dbcdk/serviceprovider -b 969-quiz
 cd serviceprovider
 npm run dev
-```
 
+```
 This requires postgres server for data storage or edit `config.json` to use sqlite3 a la:
-
 ```
+
 knex: {
-  client: 'sqlite3',
-  connection: { filename: "./serviceprovider.sqlite" }
+client: 'sqlite3',
+connection: { filename: "./serviceprovider.sqlite" }
 },
-```
 
+```
 ---
 
 Go back to th quiz directory and run `npm start`.
@@ -32,15 +36,22 @@ Go back to th quiz directory and run `npm start`.
 
 # Backend
 
-Functionality is inspired / a subset of CouchDB.
-API is RPC rather than REST.
-
 - get
 - put
-- db (define views)
-- attachment (save image / fetch image / resize image)
-- view (search/aggregate)
+- find
 
+special 'openplatform:types'-type, where id is typename, and object is type meta, defines indexes and aggregators;
+```
+
+{
+"name": "types",
+"mimetype": "application/json;charset=utf-8",
+"\_owner": "openplatform",
+"permissions": {"read": "any"},
+"indexes": [{"type": "key", key: ['\_owner', 'name']}]
+}
+
+```
 Dependencies
 
 - knex for db/storage
@@ -50,11 +61,11 @@ Dependencies
 
 DB-schema:
 
-- docs: db, docid, rev, owner, data
-- attachments: db, docid, attname, mime, data
-- (views: viewid, key, value, docid)
-- (cache: ...)
+- docs: (uuid id), uuid type, timestamp microsecond - version, string owner, binary data
+- index: (uuid type, int index, string key, string value);
 
 # Widget
 
 # Admin
+```
+````

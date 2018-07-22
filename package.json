@@ -13,26 +13,25 @@
     "redux": "^4.0.0"
   },
   "devDependencies": {
-    "husky": "^1.0.0-rc.13",
     "lint-staged": "^7.2.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.13.7",
     "react-test-renderer": "^16.4.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  "pre-commit": [
+    "pre-commit"
+  ],
   "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --write",
+    "*.{js,md,json,css}": [
+      "prettier --no-bracket-spacing --single-quote --write",
       "git add"
     ]
   },
   "scripts": {
+    "pre-commit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   }
 }
