@@ -1,6 +1,6 @@
-[![Coveralls](https://img.shields.io/coveralls/github/solsort/quiz.svg&style=for-the-badge)](https://coveralls.io/github/solsort/quiz)
-[![Waffle](https://img.shields.io/badge/waffle--green.svg&style=for-the-badge)](https://waffle.io/solsort/quiz)
-[![Travis](https://img.shields.io/travis/solsort/quiz.svg&style=for-the-badge)](https://travis-ci.org/solsort/quiz)
+[![Coverage](https://coveralls.io/repos/github/solsort/quiz/badge.svg?branch=master)](https://coveralls.io/github/solsort/quiz?branch=master)
+[![Waffle](https://badge.waffle.io/solsort/quiz.svg?columns=all)](https://waffle.io/solsort/quiz)
+[![Travis](https://travis-ci.org/solsort/quiz.svg?branch=master)](https://travis-ci.org/solsort/quiz)
 
 # Quiz
 
