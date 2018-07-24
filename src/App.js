@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+/*
 async function main() {
   let result;
   const op = window.dbcOpenPlatform;
@@ -47,14 +48,10 @@ async function main() {
   } catch (e) {
     console.log(e);
   }
-  /*
-  result = await window.dbcOpenPlatform.storage({put: {
-      _type: 'openplatform.type',
-      id: 'openplatform.type'
-      }});
-      */
 }
 main();
+*/
+
 class App extends Component {
   render() {
     return (

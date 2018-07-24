@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+  - node_modules
+script:
+  - npm test -- --coverage
+after_script:
+	- cat ./coverage/lcov.info | COVERALLS_REPO_TOKEN=$coveralls_repo_token npx coveralls
+
