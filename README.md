@@ -1,3 +1,7 @@
+[![Coveralls github](https://img.shields.io/coveralls/github/solsort/quiz.svg&style=for-the-badge)](https://coveralls.io/github/solsort/quiz)
+[![Waffle.io](https://img.shields.io/badge/waffle--green.svg&style=for-the-badge)](https://waffle.io/solsort/quiz)
+[![Travis (.org)](https://img.shields.io/travis/solsort/quiz.svg&style=for-the-badge)](https://travis-ci.org/solsort/quiz)
+
 # Quiz
 
 In development, nothing to see here yet.
