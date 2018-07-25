@@ -1,10 +1,14 @@
-# Quiz
-
 [![Travis](https://travis-ci.org/solsort/quiz.svg?branch=master)](https://travis-ci.org/solsort/quiz)
 [![Waffle](https://badge.waffle.io/solsort/quiz.svg?columns=all)](https://waffle.io/solsort/quiz)
 [![Coverage](https://coveralls.io/repos/github/solsort/quiz/badge.svg?branch=master)](https://coveralls.io/github/solsort/quiz?branch=master)
 
+# Quiz
+
 In development, nothing to see here yet.
+
+Status:
+
+- only local development version, not deployable yet.
 
 ## Getting up and running
 
@@ -16,14 +20,62 @@ cd serviceprovider
 npm run dev
 ```
 
----
+Then run `npm start` in the directory of this repository.
 
-Go back to th quiz directory and run `npm start`.
+# Design choices
 
-## Dependency rationale
+In progress, up for discussion.
 
-- `create-react-app` for dev/building, - probably change to nwb or [Neutrino](https://neutrinojs.org/) (as recommended by create-react-app) later to support npm package building, - but start out with this for now.
+Coding style enforced via `prettier`.
+
+Dependencies:
+
+- jss for styling (and probably use material-ui)
+- redux+immutable for state
 - `openplatform.dbc.dk` api
+- `create-react-app` for dev/building, - probably change to nwb or [Neutrino](https://neutrinojs.org/) (as recommended by create-react-app) later to support npm package building, - but start out with this for now.
+
+# Data model
+
+Initial draft / analysis of data model / state.
+
+Redux stat design (admin)
+
+- ui - ui state
+  - user
+  - misc state for editing
+  - current quiz
+  - current page
+- quizzes - uuid -> quiz data as in storage
+- pages -> uuid -> page data as in storage
+- synced - mirror of quizzes/pages which represents the state on the server
+  - quizzes
+  - pages
+
+Data types in storage:
+
+- Quiz (owner-date, tags-date, title, date, tag-count)
+  - title
+  - Description
+  - Styling+Background
+  - Welcome (Welcome page)
+  - Questions array(Question-pages - also implicit)
+  - Final (Final-dispatch page - also implicit)
+  - Tags
+- Page
+  - Page types: Welcome, Question, Help-text, Response-feedback, Final-dispatch, Final-feedback(w/badge)
+  - Video or Image
+  - Text
+  - ShouldStatBeSubmitted
+  - Actions (next, help, responses, ...)
+    - Label
+    - Type
+    - Next-page (or next-pages conditioned)
+    - StateChange
+- Stat (idx: count: pageid+client, count: pageid)
+  - client / bibliotek
+  - pageid
+- BibProfil: client -> bibliotek
 
 # Backend
 
