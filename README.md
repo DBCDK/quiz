@@ -1,8 +1,8 @@
 # Quiz
 
-[![Coverage](https://coveralls.io/repos/github/solsort/quiz/badge.svg?branch=master)](https://coveralls.io/github/solsort/quiz?branch=master)
-[![Waffle](https://badge.waffle.io/solsort/quiz.svg?columns=all)](https://waffle.io/solsort/quiz)
 [![Travis](https://travis-ci.org/solsort/quiz.svg?branch=master)](https://travis-ci.org/solsort/quiz)
+[![Waffle](https://badge.waffle.io/solsort/quiz.svg?columns=all)](https://waffle.io/solsort/quiz)
+[![Coverage](https://coveralls.io/repos/github/solsort/quiz/badge.svg?branch=master)](https://coveralls.io/github/solsort/quiz?branch=master)
 
 In development, nothing to see here yet.
 
@@ -61,3 +61,28 @@ DB-schema:
 # Widget
 
 # Admin
+
+# Changelog / sprints
+
+## 2018-08-15 - v0.0.2
+
+## 2018-08-01 - v0.0.1
+
+- Set up project:
+  - Create repository
+  - Setup CI
+  - Setup Coveralls
+  - Setup issue tracking
+  - Readme including guide to get up and running
+- Initial backend
+  - Serviceprovider branch
+  - Various changes to serviceprovider: fix port-conflict, cjs vs esm, js-client configurable host, ...
+  - `/storage`-endpoint: get, put, find, delete
+  - examples / unit tests
+
+## Sprint-done checklist
+
+- git tag
+- short overview of changes above
+- demo, evt. via simplescreenrecorder
+- Later: some kind of deployment
