@@ -22,35 +22,17 @@ npm run dev
 
 Then run `npm start` in the directory of this repository.
 
-# Design choices
+# Choices
 
-In progress, up for discussion.
+(suggestion) **Visual design.** We use [material design](https://material.io/design/introduction). This simplifies and improves the visual design process, by avoiding a lot of bikeshedding, and having a common language.
 
-Coding style enforced via `prettier`.
+**Redux.** We use redux, and _all_ `dispatch`es and `state` access happens through **action creators** and **selectors**. This has many benefits, including making it easier to improve performance, and to refactor state, so do not manually create actions or traverse state.
 
-Dependencies:
+TODO: add other design choices here, i.e.: airbnb style guide, feature-branches, issue-structure, sprint-structure. TODO: add `CONTRIBUTING.md`
 
-- jss for styling (and probably use material-ui)
-- redux+immutable for state
-- `openplatform.dbc.dk` api
-- `create-react-app` for dev/building, - probably change to nwb or [Neutrino](https://neutrinojs.org/) (as recommended by create-react-app) later to support npm package building, - but start out with this for now.
-
-# Data model
+## Data model
 
 Initial draft / analysis of data model / state.
-
-Redux stat design (admin)
-
-- ui - ui state
-  - user
-  - misc state for editing
-  - current quiz
-  - current page
-- quizzes - uuid -> quiz data as in storage
-- pages -> uuid -> page data as in storage
-- synced - mirror of quizzes/pages which represents the state on the server
-  - quizzes
-  - pages
 
 Data types in storage:
 
@@ -76,6 +58,23 @@ Data types in storage:
   - client / bibliotek
   - pageid
 - BibProfil: client -> bibliotek
+
+Redux state design can be seen in `src/reducers.js`.
+
+## Dependencies
+
+We try to keep the number of dependencies low.
+When adding a dependency, also add the rationale here.
+
+- React
+- Redux/thunk/immutable-js for state management. Thunk and immutable-js are the library choices recommended by redux for asynchronous changes, and immutable data structures.
+- JSS for styling. Having CSS in JavaScript simplifies things by not having another language. It gives flexibility as you can JavaScript programming to define styles. JSS is one of the major library for this, and is also used by material-ui, which we might choose to use later on.
+- `openplatform.dbc.dk` api.
+
+Development:
+
+- `create-react-app` for dev/building, - probably change to nwb or [Neutrino](https://neutrinojs.org/) (as recommended by create-react-app) later to support npm package building, - but start out with this for now.
+- prettier for enforcing coding style
 
 # Backend
 
@@ -110,10 +109,6 @@ DB-schema:
 - docs: (uuid id), uuid type, timestamp microsecond version, string owner, string client, binary data
 - index: (uuid type, int index, string key, string value);
 
-# Widget
-
-# Admin
-
 # Changelog / sprints
 
 ## 2018-08-15 - v0.0.2
@@ -131,6 +126,9 @@ DB-schema:
   - Various changes to serviceprovider: fix port-conflict, cjs vs esm, js-client configurable host, ...
   - `/storage`-endpoint: get, put, find, delete
   - examples / unit tests
+- Data-model
+  - initial draft of data model
+  - setup react/redux for project
 
 ## Sprint-done checklist
 
