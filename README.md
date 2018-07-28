@@ -22,13 +22,30 @@ npm run dev
 
 Then run `npm start` in the directory of this repository.
 
-# Choices
+# Changelog / sprints
 
-(suggestion) **Visual design.** We use [material design](https://material.io/design/introduction). This simplifies and improves the visual design process, by avoiding a lot of bikeshedding, and having a common language.
+## 2018-08-15 - v0.0.2
 
-**Redux.** We use redux, and _all_ `dispatch`es and `state` access happens through **action creators** and **selectors**. This has many benefits, including making it easier to improve performance, and to refactor state, so do not manually create actions or traverse state.
+## 2018-08-01 - v0.0.1
 
-TODO: add other design choices here, i.e.: airbnb style guide, feature-branches, issue-structure, sprint-structure. TODO: add `CONTRIBUTING.md`
+- Set up project #1 #26
+  - Create repository
+  - React app
+  - Setup CI
+  - Setup Coveralls
+  - Setup issue tracking
+  - Code formatting with Prettier
+  - README with notes
+- Data-model #10 #30
+  - setup react/redux for project
+  - initial draft of data model
+- Initial backend #2 #5 #6 #8 #12 #11 #21 #22 #29
+  - `/storage`-endpoint: get, put, find, delete (includes new serviceprovider branch various changes to serviceprovider: fix port-conflict, cjs vs esm, js-client configurable host, ...)
+  - only for local development.
+  - examples / unit tests / documentation
+  - image support
+
+# Notes
 
 ## Data model
 
@@ -63,7 +80,7 @@ Redux state design can be seen in `src/reducers.js`.
 
 ## Dependencies
 
-We try to keep the number of dependencies low.
+Try to keep the number of dependencies low.
 When adding a dependency, also add the rationale here.
 
 - React
@@ -76,7 +93,7 @@ Development:
 - `create-react-app` for dev/building, - probably change to nwb or [Neutrino](https://neutrinojs.org/) (as recommended by create-react-app) later to support npm package building, - but start out with this for now.
 - prettier for enforcing coding style
 
-# Backend
+## Backend
 
 Note: This documentation will be moved into serviceprovider at some point.
 
@@ -109,26 +126,28 @@ DB-schema:
 - docs: (uuid id), uuid type, timestamp microsecond version, string owner, string client, binary data
 - index: (uuid type, int index, string key, string value);
 
-# Changelog / sprints
+## Kick-off
 
-## 2018-08-15 - v0.0.2
+Noter / idéer ifbm. kick-off mødet:
 
-## 2018-08-01 - v0.0.1
+- Process
+  - Demo: evt. via screenrecording
+  - Har struktureret
+- Datamodel og backend
+- Design
+- Nedbrydning af opgaver
 
-- Set up project:
-  - Create repository
-  - Setup CI
-  - Setup Coveralls
-  - Setup issue tracking
-  - Readme including guide to get up and running
-- Initial backend
-  - Serviceprovider branch
-  - Various changes to serviceprovider: fix port-conflict, cjs vs esm, js-client configurable host, ...
-  - `/storage`-endpoint: get, put, find, delete
-  - examples / unit tests
-- Data-model
-  - initial draft of data model
-  - setup react/redux for project
+## Contributing
+
+TODO: add other choices here, i.e.: airbnb style guide, feature-branches, issue-structure, sprint-structure. TODO: add `CONTRIBUTING.md`
+
+## Application state
+
+We use redux/thunk/immutable. All `dispatch`es and `state` access happens through **action creators** and **selectors**. This has many benefits, including making it easier to improve performance, and to refactor state, so do not manually create actions or traverse state.
+
+## Visual design.
+
+Use [material design](https://material.io/design/introduction). This simplifies and improves the visual design process, by avoiding a lot of bikeshedding, and having a common language.
 
 ## Sprint-done checklist
 
