@@ -24,9 +24,14 @@ Then run `npm start` in the directory of this repository.
 
 # Changelog / sprints
 
-## 2018-08-15 - v0.0.2
+## 2018-08-29
 
-## 2018-08-01 - v0.0.1
+- demo deployment #43
+- backend: lookup type-name when not uuid, #23
+
+## 2018-08-15 (sprint skipped due to vacation etc).
+
+## 2018-08-01 Initial setup
 
 - Set up project #1 #26
   - Create repository
