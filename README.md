@@ -1,6 +1,6 @@
-[![Travis](https://travis-ci.org/dbcdk/quiz.svg?branch=master)](https://travis-ci.org/dbcdk/quiz)
-[![Waffle](https://badge.waffle.io/dbcdk/quiz.svg?columns=all)](https://waffle.io/dbcdk/quiz)
-[![Coverage](https://coveralls.io/repos/github/dbcdk/quiz/badge.svg?branch=master)](https://coveralls.io/github/dbcdk/quiz?branch=master)
+[![Travis](https://travis-ci.org/DBCDK/quiz.svg?branch=master)](https://travis-ci.org/DBCDK/quiz)
+[![Waffle](https://badge.waffle.io/DBCDK/quiz.svg?columns=all)](https://waffle.io/DBCDK/quiz)
+[![Coverage](https://coveralls.io/repos/github/DBCDK/quiz/badge.svg?branch=master)](https://coveralls.io/github/DBCDK/quiz?branch=master)
 
 # Quiz
 
@@ -15,7 +15,7 @@ Status:
 Clone the quiz-branch of <https://openplatform.dbc.dk/>, and run it locally:
 
 ```
-git clone https://github.com/dbcdk/serviceprovider -b 969-quiz
+git clone https://github.com/DBCDK/serviceprovider -b 969-quiz
 cd serviceprovider
 npm run dev
 ```
