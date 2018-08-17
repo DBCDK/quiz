@@ -51,6 +51,32 @@ Then run `npm start` in the directory of this repository.
   - image support
 
 # Notes
+## Embedding 
+
+Proposal for how the quiz can be embedded:
+
+```html
+<div id="quizElem"></div>
+<script>
+    var quiz;
+    function initOpenPlatformQuiz() {
+        quiz = new openPlatformQuiz.Widget({
+            elemId: 'quizElem',
+            openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
+            quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
+            onDone: function(result) { console.log(result); }
+        });
+    }
+</script>
+<script src="https://example.com/quiz.js" async defer></script>
+```
+
+**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/quiz.js> is the *unstable* development version, which can be used for testing, but may or may not work..
+
+
+Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
+
+With regard to IFrame vs JavaScript approach, - embedding via JavaScript is suggested as this allows a more responsive view.
 
 ## Data model
 
