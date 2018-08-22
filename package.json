@@ -35,7 +35,7 @@
     "deploy": "gh-pages -d build",
     "prettier": "lint-staged",
     "start": "react-scripts start",
-    "build": "rm build/static/js/main.*.js; react-scripts build; cd build; cp ./static/js/main.*.js quiz.js",
+    "build": "rm build/static/js/main.*.js; react-scripts build; cd build; ln -sf ./static/js/main.*.js widget.js; ln -sf ./static/js/main.*.js admin.js",
     "test": "react-scripts test --env=jsdom",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   }

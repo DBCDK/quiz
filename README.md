@@ -72,11 +72,13 @@ Proposal for how the quiz can be embedded:
 <script src="https://example.com/quiz.js" async defer></script>
 ```
 
-**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/quiz.js> is the _unstable_ development version, which can be used for testing, but may or may not work..
+**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/widget.js> is the _unstable_ development version, which can be used for testing, but may or may not work..
 
 Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
 
 With regard to IFrame vs JavaScript approach, - embedding via JavaScript is suggested as this allows a more responsive view.
+
+TOOD: notes about css-classes
 
 ## Data model
 
