@@ -51,7 +51,8 @@ Then run `npm start` in the directory of this repository.
   - image support
 
 # Notes
-## Embedding 
+
+## Embedding
 
 Proposal for how the quiz can be embedded:
 
@@ -71,8 +72,7 @@ Proposal for how the quiz can be embedded:
 <script src="https://example.com/quiz.js" async defer></script>
 ```
 
-**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/quiz.js> is the *unstable* development version, which can be used for testing, but may or may not work..
-
+**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/quiz.js> is the _unstable_ development version, which can be used for testing, but may or may not work..
 
 Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
 
@@ -186,3 +186,57 @@ Use [material design](https://material.io/design/introduction). This simplifies 
 - short overview of changes above
 - demo, evt. via simplescreenrecorder
 - Later: some kind of deployment
+
+## UI-sketch/flow
+
+### Quizzes
+
+All screens in the actual quiz seems to have this structure
+
+```svgbob
++----------------------+
+| Quiz-titel           |
+|                      |
+|+--------------------+|
+||Billede eller video ||
+||                    ||
+||                    ||
+||                    ||
+|+--------------------+|
+|                      |
+| tekst                |
+|                      |
+|+--------------------+|
+||.------------------.||
+||| svar1            |||
+||'------------------'||
+||.------------------.||
+||| svar2            |||
+||'------------------'||
+||.------------------.||
+||| svar3            |||
+||'------------------'||
+|+--------------------+|
+|                      |
+|.--------------------.|
+||   Knap-titel       ||
+|'--------------------'|
++----------------------+
+```
+
+With certain parts omitted.
+
+### Admin
+
+Admin UI has three part:
+
+- find/create/copy/delete quizzes
+- edit full quiz
+  - description
+  - intro
+  - questions
+  - endings
+- edit screen
+  - edit question (has subscreens: ending-prices)
+  - edit endings (has subscreen: help, responses)
+  - edit (intro/help/response/ending-prize)
