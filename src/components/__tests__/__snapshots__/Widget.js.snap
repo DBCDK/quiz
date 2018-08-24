@@ -1,9 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`maps state to props 1`] = `
+Object {
+  "loading": false,
+  "quizTitle": "Sample Quiz",
+  "screen": Immutable.Map {
+    ui: Immutable.List [
+        Immutable.Map {
+            type: "image",
+            image: "https://www.dbc.dk/logo.png",
+        },
+        Immutable.Map {
+            type: "text",
+            text: "
+                    Introtekst om quizzen, ...
+            
+                    Her er mere beskrivelse
+                    ",
+        },
+        Immutable.Map {
+            type: "button",
+            text: "Start",
+            action: Immutable.Map {
+                screen: "question1",
+            },
+        },
+    ],
+    log: true,
+},
+}
+`;
+
 exports[`renders without crashing 1`] = `
 <div>
   <h1>
-    Quiz Widget here...
+    Titel for Quiz
   </h1>
 </div>
 `;

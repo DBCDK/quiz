@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
-import {ownQuizzes, loading} from '../redux/selectors';
+import {connect} from 'react-redux';
+import {currentScreen, quizDescription, loading} from '../redux/selectors';
 
-class Widget extends Component {
+export class Widget extends Component {
   render() {
     return (
       <div>
-        <h1>Quiz Widget here...</h1>
+        <h1>{this.props.quizTitle}</h1>
       </div>
     );
   }
 }
 
 export function mapStateToProps(state, ownProps) {
+  const description = quizDescription(state);
   return {
     loading: loading(state),
-    ownQuizzes: ownQuizzes(state)
+    quizTitle: description.get('title'),
+    screen: currentScreen(state)
   };
 }
 
-export default Widget;
+export default connect(mapStateToProps)(Widget);
