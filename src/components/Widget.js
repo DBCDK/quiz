@@ -1,12 +1,38 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {currentScreen, quizDescription, loading} from '../redux/selectors';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
+const views = {
+  image: ({image}) => <img src={image} />,
+  text: ({text}) => text,
+  button: ({text}) => (
+    <Button variant="contained" color="default">
+      {text}
+    </Button>
+  )
+};
+function renderElem(o, {pos}) {
+  const f = views[o.type];
+  return f && <p key={pos}>{f(o)}</p>;
+}
 
 export class Widget extends Component {
   render() {
     return (
       <div>
-        <h1>{this.props.quizTitle}</h1>
+        <AppBar position="static" color="default">
+          <Toolbar>
+            <Typography variant="title" color="inherit">
+              {this.props.quizTitle}
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        {this.props.ui &&
+          this.props.ui.map((o, pos) => renderElem(o.toJS(), {pos}))}
       </div>
     );
   }
@@ -14,10 +40,11 @@ export class Widget extends Component {
 
 export function mapStateToProps(state, ownProps) {
   const description = quizDescription(state);
+  const screen = currentScreen(state);
   return {
     loading: loading(state),
     quizTitle: description.get('title'),
-    screen: currentScreen(state)
+    ui: screen.get('ui')
   };
 }
 
