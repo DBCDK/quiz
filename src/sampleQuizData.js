@@ -1,8 +1,12 @@
 let sampleQuiz = {
+  _type: 'quiz',
   description: {
-    _type: 'quizInfo',
     title: '',
     tags: ['foo', 'bar'],
+    styling: {
+      background: {},
+      '...': '...'
+    },
     start: 'intro',
     initialState: {
       score: 0,

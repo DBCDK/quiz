@@ -54,7 +54,7 @@ Then run `npm start` in the directory of this repository.
 
 ## Embedding
 
-Proposal for how the quiz can be embedded:
+The quiz is embedded like this:
 
 ```html
 <div id="quizElem"></div>
@@ -76,40 +76,16 @@ Proposal for how the quiz can be embedded:
 
 Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
 
-With regard to IFrame vs JavaScript approach, - embedding via JavaScript is suggested as this allows a more responsive view.
+With regard to IFrame vs JavaScript approach, - embedding via JavaScript is choosen as this allows a more responsive view.
 
-TOOD: notes about css-classes
+Instantiationg `openPlatformQuiz.Widget` adds a quiz at the named document element. The following CSS-classes can be used for styling:
+
+- TODO
+- TODO
 
 ## Data model
 
-Initial draft / analysis of data model / state.
-
-Data types in storage:
-
-- Quiz (owner-date, tags-date, title, date, tag-count)
-  - title
-  - Description
-  - Styling+Background
-  - Welcome (Welcome page)
-  - Questions array(Question-pages - also implicit)
-  - Final (Final-dispatch page - also implicit)
-  - Tags
-- Page
-  - Page types: Welcome, Question, Help-text, Response-feedback, Final-dispatch, Final-feedback(w/badge)
-  - Video or Image
-  - Text
-  - ShouldStatBeSubmitted
-  - Actions (next, help, responses, ...)
-    - Label
-    - Type
-    - Next-page (or next-pages conditioned)
-    - StateChange
-- Stat (idx: count: pageid+client, count: pageid)
-  - client / bibliotek
-  - pageid
-- BibProfil: client -> bibliotek
-
-Redux state design can be seen in `src/reducers.js`.
+An example of what quiz-data can look like can be seen in `src/sampleQuizData.js`. The structure of the application state can be seen in the top of `src/redux/reducers.js`
 
 ## Dependencies
 
@@ -158,21 +134,6 @@ DB-schema:
 
 - docs: (uuid id), uuid type, timestamp microsecond version, string owner, string client, binary data
 - index: (uuid type, int index, string key, string value);
-
-## Kick-off
-
-Noter / idéer ifbm. kick-off mødet:
-
-- Process
-  - Demo: evt. via screenrecording
-  - Har struktureret
-- Datamodel og backend
-- Design
-- Nedbrydning af opgaver
-
-## Contributing
-
-TODO: add other choices here, i.e.: airbnb style guide, feature-branches, issue-structure, sprint-structure. TODO: add `CONTRIBUTING.md`
 
 ## Application state
 
