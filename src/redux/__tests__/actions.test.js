@@ -15,10 +15,6 @@ describe('reducers', () => {
         .mockImplementationOnce((_, id) => {
           expect(id).toBe('QUIZ_IMAGE');
           return 'imagetype';
-        })
-        .mockImplementationOnce((_, id) => {
-          expect(id).toBe('PAGE');
-          return 'pagetype';
         });
       openplatform.storage.find.mockImplementationOnce(() => ['x']);
       const dispatch = jest.fn();
@@ -30,7 +26,6 @@ describe('reducers', () => {
         type: 'INITIALISED',
         state: {
           storage: {
-            pageType: 'pagetype',
             quizImageType: 'imagetype',
             quizType: 'quiztype',
             user: 'userId'

@@ -1,7 +1,8 @@
-let sampleQuiz = {
+const sampleQuiz = {
   _type: 'quiz',
+  _id: 'quizId',
   description: {
-    title: '',
+    title: 'Sample Quiz',
     tags: ['foo', 'bar'],
     styling: {
       background: {},
@@ -223,3 +224,5 @@ let sampleQuiz = {
     }
   }
 };
+
+export default sampleQuiz;

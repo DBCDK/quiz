@@ -8,23 +8,17 @@ export const init = () => async dispatch => {
     dispatch({type: 'LOADING_DONE'});
     return;
   }
-  const [quizType, quizImageType, pageType] = await Promise.all([
+  const [quizType, quizImageType] = await Promise.all([
     findOrCreateType(user, 'QUIZ', {
       type: 'json',
-      indexes: [{type: 'id', keys: ['_owner']}],
+      indexes: [{value: '_id', keys: ['_owner']}],
       permissions: {
         read: 'any'
       }
     }),
     findOrCreateType(user, 'QUIZ_IMAGE', {
       type: 'jpeg',
-      indexes: [{type: 'id', keys: ['_owner']}],
-      permissions: {
-        read: 'any'
-      }
-    }),
-    findOrCreateType(user, 'PAGE', {
-      type: 'json',
+      indexes: [{value: '_id', keys: ['_owner']}],
       permissions: {
         read: 'any'
       }
@@ -41,8 +35,7 @@ export const init = () => async dispatch => {
       storage: {
         user,
         quizImageType,
-        quizType,
-        pageType
+        quizType
       }
     }
   });
