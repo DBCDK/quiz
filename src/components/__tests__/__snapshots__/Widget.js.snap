@@ -4,37 +4,44 @@ exports[`maps state to props 1`] = `
 Object {
   "loading": false,
   "quizTitle": "Sample Quiz",
-  "screen": Immutable.Map {
-    ui: Immutable.List [
-        Immutable.Map {
-            type: "image",
-            image: "https://www.dbc.dk/logo.png",
+  "ui": Immutable.List [
+    Immutable.Map {
+        type: "image",
+        image: "https://www.dbc.dk/logo.png",
+    },
+    Immutable.Map {
+        type: "text",
+        text: "
+                Introtekst om quizzen, ...
+        
+                Her er mere beskrivelse
+                ",
+    },
+    Immutable.Map {
+        type: "button",
+        text: "Start",
+        action: Immutable.Map {
+            screen: "question1",
         },
-        Immutable.Map {
-            type: "text",
-            text: "
-                    Introtekst om quizzen, ...
-            
-                    Her er mere beskrivelse
-                    ",
-        },
-        Immutable.Map {
-            type: "button",
-            text: "Start",
-            action: Immutable.Map {
-                screen: "question1",
-            },
-        },
-    ],
-    log: true,
-},
+    },
+],
 }
 `;
 
 exports[`renders without crashing 1`] = `
 <div>
-  <h1>
-    Titel for Quiz
-  </h1>
+  <header
+    className="MuiPaper-root-9 MuiPaper-elevation4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorDefault-6"
+  >
+    <div
+      className="MuiToolbar-root-36 MuiToolbar-regular-38 MuiToolbar-gutters-37"
+    >
+      <h2
+        className="MuiTypography-root-40 MuiTypography-title-46 MuiTypography-colorInherit-59"
+      >
+        Titel for Quiz
+      </h2>
+    </div>
+  </header>
 </div>
 `;

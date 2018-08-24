@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://dbcdk.github.io/quiz/",
   "dependencies": {
+    "@material-ui/core": "^1.5.1",
+    "@material-ui/icons": "^2.0.3",
     "immutable": "^4.0.0-rc.9",
     "jss": "^9.8.7",
     "react": "^16.4.1",
