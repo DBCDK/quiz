@@ -28,7 +28,25 @@ Object {
 }
 `;
 
-exports[`renders without crashing 1`] = `
+exports[`renders 1`] = `
+<div>
+  <header
+    className="MuiPaper-root-9 MuiPaper-elevation4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorDefault-6"
+  >
+    <div
+      className="MuiToolbar-root-36 MuiToolbar-regular-38 MuiToolbar-gutters-37"
+    >
+      <h2
+        className="MuiTypography-root-40 MuiTypography-title-46 MuiTypography-colorInherit-59"
+      >
+        Titel for Quiz
+      </h2>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`renders page 1`] = `
 <div>
   <header
     className="MuiPaper-root-9 MuiPaper-elevation4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorDefault-6"
