@@ -3,7 +3,7 @@
 exports[`renders without crashing 1`] = `
 <div>
   <h1>
-    Quiz Admin here...
+    Quiz Admin to be implemented here...
   </h1>
 </div>
 `;
