@@ -96,7 +96,7 @@ const sampleQuiz = {
 
       Det rigtige svar er fordi...`
         },
-        {type: 'button', text: 'videre', action: 'question2'}
+        {type: 'button', text: 'videre', action: {screen: 'question2'}}
       ],
       log: true
     },
@@ -108,7 +108,7 @@ const sampleQuiz = {
 
       Det var rigtigt...`
         },
-        {type: 'button', text: 'videre', action: 'question2'}
+        {type: 'button', text: 'videre', action: {screen: 'question2'}}
       ],
       log: true
     },
@@ -168,7 +168,7 @@ const sampleQuiz = {
 
       Det rigtige svar er fordi...`
         },
-        {type: 'button', text: 'videre', action: 'done'}
+        {type: 'button', text: 'videre', action: {screen: 'done'}}
       ],
       log: true
     },
@@ -180,7 +180,7 @@ const sampleQuiz = {
 
       Det var rigtigt...`
         },
-        {type: 'button', text: 'videre', action: 'done'}
+        {type: 'button', text: 'videre', action: {screen: 'done'}}
       ],
       log: true
     },

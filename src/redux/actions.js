@@ -1,5 +1,7 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const screenAction = action => ({type: 'PAGE_ACTION', action});
+
 export const init = () => async dispatch => {
   dispatch({type: 'LOADING_STARTED'});
 

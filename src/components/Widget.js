@@ -1,23 +1,34 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {currentScreen, quizDescription, loading} from '../redux/selectors';
+import {screenAction} from '../redux/actions';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 const views = {
-  image: ({image}) => <img src={image} />,
+  image: ({image}) => <img alt="" src={image} />,
   text: ({text}) => text,
-  button: ({text}) => (
-    <Button variant="contained" color="default">
+  buttonGroup: ({ui}, {onAction}) =>
+    ui.map((o, pos) => renderElem(o, {pos, onAction})),
+  button: ({text, action}, {onAction}) => (
+    <Button
+      variant="contained"
+      color="default"
+      onClick={() => onAction(action)}
+    >
       {text}
     </Button>
   )
 };
-function renderElem(o, {pos}) {
+function renderElem(o, {pos, onAction}) {
   const f = views[o.type];
-  return f && <p key={pos}>{f(o)}</p>;
+  if (!f) {
+    console.log('cannot find viewtype:', o.type);
+    return;
+  }
+  return <div key={pos}>{f(o, {onAction})}</div>;
 }
 
 export class Widget extends Component {
@@ -32,7 +43,9 @@ export class Widget extends Component {
           </Toolbar>
         </AppBar>
         {this.props.ui &&
-          this.props.ui.map((o, pos) => renderElem(o.toJS(), {pos}))}
+          this.props.ui.map((o, pos) =>
+            renderElem(o.toJS(), {pos, onAction: this.props.onAction})
+          )}
       </div>
     );
   }
@@ -48,4 +61,13 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(Widget);
+export function mapDispatchToProps(dispatch) {
+  return {
+    onAction: action => dispatch(screenAction(action))
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Widget);
