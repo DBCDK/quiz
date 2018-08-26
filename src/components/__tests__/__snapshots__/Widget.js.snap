@@ -25,6 +25,8 @@ Object {
         },
     },
 ],
+  "vars": Immutable.Map {
+},
 }
 `;
 

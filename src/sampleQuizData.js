@@ -206,7 +206,7 @@ const sampleQuiz = {
         },
         {
           type: 'text',
-          text: 'Tillykke, du havde {{score}} ud af {{scoreMax}} rigtige'
+          text: 'Tillykke, du havde {{score}} ud af {{maxScore}} rigtige'
         }
       ],
       log: true

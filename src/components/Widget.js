@@ -1,15 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {currentScreen, quizDescription, loading} from '../redux/selectors';
+import {
+  currentScreen,
+  quizVariables,
+  quizDescription,
+  loading
+} from '../redux/selectors';
 import {screenAction} from '../redux/actions';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import mustache from 'mustache';
 
 const views = {
   image: ({image}) => <img alt="" src={image} />,
-  text: ({text}) => text,
+  text: ({text}, {vars}) => mustache.render(text, vars),
   buttonGroup: ({ui}, {onAction}) =>
     ui.map((o, pos) => renderElem(o, {pos, onAction})),
   button: ({text, action}, {onAction}) => (
@@ -22,13 +28,13 @@ const views = {
     </Button>
   )
 };
-function renderElem(o, {pos, onAction}) {
+function renderElem(o, {pos, onAction, vars}) {
   const f = views[o.type];
   if (!f) {
     console.log('cannot find viewtype:', o.type);
     return;
   }
-  return <div key={pos}>{f(o, {onAction})}</div>;
+  return <div key={pos}>{f(o, {onAction, vars})}</div>;
 }
 
 export class Widget extends Component {
@@ -44,7 +50,11 @@ export class Widget extends Component {
         </AppBar>
         {this.props.ui &&
           this.props.ui.map((o, pos) =>
-            renderElem(o.toJS(), {pos, onAction: this.props.onAction})
+            renderElem(o.toJS(), {
+              pos,
+              onAction: this.props.onAction,
+              vars: this.props.vars.toJS()
+            })
           )}
       </div>
     );
@@ -56,6 +66,7 @@ export function mapStateToProps(state, ownProps) {
   const screen = currentScreen(state);
   return {
     loading: loading(state),
+    vars: quizVariables(state),
     quizTitle: description.get('title'),
     ui: screen.get('ui')
   };
