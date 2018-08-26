@@ -9,6 +9,7 @@ const sampleState = Immutable.fromJS({
     loading: 0,
     currentScreen: sampleQuizData.description.start
   },
+  quizState: {},
 
   // data for the current Quiz
   quiz: sampleQuizData,

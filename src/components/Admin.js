@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {ownQuizzes, loading} from '../redux/selectors';
 
 class Admin extends Component {
   render() {
