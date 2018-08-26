@@ -32,7 +32,6 @@ class Widget {
 
 class Admin {
   constructor(args) {
-    console.log('HERE');
     mount(QuizAdmin, args);
   }
 }
