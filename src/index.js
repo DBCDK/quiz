@@ -38,3 +38,9 @@ class Admin {
 
 window.openPlatformQuiz.Widget = Widget;
 window.openPlatformQuiz.Admin = Admin;
+
+if (module.hot) {
+  module.hot.accept(['./components/Widget', './components/Admin'], () =>
+    window.initOpenPlatformQuiz()
+  );
+}
