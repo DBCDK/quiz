@@ -1,5 +1,6 @@
 import {root} from '../reducers';
 import Immutable from 'immutable';
+import sampleState from '../sampleState.js';
 
 describe('root reducer', () => {
   describe('@@INIT', () => {
@@ -43,6 +44,29 @@ describe('root reducer', () => {
           action: {screen: 'b'}
         }).getIn(['ui', 'currentScreen'])
       ).toBe('b');
+    });
+    it('dispatches to other screen', async () => {
+      const newState = root(sampleState, {
+        type: 'PAGE_ACTION',
+        action: {screen: 'done'}
+      });
+      expect(newState.getIn(['ui', 'currentScreen'])).toBe('retry');
+    });
+    it('dispatches to other screen', async () => {
+      const newState = root(
+        sampleState.set(
+          'quizState',
+          Immutable.fromJS({
+            score: 2,
+            maxScore: 2
+          })
+        ),
+        {
+          type: 'PAGE_ACTION',
+          action: {screen: 'done'}
+        }
+      );
+      expect(newState.getIn(['ui', 'currentScreen'])).toBe('won');
     });
   });
   describe('unknown', () => {

@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`maps dispatch to props 1`] = `
+Object {
+  "onAction": [Function],
+}
+`;
+
 exports[`maps state to props 1`] = `
 Object {
   "loading": false,
@@ -63,5 +69,44 @@ exports[`renders page 1`] = `
       </h2>
     </div>
   </header>
+  <div>
+    hello
+  </div>
+  <div>
+    <div>
+      <button
+        className="MuiButtonBase-root-91 MuiButton-root-65 MuiButton-contained-76 MuiButton-raised-79"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-66"
+        >
+          but
+        </span>
+        <span
+          className="MuiTouchRipple-root-94"
+        />
+      </button>
+    </div>
+  </div>
+  <div>
+    <img
+      alt=""
+      src="some://url"
+    />
+  </div>
 </div>
 `;
