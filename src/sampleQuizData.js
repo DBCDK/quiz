@@ -71,6 +71,7 @@ const sampleQuiz = {
             }
           ]
         },
+        {type: 'spacing'},
         {
           type: 'button',
           text: 'hjælp',
@@ -143,6 +144,7 @@ const sampleQuiz = {
             }
           ]
         },
+        {type: 'spacing'},
         {
           type: 'button',
           text: 'hjælp',
