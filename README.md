@@ -6,19 +6,53 @@
 
 In development, nothing to see here yet.
 
-Status:
+Early / unfinished demo-version with dummy data is deployed to <https://dbcdk.github.io/quiz/>.
 
-- only local development version, not deployable yet.
+## Embedding
 
-## Getting up and running
+The quiz is embedded like this:
 
-Clone the quiz-branch of <https://openplatform.dbc.dk/>, and run it locally:
+```html
+<div id="quizElem"></div>
+<script>
+    var quiz;
+    function initOpenPlatformQuiz() {
+        quiz = new openPlatformQuiz.Widget({
+            elemId: 'quizElem',
+            openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
+            quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
+            onDone: function(result) { console.log(result); }
+        });
+    }
+</script>
+<script src="https://example.com/quiz.js" async defer></script>
+```
+
+**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/widget.js> is the _unstable_ development version, which can be used for testing, but may or may not work..
+
+Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
+
+With regard to IFrame vs JavaScript approach, - embedding via JavaScript is choosen as this allows a more responsive view.
+
+`onDone` is used for getting the quiz state after the quiz has finished.
+
+Instantiationg `openPlatformQuiz.Widget` adds a quiz at the named document element. The following CSS-classes can be used for styling:
+
+- TODO
+- TODO
+
+## Getting dev-environment up and running
+
+Run a local instance of
+<https://openplatform.dbc.dk/>, and run it locally:
 
 ```
-git clone https://github.com/DBCDK/serviceprovider -b 969-quiz
+git clone https://github.com/DBCDK/serviceprovider
 cd serviceprovider
 npm run dev
 ```
+
+This runs a local instance of <https://openplatform.dbc.dk/>, which is used for storage.
 
 Then run `npm start` in the directory of this repository.
 
@@ -52,37 +86,6 @@ Then run `npm start` in the directory of this repository.
 
 # Notes
 
-## Embedding
-
-The quiz is embedded like this:
-
-```html
-<div id="quizElem"></div>
-<script>
-    var quiz;
-    function initOpenPlatformQuiz() {
-        quiz = new openPlatformQuiz.Widget({
-            elemId: 'quizElem',
-            openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
-            quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
-            onDone: function(result) { console.log(result); }
-        });
-    }
-</script>
-<script src="https://example.com/quiz.js" async defer></script>
-```
-
-**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/widget.js> is the _unstable_ development version, which can be used for testing, but may or may not work..
-
-Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
-
-With regard to IFrame vs JavaScript approach, - embedding via JavaScript is choosen as this allows a more responsive view.
-
-Instantiationg `openPlatformQuiz.Widget` adds a quiz at the named document element. The following CSS-classes can be used for styling:
-
-- TODO
-- TODO
-
 ## Data model
 
 An example of what quiz-data can look like can be seen in `src/sampleQuizData.js`. The structure of the application state can be seen in the top of `src/redux/reducers.js`
@@ -96,6 +99,7 @@ When adding a dependency, also add the rationale here.
 - Redux/thunk/immutable-js for state management. Thunk and immutable-js are the library choices recommended by redux for asynchronous changes, and immutable data structures.
 - JSS for styling. Having CSS in JavaScript simplifies things by not having another language. It gives flexibility as you can JavaScript programming to define styles. JSS is one of the major library for this, and is also used by material-ui, which we might choose to use later on.
 - `openplatform.dbc.dk` api.
+- mustache for templating text within quizzes
 
 Development:
 
@@ -142,13 +146,6 @@ We use redux/thunk/immutable. All `dispatch`es and `state` access happens throug
 ## Visual design.
 
 Use [material design](https://material.io/design/introduction). This simplifies and improves the visual design process, by avoiding a lot of bikeshedding, and having a common language.
-
-## Sprint-done checklist
-
-- git tag
-- short overview of changes above
-- demo, evt. via simplescreenrecorder
-- Later: some kind of deployment
 
 ## UI-sketch/flow
 
