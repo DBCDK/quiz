@@ -9,17 +9,29 @@ import {
 import {screenAction} from '../redux/actions';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 
+const spacing = 16;
+
 const views = {
   image: ({image}) => <img alt="" src={image} />,
+  spacing: () => <p />,
   text: ({text}, {vars}) => mustache.render(text, vars),
-  buttonGroup: ({ui}, {onAction}) =>
-    ui.map((o, pos) => renderElem(o, {pos, onAction})),
+  buttonGroup: ({ui}, {onAction}) => (
+    <Grid container spacing={spacing}>
+      {ui.map((o, pos) => (
+        <Grid item key={pos} xs={6}>
+          {renderElem(o, {pos, onAction})}
+        </Grid>
+      ))}
+    </Grid>
+  ),
   button: ({text, action}, {onAction}) => (
     <Button
+      fullWidth={true}
       variant="contained"
       color="default"
       onClick={() => onAction(action)}
@@ -34,29 +46,33 @@ function renderElem(o, {pos, onAction, vars}) {
     console.log('cannot find viewtype:', o.type);
     return;
   }
-  return <div key={pos}>{f(o, {onAction, vars})}</div>;
+  return f(o, {onAction, vars});
 }
 
 export class Widget extends Component {
   render() {
     return (
-      <div>
-        <AppBar position="static" color="default">
-          <Toolbar>
-            <Typography variant="title" color="inherit">
-              {this.props.quizTitle}
-            </Typography>
-          </Toolbar>
-        </AppBar>
+      <Grid container spacing={spacing}>
+        <Grid item xs={12}>
+          <AppBar position="static" color="default">
+            <Toolbar>
+              <Typography variant="title" color="inherit">
+                {this.props.quizTitle}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Grid>
         {this.props.ui &&
-          this.props.ui.map((o, pos) =>
-            renderElem(o.toJS(), {
-              pos,
-              onAction: this.props.onAction,
-              vars: this.props.vars.toJS()
-            })
-          )}
-      </div>
+          this.props.ui.map((o, pos) => (
+            <Grid key={pos} item xs={12}>
+              {renderElem(o.toJS(), {
+                pos,
+                onAction: this.props.onAction,
+                vars: this.props.vars.toJS()
+              })}
+            </Grid>
+          ))}
+      </Grid>
     );
   }
 }
