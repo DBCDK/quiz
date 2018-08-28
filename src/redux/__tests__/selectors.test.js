@@ -1,4 +1,5 @@
-import {ownQuizzes, loading} from '../selectors';
+import {ownQuizzes, loading, questionList} from '../selectors';
+import sampleState from '../sampleState';
 import Immutable from 'immutable';
 
 describe('selectors', () => {
@@ -20,6 +21,13 @@ describe('selectors', () => {
     });
     it('returns true when loading', async () => {
       expect(loading(Immutable.fromJS({ui: {loading: 2}}))).toBe(true);
+    });
+  });
+});
+describe('admin selectors', () => {
+  describe('topNodes', () => {
+    it('finds top nodes screen graph', () => {
+      expect(questionList(sampleState)).toMatchSnapshot();
     });
   });
 });

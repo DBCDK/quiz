@@ -80,6 +80,7 @@ const sampleQuiz = {
       ]
     },
     help1: {
+      parent: 'question1',
       ui: [
         {type: 'text', text: 'her er et hint: A'},
         {
@@ -90,6 +91,7 @@ const sampleQuiz = {
       ]
     },
     answer1a: {
+      parent: 'question1',
       ui: [
         {
           type: 'text',
@@ -102,6 +104,7 @@ const sampleQuiz = {
       log: true
     },
     answer1b: {
+      parent: 'question1',
       ui: [
         {
           type: 'text',
@@ -114,6 +117,7 @@ const sampleQuiz = {
       log: true
     },
     question2: {
+      groupRoot: true,
       ui: [
         {type: 'image', image: 'https://www.dbc.dk/logo.png'},
         {type: 'text', text: 'Spørgsmål 2?'},
@@ -153,6 +157,7 @@ const sampleQuiz = {
       ]
     },
     help2: {
+      parent: 'question2',
       ui: [
         {type: 'text', text: 'her er et hint: A'},
         {
@@ -163,6 +168,7 @@ const sampleQuiz = {
       ]
     },
     answer2a: {
+      parent: 'question2',
       ui: [
         {
           type: 'text',
@@ -175,6 +181,7 @@ const sampleQuiz = {
       log: true
     },
     answer2b: {
+      parent: 'question2',
       ui: [
         {
           type: 'text',
@@ -200,6 +207,7 @@ const sampleQuiz = {
       ]
     },
     won: {
+      parent: 'done',
       ui: [
         {
           type: 'image',
@@ -214,6 +222,7 @@ const sampleQuiz = {
       log: true
     },
     retry: {
+      parent: 'done',
       ui: [
         {type: 'text', text: 'prøv igen'},
         {
