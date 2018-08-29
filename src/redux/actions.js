@@ -1,5 +1,6 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const editScreen = ({screen}) => ({type: 'ADMIN_EDIT_SCREEN', screen});
 export const screenAction = action => ({type: 'PAGE_ACTION', action});
 
 export const init = () => async dispatch => {

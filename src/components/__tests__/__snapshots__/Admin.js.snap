@@ -1,9 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<div>
-  <h1>
-    Quiz Admin to be implemented here...
-  </h1>
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-16-24"
+>
+  <div
+    className="MuiGrid-item-2"
+  >
+    [Edit description etc]
+  </div>
+  <div
+    className="MuiGrid-item-2"
+  >
+    <div
+      className="MuiGrid-container-1 MuiGrid-spacing-xs-8-23"
+    />
+  </div>
+  <div
+    className="MuiGrid-item-2"
+  >
+    <div>
+      [Tilføj spørgsmål]
+    </div>
+    <div>
+      [Tilføj beskrivelse, såsom intro-tekst]
+    </div>
+    <div>
+      [Tilføj betingelser, såsom forskellige slutninger]
+    </div>
+    <div />
+  </div>
 </div>
 `;
