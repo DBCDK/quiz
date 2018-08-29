@@ -58,10 +58,17 @@ Then run `npm start` in the directory of this repository.
 
 # Changelog / sprints
 
-## 2018-08-29
+## 2018-09-12
 
-- demo deployment #43
-- backend: lookup type-name when not uuid, #23
+## 2018-08-29 Draft data structures and initial barebone widget
+
+- Documentation/implementation of Code/API for embedding the quiz. #31, #66, #67, #71, #72, #73
+- Sample quiz data, #49, #78
+- Barebone quiz widget #52, #79, #82, #86, #87, #89
+- Application non-visual design: issues #20, interaction-sketch-sketch #51,
+- Infrastructure: hot-reloading #85, dbcdk-repository #25, more tests (#77, #91, #84), online demo on github #43
+- Backend: image resizing #16, use postgres (#4, #45), scan (#32, #41, #4), misc improvements (#42, #23), cleanup and merge into serviceprovider #40
+- Start admin: selector for question-list #96
 
 ## 2018-08-15 (sprint skipped due to vacation etc).
 
