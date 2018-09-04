@@ -1,4 +1,4 @@
-import {depthFirstPages} from './quizElements';
+import {breadthFirstPages} from './quizElements';
 
 export const ownQuizzes = state =>
   state.getIn(['ui', 'ownQuizzes']).map(uuid => state.getIn(['quiz', uuid]));
@@ -12,7 +12,7 @@ export const getScreen = (screenId, state) =>
   state.getIn(['quiz', 'screens', screenId]);
 
 export function questionList(state) {
-  return depthFirstPages(state).filter(
+  return breadthFirstPages(state.get('quiz')).filter(
     pageId => !state.getIn(['quiz', 'screens', pageId, 'parent'])
   );
 }

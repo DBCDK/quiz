@@ -16,6 +16,8 @@ const sampleQuiz = {
   },
   screens: {
     intro: {
+      _id: 'intro',
+      nextSection: 'question1',
       ui: [
         {type: 'image', image: 'https://www.dbc.dk/logo.png'},
         {
@@ -37,6 +39,8 @@ const sampleQuiz = {
       log: true
     },
     question1: {
+      _id: 'question1',
+      nextSection: 'question2',
       ui: [
         {
           type: 'image',
@@ -80,6 +84,7 @@ const sampleQuiz = {
       ]
     },
     help1: {
+      _id: 'help1',
       parent: 'question1',
       ui: [
         {type: 'text', text: 'her er et hint: A'},
@@ -91,6 +96,7 @@ const sampleQuiz = {
       ]
     },
     answer1a: {
+      _id: 'answer1a',
       parent: 'question1',
       ui: [
         {
@@ -104,6 +110,7 @@ const sampleQuiz = {
       log: true
     },
     answer1b: {
+      _id: 'answer1b',
       parent: 'question1',
       ui: [
         {
@@ -117,7 +124,8 @@ const sampleQuiz = {
       log: true
     },
     question2: {
-      groupRoot: true,
+      _id: 'question2',
+      nextSection: 'done',
       ui: [
         {type: 'image', image: 'https://www.dbc.dk/logo.png'},
         {type: 'text', text: 'Spørgsmål 2?'},
@@ -157,6 +165,7 @@ const sampleQuiz = {
       ]
     },
     help2: {
+      _id: 'help2',
       parent: 'question2',
       ui: [
         {type: 'text', text: 'her er et hint: A'},
@@ -168,6 +177,7 @@ const sampleQuiz = {
       ]
     },
     answer2a: {
+      _id: 'answer2a',
       parent: 'question2',
       ui: [
         {
@@ -181,6 +191,7 @@ const sampleQuiz = {
       log: true
     },
     answer2b: {
+      _id: 'answer2b',
       parent: 'question2',
       ui: [
         {
@@ -194,6 +205,8 @@ const sampleQuiz = {
       log: true
     },
     done: {
+      _id: 'done',
+      nextSection: 'intro',
       dispatch: [
         {
           condition: {atLeast: {score: 1}},
@@ -207,6 +220,7 @@ const sampleQuiz = {
       ]
     },
     won: {
+      _id: 'won',
       parent: 'done',
       ui: [
         {
@@ -222,6 +236,7 @@ const sampleQuiz = {
       log: true
     },
     retry: {
+      _id: 'retry',
       parent: 'done',
       ui: [
         {type: 'text', text: 'prøv igen'},

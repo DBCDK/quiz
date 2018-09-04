@@ -1,5 +1,13 @@
 import Immutable from 'immutable';
 
+function deepReplace(o, from, to) {}
+
+export function deleteSection(quiz, id) {
+  console.log('here', id);
+  console.log(String(quiz.getIn(['screens', id])));
+  return quiz;
+}
+
 export function findScreenActions(o, acc = []) {
   if (Immutable.isCollection(o)) {
     const screen = o.getIn(['action', 'screen']);
@@ -10,10 +18,10 @@ export function findScreenActions(o, acc = []) {
   }
   return acc;
 }
-export function depthFirstPages(state) {
-  const toVisit = [state.getIn(['quiz', 'description', 'start'])];
+export function breadthFirstPages(quiz) {
+  const toVisit = [quiz.getIn(['description', 'start'])];
   const pages = [];
-  const screens = state.getIn(['quiz', 'screens']);
+  const screens = quiz.getIn(['screens']);
   const visited = {};
   for (let i = 0; i < toVisit.length; ++i) {
     const screenId = toVisit[i];
@@ -25,50 +33,6 @@ export function depthFirstPages(state) {
     visited[screenId] = true;
   }
   return pages;
-}
-
-export function pageAction(state, action) {
-  while (true) {
-    let {screen, increment} = action.action;
-    if (screen) {
-      state = state.setIn(['ui', 'currentScreen'], screen);
-      const dispatch = state.getIn(['quiz', 'screens', screen, 'dispatch']);
-      if (dispatch) {
-        for (const dispatchCase of dispatch.toJS()) {
-          if (dispatchCase.condition) {
-            let ok = true;
-            for (const conditionType in dispatchCase.condition) {
-              if (conditionType === 'atLeast') {
-                for (const variable in dispatchCase.condition.atLeast) {
-                  const value = state.getIn(['quizState', variable], 0);
-                  if (value < dispatchCase.condition.atLeast[variable]) {
-                    ok = false;
-                  }
-                }
-              } else {
-                throw new Error('invalid conditionType:', conditionType);
-              }
-            }
-            if (ok) {
-              return pageAction(state, {action: dispatchCase.action});
-            }
-          } else {
-            return pageAction(state, {action: dispatchCase.action});
-          }
-        }
-      }
-    }
-
-    if (increment) {
-      for (const variable in increment) {
-        state = state.updateIn(
-          ['quizState', variable],
-          i => (i || 0) + increment[variable]
-        );
-      }
-    }
-    return state;
-  }
 }
 
 export function moveSection(state, action) {

@@ -1,5 +1,9 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const deleteSection = screenId => ({
+  type: 'ADMIN_DELETE_SECTION',
+  screenId
+});
 export const moveSection = o => {
   return {type: 'ADMIN_MOVE_SECTION', ...o};
 };
