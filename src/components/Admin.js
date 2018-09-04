@@ -6,7 +6,7 @@ import {
   questionList,
   getScreen
 } from '../redux/selectors';
-import {editScreen, moveSection} from '../redux/actions';
+import {deleteSection, editScreen, moveSection} from '../redux/actions';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import AppBar from '@material-ui/core/AppBar';
@@ -54,7 +54,7 @@ function draggable(onMoveSection, items) {
   );
 }
 
-function quizSection({screen, doEdit}) {
+function quizSection({screen, doEdit, doDelete}) {
   //  return "hi";
   return (
     <Grid container spacing={8}>
@@ -70,7 +70,7 @@ function quizSection({screen, doEdit}) {
         </Button>
       </Grid>
       <Grid item xs={1}>
-        <Button variant="fab" aria-label="Delete" mini>
+        <Button variant="fab" aria-label="Delete" mini onClick={doDelete}>
           <DeleteIcon />
         </Button>
       </Grid>
@@ -94,7 +94,8 @@ export class Admin extends Component {
                   id,
                   content: quizSection({
                     screen: q,
-                    doEdit: () => this.props.editScreen(id)
+                    doEdit: () => this.props.editScreen(id),
+                    doDelete: () => this.props.deleteSection(id)
                   })
                 };
               })
@@ -123,7 +124,8 @@ export function mapStateToProps(state, ownProps) {
 export function mapDispatchToProps(dispatch) {
   return {
     editScreen: screen => dispatch(editScreen({screen})),
-    moveSection: o => dispatch(moveSection(o))
+    moveSection: o => dispatch(moveSection(o)),
+    deleteSection: o => dispatch(deleteSection(o))
   };
 }
 

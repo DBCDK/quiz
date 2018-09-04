@@ -1,5 +1,3 @@
-import {depthFirstPages} from './quizElements';
-
 export const ownQuizzes = state =>
   state.getIn(['ui', 'ownQuizzes']).map(uuid => state.getIn(['quiz', uuid]));
 export const quizVariables = state => state.get('quizState');
@@ -12,7 +10,12 @@ export const getScreen = (screenId, state) =>
   state.getIn(['quiz', 'screens', screenId]);
 
 export function questionList(state) {
-  return depthFirstPages(state).filter(
-    pageId => !state.getIn(['quiz', 'screens', pageId, 'parent'])
-  );
+  const start = state.getIn(['quiz', 'description', 'start']);
+  let current = start;
+  const result = [];
+  do {
+    result.push(current);
+    current = state.getIn(['quiz', 'screens', current, 'nextSection']);
+  } while (current && current !== start);
+  return result;
 }
