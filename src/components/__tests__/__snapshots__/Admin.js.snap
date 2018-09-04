@@ -11,11 +11,7 @@ exports[`renders without crashing 1`] = `
   </div>
   <div
     className="MuiGrid-item-2"
-  >
-    <div
-      className="MuiGrid-container-1 MuiGrid-spacing-xs-8-23"
-    />
-  </div>
+  />
   <div
     className="MuiGrid-item-2"
   >

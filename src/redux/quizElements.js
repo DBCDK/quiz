@@ -1,9 +1,33 @@
-import sampleState from './sampleState';
-import {moveSection} from './quizElements';
+import Immutable from 'immutable';
 
-const initialState = sampleState;
+export function findScreenActions(o, acc = []) {
+  if (Immutable.isCollection(o)) {
+    const screen = o.getIn(['action', 'screen']);
+    if (screen) {
+      acc.push(screen);
+    }
+    o.forEach(v => findScreenActions(v, acc));
+  }
+  return acc;
+}
+export function depthFirstPages(state) {
+  const toVisit = [state.getIn(['quiz', 'description', 'start'])];
+  const pages = [];
+  const screens = state.getIn(['quiz', 'screens']);
+  const visited = {};
+  for (let i = 0; i < toVisit.length; ++i) {
+    const screenId = toVisit[i];
+    if (visited[screenId]) {
+      continue;
+    }
+    pages.push(screenId);
+    findScreenActions(screens.get(screenId), toVisit);
+    visited[screenId] = true;
+  }
+  return pages;
+}
 
-function pageAction(state, action) {
+export function pageAction(state, action) {
   while (true) {
     let {screen, increment} = action.action;
     if (screen) {
@@ -47,24 +71,12 @@ function pageAction(state, action) {
   }
 }
 
-export function root(state = initialState, action) {
-  switch (action.type) {
-    case '@@INIT':
-      return state;
-    case 'INITIALISED':
-      return state.mergeDeep(action.state);
-    case 'LOADING_STARTED':
-      return state.updateIn(['ui', 'loading'], i => i + 1);
-    case 'LOADING_DONE':
-      return state.updateIn(['ui', 'loading'], i => i - 1);
-    case 'ADMIN_EDIT_SCREEN':
-      return state.setIn(['admin', 'currentScreen'], action.screen);
-    case 'PAGE_ACTION':
-      return pageAction(state, action);
-    case 'ADMIN_MOVE_SECTION':
-      return moveSection(state, action);
-    default:
-      console.log('Unrecognised action', action);
-      return state;
-  }
+export function moveSection(state, action) {
+  const {screens, from, to} = action;
+  const movedElem = screens[from];
+  const insertAfterId = screens[to - (from > to ? 1 : 0)];
+  console.log(movedElem, insertAfterId);
+  // deleteScreen(quiz, movedElem)
+  // insertAfter({quiz,insertAfterId, , })
+  return state;
 }

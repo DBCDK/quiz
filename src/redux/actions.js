@@ -1,5 +1,8 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const moveSection = o => {
+  return {type: 'ADMIN_MOVE_SECTION', ...o};
+};
 export const editScreen = ({screen}) => ({type: 'ADMIN_EDIT_SCREEN', screen});
 export const screenAction = action => ({type: 'PAGE_ACTION', action});
 
