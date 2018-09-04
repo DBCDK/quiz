@@ -1,11 +1,35 @@
 import Immutable from 'immutable';
 
-function deepReplace(o, from, to) {}
+function deepReplace(o, from, to) {
+  if (o.map) {
+    return o.map(v => deepReplace(v, from, to));
+  }
+  if (o === from) {
+    return to;
+  }
+  return o;
+}
 
 export function deleteSection(quiz, id) {
-  console.log('here', id);
-  console.log(String(quiz.getIn(['screens', id])));
-  return quiz;
+  let screens = quiz.get('screens');
+  const next = screens.getIn([id, 'nextSection']);
+
+  const toDelete = [id];
+  let deleteCount;
+  do {
+    deleteCount = toDelete.length;
+    for (const [screenId, screen] of screens) {
+      const parent = screen.get('parent');
+      if (toDelete.includes(parent) && !toDelete.includes(screenId)) {
+        toDelete.push(screenId);
+      }
+    }
+  } while (deleteCount !== toDelete.length);
+
+  screens = screens.filter((screen, screenId) => !toDelete.includes(screenId));
+  quiz = quiz.set('screens', screens);
+
+  return deepReplace(quiz, id, next);
 }
 
 export function findScreenActions(o, acc = []) {
@@ -17,22 +41,6 @@ export function findScreenActions(o, acc = []) {
     o.forEach(v => findScreenActions(v, acc));
   }
   return acc;
-}
-export function breadthFirstPages(quiz) {
-  const toVisit = [quiz.getIn(['description', 'start'])];
-  const pages = [];
-  const screens = quiz.getIn(['screens']);
-  const visited = {};
-  for (let i = 0; i < toVisit.length; ++i) {
-    const screenId = toVisit[i];
-    if (visited[screenId]) {
-      continue;
-    }
-    pages.push(screenId);
-    findScreenActions(screens.get(screenId), toVisit);
-    visited[screenId] = true;
-  }
-  return pages;
 }
 
 export function moveSection(state, action) {
