@@ -56,6 +56,8 @@ export function root(state = initialState, action) {
       return state.updateIn(['ui', 'loading'], i => i + 1);
     case 'LOADING_DONE':
       return state.updateIn(['ui', 'loading'], i => i - 1);
+    case 'ADMIN_EDIT_SCREEN':
+      return state.setIn(['admin', 'currentScreen'], action.screen);
     case 'PAGE_ACTION':
       return pageAction(state, action);
     default:

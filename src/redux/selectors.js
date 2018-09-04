@@ -8,6 +8,9 @@ export const currentScreen = state =>
 export const quizDescription = state => state.getIn(['quiz', 'description']);
 export const loading = state => state.getIn(['ui', 'loading']) !== 0;
 
+export const getScreen = (screenId, state) =>
+  state.getIn(['quiz', 'screens', screenId]);
+
 function findScreenActions(o, acc = []) {
   if (Immutable.isCollection(o)) {
     const screen = o.getIn(['action', 'screen']);

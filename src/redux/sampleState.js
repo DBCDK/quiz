@@ -2,6 +2,10 @@ import Immutable from 'immutable';
 import sampleQuizData from '../sampleQuizData';
 
 const sampleState = Immutable.fromJS({
+  admin: {
+    // edit a single screen if currentScreen is set
+    currentScreen: undefined
+  },
   ui: {
     // will be set to true, when all data is loaded
     initialised: false,
