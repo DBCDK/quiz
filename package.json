@@ -2,6 +2,8 @@
   "name": "quiz",
   "version": "0.0.0",
   "private": true,
+  "license": "GPL-3.0-or-later",
+  "author": "Rasmus Erik Voel Jensen, solsort.com ApS",
   "homepage": "https://dbcdk.github.io/quiz/",
   "dependencies": {
     "@material-ui/core": "^1.5.1",
