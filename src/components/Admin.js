@@ -24,11 +24,23 @@ import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import uuidv4 from 'uuid/v4';
+import {withStyles} from '@material-ui/core/styles';
+
+const style = theme => ({
+  button: {
+    overflow: 'hidden',
+    height: 36
+  },
+  input: {
+    display: 'none'
+  }
+});
 
 function draggable(onMoveSection, items) {
   return (
     <DragDropContext
       onDragEnd={o =>
+        o.destination &&
         onMoveSection({
           id: o.draggableId,
           from: o.source.index,
@@ -61,15 +73,20 @@ function draggable(onMoveSection, items) {
   );
 }
 
-function quizSection({screen, doEdit, doDelete}) {
+function quizSection({screen, doEdit, doDelete, classes}) {
   const isDispatch = !!screen.get('dispatch', false);
   return (
     <Grid container spacing={8}>
       <Grid item xs={1}>
-        <DragIndicatorIcon />
+        {!isDispatch && <DragIndicatorIcon />}
       </Grid>
       <Grid item xs={10}>
-        <Button variant="contained" fullWidth={true} onClick={doEdit}>
+        <Button
+          className={classes.button}
+          variant="contained"
+          fullWidth={true}
+          onClick={doEdit}
+        >
           {screen
             .get('ui', [])
             .map(uiElem => uiElem.get('text', ''))
@@ -102,6 +119,7 @@ export class Admin extends Component {
                 return {
                   id,
                   content: quizSection({
+                    classes: this.props.classes,
                     screen: q,
                     doEdit: () => this.props.editScreen(id),
                     doDelete: () => this.props.deleteSection(id)
@@ -243,7 +261,9 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Admin);
+export default withStyles(style)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Admin)
+);
