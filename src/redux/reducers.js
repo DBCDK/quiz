@@ -1,5 +1,5 @@
 import sampleState from './sampleState';
-import {moveSection, deleteSection} from './quizElements';
+import {moveSection, deleteSection, addSection} from './quizElements';
 
 const initialState = sampleState;
 
@@ -61,6 +61,8 @@ export function root(state = initialState, action) {
       return state.setIn(['admin', 'currentScreen'], action.screen);
     case 'PAGE_ACTION':
       return pageAction(state, action);
+    case 'ADMIN_ADD_SECTION':
+      return state.update('quiz', quiz => addSection(quiz, action));
     case 'ADMIN_DELETE_SECTION':
       return state.update('quiz', quiz => deleteSection(quiz, action.screenId));
     case 'ADMIN_MOVE_SECTION':

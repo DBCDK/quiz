@@ -6,9 +6,15 @@ import {
   questionList,
   getScreen
 } from '../redux/selectors';
-import {deleteSection, editScreen, moveSection} from '../redux/actions';
+import {
+  addSection,
+  deleteSection,
+  editScreen,
+  moveSection
+} from '../redux/actions';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
+import AddIcon from '@material-ui/icons/Add';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -17,6 +23,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import uuidv4 from 'uuid/v4';
 
 function draggable(onMoveSection, items) {
   return (
@@ -55,7 +62,7 @@ function draggable(onMoveSection, items) {
 }
 
 function quizSection({screen, doEdit, doDelete}) {
-  //  return "hi";
+  const isDispatch = !!screen.get('dispatch', false);
   return (
     <Grid container spacing={8}>
       <Grid item xs={1}>
@@ -66,13 +73,15 @@ function quizSection({screen, doEdit, doDelete}) {
           {screen
             .get('ui', [])
             .map(uiElem => uiElem.get('text', ''))
-            .join(' ') + (screen.get('dispatch', false) ? 'dispatch' : '')}
+            .join(' ') + (isDispatch ? 'Quiz-afslutninger' : '')}
         </Button>
       </Grid>
       <Grid item xs={1}>
-        <Button variant="fab" aria-label="Delete" mini onClick={doDelete}>
-          <DeleteIcon />
-        </Button>
+        {!isDispatch && (
+          <Button variant="fab" aria-label="Delete" mini onClick={doDelete}>
+            <DeleteIcon />
+          </Button>
+        )}
       </Grid>
     </Grid>
   );
@@ -102,14 +111,117 @@ export class Admin extends Component {
             )}
         </Grid>
         <Grid item>
-          <div>[Tilføj spørgsmål]</div>
-          <div>[Tilføj beskrivelse, såsom intro-tekst]</div>
-          <div>[Tilføj betingelser, såsom forskellige slutninger]</div>
+          <Button
+            onClick={() =>
+              this.props.addQuestionSection(
+                questions[questions.length - 1].get('_id')
+              )
+            }
+          >
+            <AddIcon /> Spørgsmål
+          </Button>
+          <Button
+            onClick={() => this.props.addInfoSection(questions[0].get('_id'))}
+          >
+            <AddIcon /> Beskrivelse, såsom intro-tekst
+          </Button>
           <div />
         </Grid>
       </Grid>
     );
   }
+}
+
+function addQuestionSection(dispatch, before) {
+  const questionId = uuidv4();
+  const helpId = uuidv4();
+  const answerId = uuidv4();
+  const nextId = uuidv4();
+  const screens = {
+    [questionId]: {
+      _id: questionId,
+      nextSection: nextId,
+      ui: [
+        {
+          type: 'image',
+          image: ''
+        },
+        {type: 'text', text: 'Nyt spørgsmål...'},
+        {
+          type: 'buttonGroup',
+          ui: [
+            {
+              type: 'button',
+              text: 'Svar',
+              action: {
+                screen: answerId,
+                increment: {
+                  score: 1,
+                  maxScore: 1
+                }
+              }
+            }
+          ]
+        },
+        {type: 'spacing'},
+        {
+          type: 'button',
+          text: 'hjælp',
+          action: {screen: helpId}
+        }
+      ]
+    },
+    [helpId]: {
+      _id: helpId,
+      parent: questionId,
+      ui: [
+        {type: 'text', text: 'Hint til spørgsmål'},
+        {
+          type: 'button',
+          text: 'Tilbage til spørgsmålet',
+          action: {screen: questionId}
+        }
+      ]
+    },
+    [answerId]: {
+      _id: answerId,
+      parent: questionId,
+      ui: [
+        {
+          type: 'text',
+          text: 'Feedback på besvarelsen'
+        },
+        {type: 'button', text: 'Fortsæt', action: {screen: nextId}}
+      ],
+      log: true
+    }
+  };
+  return dispatch(addSection({before, screenId: questionId, screens}));
+}
+
+function addInfoSection(dispatch, before) {
+  const sectionId = uuidv4();
+  const nextId = uuidv4();
+  const screens = {
+    [sectionId]: {
+      _id: sectionId,
+      nextSection: nextId,
+      ui: [
+        {
+          type: 'image',
+          image: ''
+        },
+        {type: 'text', text: 'Beskrivelse, såsom intro...'},
+        {type: 'spacing'},
+        {
+          type: 'button',
+          text: 'Start',
+          action: {screen: nextId}
+        }
+      ]
+    }
+  };
+  return dispatch(addSection({before, screenId: sectionId, screens}));
 }
 
 export function mapStateToProps(state, ownProps) {
@@ -125,7 +237,9 @@ export function mapDispatchToProps(dispatch) {
   return {
     editScreen: screen => dispatch(editScreen({screen})),
     moveSection: o => dispatch(moveSection(o)),
-    deleteSection: o => dispatch(deleteSection(o))
+    deleteSection: o => dispatch(deleteSection(o)),
+    addQuestionSection: before => addQuestionSection(dispatch, before),
+    addInfoSection: before => addInfoSection(dispatch, before)
   };
 }
 

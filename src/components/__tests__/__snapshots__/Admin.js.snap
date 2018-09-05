@@ -15,15 +15,88 @@ exports[`renders without crashing 1`] = `
   <div
     className="MuiGrid-item-2"
   >
-    <div>
-      [Tilføj spørgsmål]
-    </div>
-    <div>
-      [Tilføj beskrivelse, såsom intro-tekst]
-    </div>
-    <div>
-      [Tilføj betingelser, såsom forskellige slutninger]
-    </div>
+    <button
+      className="MuiButtonBase-root-124 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-99"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-127"
+          color={undefined}
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+        </svg>
+         Spørgsmål
+      </span>
+      <span
+        className="MuiTouchRipple-root-134"
+      />
+    </button>
+    <button
+      className="MuiButtonBase-root-124 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-99"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-127"
+          color={undefined}
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+        </svg>
+         Beskrivelse, såsom intro-tekst
+      </span>
+      <span
+        className="MuiTouchRipple-root-134"
+      />
+    </button>
     <div />
   </div>
 </div>

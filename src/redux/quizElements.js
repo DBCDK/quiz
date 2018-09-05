@@ -1,4 +1,5 @@
 import Immutable from 'immutable';
+import assert from 'assert';
 
 function deepReplace(o, from, to) {
   if (o.map) {
@@ -8,6 +9,21 @@ function deepReplace(o, from, to) {
     return to;
   }
   return o;
+}
+
+export function addSection(quiz, {screenId, screens, before}) {
+  screens = Immutable.fromJS(screens);
+  quiz = deepReplace(quiz, before, screenId);
+
+  assert(screens.getIn([screenId, 'nextSection']));
+  screens = deepReplace(
+    screens,
+    screens.getIn([screenId, 'nextSection'], before),
+    before
+  );
+  quiz = quiz.set('screens', quiz.get('screens').merge(screens));
+
+  return quiz;
 }
 
 export function deleteSection(quiz, id) {
@@ -47,7 +63,6 @@ export function moveSection(state, action) {
   const {screens, from, to} = action;
   const movedElem = screens[from];
   const insertAfterId = screens[to - (from > to ? 1 : 0)];
-  console.log(movedElem, insertAfterId);
   // deleteScreen(quiz, movedElem)
   // insertAfter({quiz,insertAfterId, , })
   return state;
