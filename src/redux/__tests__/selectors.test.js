@@ -8,7 +8,7 @@ describe('selectors', () => {
       expect(
         ownQuizzes(
           Immutable.fromJS({
-            ui: {ownQuizzes: ['a', 'b']},
+            widget: {ownQuizzes: ['a', 'b']},
             quiz: {a: 'c', b: 'd'}
           })
         ).toJS()
@@ -17,10 +17,10 @@ describe('selectors', () => {
   });
   describe('loading', async () => {
     it('returns false when not loading', async () => {
-      expect(loading(Immutable.fromJS({ui: {loading: 0}}))).toBe(false);
+      expect(loading(Immutable.fromJS({widget: {loading: 0}}))).toBe(false);
     });
     it('returns true when loading', async () => {
-      expect(loading(Immutable.fromJS({ui: {loading: 2}}))).toBe(true);
+      expect(loading(Immutable.fromJS({widget: {loading: 2}}))).toBe(true);
     });
   });
 });

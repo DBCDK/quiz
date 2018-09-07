@@ -12,7 +12,7 @@ Object {
   "quizTitle": "Sample Quiz",
   "ui": Immutable.List [
     Immutable.Map {
-        type: "image",
+        type: "media",
         image: "https://www.dbc.dk/logo.png",
     },
     Immutable.Map {
@@ -126,11 +126,6 @@ exports[`renders page 1`] = `
   </div>
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-12-41"
-  >
-    <img
-      alt=""
-      src="some://url"
-    />
-  </div>
+  />
 </div>
 `;

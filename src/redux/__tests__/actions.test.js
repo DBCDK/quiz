@@ -30,7 +30,7 @@ describe('reducers', () => {
             quizType: 'quiztype',
             user: 'userId'
           },
-          ui: {initialised: true, ownQuizzes: ['x']}
+          widget: {initialised: true, ownQuizzes: ['x']}
         }
       });
       expect(dispatch.mock.calls[2][0]).toEqual({type: 'LOADING_DONE'});
