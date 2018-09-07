@@ -19,7 +19,7 @@ const sampleQuiz = {
       _id: 'intro',
       nextSection: 'question1',
       ui: [
-        {type: 'image', image: 'https://www.dbc.dk/logo.png'},
+        {type: 'media', image: 'https://www.dbc.dk/logo.png'},
         {
           type: 'text',
           text: `
@@ -43,7 +43,7 @@ const sampleQuiz = {
       nextSection: 'question2',
       ui: [
         {
-          type: 'image',
+          type: 'media',
           image:
             'https://opensource.dbc.dk/sites/all/themes/opensource/logo.png'
         },
@@ -127,7 +127,7 @@ const sampleQuiz = {
       _id: 'question2',
       nextSection: 'done',
       ui: [
-        {type: 'image', image: 'https://www.dbc.dk/logo.png'},
+        {type: 'media', image: 'https://www.dbc.dk/logo.png'},
         {type: 'text', text: 'Spørgsmål 2?'},
         {
           type: 'buttonGroup',
@@ -224,7 +224,7 @@ const sampleQuiz = {
       parent: 'done',
       ui: [
         {
-          type: 'image',
+          type: 'media',
           image:
             'https://opensource.dbc.dk/sites/all/themes/opensource/logo.png'
         },

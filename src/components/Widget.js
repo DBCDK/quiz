@@ -17,7 +17,7 @@ import mustache from 'mustache';
 const spacing = 16;
 
 const views = {
-  image: ({image}) => <img alt="" src={image} />,
+  media: ({image}) => <img alt="" src={image} />,
   spacing: () => <p />,
   text: ({text}, {vars}) => mustache.render(text, vars),
   buttonGroup: ({ui}, {onAction}) => (
