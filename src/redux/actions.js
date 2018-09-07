@@ -44,7 +44,7 @@ export const init = () => async dispatch => {
   dispatch({
     type: 'INITIALISED',
     state: {
-      ui: {
+      widget: {
         initialised: true,
         ownQuizzes
       },
