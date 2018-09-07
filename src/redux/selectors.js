@@ -3,11 +3,20 @@ export const ownQuizzes = state =>
     .getIn(['widget', 'ownQuizzes'])
     .map(uuid => state.getIn(['quiz', uuid]));
 export const quizVariables = state => state.get('quizState');
-export const currentScreen = state =>
-  state.getIn(
+export const currentScreen = state => {
+  const screen = state.getIn(
     ['quiz', 'screens', state.getIn(['widget', 'currentScreen'])],
-    []
+    false
   );
+  if (screen) {
+    return screen;
+  }
+  return state.getIn([
+    'quiz',
+    'screens',
+    state.getIn(['quiz', 'settings', 'start'])
+  ]);
+};
 export const quizSettings = state => state.getIn(['quiz', 'settings']);
 export const loading = state => state.getIn(['widget', 'loading']) !== 0;
 
