@@ -6,7 +6,7 @@ const sampleState = Immutable.fromJS({
     // edit a single screen if currentScreen is set
     currentScreen: undefined
   },
-  ui: {
+  widget: {
     // will be set to true, when all data is loaded
     initialised: false,
     // non-zero if loading, increases with each load operation, and decreases when done

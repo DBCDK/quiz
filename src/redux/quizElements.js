@@ -66,8 +66,8 @@ export function findScreenActions(o, acc = []) {
 export function moveSection(state, action) {
   const {screens, from, to} = action;
   if (
-    (typeof to === 'number' && from == screens.length - 1) ||
-    to == screens.length - 1
+    (typeof to === 'number' && from === screens.length - 1) ||
+    to === screens.length - 1
   ) {
     return state;
   }

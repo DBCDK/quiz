@@ -7,7 +7,7 @@ function pageAction(state, action) {
   while (true) {
     let {screen, increment} = action.action;
     if (screen) {
-      state = state.setIn(['ui', 'currentScreen'], screen);
+      state = state.setIn(['widget', 'currentScreen'], screen);
       const dispatch = state.getIn(['quiz', 'screens', screen, 'dispatch']);
       if (dispatch) {
         for (const dispatchCase of dispatch.toJS()) {
@@ -54,9 +54,9 @@ export function root(state = initialState, action) {
     case 'INITIALISED':
       return state.mergeDeep(action.state);
     case 'LOADING_STARTED':
-      return state.updateIn(['ui', 'loading'], i => i + 1);
+      return state.updateIn(['widget', 'loading'], i => i + 1);
     case 'LOADING_DONE':
-      return state.updateIn(['ui', 'loading'], i => i - 1);
+      return state.updateIn(['widget', 'loading'], i => i - 1);
     case 'ADMIN_EDIT_SCREEN':
       return state.setIn(['admin', 'currentScreen'], action.screen);
     case 'PAGE_ACTION':
