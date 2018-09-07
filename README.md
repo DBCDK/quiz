@@ -1,5 +1,5 @@
 [![Travis](https://travis-ci.org/DBCDK/quiz.svg?branch=master)](https://travis-ci.org/DBCDK/quiz)
-[![Waffle](https://badge.waffle.io/DBCDK/quiz.svg?columns=all)](https://waffle.io/DBCDK/quiz)
+[![Waffle](https://badge.waffle.io/DBCDK/biblo.svg?columns=all)](https://waffle.io/DBCDK/biblo)
 [![Coverage](https://coveralls.io/repos/github/DBCDK/quiz/badge.svg?branch=master)](https://coveralls.io/github/DBCDK/quiz?branch=master)
 
 # Quiz
