@@ -8,14 +8,14 @@ export const currentScreen = state =>
     ['quiz', 'screens', state.getIn(['widget', 'currentScreen'])],
     []
   );
-export const quizDescription = state => state.getIn(['quiz', 'description']);
+export const quizSettings = state => state.getIn(['quiz', 'settings']);
 export const loading = state => state.getIn(['widget', 'loading']) !== 0;
 
 export const getScreen = (screenId, state) =>
   state.getIn(['quiz', 'screens', screenId]);
 
 export function questionList(state) {
-  const start = state.getIn(['quiz', 'description', 'start']);
+  const start = state.getIn(['quiz', 'settings', 'start']);
   let current = start;
   const result = [];
   do {

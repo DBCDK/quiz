@@ -22,7 +22,7 @@ it('renders page', () => {
       type: 'buttonGroup',
       ui: [{type: 'button', text: 'but'}]
     },
-    {type: 'image', image: 'some://url'}
+    {type: 'media', image: 'some://url'}
   ]);
   const tree = renderer
     .create(

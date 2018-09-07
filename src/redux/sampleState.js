@@ -11,7 +11,7 @@ const sampleState = Immutable.fromJS({
     initialised: false,
     // non-zero if loading, increases with each load operation, and decreases when done
     loading: 0,
-    currentScreen: sampleQuizData.description.start
+    currentScreen: sampleQuizData.settings.start
   },
   quizState: {},
 

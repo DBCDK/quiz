@@ -1,5 +1,6 @@
 import sampleState from './sampleState';
 import {moveSection, deleteSection, addSection} from './quizElements';
+import Immutable from 'immutable';
 
 const initialState = sampleState;
 
@@ -51,6 +52,11 @@ export function root(state = initialState, action) {
   switch (action.type) {
     case '@@INIT':
       return state;
+    case 'UPDATE_QUIZ_SETTING':
+      return state.setIn(
+        ['quiz', 'settings'].concat(action.path),
+        Immutable.fromJS(action.setting)
+      );
     case 'INITIALISED':
       return state.mergeDeep(action.state);
     case 'LOADING_STARTED':
