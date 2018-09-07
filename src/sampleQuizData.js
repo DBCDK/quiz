@@ -1,11 +1,15 @@
 const sampleQuiz = {
   _type: 'quiz',
   _id: 'quizId',
-  description: {
+  settings: {
     title: 'Sample Quiz',
+    description: 'some description',
     tags: ['foo', 'bar'],
-    styling: {
-      background: {},
+    trophyImage: 'https://www.dbc.dk/logo.png',
+    style: {
+      backgroundImage: 'https://example.com/some.url',
+      buttonFontColor: '#BA0BAB',
+      buttonColor: '#C0FFEE',
       '...': '...'
     },
     start: 'intro',

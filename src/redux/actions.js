@@ -1,5 +1,10 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const updateSetting = (path, setting) => ({
+  type: 'UPDATE_QUIZ_SETTING',
+  path,
+  setting
+});
 export const addSection = ({before, screenId, screens}) => ({
   type: 'ADMIN_ADD_SECTION',
   before,

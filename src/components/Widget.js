@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {
   currentScreen,
   quizVariables,
-  quizDescription,
+  quizSettings,
   loading
 } from '../redux/selectors';
 import {screenAction} from '../redux/actions';
@@ -78,12 +78,12 @@ export class Widget extends Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const description = quizDescription(state);
+  const settings = quizSettings(state);
   const screen = currentScreen(state);
   return {
     loading: loading(state),
     vars: quizVariables(state),
-    quizTitle: description.get('title'),
+    quizTitle: settings.get('title'),
     ui: screen.get('ui')
   };
 }

@@ -1,7 +1,27 @@
-import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Immutable from 'immutable';
+import React, {Component} from 'react';
+import uuidv4 from 'uuid/v4';
+import mustache from 'mustache';
+
+import AddIcon from '@material-ui/icons/Add';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import {ChromePicker} from 'react-color';
+import DeleteIcon from '@material-ui/icons/Delete';
+import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
+import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import Paper from '@material-ui/core/Paper';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import {withStyles} from '@material-ui/core/styles';
+
 import {
-  quizDescription,
+  quizSettings,
   loading,
   questionList,
   getScreen
@@ -9,27 +29,18 @@ import {
 import {
   addSection,
   deleteSection,
+  updateSetting,
   editScreen,
   moveSection
 } from '../redux/actions';
-import DeleteIcon from '@material-ui/icons/Delete';
-import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
-import AddIcon from '@material-ui/icons/Add';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import mustache from 'mustache';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
-import uuidv4 from 'uuid/v4';
-import {withStyles} from '@material-ui/core/styles';
 
 const style = theme => ({
   button: {
     overflow: 'hidden',
     height: 36
+  },
+  margin: {
+    margin: 8
   },
   input: {
     display: 'none'
@@ -106,11 +117,13 @@ function quizSection({screen, doEdit, doDelete, classes}) {
 
 export class Admin extends Component {
   render() {
-    const questions = this.props.questions;
+    const {questions, settings, classes, updateSetting} = this.props;
     return (
       <Grid container spacing={16}>
-        <Grid item>[Edit description etc]</Grid>
-        <Grid item>
+        {descriptionSettings({classes, settings, updateSetting})}
+
+        <Grid item xs={12}>
+          <h2>Spørgsmål og indhold</h2>
           {!!questions.length &&
             draggable(
               this.props.moveSection,
@@ -145,9 +158,104 @@ export class Admin extends Component {
           </Button>
           <div />
         </Grid>
+        {visualSettings({classes, settings, updateSetting})}
       </Grid>
     );
   }
+}
+
+function descriptionSettings({classes, settings, updateSetting}) {
+  return (
+    <Grid item xs={12}>
+      <h2>Quiz beskrivelse</h2>
+      <FormControl fullWidth className={classes.margin}>
+        <InputLabel htmlFor="title">Titel</InputLabel>
+        <Input
+          id="title"
+          value={settings.get('title')}
+          onChange={o => updateSetting(['title'], o.target.value)}
+        />
+      </FormControl>
+      <FormControl fullWidth className={classes.margin}>
+        <InputLabel htmlFor="description">Beskrivelse</InputLabel>
+        <Input
+          id="description"
+          value={settings.get('description')}
+          onChange={o => updateSetting(['description'], o.target.value)}
+        />
+      </FormControl>
+      <FormControl fullWidth className={classes.margin}>
+        <InputLabel htmlFor="tags">Tags</InputLabel>
+        <Input
+          id="tags"
+          value={settings
+            .get('tags')
+            .toJS()
+            .join(' ')}
+          onChange={o =>
+            updateSetting(
+              ['tags'],
+              o.target.value.replace(/[,]/g, '').split(/ +/)
+            )
+          }
+        />
+      </FormControl>
+      <FormControl fullWidth className={classes.margin}>
+        <InputLabel htmlFor="image">
+          Grafik (evt. Badge/pokal, hvis ikke som del af afslutning)
+        </InputLabel>
+        <Input
+          id="image"
+          value={settings.get('image', '')}
+          onChange={o => updateSetting(['image'], o.target.value)}
+        />
+      </FormControl>
+    </Grid>
+  );
+}
+function visualSettings({classes, settings, updateSetting}) {
+  return (
+    <Grid item xs={12}>
+      <h2>Udseende</h2>
+      <FormControl fullWidth className={classes.margin}>
+        <InputLabel htmlFor="backgroundImage">
+          Baggrundsgrafik (til ramme, foreløbigt blot url)
+        </InputLabel>
+        <Input
+          id="backgroundImage"
+          value={settings.getIn(['style', 'backgroundImage'], '')}
+          onChange={o =>
+            updateSetting(['style', 'backgroundImage'], o.target.value)
+          }
+        />
+      </FormControl>
+      <h3>Spørgsmåls-knapper</h3>
+      <Grid container spacing={16}>
+        <Grid item>
+          Fontfarve <br />
+          <ChromePicker
+            disableAlpha
+            id="buttonFontColor"
+            color={settings.getIn(['style', 'buttonFontColor'], '#ccc')}
+            onChangeComplete={o =>
+              updateSetting(['style', 'buttonFontColor'], o.hex)
+            }
+          />
+        </Grid>
+        <Grid item>
+          Baggrundsfarve <br />
+          <ChromePicker
+            disableAlpha
+            id="buttonColor"
+            color={settings.getIn(['style', 'buttonColor'], '#ccc')}
+            onChangeComplete={o =>
+              updateSetting(['style', 'buttonColor'], o.hex)
+            }
+          />
+        </Grid>
+      </Grid>
+    </Grid>
+  );
 }
 
 function addQuestionSection(dispatch, before) {
@@ -247,6 +355,7 @@ export function mapStateToProps(state, ownProps) {
     questions: questionList(state).map(questionId =>
       getScreen(questionId, state).set('_id', questionId)
     ),
+    settings: quizSettings(state),
     loading: loading(state)
   };
 }
@@ -257,7 +366,8 @@ export function mapDispatchToProps(dispatch) {
     moveSection: o => dispatch(moveSection(o)),
     deleteSection: o => dispatch(deleteSection(o)),
     addQuestionSection: before => addQuestionSection(dispatch, before),
-    addInfoSection: before => addInfoSection(dispatch, before)
+    addInfoSection: before => addInfoSection(dispatch, before),
+    updateSetting: (path, setting) => dispatch(updateSetting(path, setting))
   };
 }
 
