@@ -8,45 +8,19 @@ import {
 } from '../redux/selectors';
 import {screenAction} from '../redux/actions';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import mustache from 'mustache';
+import quizElements from './quizElements';
 
 const spacing = 16;
 
-const views = {
-  media: ({image}) => <img alt="" src={image} />,
-  spacing: () => <p />,
-  text: ({text}, {vars}) => mustache.render(text, vars),
-  buttonGroup: ({ui}, {onAction}) => (
-    <Grid container spacing={spacing}>
-      {ui.map((o, pos) => (
-        <Grid item key={pos} xs={6}>
-          {renderElem(o, {pos, onAction})}
-        </Grid>
-      ))}
-    </Grid>
-  ),
-  button: ({text, action}, {onAction}) => (
-    <Button
-      fullWidth={true}
-      variant="contained"
-      color="default"
-      onClick={() => onAction(action)}
-    >
-      {text}
-    </Button>
-  )
-};
-function renderElem(o, {pos, onAction, vars}) {
-  const f = views[o.type];
-  if (!f) {
+function renderElement(o, {onAction, vars}) {
+  if (!quizElements[o.type]) {
     console.log('cannot find viewtype:', o.type);
     return;
   }
-  return f(o, {onAction, vars});
+  return quizElements[o.type].view(o, {onAction, vars, renderElement});
 }
 
 export class Widget extends Component {
@@ -65,8 +39,7 @@ export class Widget extends Component {
         {this.props.ui &&
           this.props.ui.map((o, pos) => (
             <Grid key={pos} item xs={12}>
-              {renderElem(o.toJS(), {
-                pos,
+              {renderElement(o.toJS(), {
                 onAction: this.props.onAction,
                 vars: this.props.vars.toJS()
               })}
