@@ -3,6 +3,8 @@ export const ownQuizzes = state =>
     .getIn(['widget', 'ownQuizzes'])
     .map(uuid => state.getIn(['quiz', uuid]));
 export const quizVariables = state => state.get('quizState');
+export const adminCurrentScreen = state =>
+  state.getIn(['admin', 'currentScreen']);
 export const currentScreen = state => {
   const screen = state.getIn(
     ['quiz', 'screens', state.getIn(['widget', 'currentScreen'])],
