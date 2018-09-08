@@ -7,27 +7,29 @@ exports[`renders without crashing 1`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-12-41"
   >
-    <h2>
+    <h1
+      className="MuiTypography-root-98 MuiTypography-headline-103 MuiTypography-gutterBottom-115"
+    >
       Quiz beskrivelse
-    </h2>
+    </h1>
     <div
-      className="MuiFormControl-root-98 MuiFormControl-fullWidth-101"
+      className="MuiFormControl-root-123 MuiFormControl-fullWidth-126"
     >
       <label
-        className="MuiFormLabel-root-107 MuiInputLabel-root-102 MuiInputLabel-formControl-103 MuiInputLabel-animated-106"
+        className="MuiFormLabel-root-132 MuiInputLabel-root-127 MuiInputLabel-formControl-128 MuiInputLabel-animated-131"
         data-shrink={false}
         htmlFor="title"
       >
         Titel
       </label>
       <div
-        className="MuiInput-root-114 MuiInput-formControl-115 MuiInput-underline-118"
+        className="MuiInput-root-139 MuiInput-formControl-140 MuiInput-underline-143"
       >
         <input
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInput-input-122"
+          className="MuiInput-input-147"
           defaultValue={undefined}
           disabled={false}
           id="title"
@@ -47,23 +49,23 @@ exports[`renders without crashing 1`] = `
       </div>
     </div>
     <div
-      className="MuiFormControl-root-98 MuiFormControl-fullWidth-101"
+      className="MuiFormControl-root-123 MuiFormControl-fullWidth-126"
     >
       <label
-        className="MuiFormLabel-root-107 MuiInputLabel-root-102 MuiInputLabel-formControl-103 MuiInputLabel-animated-106"
+        className="MuiFormLabel-root-132 MuiInputLabel-root-127 MuiInputLabel-formControl-128 MuiInputLabel-animated-131"
         data-shrink={false}
         htmlFor="description"
       >
         Beskrivelse
       </label>
       <div
-        className="MuiInput-root-114 MuiInput-formControl-115 MuiInput-underline-118"
+        className="MuiInput-root-139 MuiInput-formControl-140 MuiInput-underline-143"
       >
         <input
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInput-input-122"
+          className="MuiInput-input-147"
           defaultValue={undefined}
           disabled={false}
           id="description"
@@ -83,23 +85,23 @@ exports[`renders without crashing 1`] = `
       </div>
     </div>
     <div
-      className="MuiFormControl-root-98 MuiFormControl-fullWidth-101"
+      className="MuiFormControl-root-123 MuiFormControl-fullWidth-126"
     >
       <label
-        className="MuiFormLabel-root-107 MuiInputLabel-root-102 MuiInputLabel-formControl-103 MuiInputLabel-animated-106"
+        className="MuiFormLabel-root-132 MuiInputLabel-root-127 MuiInputLabel-formControl-128 MuiInputLabel-animated-131"
         data-shrink={false}
         htmlFor="tags"
       >
         Tags
       </label>
       <div
-        className="MuiInput-root-114 MuiInput-formControl-115 MuiInput-underline-118"
+        className="MuiInput-root-139 MuiInput-formControl-140 MuiInput-underline-143"
       >
         <input
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInput-input-122"
+          className="MuiInput-input-147"
           defaultValue={undefined}
           disabled={false}
           id="tags"
@@ -119,23 +121,23 @@ exports[`renders without crashing 1`] = `
       </div>
     </div>
     <div
-      className="MuiFormControl-root-98 MuiFormControl-fullWidth-101"
+      className="MuiFormControl-root-123 MuiFormControl-fullWidth-126"
     >
       <label
-        className="MuiFormLabel-root-107 MuiInputLabel-root-102 MuiInputLabel-formControl-103 MuiInputLabel-animated-106"
+        className="MuiFormLabel-root-132 MuiInputLabel-root-127 MuiInputLabel-formControl-128 MuiInputLabel-animated-131"
         data-shrink={false}
         htmlFor="image"
       >
         Grafik (evt. Badge/pokal, hvis ikke som del af afslutning)
       </label>
       <div
-        className="MuiInput-root-114 MuiInput-formControl-115 MuiInput-underline-118"
+        className="MuiInput-root-139 MuiInput-formControl-140 MuiInput-underline-143"
       >
         <input
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInput-input-122"
+          className="MuiInput-input-147"
           defaultValue={undefined}
           disabled={false}
           id="image"
@@ -158,15 +160,13 @@ exports[`renders without crashing 1`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-12-41"
   >
-    <h2>
+    <h1
+      className="MuiTypography-root-98 MuiTypography-headline-103 MuiTypography-gutterBottom-115"
+    >
       Spørgsmål og indhold
-    </h2>
-  </div>
-  <div
-    className="MuiGrid-item-2"
-  >
+    </h1>
     <button
-      className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-text-129 MuiButton-flat-132"
+      className="MuiButtonBase-root-178 MuiButton-root-152 MuiButton-text-154 MuiButton-flat-157"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -183,11 +183,11 @@ exports[`renders without crashing 1`] = `
       type="button"
     >
       <span
-        className="MuiButton-label-128"
+        className="MuiButton-label-153"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-156"
+          className="MuiSvgIcon-root-181"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -200,14 +200,14 @@ exports[`renders without crashing 1`] = `
             fill="none"
           />
         </svg>
-         Spørgsmål
+        Spørgsmål
       </span>
       <span
-        className="MuiTouchRipple-root-163"
+        className="MuiTouchRipple-root-188"
       />
     </button>
     <button
-      className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-text-129 MuiButton-flat-132"
+      className="MuiButtonBase-root-178 MuiButton-root-152 MuiButton-text-154 MuiButton-flat-157"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -224,11 +224,11 @@ exports[`renders without crashing 1`] = `
       type="button"
     >
       <span
-        className="MuiButton-label-128"
+        className="MuiButton-label-153"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-156"
+          className="MuiSvgIcon-root-181"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -244,7 +244,7 @@ exports[`renders without crashing 1`] = `
          Beskrivelse, såsom intro-tekst
       </span>
       <span
-        className="MuiTouchRipple-root-163"
+        className="MuiTouchRipple-root-188"
       />
     </button>
     <div />
@@ -252,27 +252,29 @@ exports[`renders without crashing 1`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-12-41"
   >
-    <h2>
+    <h1
+      className="MuiTypography-root-98 MuiTypography-headline-103 MuiTypography-gutterBottom-115"
+    >
       Udseende
-    </h2>
+    </h1>
     <div
-      className="MuiFormControl-root-98 MuiFormControl-fullWidth-101"
+      className="MuiFormControl-root-123 MuiFormControl-fullWidth-126"
     >
       <label
-        className="MuiFormLabel-root-107 MuiInputLabel-root-102 MuiInputLabel-formControl-103 MuiInputLabel-animated-106"
+        className="MuiFormLabel-root-132 MuiInputLabel-root-127 MuiInputLabel-formControl-128 MuiInputLabel-animated-131"
         data-shrink={false}
         htmlFor="backgroundImage"
       >
         Baggrundsgrafik (til ramme, foreløbigt blot url)
       </label>
       <div
-        className="MuiInput-root-114 MuiInput-formControl-115 MuiInput-underline-118"
+        className="MuiInput-root-139 MuiInput-formControl-140 MuiInput-underline-143"
       >
         <input
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInput-input-122"
+          className="MuiInput-input-147"
           defaultValue={undefined}
           disabled={false}
           id="backgroundImage"
@@ -291,9 +293,11 @@ exports[`renders without crashing 1`] = `
         />
       </div>
     </div>
-    <h3>
+    <h2
+      className="MuiTypography-root-98 MuiTypography-title-104 MuiTypography-gutterBottom-115"
+    >
       Spørgsmåls-knapper
-    </h3>
+    </h2>
     <div
       className="MuiGrid-container-1 MuiGrid-spacing-xs-16-24"
     >

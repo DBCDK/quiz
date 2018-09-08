@@ -1,11 +1,9 @@
 import {connect} from 'react-redux';
-import Immutable from 'immutable';
 import React, {Component} from 'react';
 import uuidv4 from 'uuid/v4';
-import mustache from 'mustache';
 
 import AddIcon from '@material-ui/icons/Add';
-import AppBar from '@material-ui/core/AppBar';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from '@material-ui/core/Button';
 import {ChromePicker} from 'react-color';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -15,12 +13,11 @@ import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import Paper from '@material-ui/core/Paper';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 
 import {
+  adminCurrentScreen,
   quizSettings,
   loading,
   questionList,
@@ -83,7 +80,6 @@ function draggable(onMoveSection, items) {
     </DragDropContext>
   );
 }
-
 function quizSection({screen, doEdit, doDelete, classes}) {
   const isDispatch = !!screen.get('dispatch', false);
   return (
@@ -98,10 +94,12 @@ function quizSection({screen, doEdit, doDelete, classes}) {
           fullWidth={true}
           onClick={doEdit}
         >
-          {screen
-            .get('ui', [])
-            .map(uiElem => uiElem.get('text', ''))
-            .join(' ') + (isDispatch ? 'Quiz-afslutninger' : '')}
+          <Typography variant="button" noWrap>
+            {screen
+              .get('ui', [])
+              .map(uiElem => uiElem.get('text', ''))
+              .join(' ') + (isDispatch ? 'Quiz-afslutninger' : '')}
+          </Typography>
         </Button>
       </Grid>
       <Grid item xs={1}>
@@ -117,57 +115,59 @@ function quizSection({screen, doEdit, doDelete, classes}) {
 
 export class Admin extends Component {
   render() {
-    const {questions, settings, classes, updateSetting} = this.props;
-    return (
-      <Grid container spacing={16}>
-        {descriptionSettings({classes, settings, updateSetting})}
-
-        <Grid item xs={12}>
-          <h2>Spørgsmål og indhold</h2>
-          {!!questions.length &&
-            draggable(
-              this.props.moveSection,
-              questions.map(q => {
-                const id = q.get('_id');
-                return {
-                  id,
-                  content: quizSection({
-                    classes: this.props.classes,
-                    screen: q,
-                    doEdit: () => this.props.editScreen(id),
-                    doDelete: () => this.props.deleteSection(id)
-                  })
-                };
-              })
-            )}
-        </Grid>
-        <Grid item>
-          <Button
-            onClick={() =>
-              this.props.addQuestionSection(
-                questions[questions.length - 1].get('_id')
-              )
-            }
-          >
-            <AddIcon /> Spørgsmål
-          </Button>
-          <Button
-            onClick={() => this.props.addInfoSection(questions[0].get('_id'))}
-          >
-            <AddIcon /> Beskrivelse, såsom intro-tekst
-          </Button>
-          <div />
-        </Grid>
-        {visualSettings({classes, settings, updateSetting})}
-      </Grid>
-    );
+    if (this.props.currentScreen) {
+      return renderScreenEditor(this.props);
+    } else {
+      return renderQuizEditor(this.props);
+    }
   }
 }
+function renderScreenEditor({currentScreen, editScreen}) {
+  return (
+    <Grid container spacing={16}>
+      <Grid item>
+        <Typography variant="headline" gutterBottom>
+          Rediger quiz-skærm
+        </Typography>
+        <Button onClick={() => editScreen(currentScreen.get('parent', ''))}>
+          <ArrowBackIcon />Tilbage
+        </Button>
+      </Grid>
+    </Grid>
+  );
+}
 
-function descriptionSettings({classes, settings, updateSetting}) {
+function renderQuizEditor({
+  questions,
+  settings,
+  classes,
+  updateSetting,
+  moveSection,
+  editScreen,
+  deleteSection,
+  addQuestionSection,
+  addInfoSection
+}) {
+  return (
+    <Grid container spacing={16}>
+      {renderDescriptionSettings({classes, settings, updateSetting})}
+      {renderQuestionList({
+        questions,
+        classes,
+        moveSection,
+        deleteSection,
+        editScreen
+      })}
+      {renderVisualSettings({classes, settings, updateSetting})}
+    </Grid>
+  );
+}
+function renderDescriptionSettings({classes, settings, updateSetting}) {
   return (
     <Grid item xs={12}>
-      <h2>Quiz beskrivelse</h2>
+      <Typography variant="headline" gutterBottom>
+        Quiz beskrivelse
+      </Typography>
       <FormControl fullWidth className={classes.margin}>
         <InputLabel htmlFor="title">Titel</InputLabel>
         <Input
@@ -213,10 +213,55 @@ function descriptionSettings({classes, settings, updateSetting}) {
     </Grid>
   );
 }
-function visualSettings({classes, settings, updateSetting}) {
+function renderQuestionList({
+  questions,
+  classes,
+  moveSection,
+  deleteSection,
+  editScreen
+}) {
   return (
     <Grid item xs={12}>
-      <h2>Udseende</h2>
+      <Typography variant="headline" gutterBottom>
+        Spørgsmål og indhold
+      </Typography>
+      {!!questions.length &&
+        draggable(
+          moveSection,
+          questions.map(q => {
+            const id = q.get('_id');
+            return {
+              id,
+              content: quizSection({
+                classes: classes,
+                screen: q,
+                doEdit: () => editScreen(id),
+                doDelete: () => deleteSection(id)
+              })
+            };
+          })
+        )}
+      <Button
+        onClick={() =>
+          addQuestionSection(questions[questions.length - 1].get('_id'))
+        }
+      >
+        <AddIcon />
+        Spørgsmål
+      </Button>
+      <Button onClick={() => addInfoSection(questions[0].get('_id'))}>
+        <AddIcon /> Beskrivelse, såsom intro-tekst
+      </Button>
+      <div />
+    </Grid>
+  );
+}
+function renderVisualSettings({classes, settings, updateSetting}) {
+  return (
+    <Grid item xs={12}>
+      <Typography variant="headline" gutterBottom>
+        Udseende
+      </Typography>
       <FormControl fullWidth className={classes.margin}>
         <InputLabel htmlFor="backgroundImage">
           Baggrundsgrafik (til ramme, foreløbigt blot url)
@@ -229,7 +274,9 @@ function visualSettings({classes, settings, updateSetting}) {
           }
         />
       </FormControl>
-      <h3>Spørgsmåls-knapper</h3>
+      <Typography variant="title" gutterBottom>
+        Spørgsmåls-knapper
+      </Typography>
       <Grid container spacing={16}>
         <Grid item>
           Fontfarve <br />
@@ -258,6 +305,27 @@ function visualSettings({classes, settings, updateSetting}) {
   );
 }
 
+export function mapStateToProps(state, ownProps) {
+  return {
+    questions: questionList(state).map(questionId =>
+      getScreen(questionId, state).set('_id', questionId)
+    ),
+    settings: quizSettings(state),
+    currentScreen: getScreen(adminCurrentScreen(state), state),
+    loading: loading(state)
+  };
+}
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    editScreen: screen => dispatch(editScreen({screen})),
+    moveSection: o => dispatch(moveSection(o)),
+    deleteSection: o => dispatch(deleteSection(o)),
+    addQuestionSection: before => addQuestionSection(dispatch, before),
+    addInfoSection: before => addInfoSection(dispatch, before),
+    updateSetting: (path, setting) => dispatch(updateSetting(path, setting))
+  };
+}
 function addQuestionSection(dispatch, before) {
   const questionId = uuidv4();
   const helpId = uuidv4();
@@ -324,7 +392,6 @@ function addQuestionSection(dispatch, before) {
   };
   return dispatch(addSection({before, screenId: questionId, screens}));
 }
-
 function addInfoSection(dispatch, before) {
   const sectionId = uuidv4();
   const nextId = uuidv4();
@@ -348,27 +415,6 @@ function addInfoSection(dispatch, before) {
     }
   };
   return dispatch(addSection({before, screenId: sectionId, screens}));
-}
-
-export function mapStateToProps(state, ownProps) {
-  return {
-    questions: questionList(state).map(questionId =>
-      getScreen(questionId, state).set('_id', questionId)
-    ),
-    settings: quizSettings(state),
-    loading: loading(state)
-  };
-}
-
-export function mapDispatchToProps(dispatch) {
-  return {
-    editScreen: screen => dispatch(editScreen({screen})),
-    moveSection: o => dispatch(moveSection(o)),
-    deleteSection: o => dispatch(deleteSection(o)),
-    addQuestionSection: before => addQuestionSection(dispatch, before),
-    addInfoSection: before => addInfoSection(dispatch, before),
-    updateSetting: (path, setting) => dispatch(updateSetting(path, setting))
-  };
 }
 
 export default withStyles(style)(
