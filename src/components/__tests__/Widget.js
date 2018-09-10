@@ -12,7 +12,9 @@ it('maps dispatch to props', () => {
   expect(mapDispatchToProps(() => {})).toMatchSnapshot();
 });
 it('renders', () => {
-  const tree = renderer.create(<Widget quizTitle="Titel for Quiz" />).toJSON();
+  const tree = renderer
+    .create(<Widget quizTitle="Titel for Quiz" classes={{}} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 it('renders page', () => {
@@ -30,6 +32,7 @@ it('renders page', () => {
         quizTitle="Titel for Quiz"
         ui={page}
         vars={Immutable.fromJS({})}
+        classes={{}}
       />
     )
     .toJSON();
