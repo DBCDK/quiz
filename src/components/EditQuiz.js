@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
+import style from './style';
 import {withStyles} from '@material-ui/core/styles';
 
 import {
@@ -29,19 +30,6 @@ import {
   editScreen,
   moveSection
 } from '../redux/actions';
-
-const style = theme => ({
-  button: {
-    overflow: 'hidden',
-    height: 36
-  },
-  margin: {
-    margin: 8
-  },
-  input: {
-    display: 'none'
-  }
-});
 
 function draggable(onMoveSection, items) {
   return (

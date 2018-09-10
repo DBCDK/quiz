@@ -52,6 +52,15 @@ export function root(state = initialState, action) {
   switch (action.type) {
     case '@@INIT':
       return state;
+    case 'UPDATE_SCREEN_ELEMENT':
+      console.log(
+        ['quiz', 'screens', action.screen, action.pos],
+        state.getIn(['quiz', 'screens', action.screen, 'ui', action.pos])
+      );
+      return state.updateIn(
+        ['quiz', 'screens', action.screen, 'ui', action.pos],
+        action.updateFn
+      );
     case 'UPDATE_QUIZ_SETTING':
       return state.setIn(
         ['quiz', 'settings'].concat(action.path),

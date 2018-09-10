@@ -129,6 +129,7 @@ exports[`renders page 1`] = `
   >
     <img
       alt=""
+      className={undefined}
       src="some://url"
     />
   </div>

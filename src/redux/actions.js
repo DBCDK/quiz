@@ -1,5 +1,11 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const updateScreenElement = o => {
+  return {
+    type: 'UPDATE_SCREEN_ELEMENT',
+    ...o
+  };
+};
 export const updateSetting = (path, setting) => ({
   type: 'UPDATE_QUIZ_SETTING',
   path,

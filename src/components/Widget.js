@@ -13,14 +13,17 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import quizElements from './quizElements';
 
+import {withStyles} from '@material-ui/core/styles';
+import style from './style';
+
 const spacing = 16;
 
-function renderElement(o, {onAction, vars}) {
+function renderElement(o, opts) {
   if (!quizElements[o.type]) {
     console.log('cannot find viewtype:', o.type);
     return;
   }
-  return quizElements[o.type].view(o, {onAction, vars, renderElement});
+  return quizElements[o.type].view(o, {...opts, renderElement});
 }
 
 export class Widget extends Component {
@@ -41,6 +44,7 @@ export class Widget extends Component {
             <Grid key={pos} item xs={12}>
               {renderElement(o.toJS(), {
                 onAction: this.props.onAction,
+                classes: this.props.classes,
                 vars: this.props.vars.toJS()
               })}
             </Grid>
@@ -67,7 +71,9 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Widget);
+export default withStyles(style)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Widget)
+);
