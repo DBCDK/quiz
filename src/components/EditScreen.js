@@ -32,7 +32,7 @@ export class EditScreen extends Component {
         </Grid>
         {currentScreen.get('ui').map((o, pos) => {
           return (
-            <Grid item xs={12}>
+            <Grid key={pos} item xs={12}>
               {quizElements[o.get('type')].edit &&
                 quizElements[o.get('type')].edit(o.toJS(), {
                   classes,
