@@ -308,7 +308,7 @@ function addQuestionSection(dispatch, before) {
       nextSection: nextId,
       ui: [
         {
-          type: 'image',
+          type: 'media',
           image: ''
         },
         {type: 'text', text: 'Nyt spørgsmål...'},
@@ -372,7 +372,7 @@ function addInfoSection(dispatch, before) {
       nextSection: nextId,
       ui: [
         {
-          type: 'image',
+          type: 'media',
           image: ''
         },
         {type: 'text', text: 'Beskrivelse, såsom intro...'},

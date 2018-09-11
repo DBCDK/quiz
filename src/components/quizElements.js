@@ -1,19 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {
-  currentScreen,
-  quizVariables,
-  quizSettings,
-  loading
-} from '../redux/selectors';
-import {screenAction} from '../redux/actions';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 
 export default {

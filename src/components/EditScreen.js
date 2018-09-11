@@ -20,7 +20,6 @@ export class EditScreen extends Component {
       doEditScreen,
       doUpdateScreenElement
     } = this.props;
-    console.log(quizElements['media']);
     return (
       <Grid container spacing={16}>
         <Grid item xs={12}>
