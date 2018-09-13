@@ -63,7 +63,6 @@ exports[`renders editing of a question 1`] = `
         className="Connect-EditScreen--maxImageSize-1"
         src="https://opensource.dbc.dk/sites/all/themes/opensource/logo.png"
       />
-      ,
       <br />
       <div
         aria-describedby={undefined}
@@ -184,7 +183,72 @@ exports[`renders editing of a question 1`] = `
   <div
     className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
   >
-    TODO: redigerbar knap
+    <div>
+      <button
+        className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-128"
+        >
+          hjælp
+        </span>
+        <span
+          className="MuiTouchRipple-root-163"
+        />
+      </button>
+      <br />
+      <div
+        aria-describedby={undefined}
+        className="MuiFormControl-root-170 MuiFormControl-fullWidth-173"
+      >
+        <label
+          className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"
+          data-shrink={true}
+          htmlFor={undefined}
+        >
+          Tekst til knap
+        </label>
+        <div
+          className="MuiInput-root-186 MuiInput-fullWidth-193 MuiInput-formControl-187 MuiInput-underline-190"
+        >
+          <input
+            aria-invalid={false}
+            autoComplete={undefined}
+            autoFocus={undefined}
+            className="MuiInput-input-194"
+            defaultValue={undefined}
+            disabled={false}
+            id={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={undefined}
+            onKeyUp={undefined}
+            placeholder={undefined}
+            readOnly={undefined}
+            required={false}
+            rows={undefined}
+            type="text"
+            value="hjælp"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -1802,7 +1866,6 @@ exports[`renders editing of intro 1`] = `
         className="Connect-EditScreen--maxImageSize-1"
         src="https://www.dbc.dk/logo.png"
       />
-      ,
       <br />
       <div
         aria-describedby={undefined}
@@ -1921,7 +1984,72 @@ exports[`renders editing of intro 1`] = `
   <div
     className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
   >
-    TODO: redigerbar knap
+    <div>
+      <button
+        className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-128"
+        >
+          Start
+        </span>
+        <span
+          className="MuiTouchRipple-root-163"
+        />
+      </button>
+      <br />
+      <div
+        aria-describedby={undefined}
+        className="MuiFormControl-root-170 MuiFormControl-fullWidth-173"
+      >
+        <label
+          className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"
+          data-shrink={true}
+          htmlFor={undefined}
+        >
+          Tekst til knap
+        </label>
+        <div
+          className="MuiInput-root-186 MuiInput-fullWidth-193 MuiInput-formControl-187 MuiInput-underline-190"
+        >
+          <input
+            aria-invalid={false}
+            autoComplete={undefined}
+            autoFocus={undefined}
+            className="MuiInput-input-194"
+            defaultValue={undefined}
+            disabled={false}
+            id={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={undefined}
+            onKeyUp={undefined}
+            placeholder={undefined}
+            readOnly={undefined}
+            required={false}
+            rows={undefined}
+            type="text"
+            value="Start"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
