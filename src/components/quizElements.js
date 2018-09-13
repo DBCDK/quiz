@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import mustache from 'mustache';
 
-export default {
+const quizElements = {
   media: {
     view: ({image}, {classes}) => (
       <img alt="" src={image} className={classes.maxImageSize} />
@@ -51,7 +51,24 @@ export default {
         ))}
       </Grid>
     ),
-    edit: () => 'TODO: redigerbar liste af svar'
+    edit: ({ui}, {updateQuizElement, editScreen}) => (
+      <Grid container spacing={16}>
+        {ui.map((answer, pos) => (
+          <Grid item key={pos} xs={6}>
+            {answer.type === 'button' &&
+              quizElements.button.edit(answer, {
+                editScreen,
+                updateQuizElement: f =>
+                  updateQuizElement(o => o.updateIn(['ui', pos], f))
+              })}
+            TODO: [slet], point for svar
+          </Grid>
+        ))}
+        <Grid item xs={6}>
+          TODO: tilføj svarmulighed
+        </Grid>
+      </Grid>
+    )
   },
   button: {
     view: ({text, action}, {onAction}) => (
@@ -89,3 +106,4 @@ export default {
     )
   }
 };
+export default quizElements;
