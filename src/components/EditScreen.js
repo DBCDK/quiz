@@ -36,6 +36,7 @@ export class EditScreen extends Component {
               {quizElements[o.get('type')].edit &&
                 quizElements[o.get('type')].edit(o.toJS(), {
                   classes,
+                  editScreen: doEditScreen,
                   updateQuizElement: doUpdateScreenElement(
                     currentScreen.get('_id'),
                     pos

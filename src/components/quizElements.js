@@ -11,7 +11,7 @@ export default {
     ),
     edit: ({image}, {updateQuizElement, classes}) => (
       <div>
-        <img alt="" src={image} className={classes.maxImageSize} />,
+        <img alt="" src={image} className={classes.maxImageSize} />
         <br />
         <TextField
           fullWidth
@@ -64,6 +64,28 @@ export default {
         {text}
       </Button>
     ),
-    edit: () => 'TODO: redigerbar knap'
+    edit: ({text, action: {screen}}, {updateQuizElement, editScreen}) => (
+      <div>
+        {text && (
+          <Button
+            fullWidth={true}
+            variant="contained"
+            color="default"
+            onClick={() => editScreen(screen)}
+          >
+            {text}
+          </Button>
+        )}
+        <br />
+        <TextField
+          fullWidth
+          label="Tekst til knap"
+          value={text}
+          onChange={e =>
+            updateQuizElement(ui => ui.set('text', e.target.value))
+          }
+        />
+      </div>
+    )
   }
 };
