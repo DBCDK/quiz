@@ -181,7 +181,7 @@ exports[`renders editing of a question 1`] = `
       >
         <div>
           <button
-            className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152"
+            className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152 Connect-EditScreen--margin-3"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -245,14 +245,55 @@ exports[`renders editing of a question 1`] = `
             </div>
           </div>
         </div>
-        TODO: [slet], point for svar
+        <button
+          aria-label="Delete"
+          className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-fab-144 MuiButton-mini-149 MuiButton-contained-138 MuiButton-raised-141 Connect-EditScreen--margin-3"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiButton-label-128"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root-156"
+              color={undefined}
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+              />
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root-163"
+          />
+        </button>
+        TODO: point for svar
       </div>
       <div
         className="MuiGrid-item-6 MuiGrid-grid-xs-6-39"
       >
         <div>
           <button
-            className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152"
+            className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152 Connect-EditScreen--margin-3"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -316,12 +357,94 @@ exports[`renders editing of a question 1`] = `
             </div>
           </div>
         </div>
-        TODO: [slet], point for svar
+        <button
+          aria-label="Delete"
+          className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-fab-144 MuiButton-mini-149 MuiButton-contained-138 MuiButton-raised-141 Connect-EditScreen--margin-3"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiButton-label-128"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root-156"
+              color={undefined}
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+              />
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root-163"
+          />
+        </button>
+        TODO: point for svar
       </div>
       <div
-        className="MuiGrid-item-6 MuiGrid-grid-xs-6-39"
+        className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
       >
-        TODO: tilføj svarmulighed
+        <button
+          aria-label="Add"
+          className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-text-129 MuiButton-flat-132"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
+        >
+          <span
+            className="MuiButton-label-128"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root-156"
+              color={undefined}
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+              />
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+            </svg>
+             svar
+          </span>
+          <span
+            className="MuiTouchRipple-root-163"
+          />
+        </button>
       </div>
     </div>
   </div>
@@ -335,7 +458,7 @@ exports[`renders editing of a question 1`] = `
   >
     <div>
       <button
-        className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152"
+        className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152 Connect-EditScreen--margin-3"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -2136,7 +2259,7 @@ exports[`renders editing of intro 1`] = `
   >
     <div>
       <button
-        className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152"
+        className="MuiButtonBase-root-153 MuiButton-root-127 MuiButton-contained-138 MuiButton-raised-141 MuiButton-fullWidth-152 Connect-EditScreen--margin-3"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}

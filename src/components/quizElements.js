@@ -1,4 +1,6 @@
 import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -51,27 +53,42 @@ const quizElements = {
         ))}
       </Grid>
     ),
-    edit: ({ui}, {updateQuizElement, editScreen}) => (
-      <Grid container spacing={16}>
-        {ui.map((answer, pos) => (
-          <Grid item key={pos} xs={6}>
-            {answer.type === 'button' &&
-              quizElements.button.edit(answer, {
-                editScreen,
-                updateQuizElement: f =>
-                  updateQuizElement(o => o.updateIn(['ui', pos], f))
-              })}
-            TODO: [slet], point for svar
+    edit: ({ui}, props) => {
+      const {updateQuizElement, editScreen, classes} = props;
+      console.log(props);
+      return (
+        <Grid container spacing={16}>
+          {ui.map((answer, pos) => (
+            <Grid item key={pos} xs={6}>
+              {answer.type === 'button' &&
+                quizElements.button.edit(answer, {
+                  ...props,
+                  updateQuizElement: f =>
+                    updateQuizElement(o => o.updateIn(['ui', pos], f))
+                })}
+              <Button
+                className={classes.margin}
+                variant="fab"
+                aria-label="Delete"
+                mini
+                onClick={() => updateQuizElement(o => o.deleteIn(['ui', pos]))}
+              >
+                <DeleteIcon />
+              </Button>
+              TODO: point for svar
+            </Grid>
+          ))}
+          <Grid item xs={12}>
+            <Button aria-label="Add" mini onClick={() => {}}>
+              <AddIcon /> svar
+            </Button>
           </Grid>
-        ))}
-        <Grid item xs={6}>
-          TODO: tilføj svarmulighed
         </Grid>
-      </Grid>
-    )
+      );
+    }
   },
   button: {
-    view: ({text, action}, {onAction}) => (
+    view: ({text, action}, {onAction, classes}) => (
       <Button
         fullWidth={true}
         variant="contained"
@@ -81,10 +98,14 @@ const quizElements = {
         {text}
       </Button>
     ),
-    edit: ({text, action: {screen}}, {updateQuizElement, editScreen}) => (
+    edit: (
+      {text, action: {screen}},
+      {updateQuizElement, editScreen, classes}
+    ) => (
       <div>
         {text && (
           <Button
+            className={classes.margin}
             fullWidth={true}
             variant="contained"
             color="default"
