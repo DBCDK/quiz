@@ -35,21 +35,23 @@ export class EditScreen extends Component {
             <ArrowBackIcon />Tilbage
           </Button>
         </Grid>
-        {currentScreen.get('ui').map((o, pos) => (
-          <Grid key={pos} item xs={12}>
-            {quizElements[o.get('type')].edit &&
-              quizElements[o.get('type')].edit(o.toJS(), {
-                classes,
-                editScreen: doEditScreen,
-                addQuestionAnswer: () =>
-                  doAddQuestionAnswer(currentScreen.get('_id'), pos),
-                updateQuizElement: doUpdateScreenElement(
-                  currentScreen.get('_id'),
-                  pos
-                )
-              })}
-          </Grid>
-        ))}
+        {currentScreen.get('ui')
+          ? currentScreen.get('ui').map((o, pos) => (
+              <Grid key={pos} item xs={12}>
+                {quizElements[o.get('type')].edit &&
+                  quizElements[o.get('type')].edit(o.toJS(), {
+                    classes,
+                    editScreen: doEditScreen,
+                    addQuestionAnswer: () =>
+                      doAddQuestionAnswer(currentScreen.get('_id'), pos),
+                    updateQuizElement: doUpdateScreenElement(
+                      currentScreen.get('_id'),
+                      pos
+                    )
+                  })}
+              </Grid>
+            ))
+          : 'This screen type is not supported yet'}
       </Grid>
     );
   }
