@@ -1,6 +1,7 @@
 import sampleState from './sampleState';
 import {moveSection, deleteSection, addSection} from './quizElements';
 import Immutable from 'immutable';
+import uuidv4 from 'uuid/v4';
 
 const initialState = sampleState;
 
@@ -80,6 +81,52 @@ export function root(state = initialState, action) {
       return state.update('quiz', quiz => deleteSection(quiz, action.screenId));
     case 'ADMIN_MOVE_SECTION':
       return moveSection(state, action);
+    case 'ADD_QUESTION_ANSWER': {
+      // TODO add answer-response-screen
+
+      const nextScreen = state.getIn([
+        'quiz',
+        'screens',
+        action.path[0],
+        'nextSection'
+      ]);
+      const answerScreen = uuidv4();
+      state = state.setIn(
+        ['quiz', 'screens', answerScreen],
+        Immutable.fromJS({
+          _id: answerScreen,
+          parent: action.path[0],
+          ui: [
+            {
+              type: 'media',
+              image: ''
+            },
+            {
+              type: 'text',
+              text: 'Forklaring af resultatet'
+            },
+            {type: 'button', text: 'videre', action: {screen: nextScreen}}
+          ],
+          log: true
+        })
+      );
+
+      state = state.updateIn(
+        ['quiz', 'screens', action.path[0], 'ui', action.path[1], 'ui'],
+        buttonGroupUI =>
+          buttonGroupUI.push(
+            Immutable.fromJS({
+              type: 'button',
+              text: 'Tekst på svarknap',
+              action: {
+                screen: answerScreen,
+                increment: {score: 0, correct: 0, questionCount: 1}
+              }
+            })
+          )
+      );
+      return state;
+    }
     default:
       console.log('Unrecognised action', action);
       return state;

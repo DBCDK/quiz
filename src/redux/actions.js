@@ -1,5 +1,11 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const addQuestionAnswer = path => {
+  return {
+    type: 'ADD_QUESTION_ANSWER',
+    path: path
+  };
+};
 export const updateScreenElement = o => {
   return {
     type: 'UPDATE_SCREEN_ELEMENT',
