@@ -55,8 +55,7 @@ const quizElements = {
       </Grid>
     ),
     edit: ({ui}, props) => {
-      const {updateQuizElement, editScreen, classes} = props;
-      console.log(props);
+      const {updateQuizElement, classes, addQuestionAnswer} = props;
       return (
         <Grid container spacing={16}>
           {ui.map((answer, pos) => {
@@ -65,7 +64,6 @@ const quizElements = {
                 answer.action.increment &&
                 +answer.action.increment.score) ||
               0;
-            console.log('xxx', answer);
             return (
               <Grid item key={pos} xs={6}>
                 {answer.type === 'button' &&
@@ -106,7 +104,7 @@ const quizElements = {
             );
           })}
           <Grid item xs={12}>
-            <Button aria-label="Add" mini onClick={() => {}}>
+            <Button aria-label="Add" mini onClick={addQuestionAnswer}>
               <AddIcon /> svar
             </Button>
           </Grid>

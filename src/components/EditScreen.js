@@ -8,7 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 
 import {adminCurrentScreen, getScreen} from '../redux/selectors';
-import {editScreen, updateScreenElement} from '../redux/actions';
+import {
+  editScreen,
+  updateScreenElement,
+  addQuestionAnswer
+} from '../redux/actions';
 import quizElements from './quizElements';
 import style from './style';
 
@@ -18,7 +22,8 @@ export class EditScreen extends Component {
       currentScreen,
       classes,
       doEditScreen,
-      doUpdateScreenElement
+      doUpdateScreenElement,
+      doAddQuestionAnswer
     } = this.props;
     return (
       <Grid container spacing={16}>
@@ -30,21 +35,21 @@ export class EditScreen extends Component {
             <ArrowBackIcon />Tilbage
           </Button>
         </Grid>
-        {currentScreen.get('ui').map((o, pos) => {
-          return (
-            <Grid key={pos} item xs={12}>
-              {quizElements[o.get('type')].edit &&
-                quizElements[o.get('type')].edit(o.toJS(), {
-                  classes,
-                  editScreen: doEditScreen,
-                  updateQuizElement: doUpdateScreenElement(
-                    currentScreen.get('_id'),
-                    pos
-                  )
-                })}
-            </Grid>
-          );
-        })}
+        {currentScreen.get('ui').map((o, pos) => (
+          <Grid key={pos} item xs={12}>
+            {quizElements[o.get('type')].edit &&
+              quizElements[o.get('type')].edit(o.toJS(), {
+                classes,
+                editScreen: doEditScreen,
+                addQuestionAnswer: () =>
+                  doAddQuestionAnswer(currentScreen.get('_id'), pos),
+                updateQuizElement: doUpdateScreenElement(
+                  currentScreen.get('_id'),
+                  pos
+                )
+              })}
+          </Grid>
+        ))}
       </Grid>
     );
   }
@@ -59,7 +64,9 @@ export function mapDispatchToProps(dispatch) {
   return {
     doEditScreen: screen => dispatch(editScreen({screen})),
     doUpdateScreenElement: (screen, pos) => updateFn =>
-      dispatch(updateScreenElement({screen, pos, updateFn}))
+      dispatch(updateScreenElement({screen, pos, updateFn})),
+    doAddQuestionAnswer: (screen, pos) =>
+      dispatch(addQuestionAnswer([screen, pos]))
   };
 }
 
