@@ -209,7 +209,7 @@ exports[`renders editing of a question 1`] = `
           <br />
           <div
             aria-describedby={undefined}
-            className="MuiFormControl-root-170 MuiFormControl-fullWidth-173"
+            className="MuiFormControl-root-170 MuiFormControl-fullWidth-173 Connect-EditScreen--margin-3"
           >
             <label
               className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"
@@ -286,7 +286,43 @@ exports[`renders editing of a question 1`] = `
             className="MuiTouchRipple-root-163"
           />
         </button>
-        TODO: point for svar
+        <div
+          aria-describedby={undefined}
+          className="MuiFormControl-root-170 Connect-EditScreen--margin-3"
+        >
+          <label
+            className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"
+            data-shrink={true}
+            htmlFor={undefined}
+          >
+            Point for svar
+          </label>
+          <div
+            className="MuiInput-root-186 MuiInput-formControl-187 MuiInput-underline-190"
+          >
+            <input
+              aria-invalid={false}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-194 MuiInput-inputType-197"
+              defaultValue={undefined}
+              disabled={false}
+              id={undefined}
+              name={undefined}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder={undefined}
+              readOnly={undefined}
+              required={false}
+              rows={undefined}
+              type="number"
+              value={0}
+            />
+          </div>
+        </div>
       </div>
       <div
         className="MuiGrid-item-6 MuiGrid-grid-xs-6-39"
@@ -321,7 +357,7 @@ exports[`renders editing of a question 1`] = `
           <br />
           <div
             aria-describedby={undefined}
-            className="MuiFormControl-root-170 MuiFormControl-fullWidth-173"
+            className="MuiFormControl-root-170 MuiFormControl-fullWidth-173 Connect-EditScreen--margin-3"
           >
             <label
               className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"
@@ -398,7 +434,43 @@ exports[`renders editing of a question 1`] = `
             className="MuiTouchRipple-root-163"
           />
         </button>
-        TODO: point for svar
+        <div
+          aria-describedby={undefined}
+          className="MuiFormControl-root-170 Connect-EditScreen--margin-3"
+        >
+          <label
+            className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"
+            data-shrink={true}
+            htmlFor={undefined}
+          >
+            Point for svar
+          </label>
+          <div
+            className="MuiInput-root-186 MuiInput-formControl-187 MuiInput-underline-190"
+          >
+            <input
+              aria-invalid={false}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-194 MuiInput-inputType-197"
+              defaultValue={undefined}
+              disabled={false}
+              id={undefined}
+              name={undefined}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder={undefined}
+              readOnly={undefined}
+              required={false}
+              rows={undefined}
+              type="number"
+              value={1}
+            />
+          </div>
+        </div>
       </div>
       <div
         className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
@@ -486,7 +558,7 @@ exports[`renders editing of a question 1`] = `
       <br />
       <div
         aria-describedby={undefined}
-        className="MuiFormControl-root-170 MuiFormControl-fullWidth-173"
+        className="MuiFormControl-root-170 MuiFormControl-fullWidth-173 Connect-EditScreen--margin-3"
       >
         <label
           className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"
@@ -2287,7 +2359,7 @@ exports[`renders editing of intro 1`] = `
       <br />
       <div
         aria-describedby={undefined}
-        className="MuiFormControl-root-170 MuiFormControl-fullWidth-173"
+        className="MuiFormControl-root-170 MuiFormControl-fullWidth-173 Connect-EditScreen--margin-3"
       >
         <label
           className="MuiFormLabel-root-179 MuiFormLabel-filled-183 MuiInputLabel-root-174 MuiInputLabel-formControl-175 MuiInputLabel-animated-178 MuiInputLabel-shrink-177"

@@ -15,6 +15,7 @@ const sampleQuiz = {
     start: 'intro',
     initialState: {
       score: 0,
+      correct: 0,
       maxScore: 0
     }
   },
@@ -62,7 +63,8 @@ const sampleQuiz = {
                 screen: 'answer1a',
                 increment: {
                   score: 0,
-                  maxScore: 1
+                  correct: 0,
+                  questionCount: 1
                 }
               }
             },
@@ -73,7 +75,8 @@ const sampleQuiz = {
                 screen: 'answer1b',
                 increment: {
                   score: 1,
-                  maxScore: 1
+                  correct: 1,
+                  questionCount: 1
                 }
               }
             }
@@ -143,7 +146,8 @@ const sampleQuiz = {
                 screen: 'answer2a',
                 increment: {
                   score: 0,
-                  maxScore: 1
+                  correct: 0,
+                  questionCount: 1
                 }
               }
             },
@@ -154,7 +158,8 @@ const sampleQuiz = {
                 screen: 'answer2b',
                 increment: {
                   score: 1,
-                  maxScore: 1
+                  correct: 1,
+                  questionCount: 1
                 }
               }
             }
@@ -234,7 +239,7 @@ const sampleQuiz = {
         },
         {
           type: 'text',
-          text: 'Tillykke, du havde {{score}} ud af {{maxScore}} rigtige'
+          text: 'Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige'
         }
       ],
       log: true
