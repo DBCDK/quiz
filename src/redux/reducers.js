@@ -80,6 +80,25 @@ export function root(state = initialState, action) {
       return state.update('quiz', quiz => deleteSection(quiz, action.screenId));
     case 'ADMIN_MOVE_SECTION':
       return moveSection(state, action);
+    case 'ADD_QUESTION_ANSWER': {
+      // TODO add answer-response-screen
+      const answerScreen = 'answer1a';
+      state = state.updateIn(
+        ['quiz', 'screens', action.path[0], 'ui', action.path[1], 'ui'],
+        buttonGroupUI =>
+          buttonGroupUI.push(
+            Immutable.fromJS({
+              type: 'button',
+              text: 'Tekst på svarknap',
+              action: {
+                screen: answerScreen,
+                increment: {score: 0, correct: 0, questionCount: 1}
+              }
+            })
+          )
+      );
+      return state;
+    }
     default:
       console.log('Unrecognised action', action);
       return state;
