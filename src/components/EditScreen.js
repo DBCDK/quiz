@@ -2,10 +2,14 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 import {adminCurrentScreen, getScreen} from '../redux/selectors';
 import {
@@ -16,15 +20,102 @@ import {
 import quizElements from './quizElements';
 import style from './style';
 
+function editUI({
+  currentScreen,
+  classes,
+  doEditScreen,
+  doUpdateScreenElement,
+  doAddQuestionAnswer
+}) {
+  return currentScreen.get('ui').map((o, pos) => (
+    <Grid key={pos} item xs={12}>
+      {quizElements[o.get('type')].edit &&
+        quizElements[o.get('type')].edit(o.toJS(), {
+          classes,
+          editScreen: doEditScreen,
+          addQuestionAnswer: () =>
+            doAddQuestionAnswer(currentScreen.get('_id'), pos),
+          updateQuizElement: doUpdateScreenElement(
+            currentScreen.get('_id'),
+            pos
+          )
+        })}
+    </Grid>
+  ));
+}
+function editCondition(condition, {classes, doEditScreen}) {
+  const minScore = condition.getIn(['condition', 'atLeast', 'score']);
+  return (
+    <Grid item xs={12} key={condition.getIn(['action', 'screen'])}>
+      <Paper>
+        <TextField
+          label="Mindste antal point"
+          value={minScore}
+          onChange={e => console.log('TODO: change minScore')}
+          type="number"
+          className={classes.margin}
+        />
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() => doEditScreen(condition.getIn(['action', 'screen']))}
+          className={classes.margin}
+        >
+          Rediger slutning
+        </Button>
+        <TextField
+          className={classes.margin}
+          label="Url for pokalbilled"
+          value="some://url"
+          onChange={e => console.log('TODO update pokalurl', e.target.value)}
+        />
+        <Button
+          className={classes.margin}
+          variant="fab"
+          aria-label="Delete"
+          mini
+          onClick={() => console.log('TODO: delete')}
+        >
+          <DeleteIcon />
+        </Button>
+      </Paper>
+    </Grid>
+  );
+}
+function editDispatch({currentScreen, classes, doEditScreen}) {
+  return (
+    <Grid container spacing={16}>
+      {currentScreen
+        .get('dispatch')
+        .butLast()
+        .map(o => editCondition(o, {classes, doEditScreen}))}
+      <Grid item xs={12}>
+        <Button aria-label="Add" mini onClick={addQuestionAnswer}>
+          <AddIcon /> Mulig slutning
+        </Button>
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() =>
+            doEditScreen(
+              currentScreen
+                .get('dispatch')
+                .last()
+                .getIn(['action', 'screen'])
+            )
+          }
+          className={classes.margin}
+        >
+          Rediger default slutning
+        </Button>
+      </Grid>
+    </Grid>
+  );
+}
+
 export class EditScreen extends Component {
   render() {
-    const {
-      currentScreen,
-      classes,
-      doEditScreen,
-      doUpdateScreenElement,
-      doAddQuestionAnswer
-    } = this.props;
+    const {currentScreen, doEditScreen} = this.props;
     return (
       <Grid container spacing={16}>
         <Grid item xs={12}>
@@ -36,22 +127,10 @@ export class EditScreen extends Component {
           </Button>
         </Grid>
         {currentScreen.get('ui')
-          ? currentScreen.get('ui').map((o, pos) => (
-              <Grid key={pos} item xs={12}>
-                {quizElements[o.get('type')].edit &&
-                  quizElements[o.get('type')].edit(o.toJS(), {
-                    classes,
-                    editScreen: doEditScreen,
-                    addQuestionAnswer: () =>
-                      doAddQuestionAnswer(currentScreen.get('_id'), pos),
-                    updateQuizElement: doUpdateScreenElement(
-                      currentScreen.get('_id'),
-                      pos
-                    )
-                  })}
-              </Grid>
-            ))
-          : 'This screen type is not supported yet'}
+          ? editUI(this.props)
+          : currentScreen.get('dispatch')
+            ? editDispatch(this.props)
+            : 'Error: unsupported screen'}
       </Grid>
     );
   }
