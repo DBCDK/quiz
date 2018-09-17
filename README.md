@@ -44,7 +44,7 @@ Instantiationg `openPlatformQuiz.Widget` adds a quiz at the named document eleme
 ## Getting dev-environment up and running
 
 Run a local instance of
-<https://openplatform.dbc.dk/>, and run it locally:
+<https://openplatform.dbc.dk/>:
 
 ```
 git clone https://github.com/DBCDK/serviceprovider
@@ -58,7 +58,20 @@ Then run `npm start` in the directory of this repository.
 
 # Changelog / sprints
 
-## 2018-09-12
+## 2018-09-26
+
+- Editable dispatch
+- Editable buttons/answers for question
+- In-person meeting, with discussion/clarification of project.
+
+## 2018-09-12 Initial Admin user interface
+
+- Deployment of backend
+- Edit individual question/resultpage/... #124, #125, #126
+- Edit Quiz details #57
+- Refactoring/cleanup/tests/robustness #106, #115, #114, #107, #121
+- Reorder questions #99, #58
+- Add Question #97
 
 ## 2018-08-29 Draft data structures and initial barebone widget
 
@@ -72,7 +85,7 @@ Then run `npm start` in the directory of this repository.
 
 ## 2018-08-15 (sprint skipped due to vacation etc).
 
-## 2018-08-01 Initial setup
+## 2018-08-01 Initial setup and backend
 
 - Set up project #1 #26
   - Create repository

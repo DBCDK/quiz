@@ -1,4 +1,23 @@
-Spørgsmål til kunde:
+Møde 19/9
 
-- eksempel-quiz
-- Pokal tilknyttet afslutningen, eller quiz'en generelt?
+- Indledning / plan for mødet
+- Roadmap (NB løbende dialog)
+  - basal virkende funktionalitet
+  - design / UX
+  - inkrementelle forbedringer
+- Eksempel-quiz
+  - _Konkret eksempelquiz._
+  - Migration af DHB-quizzer hvis overkommeligt, - adgang til data?
+- Eksisternede løsning, som erstattes? (Det Hemmelige Bibliotek)
+  - Forventningsafstemning: "Quiz-funktionalitet" vs. "Det Hemmelige Bibliotek v2"
+  - Se eksisterende app?
+  - Eventuelt genbrug af dele af design
+- Udviklingsprocess
+  - Demo på https://dbcdk.github.io/quiz/
+  - "Changelog" i README.md i dokumentation og kildekode på https://github.com/dbcdk/quiz/
+  - Transparent/åben udvikling, dialog velkommen. (Issues/dokumentation ofte skrevet på engelsk, men kan også sagtens være dansk)
+  - Udviklingsoverblik på https://waffle.io/DBCDK/quiz
+  - Issue-tracking på https://github.com/DBCDK/quiz/issues
+- Specifikationafklaring
+  - "knap-farver" (eller styling generelt i dialog)
+  - Pokal tilknyttet quiz generelt (eller tilknyttet en afslutning)
