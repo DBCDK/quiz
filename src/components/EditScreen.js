@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import React, {Component} from 'react';
+import Immutable from 'immutable';
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -15,7 +16,8 @@ import {adminCurrentScreen, getScreen} from '../redux/selectors';
 import {
   editScreen,
   updateScreenElement,
-  addQuestionAnswer
+  addQuestionAnswer,
+  updateDispatch
 } from '../redux/actions';
 import quizElements from './quizElements';
 import style from './style';
@@ -43,7 +45,7 @@ function editUI({
     </Grid>
   ));
 }
-function editCondition(condition, {classes, doEditScreen}) {
+function editCondition(condition, {classes, doEditScreen, doUpdateDispatch}) {
   const minScore = condition.getIn(['condition', 'atLeast', 'score']);
   return (
     <Grid item xs={12} key={condition.getIn(['action', 'screen'])}>
@@ -51,7 +53,16 @@ function editCondition(condition, {classes, doEditScreen}) {
         <TextField
           label="Mindste antal point"
           value={minScore}
-          onChange={e => console.log('TODO: change minScore')}
+          onChange={e =>
+            doUpdateDispatch(o =>
+              o.set(
+                'condition',
+                Immutable.fromJS({
+                  atLeast: {score: Math.max(0, e.target.value)}
+                })
+              )
+            )
+          }
           type="number"
           className={classes.margin}
         />
@@ -82,13 +93,24 @@ function editCondition(condition, {classes, doEditScreen}) {
     </Grid>
   );
 }
-function editDispatch({currentScreen, classes, doEditScreen}) {
+function editDispatch({
+  currentScreen,
+  classes,
+  doEditScreen,
+  doUpdateDispatch
+}) {
   return (
     <Grid container spacing={16}>
       {currentScreen
         .get('dispatch')
         .butLast()
-        .map(o => editCondition(o, {classes, doEditScreen}))}
+        .map((o, pos) =>
+          editCondition(o, {
+            classes,
+            doEditScreen,
+            doUpdateDispatch: doUpdateDispatch(currentScreen.get('_id'), pos)
+          })
+        )}
       <Grid item xs={12}>
         <Button aria-label="Add" mini onClick={addQuestionAnswer}>
           <AddIcon /> Mulig slutning
@@ -146,6 +168,8 @@ export function mapDispatchToProps(dispatch) {
     doEditScreen: screen => dispatch(editScreen({screen})),
     doUpdateScreenElement: (screen, pos) => updateFn =>
       dispatch(updateScreenElement({screen, pos, updateFn})),
+    doUpdateDispatch: (screen, pos) => updateFn =>
+      dispatch(updateDispatch({screen, pos, updateFn})),
     doAddQuestionAnswer: (screen, pos) =>
       dispatch(addQuestionAnswer([screen, pos]))
   };
