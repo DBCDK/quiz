@@ -48,11 +48,26 @@ function pageAction(state, action) {
     return state;
   }
 }
+function sortDispatchesByAtLeastScore(state, screen) {
+  return state.updateIn(['quiz', 'screens', screen, 'dispatch'], o =>
+    o.sort(
+      (a, b) =>
+        b.getIn(['condition', 'atLeast', 'score'], -1) -
+        a.getIn(['condition', 'atLeast', 'score'], -1)
+    )
+  );
+}
 
 export function root(state = initialState, action) {
   switch (action.type) {
     case '@@INIT':
       return state;
+    case 'UPDATE_DISPATCH':
+      state = state.updateIn(
+        ['quiz', 'screens', action.screen, 'dispatch', action.pos],
+        action.updateFn
+      );
+      return sortDispatchesByAtLeastScore(state, action.screen);
     case 'UPDATE_SCREEN_ELEMENT':
       state = state.updateIn(
         ['quiz', 'screens', action.screen, 'ui', action.pos],

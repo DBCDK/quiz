@@ -1,5 +1,11 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const updateDispatch = o => {
+  return {
+    type: 'UPDATE_DISPATCH',
+    ...o
+  };
+};
 export const addQuestionAnswer = path => {
   return {
     type: 'ADD_QUESTION_ANSWER',
