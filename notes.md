@@ -5,6 +5,9 @@ Møde 19/9
   - basal virkende funktionalitet
   - design / UX
   - inkrementelle forbedringer
+    - evt. understøt links i hjælpetekst
+    - evt. link til billeder udenfor DÅP
+    - evt. device statistik
 - Drift - Silkeborg-DDB - DÅP
 - DDB/CMS - indlejring
 - Eksempel-quiz
@@ -15,8 +18,9 @@ Møde 19/9
   - Se eksisterende app?
   - Eventuelt genbrug af dele af design
 - Design + specifikation
-  - fuldskærm vs. widget
-  - "knap-farver" (eller styling generelt i dialog)
+  - ~fuldskærm~ vs. _widget_
+  - +_material design_ skele til Bibliotekt-app'en
+  - "knap-farver" (eller styling generelt i dialog, inspireret af quiz-maker) - mere i stil med farvervalg for material design
   - Pokal tilknyttet quiz generelt (eller tilknyttet en afslutning)
 - Udviklingsprocess
   - Demo på https://dbcdk.github.io/quiz/
@@ -24,5 +28,3 @@ Møde 19/9
   - Transparent/åben udvikling, dialog velkommen. (Issues/dokumentation ofte skrevet på engelsk, men kan også sagtens være dansk)
   - Udviklingsoverblik på https://waffle.io/DBCDK/quiz
   - Issue-tracking på https://github.com/DBCDK/quiz/issues
-
-Jørgen, Tom-styregruppe
