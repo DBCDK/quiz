@@ -62,6 +62,44 @@ export function root(state = initialState, action) {
   switch (action.type) {
     case '@@INIT':
       return state;
+    case 'ADD_DISPATCH':
+      const newScreen = uuidv4();
+      state = state.setIn(
+        ['quiz', 'screens', newScreen],
+        Immutable.fromJS({
+          _id: newScreen,
+          parent: action.screen,
+          ui: [
+            {
+              type: 'media',
+              image: ''
+            },
+
+            {type: 'text', text: 'Feedback tekst'},
+            {
+              type: 'button',
+              text: 'Prøv igen',
+              action: {screen: state.getIn(['quiz', 'settings', 'start'])}
+            }
+          ],
+          log: true
+        })
+      );
+      state = state.updateIn(
+        ['quiz', 'screens', action.screen, 'dispatch'],
+        o =>
+          o.push(
+            Immutable.fromJS({
+              condition: {atLeast: {score: 10}},
+              action: {
+                screen: newScreen,
+                set: {trophy: {image: ''}},
+                callback: true
+              }
+            })
+          )
+      );
+      return sortDispatchesByAtLeastScore(state, action.screen);
     case 'DELETE_DISPATCH':
       state = state.updateIn(
         ['quiz', 'screens', action.screen, 'dispatch'],
@@ -104,8 +142,6 @@ export function root(state = initialState, action) {
     case 'ADMIN_MOVE_SECTION':
       return moveSection(state, action);
     case 'ADD_QUESTION_ANSWER': {
-      // TODO add answer-response-screen
-
       const nextScreen = state.getIn([
         'quiz',
         'screens',

@@ -18,7 +18,8 @@ import {
   updateScreenElement,
   addQuestionAnswer,
   updateDispatch,
-  deleteDispatch
+  deleteDispatch,
+  addDispatch
 } from '../redux/actions';
 import quizElements from './quizElements';
 import style from './style';
@@ -102,7 +103,8 @@ function editDispatch({
   classes,
   doEditScreen,
   doUpdateDispatch,
-  doDeleteDispatch
+  doDeleteDispatch,
+  doAddDispatch
 }) {
   return (
     <Grid container spacing={16}>
@@ -118,7 +120,11 @@ function editDispatch({
           })
         )}
       <Grid item xs={12}>
-        <Button aria-label="Add" mini onClick={addQuestionAnswer}>
+        <Button
+          aria-label="Add"
+          mini
+          onClick={() => doAddDispatch(currentScreen.get('_id'))}
+        >
           <AddIcon /> Mulig slutning
         </Button>
         <Button
@@ -172,6 +178,7 @@ export function mapStateToProps(state, ownProps) {
 export function mapDispatchToProps(dispatch) {
   return {
     doEditScreen: screen => dispatch(editScreen({screen})),
+    doAddDispatch: screen => dispatch(addDispatch(screen)),
     doDeleteDispatch: (screen, pos) => () =>
       dispatch(deleteDispatch({screen, pos})),
     doUpdateScreenElement: (screen, pos) => updateFn =>
