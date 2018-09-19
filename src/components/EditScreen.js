@@ -17,7 +17,8 @@ import {
   editScreen,
   updateScreenElement,
   addQuestionAnswer,
-  updateDispatch
+  updateDispatch,
+  deleteDispatch
 } from '../redux/actions';
 import quizElements from './quizElements';
 import style from './style';
@@ -45,7 +46,10 @@ function editUI({
     </Grid>
   ));
 }
-function editCondition(condition, {classes, doEditScreen, doUpdateDispatch}) {
+function editCondition(
+  condition,
+  {classes, doEditScreen, doUpdateDispatch, doDeleteDispatch}
+) {
   const minScore = condition.getIn(['condition', 'atLeast', 'score']);
   return (
     <Grid item xs={12} key={condition.getIn(['action', 'screen'])}>
@@ -85,7 +89,7 @@ function editCondition(condition, {classes, doEditScreen, doUpdateDispatch}) {
           variant="fab"
           aria-label="Delete"
           mini
-          onClick={() => console.log('TODO: delete')}
+          onClick={doDeleteDispatch}
         >
           <DeleteIcon />
         </Button>
@@ -97,7 +101,8 @@ function editDispatch({
   currentScreen,
   classes,
   doEditScreen,
-  doUpdateDispatch
+  doUpdateDispatch,
+  doDeleteDispatch
 }) {
   return (
     <Grid container spacing={16}>
@@ -108,7 +113,8 @@ function editDispatch({
           editCondition(o, {
             classes,
             doEditScreen,
-            doUpdateDispatch: doUpdateDispatch(currentScreen.get('_id'), pos)
+            doUpdateDispatch: doUpdateDispatch(currentScreen.get('_id'), pos),
+            doDeleteDispatch: doDeleteDispatch(currentScreen.get('_id'), pos)
           })
         )}
       <Grid item xs={12}>
@@ -166,6 +172,8 @@ export function mapStateToProps(state, ownProps) {
 export function mapDispatchToProps(dispatch) {
   return {
     doEditScreen: screen => dispatch(editScreen({screen})),
+    doDeleteDispatch: (screen, pos) => () =>
+      dispatch(deleteDispatch({screen, pos})),
     doUpdateScreenElement: (screen, pos) => updateFn =>
       dispatch(updateScreenElement({screen, pos, updateFn})),
     doUpdateDispatch: (screen, pos) => updateFn =>
