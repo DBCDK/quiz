@@ -62,6 +62,13 @@ export function root(state = initialState, action) {
   switch (action.type) {
     case '@@INIT':
       return state;
+    case 'DELETE_DISPATCH':
+      state = state.updateIn(
+        ['quiz', 'screens', action.screen, 'dispatch'],
+        o => o.delete(action.pos)
+      );
+      // TODO: prune orphaned screens
+      return state;
     case 'UPDATE_DISPATCH':
       state = state.updateIn(
         ['quiz', 'screens', action.screen, 'dispatch', action.pos],

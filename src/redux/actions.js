@@ -1,5 +1,11 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 
+export const deleteDispatch = o => {
+  return {
+    type: 'DELETE_DISPATCH',
+    ...o
+  };
+};
 export const updateDispatch = o => {
   return {
     type: 'UPDATE_DISPATCH',
