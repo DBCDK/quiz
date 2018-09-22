@@ -82,8 +82,12 @@ function editCondition(
         <TextField
           className={classes.margin}
           label="Url for pokalbilled"
-          value="some://url"
-          onChange={e => console.log('TODO update pokalurl', e.target.value)}
+          value={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
+          onChange={e =>
+            doUpdateDispatch(o =>
+              o.setIn(['action', 'set', 'trophy', 'image'], e.target.value)
+            )
+          }
         />
         <Button
           className={classes.margin}
