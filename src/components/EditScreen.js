@@ -18,7 +18,8 @@ import {
   updateScreenElement,
   addQuestionAnswer,
   updateDispatch,
-  deleteDispatch
+  deleteDispatch,
+  addDispatch
 } from '../redux/actions';
 import quizElements from './quizElements';
 import style from './style';
@@ -81,8 +82,12 @@ function editCondition(
         <TextField
           className={classes.margin}
           label="Url for pokalbilled"
-          value="some://url"
-          onChange={e => console.log('TODO update pokalurl', e.target.value)}
+          value={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
+          onChange={e =>
+            doUpdateDispatch(o =>
+              o.setIn(['action', 'set', 'trophy', 'image'], e.target.value)
+            )
+          }
         />
         <Button
           className={classes.margin}
@@ -102,7 +107,8 @@ function editDispatch({
   classes,
   doEditScreen,
   doUpdateDispatch,
-  doDeleteDispatch
+  doDeleteDispatch,
+  doAddDispatch
 }) {
   return (
     <Grid container spacing={16}>
@@ -118,7 +124,11 @@ function editDispatch({
           })
         )}
       <Grid item xs={12}>
-        <Button aria-label="Add" mini onClick={addQuestionAnswer}>
+        <Button
+          aria-label="Add"
+          mini
+          onClick={() => doAddDispatch(currentScreen.get('_id'))}
+        >
           <AddIcon /> Mulig slutning
         </Button>
         <Button
@@ -172,6 +182,7 @@ export function mapStateToProps(state, ownProps) {
 export function mapDispatchToProps(dispatch) {
   return {
     doEditScreen: screen => dispatch(editScreen({screen})),
+    doAddDispatch: screen => dispatch(addDispatch(screen)),
     doDeleteDispatch: (screen, pos) => () =>
       dispatch(deleteDispatch({screen, pos})),
     doUpdateScreenElement: (screen, pos) => updateFn =>
