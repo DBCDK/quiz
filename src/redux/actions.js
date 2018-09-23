@@ -1,5 +1,12 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
+import sampleQuiz from '../sampleQuizData';
 
+export const adminQuizList = () => {
+  // TODO sync quiz to store
+  return {
+    type: 'ADMIN_QUIZ_LIST'
+  };
+};
 export const addDispatch = screen => {
   return {
     type: 'ADD_DISPATCH',
@@ -51,37 +58,67 @@ export const moveSection = o => {
 export const editScreen = ({screen}) => ({type: 'ADMIN_EDIT_SCREEN', screen});
 export const screenAction = action => ({type: 'PAGE_ACTION', action});
 
+let quizType, quizImageType, user;
+export const searchQuizzes = async ({query, own, tags, title}) => {
+  let result = await storage.scan({
+    reverse: true,
+    _type: quizType,
+    index: ['_owner', '_version'],
+    startsWith: [user]
+    //limit: 10
+  });
+  result = await Promise.all(result.map(o => storage.get(o.val)));
+  return result;
+};
+
+export const addQuiz = async dispatch => {
+  const {_id} = await storage.put(
+    Object.assign({}, sampleQuiz, {_type: quizType, _id: undefined})
+  );
+  dispatch({
+    type: 'SET_QUIZ',
+    quiz: await storage.get(_id)
+  });
+};
+export const setQuiz = quiz => ({type: 'SET_QUIZ', quiz});
+
 export const init = () => async dispatch => {
   dispatch({type: 'LOADING_STARTED'});
 
-  const user = await getUser();
+  user = await getUser();
   if (!user) {
     dispatch({type: 'LOADING_DONE'});
     return;
   }
-  const [quizType, quizImageType] = await Promise.all([
-    findOrCreateType(user, 'QUIZ', {
+  [quizType, quizImageType] = await Promise.all([
+    findOrCreateType(user, 'quiz', {
       type: 'json',
-      indexes: [{value: '_id', keys: ['_owner']}],
+      indexes: [
+        {value: '_id', keys: ['_owner', 'tags', '_version']},
+        {value: '_id', keys: ['_owner', 'title', '_version']},
+        {value: '_id', keys: ['_owner', '_version']},
+        {value: '_id', keys: ['title', '_version']},
+        {value: '_id', keys: ['tags', '_version']},
+        {value: '_id', keys: ['_version']}
+      ],
       permissions: {
         read: 'any'
       }
     }),
-    findOrCreateType(user, 'QUIZ_IMAGE', {
+    findOrCreateType(user, 'quizImage', {
       type: 'jpeg',
-      indexes: [{value: '_id', keys: ['_owner']}],
+      indexes: [{value: '_id', keys: ['_owner', '_version']}],
       permissions: {
         read: 'any'
       }
     })
   ]);
-  const ownQuizzes = await storage.find({_owner: user, _type: quizType});
+
   dispatch({
     type: 'INITIALISED',
     state: {
       widget: {
-        initialised: true,
-        ownQuizzes
+        initialised: true
       },
       storage: {
         user,
@@ -90,5 +127,8 @@ export const init = () => async dispatch => {
       }
     }
   });
+
+  const searchResults = await searchQuizzes({query: '', own: true});
+  dispatch({type: 'SEARCH_RESULTS', searchResults});
   dispatch({type: 'LOADING_DONE'});
 };

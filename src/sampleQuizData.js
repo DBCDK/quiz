@@ -1,23 +1,21 @@
 const sampleQuiz = {
   _type: 'quiz',
   _id: 'quizId',
-  settings: {
-    title: 'Sample Quiz',
-    description: 'some description',
-    tags: ['foo', 'bar'],
-    trophyImage: 'https://www.dbc.dk/logo.png',
-    style: {
-      backgroundImage: 'https://example.com/some.url',
-      buttonFontColor: '#BA0BAB',
-      buttonColor: '#C0FFEE',
-      '...': '...'
-    },
-    start: 'intro',
-    initialState: {
-      score: 0,
-      correct: 0,
-      maxScore: 0
-    }
+  title: 'Sample Quiz',
+  description: 'some description',
+  tags: ['foo', 'bar'],
+  trophyImage: 'https://www.dbc.dk/logo.png',
+  style: {
+    backgroundImage: 'https://example.com/some.url',
+    buttonFontColor: '#BA0BAB',
+    buttonColor: '#C0FFEE',
+    '...': '...'
+  },
+  start: 'intro',
+  initialState: {
+    score: 0,
+    correct: 0,
+    maxScore: 0
   },
   screens: {
     intro: {
@@ -110,7 +108,7 @@ const sampleQuiz = {
           type: 'text',
           text: `FORKERT SVAR. 
 
-      Det rigtige svar er fordi...`
+          Det rigtige svar er fordi...`
         },
         {type: 'button', text: 'videre', action: {screen: 'question2'}}
       ],
@@ -207,7 +205,7 @@ const sampleQuiz = {
           type: 'text',
           text: `Rigtigt svar...
 
-      Det var rigtigt...`
+          Det var rigtigt...`
         },
         {type: 'button', text: 'videre', action: {screen: 'done'}}
       ],

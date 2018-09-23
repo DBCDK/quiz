@@ -55,8 +55,11 @@ export class Widget extends Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const settings = quizSettings(state);
   const screen = currentScreen(state);
+  if (!screen) {
+    return <div>"Quiz screen missing or loading..."</div>;
+  }
+  const settings = quizSettings(state);
   return {
     loading: loading(state),
     vars: quizVariables(state),

@@ -7,33 +7,9 @@ Object {
 `;
 
 exports[`maps state to props 1`] = `
-Object {
-  "loading": false,
-  "quizTitle": "Sample Quiz",
-  "ui": Immutable.List [
-    Immutable.Map {
-        type: "media",
-        image: "https://www.dbc.dk/logo.png",
-    },
-    Immutable.Map {
-        type: "text",
-        text: "
-                Introtekst om quizzen, ...
-        
-                Her er mere beskrivelse
-                ",
-    },
-    Immutable.Map {
-        type: "button",
-        text: "Start",
-        action: Immutable.Map {
-            screen: "question1",
-        },
-    },
-],
-  "vars": Immutable.Map {
-},
-}
+<div>
+  "Quiz screen missing or loading..."
+</div>
 `;
 
 exports[`renders 1`] = `
@@ -44,13 +20,13 @@ exports[`renders 1`] = `
     className="MuiGrid-item-2 MuiGrid-grid-xs-12-41"
   >
     <header
-      className="MuiPaper-root-106 MuiPaper-elevation4-112 MuiAppBar-root-98 MuiAppBar-positionStatic-102 MuiAppBar-colorDefault-103"
+      className="MuiPaper-root-107 MuiPaper-elevation4-113 MuiAppBar-root-98 MuiAppBar-positionStatic-102 MuiAppBar-colorDefault-104"
     >
       <div
-        className="MuiToolbar-root-133 MuiToolbar-regular-135 MuiToolbar-gutters-134"
+        className="MuiToolbar-root-134 MuiToolbar-regular-136 MuiToolbar-gutters-135"
       >
         <h2
-          className="MuiTypography-root-137 MuiTypography-title-143 MuiTypography-colorInherit-156"
+          className="MuiTypography-root-138 MuiTypography-title-144 MuiTypography-colorInherit-158"
         >
           Titel for Quiz
         </h2>
@@ -68,13 +44,13 @@ exports[`renders page 1`] = `
     className="MuiGrid-item-2 MuiGrid-grid-xs-12-41"
   >
     <header
-      className="MuiPaper-root-106 MuiPaper-elevation4-112 MuiAppBar-root-98 MuiAppBar-positionStatic-102 MuiAppBar-colorDefault-103"
+      className="MuiPaper-root-107 MuiPaper-elevation4-113 MuiAppBar-root-98 MuiAppBar-positionStatic-102 MuiAppBar-colorDefault-104"
     >
       <div
-        className="MuiToolbar-root-133 MuiToolbar-regular-135 MuiToolbar-gutters-134"
+        className="MuiToolbar-root-134 MuiToolbar-regular-136 MuiToolbar-gutters-135"
       >
         <h2
-          className="MuiTypography-root-137 MuiTypography-title-143 MuiTypography-colorInherit-156"
+          className="MuiTypography-root-138 MuiTypography-title-144 MuiTypography-colorInherit-158"
         >
           Titel for Quiz
         </h2>
@@ -96,7 +72,7 @@ exports[`renders page 1`] = `
         className="MuiGrid-item-2 MuiGrid-grid-xs-6-35"
       >
         <button
-          className="MuiButtonBase-root-188 MuiButton-root-162 MuiButton-contained-173 MuiButton-raised-176 MuiButton-fullWidth-187"
+          className="MuiButtonBase-root-190 MuiButton-root-164 MuiButton-contained-175 MuiButton-raised-178 MuiButton-fullWidth-189"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -113,12 +89,12 @@ exports[`renders page 1`] = `
           type="button"
         >
           <span
-            className="MuiButton-label-163"
+            className="MuiButton-label-165"
           >
             but
           </span>
           <span
-            className="MuiTouchRipple-root-191"
+            className="MuiTouchRipple-root-193"
           />
         </button>
       </div>

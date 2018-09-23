@@ -28,7 +28,8 @@ import {
   deleteSection,
   updateSetting,
   editScreen,
-  moveSection
+  moveSection,
+  adminQuizList
 } from '../redux/actions';
 
 function draggable(onMoveSection, items) {
@@ -111,10 +112,18 @@ export class EditQuiz extends Component {
       editScreen,
       deleteSection,
       addQuestionSection,
-      addInfoSection
+      addInfoSection,
+      adminQuizList
     } = this.props;
     return (
       <Grid container spacing={16}>
+        <Button
+          className={classes.button}
+          fullWidth={true}
+          onClick={adminQuizList}
+        >
+          Vælg quiz
+        </Button>
         {renderDescriptionSettings({classes, settings, updateSetting})}
         {renderQuestionList({
           addQuestionSection,
@@ -294,7 +303,8 @@ export function mapDispatchToProps(dispatch) {
     deleteSection: o => dispatch(deleteSection(o)),
     addQuestionSection: before => addQuestionSection(dispatch, before),
     addInfoSection: before => addInfoSection(dispatch, before),
-    updateSetting: (path, setting) => dispatch(updateSetting(path, setting))
+    updateSetting: (path, setting) => dispatch(updateSetting(path, setting)),
+    adminQuizList: () => dispatch(adminQuizList())
   };
 }
 function addQuestionSection(dispatch, before) {
