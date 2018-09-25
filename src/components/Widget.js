@@ -65,7 +65,7 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch, ownProps) {
   return {
     onAction: action => dispatch(screenAction(action))
   };

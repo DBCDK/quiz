@@ -37,14 +37,13 @@ function initOpenPlatformQuiz() {
     elemId: 'quizElem',
     openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
     quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
-    onDone: function(result) { console.log(result); }
+    onDone: function(result) { console.log("result", result); }
   });
 
   admin = new openPlatformQuiz.Admin({
     elemId: 'adminElem',
     openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
     quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
-    onDone: function(result) { console.log(result); }
   });
 }
 
