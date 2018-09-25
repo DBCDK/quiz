@@ -15,7 +15,10 @@ window.addEventListener('load', () => {
   }
 });
 
-function mount(Cls, {elemId}) {
+function mount(Cls, {elemId, onDone}) {
+  if (onDone) {
+    store.dispatch({type: 'ONDONE_CALLBACK', fn: onDone});
+  }
   ReactDOM.render(
     <Provider store={store}>
       <Cls />

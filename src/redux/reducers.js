@@ -7,7 +7,7 @@ const initialState = sampleState;
 
 function pageAction(state, action) {
   while (true) {
-    let {screen, increment} = action.action;
+    let {screen, increment, set, callback} = action.action;
     if (screen) {
       state = state.setIn(['widget', 'currentScreen'], screen);
       const dispatch = state.getIn(['quiz', 'screens', screen, 'dispatch']);
@@ -45,6 +45,26 @@ function pageAction(state, action) {
         );
       }
     }
+
+    if (set) {
+      state = state.update('quizState', quizState =>
+        quizState.merge(Immutable.fromJS(set))
+      );
+    }
+
+    if (callback) {
+      try {
+        state.getIn(['widget', 'onDone'], () => {})(
+          state.get('quizState').toJS()
+        );
+      } catch (e) {
+        console.error(
+          'Error in quiz embedding, exception during onDone callback:',
+          e
+        );
+      }
+    }
+
     return state;
   }
 }
@@ -62,6 +82,8 @@ export function root(state = initialState, action) {
   switch (action.type) {
     case '@@INIT':
       return state;
+    case 'ONDONE_CALLBACK':
+      return state.setIn(['widget', 'onDone'], action.fn);
     case 'ADD_DISPATCH':
       const newScreen = uuidv4();
       state = state.setIn(
