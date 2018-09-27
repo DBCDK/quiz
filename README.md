@@ -1,5 +1,5 @@
 [![Travis](https://travis-ci.org/DBCDK/quiz.svg?branch=master)](https://travis-ci.org/DBCDK/quiz)
-[![Waffle](https://badge.waffle.io/DBCDK/biblo.svg?columns=all)](https://waffle.io/DBCDK/biblo)
+[![Waffle](https://badge.waffle.io/DBCDK/quiz.svg?columns=all)](https://waffle.io/DBCDK/quiz)
 [![Coverage](https://coveralls.io/repos/github/DBCDK/quiz/badge.svg?branch=master)](https://coveralls.io/github/DBCDK/quiz?branch=master)
 
 # Quiz
@@ -58,11 +58,21 @@ Then run `npm start` in the directory of this repository.
 
 # Changelog / sprints
 
-## 2018-09-26
+## 2018-10-10 Quizzes in OpenPlatform, start design
 
-- Editable dispatch
-- Editable buttons/answers for question
-- In-person meeting, with discussion/clarification of project.
+Planned:
+
+- Admin interface for creating / finding quizzes
+- Start design
+
+## 2018-09-26 Basic UI for editing single quiz up and running
+
+- (work started on storing quizzes in openplatform, not done yet)
+- Admin: Editable dispatch / quiz endings: #63, #145, #150, #143 #144
+- Admin: Editable answers for question. #52, #132, #141, #140, #137
+- Admin: Editable buttons
+- Widget: setting trophies, and working `onDone` callback. #152
+- In-person meeting, with discussion/clarification of project. #142
 
 ## 2018-09-12 Initial Admin user interface
 
