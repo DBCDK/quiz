@@ -1,6 +1,8 @@
 import {root} from '../reducers';
 import Immutable from 'immutable';
 import sampleState from '../sampleState.js';
+import sampleQuizData from '../../sampleQuizData.js';
+const stateWithQuiz = sampleState.set('quiz', Immutable.fromJS(sampleQuizData));
 
 describe('root reducer', () => {
   describe('@@INIT', () => {
@@ -46,7 +48,7 @@ describe('root reducer', () => {
       ).toBe('b');
     });
     it('dispatches to other screen', async () => {
-      const newState = root(sampleState, {
+      const newState = root(stateWithQuiz, {
         type: 'PAGE_ACTION',
         action: {screen: 'done'}
       });
@@ -54,7 +56,7 @@ describe('root reducer', () => {
     });
     it('dispatches to other screen', async () => {
       const newState = root(
-        sampleState.set(
+        stateWithQuiz.set(
           'quizState',
           Immutable.fromJS({
             score: 2,

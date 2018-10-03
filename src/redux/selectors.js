@@ -1,3 +1,5 @@
+import Immutable from 'immutable';
+
 export const ownQuizzes = state =>
   state
     .getIn(['widget', 'ownQuizzes'])
@@ -5,6 +7,7 @@ export const ownQuizzes = state =>
 export const quizVariables = state => state.get('quizState');
 export const adminCurrentScreen = state =>
   state.getIn(['admin', 'currentScreen']);
+export const currentQuiz = state => state.getIn(['quiz', '_id']);
 export const currentScreen = state => {
   const screen = state.getIn(
     ['quiz', 'screens', state.getIn(['widget', 'currentScreen'])],
@@ -13,20 +16,17 @@ export const currentScreen = state => {
   if (screen) {
     return screen;
   }
-  return state.getIn([
-    'quiz',
-    'screens',
-    state.getIn(['quiz', 'settings', 'start'])
-  ]);
+  return state.getIn(['quiz', 'screens', state.getIn(['quiz', 'start'])]);
 };
-export const quizSettings = state => state.getIn(['quiz', 'settings']);
+export const quizSettings = state => state.getIn(['quiz']);
 export const loading = state => state.getIn(['widget', 'loading']) !== 0;
-
+export const searchResults = state =>
+  state.get('searchResults', Immutable.fromJS([]));
 export const getScreen = (screenId, state) =>
   state.getIn(['quiz', 'screens', screenId]);
 
 export function questionList(state) {
-  const start = state.getIn(['quiz', 'settings', 'start']);
+  const start = state.getIn(['quiz', 'start']);
   let current = start;
   const result = [];
   do {

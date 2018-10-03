@@ -101,7 +101,7 @@ export function root(state = initialState, action) {
             {
               type: 'button',
               text: 'Prøv igen',
-              action: {screen: state.getIn(['quiz', 'settings', 'start'])}
+              action: {screen: state.getIn(['quiz', 'start'])}
             }
           ],
           log: true
@@ -144,11 +144,13 @@ export function root(state = initialState, action) {
       return state;
     case 'UPDATE_QUIZ_SETTING':
       return state.setIn(
-        ['quiz', 'settings'].concat(action.path),
+        ['quiz'].concat(action.path),
         Immutable.fromJS(action.setting)
       );
     case 'INITIALISED':
       return state.mergeDeep(action.state);
+    case 'SEARCH_RESULTS':
+      return state.set('searchResults', Immutable.fromJS(action.searchResults));
     case 'LOADING_STARTED':
       return state.updateIn(['widget', 'loading'], i => i + 1);
     case 'LOADING_DONE':
@@ -157,6 +159,10 @@ export function root(state = initialState, action) {
       return state.setIn(['admin', 'currentScreen'], action.screen);
     case 'PAGE_ACTION':
       return pageAction(state, action);
+    case 'SET_QUIZ':
+      return state.set('quiz', Immutable.fromJS(action.quiz));
+    case 'ADMIN_QUIZ_LIST':
+      return state.delete('quiz');
     case 'ADMIN_ADD_SECTION':
       return state.update('quiz', quiz => addSection(quiz, action));
     case 'ADMIN_DELETE_SECTION':

@@ -14,6 +14,7 @@ export const storage = {
   get: o => storageFn({get: o}),
   put: o => storageFn({put: o}),
   find: o => storageFn({find: o}),
+  scan: o => storageFn({scan: o}),
   typeType: () => {
     if (!typeType) {
       typeType = Promise.resolve(

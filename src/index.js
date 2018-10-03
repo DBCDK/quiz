@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import QuizWidget from './components/Widget';
 import QuizAdmin from './components/Admin';
 import store from './redux/store';
+import {} from './redux/autosave';
 import {Provider} from 'react-redux';
 
 if (typeof window.openPlatformQuiz !== 'object') {

@@ -2,9 +2,6 @@
 
 exports[`admin selectors topNodes finds top nodes screen graph 1`] = `
 Array [
-  "intro",
-  "question1",
-  "question2",
-  "done",
+  undefined,
 ]
 `;
