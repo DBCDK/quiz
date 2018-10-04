@@ -19,15 +19,9 @@
     <div style="margin: 5%;">
     <div id="quizElem"></div>
     </div>
-    <script src="http://localhost:8080/v3/dbc_openplatform.min.js"></script>
+    <script src="https://openplatform.dbc.dk/v3/dbc_openplatform.min.js"></script>
     <script>
-      dbcOpenPlatform.connect({socketClusterConfig: {
-        hostname: 'localhost',
-        ackTimeout: 30000,
-        port: 8080,
-        secure: false,
-        path: '/v3/socketcluster/?access_token='
-      }, token: 'qwerty'})
+      dbcOpenPlatform.connect('5f5420708b98fe67d2f983f6a93da44639b2cec3')
     </script>
     <script>
 var quiz, admin;

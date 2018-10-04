@@ -67,7 +67,7 @@ export const searchQuizzes = async ({query, own, tags, title}) => {
     startsWith: [user]
     //limit: 10
   });
-  result = await Promise.all(result.map(o => storage.get(o.val)));
+  result = await Promise.all(result.map(o => storage.get({_id: o.val})));
   return result;
 };
 
@@ -77,7 +77,7 @@ export const addQuiz = async dispatch => {
   );
   dispatch({
     type: 'SET_QUIZ',
-    quiz: await storage.get(_id)
+    quiz: await storage.get({_id})
   });
 };
 export const setQuiz = quiz => ({type: 'SET_QUIZ', quiz});
