@@ -11,8 +11,8 @@ export async function getUser() {
 const storageFn = window.dbcOpenPlatform && window.dbcOpenPlatform.storage;
 let typeType;
 export const storage = {
-  get: o => storageFn({get: o._id}),
-  delete: o => storageFn({delete: o._id}),
+  get: o => storageFn({get: o}),
+  delete: o => storageFn({delete: o}),
   put: o => storageFn({put: o}),
   find: o => storageFn({find: o}),
   scan: o => storageFn({scan: o}),
