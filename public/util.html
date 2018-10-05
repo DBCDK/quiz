@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Openplatform storage util</title>
+  </head>
+  <body>
+    Utility-hack for updating data in openplatform storage.
+    <form>
+      <dl>
+        <dt>ClientId</dt><dd><input id=username name=username autocomplete=on /></dd>
+        <dt>ClientSecret</dt><dd><input type=password id=password name=password autocomplete=on /></dd>
+      </dl>
+      <input value="submit form (no effect, hack to save clientid/clientsecret)" type=submit />
+    </form>
+      <div>
+        <button onClick=connect()>Connect</button><span id=userstatus></span>
+      </div>
+      <hr />
+      <div>
+        <input id=typeOwner placeholder="type owner" />
+        <input id=typeName placeholder="type name" /> 
+        <button onClick=findType()>find type</button>
+        <button onClick=deleteType()>delete type</button>
+        <div id=foundType></div>
+      </div>
+      <hr />
+      <div>
+        <select id=predefinedTypes onChange=selectPredefinedType()>
+          <option value=""></option>
+          <option value="quiz">Quiz</option>
+          <option value="quizImage">Quiz Image</option>
+          <option value="quizStatistics">Quiz Statistics</option>
+        </select>
+        <textarea id=typeJson>
+        </textarea>
+        <button onClick=putObject() >Put object / type</button>
+      </div>
+      <hr />
+    <script src="https://openplatform.dbc.dk/v3/dbc_openplatform.min.js"></script>
+    <script src="./util.js"></script>
+  </body>
+</html>
