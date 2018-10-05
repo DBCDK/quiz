@@ -1,14 +1,16 @@
 export async function getUser() {
-  if (!window.dbcOpenPlatform) {
-    return;
-  }
+  await ensureDbcOpenPlatform();
   const {
     storage: {user}
   } = await window.dbcOpenPlatform.status({fields: ['storage']});
   return user;
 }
 
-const storageFn = window.dbcOpenPlatform && window.dbcOpenPlatform.storage;
+const storageFn = async o => {
+  await ensureDbcOpenPlatform();
+  return await window.dbcOpenPlatform.storage(o);
+};
+
 let typeType;
 export const storage = {
   get: o => storageFn({get: o}),
@@ -39,3 +41,24 @@ export async function findOrCreateType(owner, name, typeData) {
   }
   return typeId;
 }
+function loadScript(url) {
+  return new Promise((resolve, reject) => {
+    const elem = document.createElement('script');
+    elem.src = url;
+    elem.onload = resolve;
+    elem.onerror = reject;
+    document.head.appendChild(elem);
+  });
+}
+async function ensureDbcOpenPlatform() {
+  if (!window.dbcOpenPlatform) {
+    await loadScript('https://openplatform.dbc.dk/v3/dbc_openplatform.min.js');
+  }
+}
+export async function connect(token) {
+  await ensureDbcOpenPlatform();
+  const result = await window.dbcOpenPlatform.connect(token);
+  return result;
+}
+
+export default {connect, storage, getUser};

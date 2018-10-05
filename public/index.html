@@ -19,24 +19,20 @@
     <div style="margin: 5%;">
     <div id="quizElem"></div>
     </div>
-    <script src="https://openplatform.dbc.dk/v3/dbc_openplatform.min.js"></script>
-    <script>
-      dbcOpenPlatform.connect('5f5420708b98fe67d2f983f6a93da44639b2cec3')
-    </script>
     <script>
 var quiz, admin;
 
 function initOpenPlatformQuiz() {
   quiz = new openPlatformQuiz.Widget({
     elemId: 'quizElem',
-    openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
+    openPlatformToken: '08396c0d40f002d48809f946f96d314c1e01bcf0',
     quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
     onDone: function(result) { console.log("result", result); }
   });
 
   admin = new openPlatformQuiz.Admin({
     elemId: 'adminElem',
-    openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
+    openPlatformToken: '08396c0d40f002d48809f946f96d314c1e01bcf0',
     quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
   });
 }

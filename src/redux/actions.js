@@ -85,6 +85,8 @@ export const setQuiz = quiz => ({type: 'SET_QUIZ', quiz});
 export const init = () => async dispatch => {
   dispatch({type: 'LOADING_STARTED'});
 
+  console.log('init');
+
   user = await getUser();
   if (!user) {
     dispatch({type: 'LOADING_DONE'});
