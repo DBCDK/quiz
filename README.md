@@ -34,6 +34,17 @@ Approach to embedding is inspired by how [YouTube](https://developers.google.com
 
 With regard to IFrame vs JavaScript approach, - embedding via JavaScript is choosen as this allows a more responsive view.
 
+Statistics about agency can be submitted with the statisticsEvent method, a la:
+
+```
+openPlatformQuiz.statisticsEvent({
+    openPlatformToken: '18396c0d40f002d48809f946f96d314c1e01bcf0',
+    quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
+    type: 'agency',
+    subtype: '770100'
+})
+```
+
 `onDone` is used for getting the quiz state after the quiz has finished.
 
 Instantiationg `openPlatformQuiz.Widget` adds a quiz at the named document element. The following CSS-classes can be used for styling:
