@@ -1,12 +1,14 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
 import sampleQuiz from '../sampleQuizData';
 
-export const adminQuizList = () => {
+export const adminQuizList = () => async dispatch => {
   // TODO sync quiz to store
-  return {
+  await searchQuizzes({})(dispatch);
+  dispatch({
     type: 'ADMIN_QUIZ_LIST'
-  };
+  });
 };
+
 export const addDispatch = screen => {
   return {
     type: 'ADD_DISPATCH',
@@ -59,7 +61,7 @@ export const editScreen = ({screen}) => ({type: 'ADMIN_EDIT_SCREEN', screen});
 export const screenAction = action => ({type: 'PAGE_ACTION', action});
 
 let quizType, quizImageType, user;
-export const searchQuizzes = async ({query, own, tags, title}) => {
+export const searchQuizzes = ({query, own, tags, title}) => async dispatch => {
   let result = await storage.scan({
     reverse: true,
     _type: quizType,
@@ -68,6 +70,7 @@ export const searchQuizzes = async ({query, own, tags, title}) => {
     //limit: 10
   });
   result = await Promise.all(result.map(o => storage.get({_id: o.val})));
+  dispatch({type: 'SEARCH_RESULTS', searchResults: result});
   return result;
 };
 
@@ -75,12 +78,17 @@ export const addQuiz = async dispatch => {
   const {_id} = await storage.put(
     Object.assign({}, sampleQuiz, {_type: quizType, _id: undefined})
   );
+  await searchQuizzes({})(dispatch);
   dispatch({
     type: 'SET_QUIZ',
     quiz: await storage.get({_id})
   });
 };
 export const setQuiz = quiz => ({type: 'SET_QUIZ', quiz});
+export const deleteQuiz = quizId => async dispatch => {
+  await storage.delete({_id: quizId});
+  await searchQuizzes({})(dispatch);
+};
 
 export const init = () => async dispatch => {
   dispatch({type: 'LOADING_STARTED'});
@@ -128,7 +136,6 @@ export const init = () => async dispatch => {
     }
   });
 
-  const searchResults = await searchQuizzes({query: '', own: true});
-  dispatch({type: 'SEARCH_RESULTS', searchResults});
+  await searchQuizzes({query: '', own: true})(dispatch);
   dispatch({type: 'LOADING_DONE'});
 };

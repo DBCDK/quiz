@@ -20,11 +20,11 @@ import style from './style';
 import {withStyles} from '@material-ui/core/styles';
 
 import {searchResults} from '../redux/selectors';
-import {addQuiz, setQuiz} from '../redux/actions';
+import {addQuiz, setQuiz, deleteQuiz} from '../redux/actions';
 
 export class QuizList extends Component {
   render() {
-    const {classes, searchResults, newQuiz, setQuiz} = this.props;
+    const {classes, searchResults, newQuiz, setQuiz, deleteQuiz} = this.props;
     return (
       <Grid container spacing={16}>
         <Grid item xs={12}>
@@ -72,7 +72,10 @@ export class QuizList extends Component {
                   <IconButton aria-label="Search" onClick={() => {}}>
                     <FileCopyIcon />
                   </IconButton>
-                  <IconButton aria-label="Search" onClick={() => {}}>
+                  <IconButton
+                    aria-label="Search"
+                    onClick={() => deleteQuiz(o.get('_id'))}
+                  >
                     <DeleteIcon />
                   </IconButton>
                 </ListItemSecondaryAction>
@@ -92,6 +95,7 @@ export function mapStateToProps(state, ownProps) {
 export function mapDispatchToProps(dispatch) {
   return {
     setQuiz: quiz => dispatch(setQuiz(quiz)),
+    deleteQuiz: quiz => dispatch(deleteQuiz(quiz)),
     newQuiz: () => dispatch(addQuiz)
   };
 }
