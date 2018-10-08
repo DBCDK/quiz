@@ -1,5 +1,6 @@
 import store from './store';
 import {storage} from './openplatform';
+import {searchQuizzes} from './actions';
 
 let prevQuiz;
 
@@ -10,6 +11,9 @@ async function doSave() {
     return;
   }
   await storage.put(prevQuiz.delete('_version').toJS());
+  if (!store.getState().get('quiz')) {
+    store.dispatch(searchQuizzes());
+  }
   console.log('saved');
 }
 
