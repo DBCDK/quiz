@@ -92,7 +92,7 @@ export class QuizList extends Component {
                   </small>
                 </ListItemText>
                 <ListItemSecondaryAction>
-                  <IconButton aria-label="Copy" onClick={copy(o)}>
+                  <IconButton aria-label="Copy" onClick={() => copy(o)}>
                     <FileCopyIcon />
                   </IconButton>
                   <IconButton
@@ -119,9 +119,17 @@ export function mapDispatchToProps(dispatch) {
   return {
     setQuiz: quiz => dispatch(setQuiz(quiz)),
     deleteQuiz: quiz => dispatch(deleteQuiz(quiz)),
-    newQuiz: () => dispatch(addQuiz),
+    newQuiz: () => dispatch(addQuiz()),
     doSearch: () => {},
-    copy: () => {},
+    copy: quiz =>
+      dispatch(
+        addQuiz(
+          quiz
+            .delete('_id')
+            .delete('_version')
+            .delete('_owner')
+        )
+      ),
     toggleOwnOnly: () => dispatch(toggleSearchOwnOnly()),
     changeQuery: q => dispatch(changeSearchQuery(q))
   };
