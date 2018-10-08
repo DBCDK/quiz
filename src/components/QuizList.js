@@ -19,12 +19,30 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import style from './style';
 import {withStyles} from '@material-ui/core/styles';
 
-import {searchResults} from '../redux/selectors';
-import {addQuiz, setQuiz, deleteQuiz} from '../redux/actions';
+import {searchResults, searchQuery} from '../redux/selectors';
+import {
+  addQuiz,
+  setQuiz,
+  deleteQuiz,
+  changeSearchQuery,
+  toggleSearchOwnOnly
+} from '../redux/actions';
 
 export class QuizList extends Component {
   render() {
-    const {classes, searchResults, newQuiz, setQuiz, deleteQuiz} = this.props;
+    const {
+      deleteQuiz,
+      classes,
+      searchResults,
+      newQuiz,
+      setQuiz,
+      query,
+      changeQuery,
+      ownOnly,
+      toggleOwnOnly,
+      doSearch,
+      copy
+    } = this.props;
     return (
       <Grid container spacing={16}>
         <Grid item xs={12}>
@@ -37,11 +55,13 @@ export class QuizList extends Component {
             fullWidth
             variant="outlined"
             label="Find quiz"
+            value={query}
+            onChange={e => changeQuery(e.target.value)}
             InputProps={{
               labelWidth: 64,
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton aria-label="Search" onClick={() => {}}>
+                  <IconButton aria-label="Search" onClick={doSearch}>
                     <SearchIcon />
                   </IconButton>
                 </InputAdornment>
@@ -49,7 +69,10 @@ export class QuizList extends Component {
             }}
           />
           <div>
-            <FormControlLabel control={<Switch />} label="Kun egne quizzer" />
+            <FormControlLabel
+              control={<Switch checked={ownOnly} onChange={toggleOwnOnly} />}
+              label="Kun egne quizzer"
+            />
           </div>
         </Grid>
         <Grid item xs={12}>
@@ -69,7 +92,7 @@ export class QuizList extends Component {
                   </small>
                 </ListItemText>
                 <ListItemSecondaryAction>
-                  <IconButton aria-label="Search" onClick={() => {}}>
+                  <IconButton aria-label="Copy" onClick={copy(o)}>
                     <FileCopyIcon />
                   </IconButton>
                   <IconButton
@@ -89,14 +112,18 @@ export class QuizList extends Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  return {searchResults: searchResults(state)};
+  return {searchResults: searchResults(state), ...searchQuery(state)};
 }
 
 export function mapDispatchToProps(dispatch) {
   return {
     setQuiz: quiz => dispatch(setQuiz(quiz)),
     deleteQuiz: quiz => dispatch(deleteQuiz(quiz)),
-    newQuiz: () => dispatch(addQuiz)
+    newQuiz: () => dispatch(addQuiz),
+    doSearch: () => {},
+    copy: () => {},
+    toggleOwnOnly: () => dispatch(toggleSearchOwnOnly()),
+    changeQuery: q => dispatch(changeSearchQuery(q))
   };
 }
 

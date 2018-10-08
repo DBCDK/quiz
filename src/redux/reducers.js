@@ -213,6 +213,10 @@ export function root(state = initialState, action) {
       );
       return state;
     }
+    case 'SEARCH_CHANGE_QUERY':
+      return state.setIn(['searchQuery', 'query'], action.query);
+    case 'SEARCH_TOGGLE_OWN_ONLY':
+      return state.updateIn(['searchQuery', 'ownOnly'], value => !value);
     default:
       console.log('Unrecognised action', action);
       return state;

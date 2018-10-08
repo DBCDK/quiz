@@ -106,7 +106,7 @@ exports[`renders editing of a question 1`] = `
           required={false}
           rows={undefined}
           type="text"
-          value={undefined}
+          value=""
         />
         <div
           className="MuiInputAdornment-root-200 MuiInputAdornment-positionEnd-203"
@@ -164,7 +164,7 @@ exports[`renders editing of a question 1`] = `
           className="MuiSwitch-root-214"
         >
           <span
-            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220"
+            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220 MuiSwitchBase-checked-224 MuiSwitch-checked-218"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -182,11 +182,11 @@ exports[`renders editing of a question 1`] = `
               className="MuiIconButton-label-209"
             >
               <span
-                className="MuiSwitch-icon-215"
+                className="MuiSwitch-icon-215 MuiSwitch-iconChecked-216"
               />
               <input
                 autoFocus={undefined}
-                checked={false}
+                checked={true}
                 className="MuiSwitchBase-input-226"
                 disabled={undefined}
                 id={undefined}
@@ -277,11 +277,11 @@ exports[`renders editing of a question 1`] = `
           className="MuiListItemSecondaryAction-root-274"
         >
           <button
-            aria-label="Search"
+            aria-label="Copy"
             className="MuiButtonBase-root-128 MuiIconButton-root-204"
             disabled={false}
             onBlur={[Function]}
-            onClick={[Function]}
+            onClick={undefined}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
@@ -473,7 +473,7 @@ exports[`renders editing of a quiz 1`] = `
           required={false}
           rows={undefined}
           type="text"
-          value={undefined}
+          value=""
         />
         <div
           className="MuiInputAdornment-root-200 MuiInputAdornment-positionEnd-203"
@@ -531,7 +531,7 @@ exports[`renders editing of a quiz 1`] = `
           className="MuiSwitch-root-214"
         >
           <span
-            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220"
+            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220 MuiSwitchBase-checked-224 MuiSwitch-checked-218"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -549,11 +549,11 @@ exports[`renders editing of a quiz 1`] = `
               className="MuiIconButton-label-209"
             >
               <span
-                className="MuiSwitch-icon-215"
+                className="MuiSwitch-icon-215 MuiSwitch-iconChecked-216"
               />
               <input
                 autoFocus={undefined}
-                checked={false}
+                checked={true}
                 className="MuiSwitchBase-input-226"
                 disabled={undefined}
                 id={undefined}
@@ -644,11 +644,11 @@ exports[`renders editing of a quiz 1`] = `
           className="MuiListItemSecondaryAction-root-274"
         >
           <button
-            aria-label="Search"
+            aria-label="Copy"
             className="MuiButtonBase-root-128 MuiIconButton-root-204"
             disabled={false}
             onBlur={[Function]}
-            onClick={[Function]}
+            onClick={undefined}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
@@ -840,7 +840,7 @@ exports[`renders editing of intro 1`] = `
           required={false}
           rows={undefined}
           type="text"
-          value={undefined}
+          value=""
         />
         <div
           className="MuiInputAdornment-root-200 MuiInputAdornment-positionEnd-203"
@@ -898,7 +898,7 @@ exports[`renders editing of intro 1`] = `
           className="MuiSwitch-root-214"
         >
           <span
-            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220"
+            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220 MuiSwitchBase-checked-224 MuiSwitch-checked-218"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -916,11 +916,11 @@ exports[`renders editing of intro 1`] = `
               className="MuiIconButton-label-209"
             >
               <span
-                className="MuiSwitch-icon-215"
+                className="MuiSwitch-icon-215 MuiSwitch-iconChecked-216"
               />
               <input
                 autoFocus={undefined}
-                checked={false}
+                checked={true}
                 className="MuiSwitchBase-input-226"
                 disabled={undefined}
                 id={undefined}
@@ -1011,11 +1011,11 @@ exports[`renders editing of intro 1`] = `
           className="MuiListItemSecondaryAction-root-274"
         >
           <button
-            aria-label="Search"
+            aria-label="Copy"
             className="MuiButtonBase-root-128 MuiIconButton-root-204"
             disabled={false}
             onBlur={[Function]}
-            onClick={[Function]}
+            onClick={undefined}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
