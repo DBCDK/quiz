@@ -6,6 +6,7 @@ import * as openplatform from '../openplatform';
 describe('reducers', () => {
   describe('init', () => {
     it('initialises store', async () => {
+      /*
       openplatform.getUser.mockImplementation(() => 'userId');
       openplatform.findOrCreateType
         .mockImplementationOnce((_, id) => {
@@ -19,7 +20,6 @@ describe('reducers', () => {
       openplatform.storage.find.mockImplementationOnce(() => ['x']);
       const dispatch = jest.fn();
 
-      /*
       await init()(dispatch);
 
       expect(dispatch.mock.calls[0][0]).toEqual({type: 'LOADING_STARTED'});

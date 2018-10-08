@@ -28,19 +28,6 @@ export const storage = {
     return typeType;
   }
 };
-export async function findOrCreateType(owner, name, typeData) {
-  let typeId = (await storage.find({_owner: owner, name}))[0];
-  if (!typeId) {
-    const typeDoc = await storage.put({
-      _type: await storage.typeType(),
-      _owner: owner,
-      name,
-      ...typeData
-    });
-    typeId = typeDoc._id;
-  }
-  return typeId;
-}
 function loadScript(url) {
   return new Promise((resolve, reject) => {
     const elem = document.createElement('script');
