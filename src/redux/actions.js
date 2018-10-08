@@ -81,9 +81,12 @@ export const searchQuizzes = () => async (dispatch, getState) => {
   return result;
 };
 
-export const addQuiz = async (dispatch, getState) => {
+export const addQuiz = quiz => async (dispatch, getState) => {
   const {_id} = await storage.put(
-    Object.assign({}, sampleQuiz, {_type: quizType, _id: undefined})
+    Object.assign({}, quiz ? quiz.toJS() : sampleQuiz, {
+      _type: quizType,
+      _id: undefined
+    })
   );
   await searchQuizzes()(dispatch, getState);
   dispatch({
