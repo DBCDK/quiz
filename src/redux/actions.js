@@ -4,7 +4,7 @@ import sampleQuiz from '../sampleQuizData';
 
 export const adminQuizList = () => async (dispatch, getState) => {
   // TODO sync quiz to store
-  await searchQuizzes(searchQuery(getState()))(dispatch);
+  await searchQuizzes()(dispatch, getState);
   dispatch({
     type: 'ADMIN_QUIZ_LIST'
   });
@@ -67,7 +67,8 @@ export const changeSearchQuery = query => ({
 export const toggleSearchOwnOnly = query => ({type: 'SEARCH_TOGGLE_OWN_ONLY'});
 
 let quizType, quizImageType, user;
-export const searchQuizzes = ({query, ownOnly}) => async dispatch => {
+export const searchQuizzes = () => async (dispatch, getState) => {
+  const {query, ownOnly} = searchQuery(getState());
   let result = await storage.scan({
     reverse: true,
     _type: quizType,
@@ -84,7 +85,7 @@ export const addQuiz = async (dispatch, getState) => {
   const {_id} = await storage.put(
     Object.assign({}, sampleQuiz, {_type: quizType, _id: undefined})
   );
-  await searchQuizzes(searchQuery(getState()))(dispatch);
+  await searchQuizzes()(dispatch, getState);
   dispatch({
     type: 'SET_QUIZ',
     quiz: await storage.get({_id})
@@ -93,7 +94,7 @@ export const addQuiz = async (dispatch, getState) => {
 export const setQuiz = quiz => ({type: 'SET_QUIZ', quiz});
 export const deleteQuiz = quizId => async (dispatch, getState) => {
   await storage.delete({_id: quizId});
-  await searchQuizzes(searchQuery(getState()))(dispatch);
+  await searchQuizzes()(dispatch, getState);
 };
 
 export const init = () => async (dispatch, getState) => {
@@ -144,6 +145,6 @@ export const init = () => async (dispatch, getState) => {
     }
   });
 
-  await searchQuizzes(searchQuery(getState()))(dispatch);
+  await searchQuizzes()(dispatch, getState);
   dispatch({type: 'LOADING_DONE'});
 };
