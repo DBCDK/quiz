@@ -1,9 +1,10 @@
 import {getUser, storage, findOrCreateType} from './openplatform';
+import {searchQuery} from './selectors';
 import sampleQuiz from '../sampleQuizData';
 
-export const adminQuizList = () => async dispatch => {
+export const adminQuizList = () => async (dispatch, getState) => {
   // TODO sync quiz to store
-  await searchQuizzes({})(dispatch);
+  await searchQuizzes(searchQuery(getState()))(dispatch);
   dispatch({
     type: 'ADMIN_QUIZ_LIST'
   });
@@ -59,9 +60,14 @@ export const moveSection = o => {
 };
 export const editScreen = ({screen}) => ({type: 'ADMIN_EDIT_SCREEN', screen});
 export const screenAction = action => ({type: 'PAGE_ACTION', action});
+export const changeSearchQuery = query => ({
+  type: 'SEARCH_CHANGE_QUERY',
+  query
+});
+export const toggleSearchOwnOnly = query => ({type: 'SEARCH_TOGGLE_OWN_ONLY'});
 
 let quizType, quizImageType, user;
-export const searchQuizzes = ({query, own, tags, title}) => async dispatch => {
+export const searchQuizzes = ({query, ownOnly}) => async dispatch => {
   let result = await storage.scan({
     reverse: true,
     _type: quizType,
@@ -74,23 +80,23 @@ export const searchQuizzes = ({query, own, tags, title}) => async dispatch => {
   return result;
 };
 
-export const addQuiz = async dispatch => {
+export const addQuiz = async (dispatch, getState) => {
   const {_id} = await storage.put(
     Object.assign({}, sampleQuiz, {_type: quizType, _id: undefined})
   );
-  await searchQuizzes({})(dispatch);
+  await searchQuizzes(searchQuery(getState()))(dispatch);
   dispatch({
     type: 'SET_QUIZ',
     quiz: await storage.get({_id})
   });
 };
 export const setQuiz = quiz => ({type: 'SET_QUIZ', quiz});
-export const deleteQuiz = quizId => async dispatch => {
+export const deleteQuiz = quizId => async (dispatch, getState) => {
   await storage.delete({_id: quizId});
-  await searchQuizzes({})(dispatch);
+  await searchQuizzes(searchQuery(getState()))(dispatch);
 };
 
-export const init = () => async dispatch => {
+export const init = () => async (dispatch, getState) => {
   dispatch({type: 'LOADING_STARTED'});
 
   console.log('init');
@@ -138,6 +144,6 @@ export const init = () => async dispatch => {
     }
   });
 
-  await searchQuizzes({query: '', own: true})(dispatch);
+  await searchQuizzes(searchQuery(getState()))(dispatch);
   dispatch({type: 'LOADING_DONE'});
 };

@@ -18,6 +18,11 @@ const sampleState = Immutable.fromJS({
   // data for the current Quiz
   quiz: undefined,
 
+  searchQuery: {
+    query: '',
+    ownOnly: true
+  },
+
   searchResults: [sampleQuizData],
 
   storage: {
