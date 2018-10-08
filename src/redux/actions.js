@@ -1,4 +1,4 @@
-import {getUser, storage, findOrCreateType} from './openplatform';
+import {getUser, storage} from './openplatform';
 import {searchQuery} from './selectors';
 import sampleQuiz from '../sampleQuizData';
 
@@ -66,7 +66,7 @@ export const changeSearchQuery = query => ({
 });
 export const toggleSearchOwnOnly = query => ({type: 'SEARCH_TOGGLE_OWN_ONLY'});
 
-let quizType, quizImageType, user;
+let quizType, quizImageType, quizStatisticsType, user;
 export const searchQuizzes = () => async (dispatch, getState) => {
   const {query, ownOnly} = searchQuery(getState());
   let result = await storage.scan({
@@ -103,34 +103,27 @@ export const deleteQuiz = quizId => async (dispatch, getState) => {
 export const init = () => async (dispatch, getState) => {
   dispatch({type: 'LOADING_STARTED'});
 
-  console.log('init');
-
   user = await getUser();
   if (!user) {
     dispatch({type: 'LOADING_DONE'});
     return;
   }
-  [quizType, quizImageType] = await Promise.all([
-    findOrCreateType(user, 'quiz', {
-      type: 'json',
-      indexes: [
-        {value: '_id', keys: ['_owner', 'tags', '_version']},
-        {value: '_id', keys: ['_owner', 'title', '_version']},
-        {value: '_id', keys: ['_owner', '_version']},
-        {value: '_id', keys: ['title', '_version']},
-        {value: '_id', keys: ['tags', '_version']},
-        {value: '_id', keys: ['_version']}
-      ],
-      permissions: {
-        read: 'any'
-      }
+
+  [[quizType], [quizImageType], [quizStatisticsType]] = await Promise.all([
+    storage.find({
+      _owner: 'openplatform',
+      name: 'quiz',
+      _type: 'openplatform.type'
     }),
-    findOrCreateType(user, 'quizImage', {
-      type: 'jpeg',
-      indexes: [{value: '_id', keys: ['_owner', '_version']}],
-      permissions: {
-        read: 'any'
-      }
+    storage.find({
+      _owner: 'openplatform',
+      name: 'quizImage',
+      _type: 'openplatform.type'
+    }),
+    storage.find({
+      _owner: 'openplatform',
+      name: 'quizStatistics',
+      _type: 'openplatform.type'
     })
   ]);
 
