@@ -16,6 +16,8 @@ import quizElements from './quizElements';
 import {withStyles} from '@material-ui/core/styles';
 import style from './style';
 
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+
 const spacing = 16;
 
 function renderElement(o, opts) {
@@ -28,28 +30,41 @@ function renderElement(o, opts) {
 
 export class Widget extends Component {
   render() {
+    console.log('jhjh', this.props.primaryColor, this.props.secondaryColor);
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: this.props.primaryColor || '#ccc'
+        },
+        secondary: {
+          main: this.props.secondaryColor || '#ccc'
+        }
+      }
+    });
     return (
-      <Grid container spacing={spacing}>
-        <Grid item xs={12}>
-          <AppBar position="static" color="default">
-            <Toolbar>
-              <Typography variant="title" color="inherit">
-                {this.props.quizTitle}
-              </Typography>
-            </Toolbar>
-          </AppBar>
+      <MuiThemeProvider theme={theme}>
+        <Grid container spacing={spacing}>
+          <Grid item xs={12}>
+            <AppBar position="static" color="default">
+              <Toolbar>
+                <Typography variant="title" color="inherit">
+                  {this.props.quizTitle}
+                </Typography>
+              </Toolbar>
+            </AppBar>
+          </Grid>
+          {this.props.ui &&
+            this.props.ui.map((o, pos) => (
+              <Grid key={pos} item xs={12}>
+                {renderElement(o.toJS(), {
+                  onAction: this.props.onAction,
+                  classes: this.props.classes,
+                  vars: this.props.vars.toJS()
+                })}
+              </Grid>
+            ))}
         </Grid>
-        {this.props.ui &&
-          this.props.ui.map((o, pos) => (
-            <Grid key={pos} item xs={12}>
-              {renderElement(o.toJS(), {
-                onAction: this.props.onAction,
-                classes: this.props.classes,
-                vars: this.props.vars.toJS()
-              })}
-            </Grid>
-          ))}
-      </Grid>
+      </MuiThemeProvider>
     );
   }
 }
@@ -60,11 +75,14 @@ export function mapStateToProps(state, ownProps) {
     return <div>"Quiz screen missing or loading..."</div>;
   }
   const settings = quizSettings(state);
+  console.log(settings.toJS());
   return {
     loading: loading(state),
     vars: quizVariables(state),
     quizTitle: settings.get('title'),
-    ui: screen.get('ui')
+    ui: screen.get('ui'),
+    primaryColor: settings.getIn(['style', 'primaryColor']),
+    secondaryColor: settings.getIn(['style', 'secondaryColor'])
   };
 }
 

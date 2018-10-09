@@ -113,31 +113,22 @@ const quizElements = {
     }
   },
   button: {
-    view: ({text, action}, {onAction, classes}) => (
-      <Button
-        fullWidth={true}
-        variant="contained"
-        color="default"
-        onClick={() => onAction(action)}
-      >
-        {text}
-      </Button>
-    ),
-    edit: (
-      {text, action: {screen}},
-      {updateQuizElement, editScreen, classes}
-    ) => (
+    view: ({text, action, color}, {onAction, classes}) =>
+      text && (
+        <Button
+          fullWidth={true}
+          variant="contained"
+          color={color}
+          onClick={() => onAction(action)}
+        >
+          {text}
+        </Button>
+      ),
+    edit: ({text, action, color}, {updateQuizElement, editScreen, classes}) => (
       <div>
-        {text && (
-          <Button
-            className={classes.margin}
-            fullWidth={true}
-            variant="contained"
-            color="default"
-            onClick={() => editScreen(screen)}
-          >
-            {text}
-          </Button>
+        {quizElements.button.view(
+          {text, action, color},
+          {onAction: () => editScreen(action.screen), classes}
         )}
         <br />
         <TextField

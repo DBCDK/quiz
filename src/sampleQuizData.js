@@ -7,8 +7,8 @@ const sampleQuiz = {
   trophyImage: 'https://www.dbc.dk/logo.png',
   style: {
     backgroundImage: 'https://example.com/some.url',
-    buttonFontColor: '#BA0BAB',
-    buttonColor: '#C0FFEE',
+    primaryColor: '#0b6f9f',
+    secondaryColor: '#768e87',
     '...': '...'
   },
   start: 'intro',
@@ -33,6 +33,7 @@ const sampleQuiz = {
         },
         {
           type: 'button',
+          color: 'primary',
           text: 'Start',
           action: {
             screen: 'question1'
@@ -57,6 +58,7 @@ const sampleQuiz = {
             {
               type: 'button',
               text: 'wrong answer A',
+              color: 'primary',
               action: {
                 screen: 'answer1a',
                 increment: {
@@ -69,6 +71,7 @@ const sampleQuiz = {
             {
               type: 'button',
               text: 'correct answer B',
+              color: 'primary',
               action: {
                 screen: 'answer1b',
                 increment: {
@@ -83,6 +86,7 @@ const sampleQuiz = {
         {type: 'spacing'},
         {
           type: 'button',
+          color: 'secondary',
           text: 'hjælp',
           action: {screen: 'help1'}
         }
@@ -95,6 +99,7 @@ const sampleQuiz = {
         {type: 'text', text: 'her er et hint: A'},
         {
           type: 'button',
+          color: 'primary',
           text: 'videre',
           action: {screen: 'question1'}
         }
@@ -110,7 +115,12 @@ const sampleQuiz = {
 
           Det rigtige svar er fordi...`
         },
-        {type: 'button', text: 'videre', action: {screen: 'question2'}}
+        {
+          type: 'button',
+          color: 'primary',
+          text: 'videre',
+          action: {screen: 'question2'}
+        }
       ],
       log: true
     },
@@ -124,7 +134,12 @@ const sampleQuiz = {
 
       Det var rigtigt...`
         },
-        {type: 'button', text: 'videre', action: {screen: 'question2'}}
+        {
+          type: 'button',
+          color: 'primary',
+          text: 'videre',
+          action: {screen: 'question2'}
+        }
       ],
       log: true
     },
@@ -139,6 +154,7 @@ const sampleQuiz = {
           ui: [
             {
               type: 'button',
+              color: 'primary',
               text: 'wrong answer A',
               action: {
                 screen: 'answer2a',
@@ -151,6 +167,7 @@ const sampleQuiz = {
             },
             {
               type: 'button',
+              color: 'primary',
               text: 'correct answer B',
               action: {
                 screen: 'answer2b',
@@ -166,6 +183,7 @@ const sampleQuiz = {
         {type: 'spacing'},
         {
           type: 'button',
+          color: 'secondary',
           text: 'hjælp',
           action: {screen: 'help2'}
         }
@@ -178,6 +196,7 @@ const sampleQuiz = {
         {type: 'text', text: 'her er et hint: A'},
         {
           type: 'button',
+          color: 'primary',
           text: 'videre',
           action: {screen: 'question2'}
         }
@@ -193,7 +212,12 @@ const sampleQuiz = {
 
       Det rigtige svar er fordi...`
         },
-        {type: 'button', text: 'videre', action: {screen: 'done'}}
+        {
+          type: 'button',
+          color: 'primary',
+          text: 'videre',
+          action: {screen: 'done'}
+        }
       ],
       log: true
     },
@@ -207,7 +231,12 @@ const sampleQuiz = {
 
           Det var rigtigt...`
         },
-        {type: 'button', text: 'videre', action: {screen: 'done'}}
+        {
+          type: 'button',
+          color: 'primary',
+          text: 'videre',
+          action: {screen: 'done'}
+        }
       ],
       log: true
     },
@@ -249,6 +278,7 @@ const sampleQuiz = {
         {type: 'text', text: 'prøv igen'},
         {
           type: 'button',
+          color: 'primary',
           text: 'videre',
           action: {screen: 'intro'}
         }

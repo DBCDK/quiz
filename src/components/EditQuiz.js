@@ -268,10 +268,10 @@ function renderVisualSettings({classes, settings, updateSetting}) {
           Fontfarve <br />
           <ChromePicker
             disableAlpha
-            id="buttonFontColor"
-            color={settings.getIn(['style', 'buttonFontColor'], '#ccc')}
+            id="primaryColor"
+            color={settings.getIn(['style', 'primaryColor'], '#C0FFEE')}
             onChangeComplete={o =>
-              updateSetting(['style', 'buttonFontColor'], o.hex)
+              updateSetting(['style', 'primaryColor'], o.hex)
             }
           />
         </Grid>
@@ -280,9 +280,9 @@ function renderVisualSettings({classes, settings, updateSetting}) {
           <ChromePicker
             disableAlpha
             id="buttonColor"
-            color={settings.getIn(['style', 'buttonColor'], '#ccc')}
+            color={settings.getIn(['style', 'secondaryColor'], '#BA0BAB')}
             onChangeComplete={o =>
-              updateSetting(['style', 'buttonColor'], o.hex)
+              updateSetting(['style', 'secondaryColor'], o.hex)
             }
           />
         </Grid>
@@ -333,6 +333,7 @@ function addQuestionSection(dispatch, before) {
           ui: [
             {
               type: 'button',
+              color: 'primary',
               text: 'Svar',
               action: {
                 screen: answerId,
@@ -348,6 +349,7 @@ function addQuestionSection(dispatch, before) {
         {
           type: 'button',
           text: 'hjælp',
+          color: 'secondary',
           action: {screen: helpId}
         }
       ]
