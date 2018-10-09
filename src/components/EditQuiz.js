@@ -146,6 +146,7 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
       <Typography variant="headline" gutterBottom>
         Quiz beskrivelse
       </Typography>
+      <Typography>Quiz id: {settings.get('_id')}</Typography>
       <FormControl fullWidth className={classes.margin}>
         <InputLabel htmlFor="title">Titel</InputLabel>
         <Input

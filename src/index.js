@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import QuizWidget from './components/Widget';
 import QuizAdmin from './components/Admin';
 import store from './redux/store';
+import {init} from './redux/actions';
 import {} from './redux/autosave';
 import {Provider} from 'react-redux';
 import openplatform from './redux/openplatform';
@@ -17,11 +18,9 @@ window.addEventListener('load', () => {
   }
 });
 
-async function mount(Cls, {elemId, onDone, openPlatformToken}) {
-  if (onDone) {
-    store.dispatch({type: 'ONDONE_CALLBACK', fn: onDone});
-  }
+async function mount(Cls, {elemId, onDone, openPlatformToken, quizId}) {
   openPlatformToken && (await openplatform.connect(openPlatformToken));
+  store.dispatch(init({quizId, onDone}));
   ReactDOM.render(
     <Provider store={store}>
       <Cls />
