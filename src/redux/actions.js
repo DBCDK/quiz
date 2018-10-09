@@ -151,6 +151,27 @@ export const init = ({onDone, quizId}) => async (dispatch, getState) => {
     } catch (e) {
       if (e.statusCode === 404) {
         // TODO handle 404
+        dispatch(
+          setQuiz({
+            _id: quizId,
+            title: '404 quiz not found',
+            description: 'error',
+            tags: [],
+            start: 'error',
+            screens: {
+              error: {
+                _id: 'error',
+                ui: [
+                  {
+                    type: 'text',
+                    text: `Error: quiz "${quizId}" not found (404)`
+                  }
+                ],
+                log: true
+              }
+            }
+          })
+        );
       }
       console.log(e);
     }
