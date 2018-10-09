@@ -100,6 +100,7 @@ export function root(state = initialState, action) {
             {type: 'text', text: 'Feedback tekst'},
             {
               type: 'button',
+              colort: 'primary',
               text: 'Prøv igen',
               action: {screen: state.getIn(['quiz', 'start'])}
             }
@@ -191,7 +192,12 @@ export function root(state = initialState, action) {
               type: 'text',
               text: 'Forklaring af resultatet'
             },
-            {type: 'button', text: 'videre', action: {screen: nextScreen}}
+            {
+              type: 'button',
+              color: 'primary',
+              text: 'videre',
+              action: {screen: nextScreen}
+            }
           ],
           log: true
         })
@@ -203,6 +209,7 @@ export function root(state = initialState, action) {
           buttonGroupUI.push(
             Immutable.fromJS({
               type: 'button',
+              color: 'primary',
               text: 'Tekst på svarknap',
               action: {
                 screen: answerScreen,
