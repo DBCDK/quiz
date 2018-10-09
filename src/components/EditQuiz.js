@@ -146,7 +146,12 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
       <Typography variant="headline" gutterBottom>
         Quiz beskrivelse
       </Typography>
-      <Typography>Quiz id: {settings.get('_id')}</Typography>
+      <Typography>
+        Quiz id / indlejring:{' '}
+        <a href={'https://dbcdk.github.io/quiz/widget?' + settings.get('_id')}>
+          {settings.get('_id')}
+        </a>
+      </Typography>
       <FormControl fullWidth className={classes.margin}>
         <InputLabel htmlFor="title">Titel</InputLabel>
         <Input
