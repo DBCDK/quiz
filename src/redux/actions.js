@@ -100,13 +100,15 @@ export const deleteQuiz = quizId => async (dispatch, getState) => {
   await searchQuizzes()(dispatch, getState);
 };
 
-export const init = () => async (dispatch, getState) => {
+export const init = ({onDone, quizId}) => async (dispatch, getState) => {
   dispatch({type: 'LOADING_STARTED'});
 
   user = await getUser();
   if (!user) {
-    dispatch({type: 'LOADING_DONE'});
-    return;
+    return dispatch({type: 'LOADING_DONE'});
+  }
+  if (onDone) {
+    dispatch({type: 'ONDONE_CALLBACK', fn: onDone});
   }
 
   [[quizType], [quizImageType], [quizStatisticsType]] = await Promise.all([
@@ -141,6 +143,18 @@ export const init = () => async (dispatch, getState) => {
     }
   });
 
+  if (quizId) {
+    try {
+      const quiz = await storage.get({_id: quizId});
+      dispatch(setQuiz(quiz));
+      return dispatch({type: 'LOADING_DONE'});
+    } catch (e) {
+      if (e.statusCode === 404) {
+        // TODO handle 404
+      }
+      console.log(e);
+    }
+  }
   await searchQuizzes()(dispatch, getState);
-  dispatch({type: 'LOADING_DONE'});
+  return dispatch({type: 'LOADING_DONE'});
 };
