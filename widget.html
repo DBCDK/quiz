@@ -24,7 +24,7 @@ function initOpenPlatformQuiz() {
   quiz = new openPlatformQuiz.Widget({
     elemId: 'quizElem',
     openPlatformToken: '08396c0d40f002d48809f946f96d314c1e01bcf0',
-    quizId: location.hash.slice(1) || location.search.slice(1),
+    quizId: location.hash.slice(1),
     onDone: function(result) { console.log("result", result); }
   });
 }
