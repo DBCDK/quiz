@@ -14,16 +14,11 @@
       <p>Early version, not fully working, nor representative design.</p>
       <p>List of quizzes may be wiped/reset at any point.</p>
     </strong>
-    <h1>Sample Admin</h1>
     <div style="margin: 5%;">
-    <div id="adminElem"></div>
-    </div>
-    <h1>Sample Quiz</h1>
-    <div style="margin: 5%;">
-    <div id="quizElem"></div>
+    <div id="quizElem" style="min-height: 80%"></div>
     </div>
     <script>
-var quiz, admin;
+var quiz
 
 function initOpenPlatformQuiz() {
   quiz = new openPlatformQuiz.Widget({
@@ -32,6 +27,7 @@ function initOpenPlatformQuiz() {
     quizId: location.hash.slice(1),
     onDone: function(result) { console.log("result", result); }
   });
+}
     </script>
     <script src=https://dbcdk.github.com/quiz/widget.js></script>
   </body>
