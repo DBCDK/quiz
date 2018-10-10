@@ -71,7 +71,7 @@ Then run `npm start` in the directory of this repository.
 
 Major tasks remaining before preview/alpha-state:
 
-- Design for widget embedding
+- UX for quiz widget embedding
 - Static embedding of widget+admin (on quiz.dbc.dk or similar)
 - Support for embedded videos
 - Admin: ability to upload a picture
@@ -84,6 +84,14 @@ Major tasks remaining before release:
 - User testing of admin, and better UX+design of admin
 
 Changelog for past sprints:
+
+## 2018-10-24 Media, widget-ux, static page/site for embedding
+
+Plan:
+
+- UX/design for quiz widget
+- Static page with embedding og quizzes / admin
+- Quiz media: video support, upload picture
 
 ## 2018-10-10 Quizzes stored in OpenPlatform
 
