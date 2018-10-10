@@ -67,14 +67,36 @@ This runs a local instance of <https://openplatform.dbc.dk/>, which is used for 
 
 Then run `npm start` in the directory of this repository.
 
-# Changelog / sprints
+# Changelog and Tasks
 
-## 2018-10-10 Quizzes in OpenPlatform, start design
+Major tasks remaining before preview/alpha-state:
 
-Planned:
+- Design for widget embedding
+- Static embedding of widget+admin (on quiz.dbc.dk or similar)
+- Support for embedded videos
+- Admin: ability to upload a picture
 
-- Admin interface for creating / finding quizzes
-- Start design
+Major tasks remaining before release:
+
+- User testing of widget
+- Admin: quizzes by other users
+- Statistics
+- User testing of admin, and better UX+design of admin
+
+Changelog for past sprints:
+
+## 2018-10-10 Quizzes stored in OpenPlatform
+
+- Copy (#166), delete (#164), and create new (#56) quiz
+- Fetch quizzes from backend #53, #179, #191, #193
+- Store quizzes in backend #181, #102, #151, #162
+- Initial static page for embedding widget + link to page from admin. #194
+- Backend storage fixes: indexing #1001, #995 and timeout bug #992, wrong status response #997, refactor API #985
+
+- Start on widget design #174 incl. UX-feedback, primary/secondary colors #190
+- Start on statistics (define storage-type, and add API in embed code for submitting library info) #175, #171
+- Start on UI for searching quizzes, - not yet functional #178, #161
+- Embedding in Biblo <https://biblo.demo.dbc.dk/test-sektionsside>
 
 ## 2018-09-26 Basic UI for editing single quiz up and running
 
