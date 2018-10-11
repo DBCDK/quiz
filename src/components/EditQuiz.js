@@ -261,11 +261,12 @@ function renderVisualSettings({classes, settings, updateSetting}) {
         />
       </FormControl>
       <Typography variant="title" gutterBottom>
-        Spørgsmåls-knapper
+        Farveskema
       </Typography>
       <Grid container spacing={16}>
         <Grid item>
-          Fontfarve <br />
+          Primærfarve
+          <br />
           <ChromePicker
             disableAlpha
             id="primaryColor"
@@ -276,7 +277,8 @@ function renderVisualSettings({classes, settings, updateSetting}) {
           />
         </Grid>
         <Grid item>
-          Baggrundsfarve <br />
+          Sekundærfarve
+          <br />
           <ChromePicker
             disableAlpha
             id="buttonColor"
