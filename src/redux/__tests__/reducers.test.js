@@ -1,8 +1,8 @@
 import {root} from '../reducers';
 import Immutable from 'immutable';
 import sampleState from '../sampleState.js';
-import sampleQuizData from '../../sampleQuizData.js';
-const stateWithQuiz = sampleState.set('quiz', Immutable.fromJS(sampleQuizData));
+import {quizData} from '../../quizData.js';
+const stateWithQuiz = sampleState.set('quiz', Immutable.fromJS(quizData));
 
 describe('root reducer', () => {
   describe('@@INIT', () => {

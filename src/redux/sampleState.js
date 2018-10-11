@@ -1,5 +1,4 @@
 import Immutable from 'immutable';
-import sampleQuizData from '../sampleQuizData';
 
 const sampleState = Immutable.fromJS({
   admin: {
@@ -11,7 +10,7 @@ const sampleState = Immutable.fromJS({
     initialised: false,
     // non-zero if loading, increases with each load operation, and decreases when done
     loading: 0,
-    currentScreen: sampleQuizData.start
+    currentScreen: undefined
   },
   quizState: {},
 
@@ -23,7 +22,7 @@ const sampleState = Immutable.fromJS({
     ownOnly: true
   },
 
-  searchResults: [sampleQuizData],
+  searchResults: [],
 
   storage: {
     // storage user id, initialised on start

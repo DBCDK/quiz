@@ -1,6 +1,6 @@
 import {getUser, storage} from './openplatform';
 import {searchQuery} from './selectors';
-import sampleQuiz from '../sampleQuizData';
+import {quizData} from '../quizData';
 
 export const adminQuizList = () => async (dispatch, getState) => {
   // TODO sync quiz to store
@@ -83,7 +83,7 @@ export const searchQuizzes = () => async (dispatch, getState) => {
 
 export const addQuiz = quiz => async (dispatch, getState) => {
   const {_id} = await storage.put(
-    Object.assign({}, quiz ? quiz.toJS() : sampleQuiz, {
+    Object.assign({}, quiz ? quiz.toJS() : quizData(), {
       _type: quizType,
       _id: undefined
     })
