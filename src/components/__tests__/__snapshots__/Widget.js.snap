@@ -60,7 +60,18 @@ exports[`renders page 1`] = `
   <div
     className="MuiGrid-item-165 MuiGrid-grid-xs-12-204"
   >
-    hello
+    <p
+      className="MuiTypography-root-301 MuiTypography-body1-310"
+    >
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<p>hello</p>
+          ",
+          }
+        }
+      />
+    </p>
   </div>
   <div
     className="MuiGrid-item-165 MuiGrid-grid-xs-12-204"

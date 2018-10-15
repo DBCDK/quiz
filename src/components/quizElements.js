@@ -4,8 +4,19 @@ import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 import Immutable from 'immutable';
+import marked from 'marked';
+
+marked.setOptions({sanitize: true});
+var renderer = new marked.Renderer();
+const prevLinkRenderer = renderer.link;
+renderer.link = function(href, title, text) {
+  return prevLinkRenderer
+    .call(this, href, title, text)
+    .replace('<a ', '<a target="_blank" ');
+};
 
 const quizElements = {
   media: {
@@ -32,16 +43,34 @@ const quizElements = {
     edit: () => <p />
   },
   text: {
-    view: ({text}, {vars}) => mustache.render(text, vars),
-    edit: ({text}, {updateQuizElement, classes}) => (
-      <TextField
-        label="Tekst"
-        fullWidth
-        multiline
-        rowsMax="8"
-        value={text}
-        onChange={e => updateQuizElement(ui => ui.set('text', e.target.value))}
-      />
+    view: ({text}, {vars}) => (
+      <Typography>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: marked(mustache.render(text, vars), {renderer})
+          }}
+        />
+      </Typography>
+    ),
+
+    edit: ({text}, {updateQuizElement, classes, vars}) => (
+      <Grid container spacing={16}>
+        <Grid item xs={6}>
+          <TextField
+            label="Tekst"
+            fullWidth
+            multiline
+            rowsMax="8"
+            value={text}
+            onChange={e =>
+              updateQuizElement(ui => ui.set('text', e.target.value))
+            }
+          />
+        </Grid>
+        <Grid item xs={6}>
+          {quizElements.text.view({text}, {vars})}
+        </Grid>
+      </Grid>
     )
   },
   buttonGroup: {
