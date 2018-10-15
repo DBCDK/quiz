@@ -20,23 +20,64 @@ renderer.link = function(href, title, text) {
 
 const quizElements = {
   media: {
-    view: ({image}, {classes}) => (
-      <img alt="" src={image} className={classes.maxImageSize} />
-    ),
-    edit: ({image}, {updateQuizElement, classes}) => (
-      <div>
-        <img alt="" src={image} className={classes.maxImageSize} />
-        <br />
-        <TextField
-          fullWidth
-          label="Url for billede"
-          value={image}
-          onChange={e =>
-            updateQuizElement(ui => ui.set('image', e.target.value))
-          }
-        />
-      </div>
-    )
+    view: ({url, image}, {classes}) => {
+      url = url || image || '';
+      const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([_a-zA-Z0-9]*).*/;
+      const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
+
+      let mediaTag;
+      if (url.match(ytRegEx)) {
+        mediaTag = (
+          <iframe
+            width="560"
+            height="315"
+            src={
+              'https://www.youtube.com/embed/' +
+              url.match(ytRegEx)[1] +
+              '?autoplay=0'
+            }
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          />
+        );
+      } else if (url.match(vimeoRegEx)) {
+        mediaTag = (
+          <iframe
+            src={
+              'https://player.vimeo.com/video/' +
+              url.match(vimeoRegEx)[1] +
+              '?autoplay=0'
+            }
+            width="560"
+            height="315"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          />
+        );
+      } else {
+        mediaTag = <img alt="" src={url} className={classes.maxImageSize} />;
+      }
+      return <center>{mediaTag}</center>;
+    },
+    edit: ({url, image}, {updateQuizElement, classes}) => {
+      url = url || image || '';
+      return (
+        <div>
+          {quizElements.media.view({url}, {classes})}
+          <br />
+          <TextField
+            fullWidth
+            label="Url for billede eller youtube/vimeo-video"
+            value={url}
+            onChange={e =>
+              updateQuizElement(ui => ui.set('url', e.target.value))
+            }
+          />
+        </div>
+      );
+    }
   },
   spacing: {
     view: () => <p />,

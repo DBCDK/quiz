@@ -114,11 +114,13 @@ exports[`renders page 1`] = `
   <div
     className="MuiGrid-item-165 MuiGrid-grid-xs-12-204"
   >
-    <img
-      alt=""
-      className={undefined}
-      src="some://url"
-    />
+    <center>
+      <img
+        alt=""
+        className={undefined}
+        src="some://url"
+      />
+    </center>
   </div>
 </div>
 `;

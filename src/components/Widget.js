@@ -30,7 +30,6 @@ function renderElement(o, opts) {
 
 export class Widget extends Component {
   render() {
-    console.log('jhjh', this.props.primaryColor, this.props.secondaryColor);
     const theme = createMuiTheme({
       palette: {
         primary: {
@@ -75,7 +74,6 @@ export function mapStateToProps(state, ownProps) {
     return <div>"Quiz screen missing or loading..."</div>;
   }
   const settings = quizSettings(state);
-  console.log(settings.toJS());
   return {
     loading: loading(state),
     vars: quizVariables(state),
