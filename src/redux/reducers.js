@@ -98,7 +98,10 @@ export function root(state = initialState, action) {
           dispatchScreenData({
             _id: newScreen,
             parent: action.screen,
-            action: {screen: state.getIn(['quiz', 'start'])}
+            action: {
+              screen: state.getIn(['quiz', 'start']),
+              set: state.getIn(['quiz', 'initialState']).toJS()
+            }
           })
         )
       );

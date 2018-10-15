@@ -40,29 +40,31 @@ export class Widget extends Component {
         }
       }
     });
+    const classes = this.props.classes || undefined;
     return (
       <MuiThemeProvider theme={theme}>
-        <Grid container spacing={spacing}>
-          <Grid item xs={12}>
-            <AppBar position="static" color="primary">
-              <Toolbar>
-                <Typography variant="title" color="inherit">
-                  {this.props.quizTitle}
-                </Typography>
-              </Toolbar>
-            </AppBar>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <Typography variant="title" color="inherit">
+              {this.props.quizTitle}
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <center>
+          <Grid container spacing={spacing} className={classes.container}>
+            <Grid item xs={12} />
+            {this.props.ui &&
+              this.props.ui.map((o, pos) => (
+                <Grid key={pos} item xs={12}>
+                  {renderElement(o.toJS(), {
+                    onAction: this.props.onAction,
+                    classes,
+                    vars: this.props.vars.toJS()
+                  })}
+                </Grid>
+              ))}
           </Grid>
-          {this.props.ui &&
-            this.props.ui.map((o, pos) => (
-              <Grid key={pos} item xs={12}>
-                {renderElement(o.toJS(), {
-                  onAction: this.props.onAction,
-                  classes: this.props.classes,
-                  vars: this.props.vars.toJS()
-                })}
-              </Grid>
-            ))}
-        </Grid>
+        </center>
       </MuiThemeProvider>
     );
   }
