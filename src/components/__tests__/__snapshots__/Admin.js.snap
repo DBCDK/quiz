@@ -2,13 +2,13 @@
 
 exports[`renders editing of a question 1`] = `
 <div
-  className="MuiGrid-container-5 MuiGrid-spacing-xs-16-28"
+  className="MuiGrid-container-6 MuiGrid-spacing-xs-16-29"
 >
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <button
-      className="MuiButtonBase-root-128 MuiButton-root-102 MuiButton-text-104 MuiButton-flat-107"
+      className="MuiButtonBase-root-129 MuiButton-root-103 MuiButton-text-105 MuiButton-flat-108"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -25,11 +25,11 @@ exports[`renders editing of a question 1`] = `
       type="button"
     >
       <span
-        className="MuiButton-label-103"
+        className="MuiButton-label-104"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-131"
+          className="MuiSvgIcon-root-132"
           color={undefined}
           focusable="false"
           role="presentation"
@@ -47,31 +47,31 @@ exports[`renders editing of a question 1`] = `
          
       </span>
       <span
-        className="MuiTouchRipple-root-140"
+        className="MuiTouchRipple-root-141"
       />
     </button>
   </div>
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <div
       aria-describedby={undefined}
-      className="MuiFormControl-root-147 MuiFormControl-fullWidth-150"
+      className="MuiFormControl-root-148 MuiFormControl-fullWidth-151"
     >
       <label
-        className="MuiFormLabel-root-158 MuiInputLabel-root-151 MuiInputLabel-formControl-152 MuiInputLabel-animated-155 MuiInputLabel-outlined-157"
+        className="MuiFormLabel-root-159 MuiInputLabel-root-152 MuiInputLabel-formControl-153 MuiInputLabel-animated-156 MuiInputLabel-outlined-158"
         data-shrink={false}
         htmlFor={undefined}
       >
         Find quiz
       </label>
       <div
-        className="MuiInputBase-root-178 MuiOutlinedInput-root-165 MuiInputBase-fullWidth-187 MuiInputBase-formControl-179 MuiInputBase-adornedEnd-183 MuiOutlinedInput-adornedEnd-169"
+        className="MuiInputBase-root-179 MuiOutlinedInput-root-166 MuiInputBase-fullWidth-188 MuiInputBase-formControl-180 MuiInputBase-adornedEnd-184 MuiOutlinedInput-adornedEnd-170"
         onClick={[Function]}
       >
         <fieldset
           aria-hidden={true}
-          className="MuiNotchedOutline-root-195 MuiOutlinedInput-notchedOutline-172"
+          className="MuiNotchedOutline-root-196 MuiOutlinedInput-notchedOutline-173"
           style={
             Object {
               "paddingLeft": 36,
@@ -79,7 +79,7 @@ exports[`renders editing of a question 1`] = `
           }
         >
           <legend
-            className="MuiNotchedOutline-legend-196"
+            className="MuiNotchedOutline-legend-197"
             style={
               Object {
                 "width": 0.01,
@@ -91,7 +91,7 @@ exports[`renders editing of a question 1`] = `
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInputBase-input-188 MuiOutlinedInput-input-173 MuiInputBase-inputAdornedEnd-194 MuiOutlinedInput-inputAdornedEnd-177"
+          className="MuiInputBase-input-189 MuiOutlinedInput-input-174 MuiInputBase-inputAdornedEnd-195 MuiOutlinedInput-inputAdornedEnd-178"
           defaultValue={undefined}
           disabled={false}
           id={undefined}
@@ -109,11 +109,11 @@ exports[`renders editing of a question 1`] = `
           value=""
         />
         <div
-          className="MuiInputAdornment-root-200 MuiInputAdornment-positionEnd-203"
+          className="MuiInputAdornment-root-201 MuiInputAdornment-positionEnd-204"
         >
           <button
             aria-label="Search"
-            className="MuiButtonBase-root-128 MuiIconButton-root-204"
+            className="MuiButtonBase-root-129 MuiIconButton-root-205"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -130,11 +130,11 @@ exports[`renders editing of a question 1`] = `
             type="button"
           >
             <span
-              className="MuiIconButton-label-209"
+              className="MuiIconButton-label-210"
             >
               <svg
                 aria-hidden="true"
-                className="MuiSvgIcon-root-131"
+                className="MuiSvgIcon-root-132"
                 color={undefined}
                 focusable="false"
                 role="presentation"
@@ -150,7 +150,7 @@ exports[`renders editing of a question 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-140"
+              className="MuiTouchRipple-root-141"
             />
           </button>
         </div>
@@ -158,13 +158,13 @@ exports[`renders editing of a question 1`] = `
     </div>
     <div>
       <label
-        className="MuiFormControlLabel-root-210"
+        className="MuiFormControlLabel-root-211"
       >
         <span
-          className="MuiSwitch-root-214"
+          className="MuiSwitch-root-215"
         >
           <span
-            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220 MuiSwitchBase-checked-224 MuiSwitch-checked-218"
+            className="MuiButtonBase-root-129 MuiIconButton-root-205 MuiSwitchBase-root-224 MuiSwitch-switchBase-218 MuiSwitch-colorSecondary-221 MuiSwitchBase-checked-225 MuiSwitch-checked-219"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -179,15 +179,15 @@ exports[`renders editing of a question 1`] = `
             tabIndex={null}
           >
             <span
-              className="MuiIconButton-label-209"
+              className="MuiIconButton-label-210"
             >
               <span
-                className="MuiSwitch-icon-215 MuiSwitch-iconChecked-216"
+                className="MuiSwitch-icon-216 MuiSwitch-iconChecked-217"
               />
               <input
                 autoFocus={undefined}
                 checked={true}
-                className="MuiSwitchBase-input-226"
+                className="MuiSwitchBase-input-227"
                 disabled={undefined}
                 id={undefined}
                 name={undefined}
@@ -200,15 +200,15 @@ exports[`renders editing of a question 1`] = `
               />
             </span>
             <span
-              className="MuiTouchRipple-root-140"
+              className="MuiTouchRipple-root-141"
             />
           </span>
           <span
-            className="MuiSwitch-bar-222"
+            className="MuiSwitch-bar-223"
           />
         </span>
         <span
-          className="MuiTypography-root-227 MuiTypography-body1-236 MuiFormControlLabel-label-213"
+          className="MuiTypography-root-228 MuiTypography-body1-237 MuiFormControlLabel-label-214"
         >
           Kun egne quizzer
         </span>
@@ -216,10 +216,10 @@ exports[`renders editing of a question 1`] = `
     </div>
   </div>
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <ul
-      className="MuiList-root-253 MuiList-padding-254"
+      className="MuiList-root-254 MuiList-padding-255"
     />
   </div>
 </div>
@@ -227,13 +227,13 @@ exports[`renders editing of a question 1`] = `
 
 exports[`renders editing of a quiz 1`] = `
 <div
-  className="MuiGrid-container-5 MuiGrid-spacing-xs-16-28"
+  className="MuiGrid-container-6 MuiGrid-spacing-xs-16-29"
 >
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <button
-      className="MuiButtonBase-root-128 MuiButton-root-102 MuiButton-text-104 MuiButton-flat-107"
+      className="MuiButtonBase-root-129 MuiButton-root-103 MuiButton-text-105 MuiButton-flat-108"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -250,11 +250,11 @@ exports[`renders editing of a quiz 1`] = `
       type="button"
     >
       <span
-        className="MuiButton-label-103"
+        className="MuiButton-label-104"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-131"
+          className="MuiSvgIcon-root-132"
           color={undefined}
           focusable="false"
           role="presentation"
@@ -272,31 +272,31 @@ exports[`renders editing of a quiz 1`] = `
          
       </span>
       <span
-        className="MuiTouchRipple-root-140"
+        className="MuiTouchRipple-root-141"
       />
     </button>
   </div>
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <div
       aria-describedby={undefined}
-      className="MuiFormControl-root-147 MuiFormControl-fullWidth-150"
+      className="MuiFormControl-root-148 MuiFormControl-fullWidth-151"
     >
       <label
-        className="MuiFormLabel-root-158 MuiInputLabel-root-151 MuiInputLabel-formControl-152 MuiInputLabel-animated-155 MuiInputLabel-outlined-157"
+        className="MuiFormLabel-root-159 MuiInputLabel-root-152 MuiInputLabel-formControl-153 MuiInputLabel-animated-156 MuiInputLabel-outlined-158"
         data-shrink={false}
         htmlFor={undefined}
       >
         Find quiz
       </label>
       <div
-        className="MuiInputBase-root-178 MuiOutlinedInput-root-165 MuiInputBase-fullWidth-187 MuiInputBase-formControl-179 MuiInputBase-adornedEnd-183 MuiOutlinedInput-adornedEnd-169"
+        className="MuiInputBase-root-179 MuiOutlinedInput-root-166 MuiInputBase-fullWidth-188 MuiInputBase-formControl-180 MuiInputBase-adornedEnd-184 MuiOutlinedInput-adornedEnd-170"
         onClick={[Function]}
       >
         <fieldset
           aria-hidden={true}
-          className="MuiNotchedOutline-root-195 MuiOutlinedInput-notchedOutline-172"
+          className="MuiNotchedOutline-root-196 MuiOutlinedInput-notchedOutline-173"
           style={
             Object {
               "paddingLeft": 36,
@@ -304,7 +304,7 @@ exports[`renders editing of a quiz 1`] = `
           }
         >
           <legend
-            className="MuiNotchedOutline-legend-196"
+            className="MuiNotchedOutline-legend-197"
             style={
               Object {
                 "width": 0.01,
@@ -316,7 +316,7 @@ exports[`renders editing of a quiz 1`] = `
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInputBase-input-188 MuiOutlinedInput-input-173 MuiInputBase-inputAdornedEnd-194 MuiOutlinedInput-inputAdornedEnd-177"
+          className="MuiInputBase-input-189 MuiOutlinedInput-input-174 MuiInputBase-inputAdornedEnd-195 MuiOutlinedInput-inputAdornedEnd-178"
           defaultValue={undefined}
           disabled={false}
           id={undefined}
@@ -334,11 +334,11 @@ exports[`renders editing of a quiz 1`] = `
           value=""
         />
         <div
-          className="MuiInputAdornment-root-200 MuiInputAdornment-positionEnd-203"
+          className="MuiInputAdornment-root-201 MuiInputAdornment-positionEnd-204"
         >
           <button
             aria-label="Search"
-            className="MuiButtonBase-root-128 MuiIconButton-root-204"
+            className="MuiButtonBase-root-129 MuiIconButton-root-205"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -355,11 +355,11 @@ exports[`renders editing of a quiz 1`] = `
             type="button"
           >
             <span
-              className="MuiIconButton-label-209"
+              className="MuiIconButton-label-210"
             >
               <svg
                 aria-hidden="true"
-                className="MuiSvgIcon-root-131"
+                className="MuiSvgIcon-root-132"
                 color={undefined}
                 focusable="false"
                 role="presentation"
@@ -375,7 +375,7 @@ exports[`renders editing of a quiz 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-140"
+              className="MuiTouchRipple-root-141"
             />
           </button>
         </div>
@@ -383,13 +383,13 @@ exports[`renders editing of a quiz 1`] = `
     </div>
     <div>
       <label
-        className="MuiFormControlLabel-root-210"
+        className="MuiFormControlLabel-root-211"
       >
         <span
-          className="MuiSwitch-root-214"
+          className="MuiSwitch-root-215"
         >
           <span
-            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220 MuiSwitchBase-checked-224 MuiSwitch-checked-218"
+            className="MuiButtonBase-root-129 MuiIconButton-root-205 MuiSwitchBase-root-224 MuiSwitch-switchBase-218 MuiSwitch-colorSecondary-221 MuiSwitchBase-checked-225 MuiSwitch-checked-219"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -404,15 +404,15 @@ exports[`renders editing of a quiz 1`] = `
             tabIndex={null}
           >
             <span
-              className="MuiIconButton-label-209"
+              className="MuiIconButton-label-210"
             >
               <span
-                className="MuiSwitch-icon-215 MuiSwitch-iconChecked-216"
+                className="MuiSwitch-icon-216 MuiSwitch-iconChecked-217"
               />
               <input
                 autoFocus={undefined}
                 checked={true}
-                className="MuiSwitchBase-input-226"
+                className="MuiSwitchBase-input-227"
                 disabled={undefined}
                 id={undefined}
                 name={undefined}
@@ -425,15 +425,15 @@ exports[`renders editing of a quiz 1`] = `
               />
             </span>
             <span
-              className="MuiTouchRipple-root-140"
+              className="MuiTouchRipple-root-141"
             />
           </span>
           <span
-            className="MuiSwitch-bar-222"
+            className="MuiSwitch-bar-223"
           />
         </span>
         <span
-          className="MuiTypography-root-227 MuiTypography-body1-236 MuiFormControlLabel-label-213"
+          className="MuiTypography-root-228 MuiTypography-body1-237 MuiFormControlLabel-label-214"
         >
           Kun egne quizzer
         </span>
@@ -441,10 +441,10 @@ exports[`renders editing of a quiz 1`] = `
     </div>
   </div>
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <ul
-      className="MuiList-root-253 MuiList-padding-254"
+      className="MuiList-root-254 MuiList-padding-255"
     />
   </div>
 </div>
@@ -452,13 +452,13 @@ exports[`renders editing of a quiz 1`] = `
 
 exports[`renders editing of intro 1`] = `
 <div
-  className="MuiGrid-container-5 MuiGrid-spacing-xs-16-28"
+  className="MuiGrid-container-6 MuiGrid-spacing-xs-16-29"
 >
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <button
-      className="MuiButtonBase-root-128 MuiButton-root-102 MuiButton-text-104 MuiButton-flat-107"
+      className="MuiButtonBase-root-129 MuiButton-root-103 MuiButton-text-105 MuiButton-flat-108"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -475,11 +475,11 @@ exports[`renders editing of intro 1`] = `
       type="button"
     >
       <span
-        className="MuiButton-label-103"
+        className="MuiButton-label-104"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-131"
+          className="MuiSvgIcon-root-132"
           color={undefined}
           focusable="false"
           role="presentation"
@@ -497,31 +497,31 @@ exports[`renders editing of intro 1`] = `
          
       </span>
       <span
-        className="MuiTouchRipple-root-140"
+        className="MuiTouchRipple-root-141"
       />
     </button>
   </div>
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <div
       aria-describedby={undefined}
-      className="MuiFormControl-root-147 MuiFormControl-fullWidth-150"
+      className="MuiFormControl-root-148 MuiFormControl-fullWidth-151"
     >
       <label
-        className="MuiFormLabel-root-158 MuiInputLabel-root-151 MuiInputLabel-formControl-152 MuiInputLabel-animated-155 MuiInputLabel-outlined-157"
+        className="MuiFormLabel-root-159 MuiInputLabel-root-152 MuiInputLabel-formControl-153 MuiInputLabel-animated-156 MuiInputLabel-outlined-158"
         data-shrink={false}
         htmlFor={undefined}
       >
         Find quiz
       </label>
       <div
-        className="MuiInputBase-root-178 MuiOutlinedInput-root-165 MuiInputBase-fullWidth-187 MuiInputBase-formControl-179 MuiInputBase-adornedEnd-183 MuiOutlinedInput-adornedEnd-169"
+        className="MuiInputBase-root-179 MuiOutlinedInput-root-166 MuiInputBase-fullWidth-188 MuiInputBase-formControl-180 MuiInputBase-adornedEnd-184 MuiOutlinedInput-adornedEnd-170"
         onClick={[Function]}
       >
         <fieldset
           aria-hidden={true}
-          className="MuiNotchedOutline-root-195 MuiOutlinedInput-notchedOutline-172"
+          className="MuiNotchedOutline-root-196 MuiOutlinedInput-notchedOutline-173"
           style={
             Object {
               "paddingLeft": 36,
@@ -529,7 +529,7 @@ exports[`renders editing of intro 1`] = `
           }
         >
           <legend
-            className="MuiNotchedOutline-legend-196"
+            className="MuiNotchedOutline-legend-197"
             style={
               Object {
                 "width": 0.01,
@@ -541,7 +541,7 @@ exports[`renders editing of intro 1`] = `
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInputBase-input-188 MuiOutlinedInput-input-173 MuiInputBase-inputAdornedEnd-194 MuiOutlinedInput-inputAdornedEnd-177"
+          className="MuiInputBase-input-189 MuiOutlinedInput-input-174 MuiInputBase-inputAdornedEnd-195 MuiOutlinedInput-inputAdornedEnd-178"
           defaultValue={undefined}
           disabled={false}
           id={undefined}
@@ -559,11 +559,11 @@ exports[`renders editing of intro 1`] = `
           value=""
         />
         <div
-          className="MuiInputAdornment-root-200 MuiInputAdornment-positionEnd-203"
+          className="MuiInputAdornment-root-201 MuiInputAdornment-positionEnd-204"
         >
           <button
             aria-label="Search"
-            className="MuiButtonBase-root-128 MuiIconButton-root-204"
+            className="MuiButtonBase-root-129 MuiIconButton-root-205"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -580,11 +580,11 @@ exports[`renders editing of intro 1`] = `
             type="button"
           >
             <span
-              className="MuiIconButton-label-209"
+              className="MuiIconButton-label-210"
             >
               <svg
                 aria-hidden="true"
-                className="MuiSvgIcon-root-131"
+                className="MuiSvgIcon-root-132"
                 color={undefined}
                 focusable="false"
                 role="presentation"
@@ -600,7 +600,7 @@ exports[`renders editing of intro 1`] = `
               </svg>
             </span>
             <span
-              className="MuiTouchRipple-root-140"
+              className="MuiTouchRipple-root-141"
             />
           </button>
         </div>
@@ -608,13 +608,13 @@ exports[`renders editing of intro 1`] = `
     </div>
     <div>
       <label
-        className="MuiFormControlLabel-root-210"
+        className="MuiFormControlLabel-root-211"
       >
         <span
-          className="MuiSwitch-root-214"
+          className="MuiSwitch-root-215"
         >
           <span
-            className="MuiButtonBase-root-128 MuiIconButton-root-204 MuiSwitchBase-root-223 MuiSwitch-switchBase-217 MuiSwitch-colorSecondary-220 MuiSwitchBase-checked-224 MuiSwitch-checked-218"
+            className="MuiButtonBase-root-129 MuiIconButton-root-205 MuiSwitchBase-root-224 MuiSwitch-switchBase-218 MuiSwitch-colorSecondary-221 MuiSwitchBase-checked-225 MuiSwitch-checked-219"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -629,15 +629,15 @@ exports[`renders editing of intro 1`] = `
             tabIndex={null}
           >
             <span
-              className="MuiIconButton-label-209"
+              className="MuiIconButton-label-210"
             >
               <span
-                className="MuiSwitch-icon-215 MuiSwitch-iconChecked-216"
+                className="MuiSwitch-icon-216 MuiSwitch-iconChecked-217"
               />
               <input
                 autoFocus={undefined}
                 checked={true}
-                className="MuiSwitchBase-input-226"
+                className="MuiSwitchBase-input-227"
                 disabled={undefined}
                 id={undefined}
                 name={undefined}
@@ -650,15 +650,15 @@ exports[`renders editing of intro 1`] = `
               />
             </span>
             <span
-              className="MuiTouchRipple-root-140"
+              className="MuiTouchRipple-root-141"
             />
           </span>
           <span
-            className="MuiSwitch-bar-222"
+            className="MuiSwitch-bar-223"
           />
         </span>
         <span
-          className="MuiTypography-root-227 MuiTypography-body1-236 MuiFormControlLabel-label-213"
+          className="MuiTypography-root-228 MuiTypography-body1-237 MuiFormControlLabel-label-214"
         >
           Kun egne quizzer
         </span>
@@ -666,10 +666,10 @@ exports[`renders editing of intro 1`] = `
     </div>
   </div>
   <div
-    className="MuiGrid-item-6 MuiGrid-grid-xs-12-45"
+    className="MuiGrid-item-7 MuiGrid-grid-xs-12-46"
   >
     <ul
-      className="MuiList-root-253 MuiList-padding-254"
+      className="MuiList-root-254 MuiList-padding-255"
     />
   </div>
 </div>

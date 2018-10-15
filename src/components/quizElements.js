@@ -26,11 +26,14 @@ const quizElements = {
       const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
 
       let mediaTag;
+      const width = Math.min(window.innerWidth * 0.95, 960) * 0.8;
+
       if (url.match(ytRegEx)) {
+        const height = width * 0.5625;
         mediaTag = (
           <iframe
-            width="560"
-            height="315"
+            width={width}
+            height={height}
             src={
               'https://www.youtube.com/embed/' +
               url.match(ytRegEx)[1] +
@@ -42,6 +45,7 @@ const quizElements = {
           />
         );
       } else if (url.match(vimeoRegEx)) {
+        const height = width * 0.5625;
         mediaTag = (
           <iframe
             src={
@@ -49,8 +53,8 @@ const quizElements = {
               url.match(vimeoRegEx)[1] +
               '?autoplay=0'
             }
-            width="560"
-            height="315"
+            width={width}
+            height={height}
             frameborder="0"
             allow="autoplay; encrypted-media"
             allowfullscreen
@@ -88,7 +92,7 @@ const quizElements = {
       <Typography>
         <div
           dangerouslySetInnerHTML={{
-            __html: marked(mustache.render(text, vars), {renderer})
+            __html: marked(mustache.render(text, vars || {}), {renderer})
           }}
         />
       </Typography>

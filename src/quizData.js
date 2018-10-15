@@ -10,7 +10,7 @@ export const dispatchScreenData = ({_id, parent, action}) => ({
     {type: 'text', text: 'Feedback tekst'},
     {
       type: 'button',
-      colort: 'primary',
+      color: 'primary',
       text: 'Prøv igen',
       action
     }
@@ -76,7 +76,7 @@ export const quizData = () => ({
   initialState: {
     score: 0,
     correct: 0,
-    maxScore: 0
+    questionCount: 0
   },
   screens: {
     intro: {
