@@ -1,4 +1,65 @@
-const sampleQuiz = {
+export const dispatchScreenData = ({_id, parent, action}) => ({
+  _id,
+  parent,
+  ui: [
+    {
+      type: 'media',
+      image: ''
+    },
+
+    {type: 'text', text: 'Feedback tekst'},
+    {
+      type: 'button',
+      colort: 'primary',
+      text: 'Prøv igen',
+      action
+    }
+  ],
+  log: true
+});
+
+export const dispatchActionData = ({screen}) => ({
+  condition: {atLeast: {score: 10}},
+  action: {
+    screen,
+    set: {trophy: {image: ''}},
+    callback: true
+  }
+});
+
+export const answerScreenData = ({_id, parent, action}) => ({
+  _id,
+  parent,
+  ui: [
+    {
+      type: 'media',
+      image: ''
+    },
+    {
+      type: 'text',
+      text: 'Forklaring af resultatet'
+    },
+    {
+      type: 'button',
+      color: 'primary',
+      text: 'videre',
+      action
+    }
+  ],
+  log: true
+});
+
+export const answerButtonData = ({nextScreen}) => ({
+  type: 'button',
+  color: 'primary',
+  text: 'Tekst på svarknap',
+  action: {
+    screen: nextScreen,
+    increment: {score: 0, correct: 0, questionCount: 1}
+  }
+});
+
+export const quizData = () => ({
   _type: 'quiz',
   _id: 'quizId',
   title: 'Sample Quiz',
@@ -26,10 +87,10 @@ const sampleQuiz = {
         {
           type: 'text',
           text: `
-        Introtekst om quizzen, ...
-
-        Her er mere beskrivelse
-        `
+                  Introtekst om quizzen, ...
+                  
+                          Her er mere beskrivelse
+                                  `
         },
         {
           type: 'button',
@@ -112,8 +173,8 @@ const sampleQuiz = {
         {
           type: 'text',
           text: `FORKERT SVAR. 
-
-          Det rigtige svar er fordi...`
+          
+                    Det rigtige svar er fordi...`
         },
         {
           type: 'button',
@@ -131,8 +192,8 @@ const sampleQuiz = {
         {
           type: 'text',
           text: `Rigtigt svar...
-
-      Det var rigtigt...`
+          
+                Det var rigtigt...`
         },
         {
           type: 'button',
@@ -209,8 +270,8 @@ const sampleQuiz = {
         {
           type: 'text',
           text: `FORKERT SVAR. 
-
-      Det rigtige svar er fordi...`
+          
+                Det rigtige svar er fordi...`
         },
         {
           type: 'button',
@@ -228,8 +289,8 @@ const sampleQuiz = {
         {
           type: 'text',
           text: `Rigtigt svar...
-
-          Det var rigtigt...`
+          
+                    Det var rigtigt...`
         },
         {
           type: 'button',
@@ -286,6 +347,4 @@ const sampleQuiz = {
       log: true
     }
   }
-};
-
-export default sampleQuiz;
+});

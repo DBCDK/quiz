@@ -1,4 +1,10 @@
 import sampleState from './sampleState';
+import {
+  dispatchScreenData,
+  dispatchActionData,
+  answerScreenData,
+  answerButtonData
+} from '../quizData';
 import {moveSection, deleteSection, addSection} from './quizElements';
 import Immutable from 'immutable';
 import uuidv4 from 'uuid/v4';
@@ -88,39 +94,17 @@ export function root(state = initialState, action) {
       const newScreen = uuidv4();
       state = state.setIn(
         ['quiz', 'screens', newScreen],
-        Immutable.fromJS({
-          _id: newScreen,
-          parent: action.screen,
-          ui: [
-            {
-              type: 'media',
-              image: ''
-            },
-
-            {type: 'text', text: 'Feedback tekst'},
-            {
-              type: 'button',
-              colort: 'primary',
-              text: 'Prøv igen',
-              action: {screen: state.getIn(['quiz', 'start'])}
-            }
-          ],
-          log: true
-        })
+        Immutable.fromJS(
+          dispatchScreenData({
+            _id: newScreen,
+            parent: action.screen,
+            action: {screen: state.getIn(['quiz', 'start'])}
+          })
+        )
       );
       state = state.updateIn(
         ['quiz', 'screens', action.screen, 'dispatch'],
-        o =>
-          o.push(
-            Immutable.fromJS({
-              condition: {atLeast: {score: 10}},
-              action: {
-                screen: newScreen,
-                set: {trophy: {image: ''}},
-                callback: true
-              }
-            })
-          )
+        o => o.push(Immutable.fromJS(dispatchActionData({screen: newScreen})))
       );
       return sortDispatchesByAtLeastScore(state, action.screen);
     case 'DELETE_DISPATCH':
@@ -180,42 +164,20 @@ export function root(state = initialState, action) {
       const answerScreen = uuidv4();
       state = state.setIn(
         ['quiz', 'screens', answerScreen],
-        Immutable.fromJS({
-          _id: answerScreen,
-          parent: action.path[0],
-          ui: [
-            {
-              type: 'media',
-              image: ''
-            },
-            {
-              type: 'text',
-              text: 'Forklaring af resultatet'
-            },
-            {
-              type: 'button',
-              color: 'primary',
-              text: 'videre',
-              action: {screen: nextScreen}
-            }
-          ],
-          log: true
-        })
+        Immutable.fromJS(
+          answerScreenData({
+            _id: answerScreen,
+            parent: action.path[0],
+            action: {screen: nextScreen}
+          })
+        )
       );
 
       state = state.updateIn(
         ['quiz', 'screens', action.path[0], 'ui', action.path[1], 'ui'],
         buttonGroupUI =>
           buttonGroupUI.push(
-            Immutable.fromJS({
-              type: 'button',
-              color: 'primary',
-              text: 'Tekst på svarknap',
-              action: {
-                screen: answerScreen,
-                increment: {score: 0, correct: 0, questionCount: 1}
-              }
-            })
+            Immutable.fromJS(answerButtonData({nextScreen: answerScreen}))
           )
       );
       return state;
