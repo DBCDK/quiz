@@ -44,7 +44,7 @@ export class Widget extends Component {
       <MuiThemeProvider theme={theme}>
         <Grid container spacing={spacing}>
           <Grid item xs={12}>
-            <AppBar position="static" color="default">
+            <AppBar position="static" color="primary">
               <Toolbar>
                 <Typography variant="title" color="inherit">
                   {this.props.quizTitle}

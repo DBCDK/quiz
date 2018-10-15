@@ -20,7 +20,7 @@ exports[`renders 1`] = `
     className="MuiGrid-item-2 MuiGrid-grid-xs-12-41"
   >
     <header
-      className="MuiPaper-root-107 MuiPaper-elevation4-113 MuiAppBar-root-98 MuiAppBar-positionStatic-102 MuiAppBar-colorDefault-104"
+      className="MuiPaper-root-107 MuiPaper-elevation4-113 MuiAppBar-root-98 MuiAppBar-positionStatic-102 MuiAppBar-colorPrimary-105"
     >
       <div
         className="MuiToolbar-root-134 MuiToolbar-regular-136 MuiToolbar-gutters-135"
@@ -44,7 +44,7 @@ exports[`renders page 1`] = `
     className="MuiGrid-item-165 MuiGrid-grid-xs-12-204"
   >
     <header
-      className="MuiPaper-root-270 MuiPaper-elevation4-276 MuiAppBar-root-261 MuiAppBar-positionStatic-265 MuiAppBar-colorDefault-267"
+      className="MuiPaper-root-270 MuiPaper-elevation4-276 MuiAppBar-root-261 MuiAppBar-positionStatic-265 MuiAppBar-colorPrimary-268"
     >
       <div
         className="MuiToolbar-root-297 MuiToolbar-regular-299 MuiToolbar-gutters-298"
