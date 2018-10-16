@@ -24,6 +24,9 @@ const quizElements = {
       url = url || image || '';
       const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([_a-zA-Z0-9]*).*/;
       const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
+      if (!url) {
+        return;
+      }
 
       let mediaTag;
       const width = Math.min(window.innerWidth * 0.95, 960) * 0.8;
@@ -88,15 +91,20 @@ const quizElements = {
     edit: () => <p />
   },
   text: {
-    view: ({text}, {vars}) => (
-      <Typography>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: marked(mustache.render(text, vars || {}), {renderer})
-          }}
-        />
-      </Typography>
-    ),
+    view: ({text}, {vars}) => {
+      if (!text) {
+        return;
+      }
+      return (
+        <Typography>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: marked(mustache.render(text, vars || {}), {renderer})
+            }}
+          />
+        </Typography>
+      );
+    },
 
     edit: ({text}, {updateQuizElement, classes, vars}) => (
       <Grid container spacing={16}>
@@ -187,8 +195,11 @@ const quizElements = {
     }
   },
   button: {
-    view: ({text, action, color}, {onAction, classes}) =>
-      text && (
+    view: ({text, action, color}, {onAction, classes}) => {
+      if (!text) {
+        return;
+      }
+      return (
         <Button
           fullWidth={true}
           variant="contained"
@@ -197,7 +208,8 @@ const quizElements = {
         >
           {text}
         </Button>
-      ),
+      );
+    },
     edit: ({text, action, color}, {updateQuizElement, editScreen, classes}) => (
       <div>
         {quizElements.button.view(

@@ -4,7 +4,7 @@ export const dispatchScreenData = ({_id, parent, action}) => ({
   ui: [
     {
       type: 'media',
-      image: ''
+      url: ''
     },
 
     {type: 'text', text: 'Feedback tekst'},
@@ -33,7 +33,7 @@ export const answerScreenData = ({_id, parent, action}) => ({
   ui: [
     {
       type: 'media',
-      image: ''
+      url: ''
     },
     {
       type: 'text',
@@ -83,7 +83,7 @@ export const quizData = () => ({
       _id: 'intro',
       nextSection: 'question1',
       ui: [
-        {type: 'media', image: 'https://www.dbc.dk/logo.png'},
+        {type: 'media', url: 'https://www.dbc.dk/logo.png'},
         {
           type: 'text',
           text: `
@@ -109,8 +109,7 @@ export const quizData = () => ({
       ui: [
         {
           type: 'media',
-          image:
-            'https://opensource.dbc.dk/sites/all/themes/opensource/logo.png'
+          url: 'https://opensource.dbc.dk/sites/all/themes/opensource/logo.png'
         },
         {type: 'text', text: 'Spørgsmål 1?'},
         {
@@ -208,7 +207,7 @@ export const quizData = () => ({
       _id: 'question2',
       nextSection: 'done',
       ui: [
-        {type: 'media', image: 'https://www.dbc.dk/logo.png'},
+        {type: 'media', url: 'https://www.dbc.dk/logo.png'},
         {type: 'text', text: 'Spørgsmål 2?'},
         {
           type: 'buttonGroup',
@@ -309,7 +308,7 @@ export const quizData = () => ({
           condition: {atLeast: {score: 1}},
           action: {
             screen: 'won',
-            set: {trophy: {image: 'http://...'}},
+            set: {trophy: {url: 'http://...'}},
             callback: true
           }
         },
@@ -322,8 +321,7 @@ export const quizData = () => ({
       ui: [
         {
           type: 'media',
-          image:
-            'https://opensource.dbc.dk/sites/all/themes/opensource/logo.png'
+          url: 'https://opensource.dbc.dk/sites/all/themes/opensource/logo.png'
         },
         {
           type: 'text',
