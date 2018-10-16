@@ -156,6 +156,7 @@ export const quizData = () => ({
       _id: 'help1',
       parent: 'question1',
       ui: [
+        {type: 'media', url: ''},
         {type: 'text', text: 'her er et hint: A'},
         {
           type: 'button',
@@ -253,6 +254,7 @@ export const quizData = () => ({
       _id: 'help2',
       parent: 'question2',
       ui: [
+        {type: 'media', url: ''},
         {type: 'text', text: 'her er et hint: A'},
         {
           type: 'button',
