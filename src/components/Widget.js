@@ -54,15 +54,21 @@ export class Widget extends Component {
           <Grid container spacing={spacing} className={classes.container}>
             <Grid item xs={12} />
             {this.props.ui &&
-              this.props.ui.map((o, pos) => (
-                <Grid key={pos} item xs={12}>
-                  {renderElement(o.toJS(), {
-                    onAction: this.props.onAction,
-                    classes,
-                    vars: this.props.vars.toJS()
-                  })}
-                </Grid>
-              ))}
+              this.props.ui.map((o, pos) => {
+                const element = renderElement(o.toJS(), {
+                  onAction: this.props.onAction,
+                  classes,
+                  vars: this.props.vars.toJS()
+                });
+                if (!element) {
+                  return;
+                }
+                return (
+                  <Grid key={pos} item xs={12}>
+                    {element}
+                  </Grid>
+                );
+              })}
           </Grid>
         </center>
       </MuiThemeProvider>
