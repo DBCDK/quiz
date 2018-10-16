@@ -327,7 +327,7 @@ function addQuestionSection(dispatch, before) {
       ui: [
         {
           type: 'media',
-          image: ''
+          url: ''
         },
         {type: 'text', text: 'Nyt spørgsmål...'},
         {
@@ -360,6 +360,10 @@ function addQuestionSection(dispatch, before) {
       _id: helpId,
       parent: questionId,
       ui: [
+        {
+          type: 'media',
+          url: ''
+        },
         {type: 'text', text: 'Hint til spørgsmål'},
         {
           type: 'button',

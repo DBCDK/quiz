@@ -86,11 +86,13 @@ function sortDispatchesByAtLeastScore(state, screen) {
 
 export function root(state = initialState, action) {
   switch (action.type) {
-    case '@@INIT':
+    case '@@INIT': {
       return state;
-    case 'ONDONE_CALLBACK':
+    }
+    case 'ONDONE_CALLBACK': {
       return state.setIn(['widget', 'onDone'], action.fn);
-    case 'ADD_DISPATCH':
+    }
+    case 'ADD_DISPATCH': {
       const newScreen = uuidv4();
       state = state.setIn(
         ['quiz', 'screens', newScreen],
@@ -110,53 +112,69 @@ export function root(state = initialState, action) {
         o => o.push(Immutable.fromJS(dispatchActionData({screen: newScreen})))
       );
       return sortDispatchesByAtLeastScore(state, action.screen);
-    case 'DELETE_DISPATCH':
+    }
+    case 'DELETE_DISPATCH': {
       state = state.updateIn(
         ['quiz', 'screens', action.screen, 'dispatch'],
         o => o.delete(action.pos)
       );
       // TODO: prune orphaned screens
       return state;
-    case 'UPDATE_DISPATCH':
+    }
+    case 'UPDATE_DISPATCH': {
       state = state.updateIn(
         ['quiz', 'screens', action.screen, 'dispatch', action.pos],
         action.updateFn
       );
       return sortDispatchesByAtLeastScore(state, action.screen);
-    case 'UPDATE_SCREEN_ELEMENT':
+    }
+    case 'UPDATE_SCREEN_ELEMENT': {
       state = state.updateIn(
         ['quiz', 'screens', action.screen, 'ui', action.pos],
         action.updateFn
       );
       // TODO: prune orphaned screens
       return state;
-    case 'UPDATE_QUIZ_SETTING':
+    }
+    case 'UPDATE_QUIZ_SETTING': {
       return state.setIn(
         ['quiz'].concat(action.path),
         Immutable.fromJS(action.setting)
       );
-    case 'INITIALISED':
+    }
+    case 'INITIALISED': {
       return state.mergeDeep(action.state);
-    case 'SEARCH_RESULTS':
+    }
+    case 'SEARCH_RESULTS': {
       return state.set('searchResults', Immutable.fromJS(action.searchResults));
-    case 'LOADING_STARTED':
+    }
+    case 'LOADING_STARTED': {
       return state.updateIn(['widget', 'loading'], i => i + 1);
-    case 'LOADING_DONE':
+    }
+    case 'LOADING_DONE': {
       return state.updateIn(['widget', 'loading'], i => i - 1);
-    case 'ADMIN_EDIT_SCREEN':
+    }
+    case 'ADMIN_EDIT_SCREEN': {
       return state.setIn(['admin', 'currentScreen'], action.screen);
-    case 'PAGE_ACTION':
+    }
+    case 'PAGE_ACTION': {
       return pageAction(state, action);
-    case 'SET_QUIZ':
+    }
+    case 'SET_QUIZ': {
       return state.set('quiz', Immutable.fromJS(action.quiz));
-    case 'ADMIN_QUIZ_LIST':
+    }
+    case 'ADMIN_QUIZ_LIST': {
       return state.delete('quiz');
-    case 'ADMIN_ADD_SECTION':
+    }
+    case 'ADMIN_ADD_SECTION': {
       return state.update('quiz', quiz => addSection(quiz, action));
-    case 'ADMIN_DELETE_SECTION':
+    }
+    case 'ADMIN_DELETE_SECTION': {
       return state.update('quiz', quiz => deleteSection(quiz, action.screenId));
-    case 'ADMIN_MOVE_SECTION':
+    }
+    case 'ADMIN_MOVE_SECTION': {
       return moveSection(state, action);
+    }
     case 'ADD_QUESTION_ANSWER': {
       const nextScreen = state.getIn([
         'quiz',
@@ -185,12 +203,15 @@ export function root(state = initialState, action) {
       );
       return state;
     }
-    case 'SEARCH_CHANGE_QUERY':
+    case 'SEARCH_CHANGE_QUERY': {
       return state.setIn(['searchQuery', 'query'], action.query);
-    case 'SEARCH_TOGGLE_OWN_ONLY':
+    }
+    case 'SEARCH_TOGGLE_OWN_ONLY': {
       return state.updateIn(['searchQuery', 'ownOnly'], value => !value);
-    default:
+    }
+    default: {
       console.log('Unrecognised action', action);
       return state;
+    }
   }
 }
