@@ -1,4 +1,7 @@
 const style = theme => ({
+  displayNone: {
+    display: 'none'
+  },
   container: {
     maxWidth: Math.min(window.innerWidth * 0.95, 960),
     minHeight: window.innerHeight - 64,

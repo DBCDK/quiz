@@ -2,12 +2,15 @@ import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 import Immutable from 'immutable';
 import marked from 'marked';
+
+import {storage} from '../redux/openplatform';
 
 marked.setOptions({sanitize: true});
 var renderer = new marked.Renderer();
@@ -82,6 +85,37 @@ const quizElements = {
               updateQuizElement(ui => ui.set('url', e.target.value))
             }
           />
+          <input
+            accept="image/jpeg"
+            className={classes.displayNone}
+            id="uploadImageFile"
+            type="file"
+            onChange={async e => {
+              try {
+                const fileData = await new Promise((resolve, reject) => {
+                  const reader = new FileReader();
+                  reader.readAsBinaryString(e.target.files[0]);
+                  reader.onload = () => resolve(reader.result);
+                  reader.onerror = reject;
+                });
+                const {_id} = await storage.put({
+                  _type: 'openplatform.quizImage',
+                  _data: fileData
+                });
+                updateQuizElement(ui =>
+                  ui.set('url', 'https://openplatform.dbc.dk/v3/storage/' + _id)
+                );
+              } catch (e) {
+                // TODO show error
+                console.log(e);
+              }
+            }}
+          />
+          <label htmlFor="uploadImageFile">
+            <Button component="span">
+              <AddIcon /> Upload billede
+            </Button>
+          </label>
         </div>
       );
     }
