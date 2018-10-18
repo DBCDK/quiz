@@ -22,7 +22,7 @@ renderer.link = function(href, title, text) {
 
 const quizElements = {
   media: {
-    view: ({url, image}, {classes}) => {
+    view: ({url, image}, {classes, width}) => {
       url = url || image || '';
       const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([_a-zA-Z0-9]*).*/;
       const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
@@ -31,13 +31,15 @@ const quizElements = {
       }
 
       let mediaTag;
-      const width = Math.min(window.innerWidth * 0.95, 960) * 0.8;
 
+      const calculatedWidth = Math.floor(
+        width || Math.min(window.innerWidth * 0.95, 960) * 0.8
+      );
       if (url.match(ytRegEx)) {
         const height = width * 0.5625;
         mediaTag = (
           <iframe
-            width={width}
+            width={calculatedWidth}
             height={height}
             src={
               'https://www.youtube.com/embed/' +
@@ -58,7 +60,7 @@ const quizElements = {
               url.match(vimeoRegEx)[1] +
               '?autoplay=0'
             }
-            width={width}
+            width={calculatedWidth}
             height={height}
             frameborder="0"
             allow="autoplay; encrypted-media"
@@ -71,8 +73,11 @@ const quizElements = {
             alt=""
             src={
               'https://openplatform.dbc.dk/v3/storage/' +
-              url.replace('openplatform:', '')
+              url.replace('openplatform:', '') +
+              '?width=' +
+              calculatedWidth
             }
+            width={width}
             className={classes.maxImageSize}
           />
         );

@@ -78,7 +78,7 @@ export default class ImageDialog extends React.Component {
             <Grid item xs={12}>
               {quizElements.media.view(
                 {url: this.props.imageUrl},
-                {classes: this.props.classes}
+                {classes: this.props.classes, width: 120}
               )}
             </Grid>
             <Grid item xs={8}>
