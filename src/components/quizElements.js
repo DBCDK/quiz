@@ -9,91 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 import Immutable from 'immutable';
 import marked from 'marked';
-
-import {storage, getUser} from '../redux/openplatform';
-import Dialog from '@material-ui/core/Dialog';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-class ImageDialog extends React.Component {
-  state = {
-    open: false,
-    loading: false
-  };
-  async openDialog() {
-    this.setState({open: true, loading: true});
-    let result = await storage.scan({
-      reverse: true,
-      _type: 'openplatform.quizImage',
-      index: ['_owner', '_version'],
-      startsWith: [await getUser()]
-    });
-    this.setState({loading: false, images: result.map(o => o.val)});
-  }
-  chooseImage(id) {
-    this.props.setImageUrl('openplatform:' + id);
-    this.setState({open: false});
-  }
-  render() {
-    if (!this.state.open) {
-      return <Button onClick={() => this.openDialog()}>Vælg billede</Button>;
-    }
-    return (
-      <Dialog open={true} onClose={() => this.setState({open: false})}>
-        <input
-          accept="image/jpeg"
-          className={(this.props.classes || {}).displayNone}
-          id="uploadImageFile"
-          type="file"
-          onChange={async e => {
-            try {
-              this.setState({open: true, loading: true});
-              const fileData = await new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsBinaryString(e.target.files[0]);
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = reject;
-              });
-              const {_id} = await storage.put({
-                _type: 'openplatform.quizImage',
-                _data: fileData
-              });
-              this.chooseImage(_id);
-            } catch (e) {
-              // TODO show error
-            }
-          }}
-        />
-        <label htmlFor="uploadImageFile">
-          <Button component="span">
-            <AddIcon /> Upload billede
-          </Button>
-        </label>
-        {this.state.loading ? (
-          <center>
-            <CircularProgress />
-          </center>
-        ) : (
-          // TODO: use style class instead of inline styling
-          <div style={{textAlign: 'justify', margin: 16}}>
-            <Typography>Mine billeder:</Typography>
-            {this.state.images.map(uuid => [
-              <img
-                onClick={() => this.chooseImage(uuid)}
-                style={{marginBottom: 8}}
-                src={
-                  'https://openplatform.dbc.dk/v3/storage/' +
-                  uuid +
-                  '?height=100'
-                }
-              />,
-              ' '
-            ])}
-          </div>
-        )}
-      </Dialog>
-    );
-  }
-}
+import ImageDialog from './ImageDialog';
 
 marked.setOptions({sanitize: true});
 var renderer = new marked.Renderer();
@@ -110,7 +26,7 @@ const quizElements = {
       url = url || image || '';
       const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([_a-zA-Z0-9]*).*/;
       const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
-      if (!url) {
+      if (typeof url !== 'string') {
         return;
       }
 
@@ -171,16 +87,9 @@ const quizElements = {
         <div>
           {quizElements.media.view({url}, {classes})}
           <br />
-          <TextField
-            fullWidth
-            label="Url for billede eller youtube/vimeo-video"
-            value={url}
-            onChange={e =>
-              updateQuizElement(ui => ui.set('url', e.target.value))
-            }
-          />
           <ImageDialog
             classes={classes}
+            imageUrl={url}
             setImageUrl={imageUrl =>
               updateQuizElement(ui => ui.set('url', imageUrl))
             }
