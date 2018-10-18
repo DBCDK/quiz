@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import {storage, getUser} from '../redux/openplatform';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -106,15 +107,30 @@ export default class ImageDialog extends React.Component {
               <div style={{textAlign: 'justify'}}>
                 <Typography>Mine billeder:</Typography>
                 {this.state.images.map(uuid => [
-                  <img
-                    onClick={() => this.chooseImage(uuid)}
-                    style={{marginBottom: 8}}
-                    src={
-                      'https://openplatform.dbc.dk/v3/storage/' +
-                      uuid +
-                      '?height=80'
-                    }
-                  />,
+                  <span style={{display: 'inline-block', position: 'relative'}}>
+                    <span style={{position: 'absolute', right: -8, top: -8}}>
+                      <IconButton
+                        aria-label="Delete"
+                        onClick={async () => {
+                          console.log('delete', uuid);
+                          this.setState({loading: true});
+                          await storage.delete({_id: uuid});
+                          this.openDialog();
+                        }}
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </span>
+                    <img
+                      onClick={() => this.chooseImage(uuid)}
+                      style={{marginBottom: 8}}
+                      src={
+                        'https://openplatform.dbc.dk/v3/storage/' +
+                        uuid +
+                        '?height=80'
+                      }
+                    />
+                  </span>,
                   ' '
                 ])}
               </div>
