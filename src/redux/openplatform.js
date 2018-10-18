@@ -1,9 +1,17 @@
-export async function getUser() {
-  await ensureDbcOpenPlatform();
-  const {
-    storage: {user}
-  } = await window.dbcOpenPlatform.status({fields: ['storage']});
-  return user;
+let openplatformUser;
+export function getUser() {
+  if (!openplatformUser) {
+    openplatformUser = Promise.resolve(
+      (async () => {
+        await ensureDbcOpenPlatform();
+        const {
+          storage: {user}
+        } = await window.dbcOpenPlatform.status({fields: ['storage']});
+        return user;
+      })()
+    );
+  }
+  return openplatformUser;
 }
 
 const storageFn = async o => {
