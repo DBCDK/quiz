@@ -66,6 +66,17 @@ const quizElements = {
             allowfullscreen
           />
         );
+      } else if (url.startsWith('openplatform:')) {
+        mediaTag = (
+          <img
+            alt=""
+            src={
+              'https://openplatform.dbc.dk/v3/storage/' +
+              url.replace('openplatform:', '')
+            }
+            className={classes.maxImageSize}
+          />
+        );
       } else {
         mediaTag = <img alt="" src={url} className={classes.maxImageSize} />;
       }
@@ -102,9 +113,7 @@ const quizElements = {
                   _type: 'openplatform.quizImage',
                   _data: fileData
                 });
-                updateQuizElement(ui =>
-                  ui.set('url', 'https://openplatform.dbc.dk/v3/storage/' + _id)
-                );
+                updateQuizElement(ui => ui.set('url', 'openplatform:' + _id));
               } catch (e) {
                 // TODO show error
                 console.log(e);
