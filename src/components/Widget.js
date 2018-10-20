@@ -41,6 +41,16 @@ export class Widget extends Component {
       }
     });
     const classes = this.props.classes || undefined;
+    let backgroundImage = this.props.backgroundImage;
+    if (backgroundImage && backgroundImage.startsWith('openplatform:')) {
+      backgroundImage =
+        backgroundImage.replace(
+          'openplatform:',
+          'https://openplatform.dbc.dk/v3/storage/'
+        ) +
+        '?width=' +
+        window.innerWidth;
+    }
     return (
       <MuiThemeProvider theme={theme}>
         <AppBar position="static" color="primary">
@@ -50,7 +60,14 @@ export class Widget extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <center>
+        <center
+          style={{
+            background:
+              backgroundImage &&
+              `url("${backgroundImage}") no-repeat center center fixed`,
+            backgroundSize: 'cover'
+          }}
+        >
           <Grid container spacing={spacing} className={classes.container}>
             <Grid item xs={12} />
             {this.props.ui &&
@@ -89,6 +106,7 @@ export function mapStateToProps(state, ownProps) {
     vars: quizVariables(state),
     quizTitle: settings.get('title'),
     ui: screen.get('ui'),
+    backgroundImage: settings.getIn(['backgroundImage']),
     primaryColor: settings.getIn(['style', 'primaryColor']),
     secondaryColor: settings.getIn(['style', 'secondaryColor'])
   };
