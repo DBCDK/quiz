@@ -64,7 +64,7 @@ Array [
         <div
             className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
         >
-            <p
+            <div
                 className="MuiTypography-root-204 MuiTypography-body1-213"
             >
                 <div
@@ -75,7 +75,7 @@ Array [
                           }
                     }
                 />
-            </p>
+            </div>
         </div>
         <div
             className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"

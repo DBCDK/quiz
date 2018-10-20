@@ -9,7 +9,7 @@ const style = theme => ({
   },
   maxImageSize: {
     maxWidth: 0.8 * Math.min(window.innerWidth * 0.95, 960),
-    maxHeight: 0.6 * window.innerHeight
+    maxHeight: 0.5 * window.innerHeight
   },
   button: {
     overflow: 'hidden',

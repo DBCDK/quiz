@@ -10,7 +10,6 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import quizElements from './quizElements';
 
@@ -122,6 +121,7 @@ export default class ImageDialog extends React.Component {
                       </IconButton>
                     </span>
                     <img
+                      alt=""
                       onClick={() => this.chooseImage(uuid)}
                       style={{marginBottom: 8}}
                       src={

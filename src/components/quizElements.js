@@ -2,7 +2,6 @@ import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -36,9 +35,10 @@ const quizElements = {
         width || Math.min(window.innerWidth * 0.95, 960) * 0.8
       );
       if (url.match(ytRegEx)) {
-        const height = width * 0.5625;
+        const height = calculatedWidth * 0.5625;
         mediaTag = (
           <iframe
+            title="YouTube Video"
             width={calculatedWidth}
             height={height}
             src={
@@ -48,13 +48,14 @@ const quizElements = {
             }
             frameborder="0"
             allow="autoplay; encrypted-media"
-            allowfullscreen
+            allowFullScreen
           />
         );
       } else if (url.match(vimeoRegEx)) {
-        const height = width * 0.5625;
+        const height = calculatedWidth * 0.5625;
         mediaTag = (
           <iframe
+            title="Vimeo Video"
             src={
               'https://player.vimeo.com/video/' +
               url.match(vimeoRegEx)[1] +
@@ -64,7 +65,7 @@ const quizElements = {
             height={height}
             frameborder="0"
             allow="autoplay; encrypted-media"
-            allowfullscreen
+            allowFullScreen
           />
         );
       } else if (url.startsWith('openplatform:')) {
@@ -113,7 +114,7 @@ const quizElements = {
         return;
       }
       return (
-        <Typography>
+        <Typography headlineMapping={{body1: 'div'}}>
           <div
             dangerouslySetInnerHTML={{
               __html: marked(mustache.render(text, vars || {}), {renderer})

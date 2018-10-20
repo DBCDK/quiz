@@ -71,17 +71,17 @@ Then run `npm start` in the directory of this repository.
 
 Major tasks remaining before preview/alpha-state:
 
-- UX for quiz widget embedding
-- Static embedding of widget+admin (on quiz.dbc.dk or similar)
-- Support for embedded videos
-- Admin: ability to upload a picture
+- [x] UX for quiz widget embedding
+- [ ] Static embedding of widget+admin (on quiz.dbc.dk or similar)
+- [x] Support for embedded videos
+- [x] Admin: ability to upload a picture
 
 Major tasks remaining before release:
 
-- User testing of widget
-- Admin: quizzes by other users
-- Statistics
-- User testing of admin, and better UX+design of admin
+- [ ] User testing of widget
+- [ ] Admin: quizzes by other users
+- [ ] Statistics
+- [ ] User testing of admin, and better UX+design of admin
 
 Changelog for past sprints:
 

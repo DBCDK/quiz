@@ -24,7 +24,8 @@ import {
   getScreen
 } from '../redux/selectors';
 import {
-  addSection,
+  addInfoSection,
+  addQuestionSection,
   deleteSection,
   updateSetting,
   editScreen,
@@ -309,107 +310,11 @@ export function mapDispatchToProps(dispatch) {
     editScreen: screen => dispatch(editScreen({screen})),
     moveSection: o => dispatch(moveSection(o)),
     deleteSection: o => dispatch(deleteSection(o)),
-    addQuestionSection: before => addQuestionSection(dispatch, before),
-    addInfoSection: before => addInfoSection(dispatch, before),
+    addQuestionSection: before => dispatch(addQuestionSection({before})),
+    addInfoSection: before => dispatch(addInfoSection({before})),
     updateSetting: (path, setting) => dispatch(updateSetting(path, setting)),
     adminQuizList: () => dispatch(adminQuizList())
   };
-}
-function addQuestionSection(dispatch, before) {
-  const questionId = uuidv4();
-  const helpId = uuidv4();
-  const answerId = uuidv4();
-  const nextId = uuidv4();
-  const screens = {
-    [questionId]: {
-      _id: questionId,
-      nextSection: nextId,
-      ui: [
-        {
-          type: 'media',
-          url: ''
-        },
-        {type: 'text', text: 'Nyt spørgsmål...'},
-        {
-          type: 'buttonGroup',
-          ui: [
-            {
-              type: 'button',
-              color: 'primary',
-              text: 'Svar',
-              action: {
-                screen: answerId,
-                increment: {
-                  score: 1,
-                  maxScore: 1
-                }
-              }
-            }
-          ]
-        },
-        {type: 'spacing'},
-        {
-          type: 'button',
-          text: 'hjælp',
-          color: 'secondary',
-          action: {screen: helpId}
-        }
-      ]
-    },
-    [helpId]: {
-      _id: helpId,
-      parent: questionId,
-      ui: [
-        {
-          type: 'media',
-          url: ''
-        },
-        {type: 'text', text: 'Hint til spørgsmål'},
-        {
-          type: 'button',
-          text: 'Tilbage til spørgsmålet',
-          action: {screen: questionId}
-        }
-      ]
-    },
-    [answerId]: {
-      _id: answerId,
-      parent: questionId,
-      ui: [
-        {
-          type: 'text',
-          text: 'Feedback på besvarelsen'
-        },
-        {type: 'button', text: 'Fortsæt', action: {screen: nextId}}
-      ],
-      log: true
-    }
-  };
-  return dispatch(addSection({before, screenId: questionId, screens}));
-}
-function addInfoSection(dispatch, before) {
-  const sectionId = uuidv4();
-  const nextId = uuidv4();
-  const screens = {
-    [sectionId]: {
-      _id: sectionId,
-      nextSection: nextId,
-      ui: [
-        {
-          type: 'media',
-          image: ''
-        },
-        {type: 'text', text: 'Beskrivelse, såsom intro...'},
-        {type: 'spacing'},
-        {
-          type: 'button',
-          text: 'Start',
-          action: {screen: nextId}
-        }
-      ]
-    }
-  };
-  return dispatch(addSection({before, screenId: sectionId, screens}));
 }
 
 export default withStyles(style)(
