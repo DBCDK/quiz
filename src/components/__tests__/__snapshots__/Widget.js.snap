@@ -27,7 +27,14 @@ Array [
         </h2>
     </div>
 </header>,
-  <center>
+  <center
+    style={
+        Object {
+            "background": undefined,
+            "backgroundSize": "cover",
+          }
+    }
+>
     <div
         className="MuiGrid-container-67 MuiGrid-spacing-xs-16-90"
     >
@@ -54,7 +61,14 @@ Array [
         </h2>
     </div>
 </header>,
-  <center>
+  <center
+    style={
+        Object {
+            "background": undefined,
+            "backgroundSize": "cover",
+          }
+    }
+>
     <div
         className="MuiGrid-container-230 MuiGrid-spacing-xs-16-253"
     >

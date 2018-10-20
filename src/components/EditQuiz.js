@@ -14,6 +14,7 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
 import style from './style';
+import ImageDialog from './ImageDialog';
 import {withStyles} from '@material-ui/core/styles';
 
 import {
@@ -142,6 +143,14 @@ export class EditQuiz extends Component {
 }
 
 function renderDescriptionSettings({classes, settings, updateSetting}) {
+  let backgroundImage = settings.get('backgroundImage', '');
+  if (backgroundImage.startsWith('openplatform:')) {
+    backgroundImage =
+      backgroundImage.replace(
+        'openplatform:',
+        'https://openplatform.dbc.dk/v3/storage/'
+      ) + '?height=100';
+  }
   return (
     <Grid item xs={12}>
       <Typography variant="headline" gutterBottom>
@@ -185,10 +194,17 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           }
         />
       </FormControl>
+      <div>
+        <img src={backgroundImage} height={100} /> <br />
+        <ImageDialog
+          classes={classes}
+          imageUrl={settings.get('backgroundImage', '')}
+          setImageUrl={url => updateSetting(['backgroundImage'], url)}
+          title="Vælg baggrundsbillede"
+        />
+      </div>
       <FormControl fullWidth className={classes.margin}>
-        <InputLabel htmlFor="image">
-          Grafik (evt. Badge/pokal, hvis ikke som del af afslutning)
-        </InputLabel>
+        <InputLabel htmlFor="image">Baggrundsbillede</InputLabel>
         <Input
           id="image"
           value={settings.get('image', '')}
