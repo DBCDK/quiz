@@ -61,12 +61,14 @@ export class Widget extends Component {
                   vars: this.props.vars.toJS()
                 });
                 if (!element) {
-                  return;
+                  return undefined;
                 }
                 return (
-                  <Grid key={pos} item xs={12}>
-                    {element}
-                  </Grid>
+                  element && (
+                    <Grid key={pos} item xs={12}>
+                      {element}
+                    </Grid>
+                  )
                 );
               })}
           </Grid>

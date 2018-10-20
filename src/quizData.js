@@ -348,3 +348,95 @@ export const quizData = () => ({
     }
   }
 });
+
+export const questionSectionData = ({
+  before,
+  questionId,
+  helpId,
+  answerId,
+  nextId
+}) => ({
+  [questionId]: {
+    _id: questionId,
+    nextSection: nextId,
+    ui: [
+      {
+        type: 'media',
+        url: ''
+      },
+      {type: 'text', text: 'Nyt spørgsmål...'},
+      {
+        type: 'buttonGroup',
+        ui: [
+          {
+            type: 'button',
+            color: 'primary',
+            text: 'Svar',
+            action: {
+              screen: answerId,
+              increment: {
+                score: 1,
+                maxScore: 1
+              }
+            }
+          }
+        ]
+      },
+      {type: 'spacing'},
+      {
+        type: 'button',
+        text: 'hjælp',
+        color: 'secondary',
+        action: {screen: helpId}
+      }
+    ]
+  },
+  [helpId]: {
+    _id: helpId,
+    parent: questionId,
+    ui: [
+      {
+        type: 'media',
+        url: ''
+      },
+      {type: 'text', text: 'Hint til spørgsmål'},
+      {
+        type: 'button',
+        text: 'Tilbage til spørgsmålet',
+        action: {screen: questionId}
+      }
+    ]
+  },
+  [answerId]: {
+    _id: answerId,
+    parent: questionId,
+    ui: [
+      {
+        type: 'text',
+        text: 'Feedback på besvarelsen'
+      },
+      {type: 'button', text: 'Fortsæt', action: {screen: nextId}}
+    ],
+    log: true
+  }
+});
+
+export const infoSectionData = ({sectionId, nextId}) => ({
+  [sectionId]: {
+    _id: sectionId,
+    nextSection: nextId,
+    ui: [
+      {
+        type: 'media',
+        image: ''
+      },
+      {type: 'text', text: 'Beskrivelse, såsom intro...'},
+      {type: 'spacing'},
+      {
+        type: 'button',
+        text: 'Start',
+        action: {screen: nextId}
+      }
+    ]
+  }
+});

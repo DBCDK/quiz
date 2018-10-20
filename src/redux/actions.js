@@ -1,6 +1,7 @@
 import {getUser, storage} from './openplatform';
 import {searchQuery} from './selectors';
-import {quizData} from '../quizData';
+import {quizData, questionSectionData, infoSectionData} from '../quizData';
+import uuidv4 from 'uuid/v4';
 
 export const adminQuizList = () => async (dispatch, getState) => {
   // TODO sync quiz to store
@@ -51,6 +52,27 @@ export const addSection = ({before, screenId, screens}) => ({
   screenId,
   screens
 });
+export const addQuestionSection = ({before}) => {
+  const questionId = uuidv4();
+  const helpId = uuidv4();
+  const answerId = uuidv4();
+  const nextId = uuidv4();
+  return addSection({
+    before,
+    screenId: questionId,
+    screens: questionSectionData({before, questionId, helpId, answerId, nextId})
+  });
+};
+export const addInfoSection = ({before}) => {
+  const sectionId = uuidv4();
+  const nextId = uuidv4();
+  return addSection({
+    before,
+    screenId: sectionId,
+    screens: infoSectionData({sectionId, nextId})
+  });
+};
+
 export const deleteSection = screenId => ({
   type: 'ADMIN_DELETE_SECTION',
   screenId
