@@ -1,4 +1,4 @@
-export const dispatchScreenData = ({_id, parent, action}) => ({
+export const dispatchScreenData = ({_id, parent, action, text}) => ({
   _id,
   parent,
   ui: [
@@ -6,8 +6,11 @@ export const dispatchScreenData = ({_id, parent, action}) => ({
       type: 'media',
       url: ''
     },
-
-    {type: 'text', text: 'Feedback tekst'},
+    {
+      type: 'text',
+      text:
+        text || 'Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige'
+    },
     {
       type: 'button',
       color: 'primary',
@@ -18,11 +21,11 @@ export const dispatchScreenData = ({_id, parent, action}) => ({
   log: true
 });
 
-export const dispatchActionData = ({screen}) => ({
-  condition: {atLeast: {score: 10}},
+export const dispatchActionData = ({score, screen, trophyImage}) => ({
+  condition: {atLeast: {score: score || 0}},
   action: {
     screen,
-    set: {trophy: {image: ''}},
+    set: {trophy: {image: trophyImage || ''}},
     callback: true
   }
 });
@@ -67,17 +70,10 @@ export const quizData = () => ({
   tags: ['foo', 'bar'],
   trophyImage: 'https://www.dbc.dk/logo.png',
   style: {
-    backgroundImage: 'https://example.com/some.url',
     primaryColor: '#0b6f9f',
-    secondaryColor: '#768e87',
-    '...': '...'
+    secondaryColor: '#768e87'
   },
   start: 'intro',
-  initialState: {
-    score: 0,
-    correct: 0,
-    questionCount: 0
-  },
   screens: {
     intro: {
       _id: 'intro',
@@ -98,7 +94,12 @@ export const quizData = () => ({
           color: 'primary',
           text: 'Start',
           action: {
-            screen: 'question1'
+            screen: 'question1',
+            set: {
+              score: 0,
+              correct: 0,
+              questionCount: 0
+            }
           }
         }
       ],
@@ -307,46 +308,25 @@ export const quizData = () => ({
       _id: 'done',
       nextSection: 'intro',
       dispatch: [
-        {
-          condition: {atLeast: {score: 1}},
-          action: {
-            screen: 'won',
-            set: {trophy: {url: 'http://...'}},
-            callback: true
-          }
-        },
-        {action: {screen: 'retry'}}
+        dispatchActionData({
+          score: 1,
+          screen: 'won',
+          trophyImage: 'http://...'
+        }),
+        dispatchActionData({score: -100, screen: 'retry', trophyImage: ''})
       ]
     },
-    won: {
+    won: dispatchScreenData({
       _id: 'won',
       parent: 'done',
-      ui: [
-        {
-          type: 'media',
-          url: 'https://opensource.dbc.dk/sites/all/themes/opensource/logo.png'
-        },
-        {
-          type: 'text',
-          text: 'Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige'
-        }
-      ],
-      log: true
-    },
-    retry: {
+      action: {screen: 'intro'}
+    }),
+    retry: dispatchScreenData({
       _id: 'retry',
       parent: 'done',
-      ui: [
-        {type: 'text', text: 'prøv igen'},
-        {
-          type: 'button',
-          color: 'primary',
-          text: 'videre',
-          action: {screen: 'intro'}
-        }
-      ],
-      log: true
-    }
+      action: {screen: 'intro'},
+      text: 'Prøv igen'
+    })
   }
 });
 

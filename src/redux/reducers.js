@@ -101,8 +101,7 @@ export function root(state = initialState, action) {
             _id: newScreen,
             parent: action.screen,
             action: {
-              screen: state.getIn(['quiz', 'start']),
-              set: state.getIn(['quiz', 'initialState']).toJS()
+              screen: state.getIn(['quiz', 'start'])
             }
           })
         )

@@ -1,7 +1,5 @@
 import {connect} from 'react-redux';
 import React, {Component} from 'react';
-import uuidv4 from 'uuid/v4';
-
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import {ChromePicker} from 'react-color';
@@ -202,14 +200,6 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           title="Vælg baggrundsbillede"
         />
       </div>
-      <FormControl fullWidth className={classes.margin}>
-        <InputLabel htmlFor="image">Baggrundsbillede</InputLabel>
-        <Input
-          id="image"
-          value={settings.get('image', '')}
-          onChange={o => updateSetting(['image'], o.target.value)}
-        />
-      </FormControl>
     </Grid>
   );
 }
