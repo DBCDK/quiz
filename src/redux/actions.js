@@ -63,15 +63,6 @@ export const addQuestionSection = ({before}) => {
     screens: questionSectionData({before, questionId, helpId, answerId, nextId})
   });
 };
-export const addInfoSection = ({before}) => {
-  const sectionId = uuidv4();
-  const nextId = uuidv4();
-  return addSection({
-    before,
-    screenId: sectionId,
-    screens: infoSectionData({sectionId, nextId})
-  });
-};
 
 export const deleteSection = screenId => ({
   type: 'ADMIN_DELETE_SECTION',

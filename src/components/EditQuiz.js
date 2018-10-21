@@ -25,7 +25,6 @@ import {
   getScreen
 } from '../redux/selectors';
 import {
-  addInfoSection,
   addQuestionSection,
   deleteSection,
   updateSetting,
@@ -71,11 +70,13 @@ function draggable(onMoveSection, items) {
   );
 }
 function quizSection({screen, doEdit, doDelete, classes}) {
-  const isDispatch = !!screen.get('dispatch', false);
+  const notDraggable = !!(
+    screen.get('dispatch', false) || screen.get('start', false)
+  );
   return (
     <Grid container spacing={8}>
       <Grid item xs={1}>
-        {!isDispatch && <DragIndicatorIcon />}
+        {!notDraggable && <DragIndicatorIcon />}
       </Grid>
       <Grid item xs={10}>
         <Button
@@ -88,12 +89,12 @@ function quizSection({screen, doEdit, doDelete, classes}) {
             {screen
               .get('ui', [])
               .map(uiElem => uiElem.get('text', ''))
-              .join(' ') + (isDispatch ? 'Quiz-afslutninger' : '')}
+              .join(' ') + (notDraggable ? 'Quiz-afslutninger' : '')}
           </Typography>
         </Button>
       </Grid>
       <Grid item xs={1}>
-        {!isDispatch && (
+        {!notDraggable && (
           <Button variant="fab" aria-label="Delete" mini onClick={doDelete}>
             <DeleteIcon />
           </Button>
@@ -114,7 +115,6 @@ export class EditQuiz extends Component {
       editScreen,
       deleteSection,
       addQuestionSection,
-      addInfoSection,
       adminQuizList
     } = this.props;
     return (
@@ -129,7 +129,6 @@ export class EditQuiz extends Component {
         {renderDescriptionSettings({classes, settings, updateSetting})}
         {renderQuestionList({
           addQuestionSection,
-          addInfoSection,
           questions,
           classes,
           moveSection,
@@ -216,7 +215,6 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
 }
 function renderQuestionList({
   addQuestionSection,
-  addInfoSection,
   questions,
   classes,
   moveSection,
@@ -251,9 +249,6 @@ function renderQuestionList({
       >
         <AddIcon />
         Spørgsmål
-      </Button>
-      <Button onClick={() => addInfoSection(questions[0].get('_id'))}>
-        <AddIcon /> Beskrivelse, såsom intro-tekst
       </Button>
       <div />
     </Grid>
@@ -327,7 +322,6 @@ export function mapDispatchToProps(dispatch) {
     moveSection: o => dispatch(moveSection(o)),
     deleteSection: o => dispatch(deleteSection(o)),
     addQuestionSection: before => dispatch(addQuestionSection({before})),
-    addInfoSection: before => dispatch(addInfoSection({before})),
     updateSetting: (path, setting) => dispatch(updateSetting(path, setting)),
     adminQuizList: () => dispatch(adminQuizList())
   };

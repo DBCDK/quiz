@@ -81,6 +81,7 @@ export const quizData = () => ({
   screens: {
     intro: {
       _id: 'intro',
+      start: true,
       nextSection: 'question1',
       ui: [
         {type: 'media', url: 'https://www.dbc.dk/logo.png'},
@@ -418,25 +419,5 @@ export const questionSectionData = ({
       {type: 'button', text: 'Fortsæt', action: {screen: nextId}}
     ],
     log: true
-  }
-});
-
-export const infoSectionData = ({sectionId, nextId}) => ({
-  [sectionId]: {
-    _id: sectionId,
-    nextSection: nextId,
-    ui: [
-      {
-        type: 'media',
-        image: ''
-      },
-      {type: 'text', text: 'Beskrivelse, såsom intro...'},
-      {type: 'spacing'},
-      {
-        type: 'button',
-        text: 'Start',
-        action: {screen: nextId}
-      }
-    ]
   }
 });

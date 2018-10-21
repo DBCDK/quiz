@@ -13,7 +13,26 @@ function deepReplace(o, from, to) {
 
 export function addSection(quiz, {screenId, screens, before}) {
   screens = Immutable.fromJS(screens);
-  quiz = deepReplace(quiz, before, screenId);
+
+  let needsReplace = Immutable.Set([quiz.get('start')]);
+  let prevSet;
+  do {
+    prevSet = needsReplace;
+    prevSet.forEach(screenId => {
+      const children = findScreenActions(quiz.getIn(['screens', screenId]));
+      children.forEach(child => {
+        if (child !== before) {
+          needsReplace = needsReplace.add(child);
+        }
+      });
+    });
+  } while (!prevSet.equals(needsReplace));
+
+  needsReplace.forEach(replaceInId => {
+    quiz = quiz.updateIn(['screens', replaceInId], screen =>
+      deepReplace(screen, before, screenId)
+    );
+  });
 
   assert(screens.getIn([screenId, 'nextSection']));
   screens = deepReplace(
@@ -67,7 +86,8 @@ export function moveSection(state, action) {
   const {screens, from, to} = action;
   if (
     (typeof to === 'number' && from === screens.length - 1) ||
-    to === screens.length - 1
+    to === screens.length - 1 ||
+    to === 0
   ) {
     return state;
   }
