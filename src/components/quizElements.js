@@ -10,6 +10,15 @@ import Immutable from 'immutable';
 import marked from 'marked';
 import ImageDialog from './ImageDialog';
 
+function imageUrl({url, width, height}) {
+  if (url.startsWith('openplatform:')) {
+    url =
+      url.replace('openplatform:', 'https://openplatform.dbc.dk/v3/storage/') +
+      (width ? '?width=' + width : height ? '?height=' + height : '');
+  }
+  return url;
+}
+
 marked.setOptions({sanitize: true});
 var renderer = new marked.Renderer();
 const prevLinkRenderer = renderer.link;
@@ -68,22 +77,15 @@ const quizElements = {
             allowFullScreen
           />
         );
-      } else if (url.startsWith('openplatform:')) {
+      } else {
         mediaTag = (
           <img
             alt=""
-            src={
-              'https://openplatform.dbc.dk/v3/storage/' +
-              url.replace('openplatform:', '') +
-              '?width=' +
-              calculatedWidth
-            }
+            src={imageUrl({url, width})}
             width={width}
             className={classes.maxImageSize}
           />
         );
-      } else {
-        mediaTag = <img alt="" src={url} className={classes.maxImageSize} />;
       }
       return <center>{mediaTag}</center>;
     },
@@ -213,10 +215,11 @@ const quizElements = {
     }
   },
   button: {
-    view: ({text, action, color}, {onAction, classes}) => {
-      if (!text) {
+    view: ({text, action, color, image}, {onAction, classes}) => {
+      if (!text && !image) {
         return;
       }
+      console.log('HERE', image, text);
       return (
         <Button
           fullWidth={true}
@@ -224,14 +227,26 @@ const quizElements = {
           color={color}
           onClick={() => onAction(action)}
         >
+          {image && (
+            <img
+              style={{borderRadius: 4}}
+              src={imageUrl({url: image, height: 64})}
+              height={64}
+              alt={text}
+            />
+          )}
+          {image && <span>&nbsp;</span>}
           {text}
         </Button>
       );
     },
-    edit: ({text, action, color}, {updateQuizElement, editScreen, classes}) => (
+    edit: (
+      {text, action, color, image},
+      {updateQuizElement, editScreen, classes}
+    ) => (
       <div>
         {quizElements.button.view(
-          {text, action, color},
+          {text, action, color, image},
           {onAction: () => editScreen(action.screen), classes}
         )}
         <br />
@@ -244,6 +259,18 @@ const quizElements = {
             updateQuizElement(ui => ui.set('text', e.target.value))
           }
         />
+        <ImageDialog
+          classes={classes}
+          imageUrl={image}
+          title="Vælg Knap-billede"
+          setImageUrl={imageUrl => {
+            console.log('XXX', imageUrl);
+            updateQuizElement(ui => ui.set('image', imageUrl));
+          }}
+        />
+        <Button onClick={() => updateQuizElement(ui => ui.set('image', ''))}>
+          Fjen knap-billede
+        </Button>
       </div>
     )
   }
