@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css">
+  </head>
+  <body>
+    <noscript>
+    </noscript>
+    <div style="margin: 5%;">
+      <div id='adminElem'>
+        <div id='adminStatus' style="color: red"></div>
+        <form onSubmit="embedAdmin(); return false" >
+          <dl>
+            <dt>ClientId</dt><dd><input id=username name=username autocomplete=on /></dd>
+            <dt>ClientSecret</dt><dd><input type=password id=password name=password autocomplete=on /></dd>
+          </dl>
+          <input value="Åbn quiz admin" type=submit />
+        </form>
+      </div>
+    </div>
+    <script>
+      async function embedAdmin() {
+        try {
+          adminStatus.innerHTML = '';
+          const {access_token} = await (await fetch('https://auth.dbc.dk/oauth/token', {
+            method: 'POST',
+            headers: { Authorization: 'Basic ' + btoa( username.value + ':' + password.value),
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'grant_type=password&username=@&password=@'
+          })).json()
+
+          if(!access_token) {
+            adminStatus.innerHTML = 'ERROR: could not login. Verify that the ClientId/ClientSecret is correct, and try again.'
+          } else {
+            const admin = new openPlatformQuiz.Admin({
+              elemId: 'adminElem',
+              openPlatformToken: access_token
+            });
+          }
+        } catch(e) {
+          adminStatus.innerHTML = 'ERROR: ' + String(e);
+          console.log(e);
+        }
+      }
+    </script>
+    <script src=https://dbcdk.github.io/quiz/widget.js></script>
+  </body>
+</html>
