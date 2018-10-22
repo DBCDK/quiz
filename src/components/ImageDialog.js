@@ -115,7 +115,6 @@ export default class ImageDialog extends React.Component {
                       <IconButton
                         aria-label="Delete"
                         onClick={async () => {
-                          console.log('delete', uuid);
                           this.setState({loading: true});
                           await storage.delete({_id: uuid});
                           this.openDialog();

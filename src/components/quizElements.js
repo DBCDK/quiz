@@ -34,7 +34,7 @@ const quizElements = {
       url = url || image || '';
       const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([_a-zA-Z0-9]*).*/;
       const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
-      if (typeof url !== 'string') {
+      if (typeof url !== 'string' || url === '') {
         return;
       }
 
@@ -219,7 +219,6 @@ const quizElements = {
       if (!text && !image) {
         return;
       }
-      console.log('HERE', image, text);
       return (
         <Button
           fullWidth={true}
@@ -264,7 +263,6 @@ const quizElements = {
           imageUrl={image}
           title="Vælg Knap-billede"
           setImageUrl={imageUrl => {
-            console.log('XXX', imageUrl);
             updateQuizElement(ui => ui.set('image', imageUrl));
           }}
         />

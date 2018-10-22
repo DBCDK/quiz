@@ -1,6 +1,6 @@
 import {getUser, storage} from './openplatform';
 import {searchQuery} from './selectors';
-import {quizData, questionSectionData, infoSectionData} from '../quizData';
+import {quizData, infoSectionData, questionSectionData} from '../quizData';
 import uuidv4 from 'uuid/v4';
 
 export const adminQuizList = () => async (dispatch, getState) => {
@@ -54,13 +54,11 @@ export const addSection = ({before, screenId, screens}) => ({
 });
 export const addQuestionSection = ({before}) => {
   const questionId = uuidv4();
-  const helpId = uuidv4();
-  const answerId = uuidv4();
   const nextId = uuidv4();
   return addSection({
     before,
     screenId: questionId,
-    screens: questionSectionData({before, questionId, helpId, answerId, nextId})
+    screens: questionSectionData({id: questionId, nextScreen: nextId})
   });
 };
 
