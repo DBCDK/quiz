@@ -5,29 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Quiz</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css">
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <strong>
-      <p>Early version, not fully working, nor representative design.</p>
-      <p>List of quizzes may be wiped/reset at any point.</p>
-    </strong>
-    <div style="margin: 5%;">
-    <div id="quizElem" style="min-height: 80%"></div>
-    </div>
+    <div id="quizElem"></div>
     <script>
-var quiz
+      async function initOpenPlatformQuiz() {
+        const {access_token} = await (await fetch('https://auth.dbc.dk/oauth/token', {
+          method: 'POST',
+          headers: { Authorization: 'Basic ' + btoa('930df375-74f3-4f6a-8695-9919e6fc5096:f44d821bd12581808b17f770e244c6ebf9dc61264b46993be07565ae6a8a064b'),
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: 'grant_type=password&username=@&password=@'
+        })).json()
 
-function initOpenPlatformQuiz() {
-  quiz = new openPlatformQuiz.Widget({
-    elemId: 'quizElem',
-    openPlatformToken: '08396c0d40f002d48809f946f96d314c1e01bcf0',
-    quizId: location.hash.slice(1) || location.search.slice(1),
-    onDone: function(result) { console.log("result", result); }
-  });
-}
+        new openPlatformQuiz.Widget({
+          elemId: 'quizElem',
+          openPlatformToken: '08396c0d40f002d48809f946f96d314c1e01bcf0',
+          quizId: location.hash.slice(1) || location.search.slice(1),
+          onDone: function(result) { console.log("result", result); }
+        });
+      }
     </script>
     <script src=https://dbcdk.github.io/quiz/widget.js></script>
   </body>
