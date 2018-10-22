@@ -250,18 +250,6 @@ function renderVisualSettings({classes, settings, updateSetting}) {
       <Typography variant="headline" gutterBottom>
         Udseende
       </Typography>
-      <FormControl fullWidth className={classes.margin}>
-        <InputLabel htmlFor="backgroundImage">
-          Baggrundsgrafik (til ramme, foreløbigt blot url)
-        </InputLabel>
-        <Input
-          id="backgroundImage"
-          value={settings.getIn(['style', 'backgroundImage'], '')}
-          onChange={o =>
-            updateSetting(['style', 'backgroundImage'], o.target.value)
-          }
-        />
-      </FormControl>
       <Typography variant="title" gutterBottom>
         Farveskema
       </Typography>

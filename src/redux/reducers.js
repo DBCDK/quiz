@@ -1,8 +1,7 @@
 import sampleState from './sampleState';
 import {
-  dispatchScreenData,
   dispatchActionData,
-  answerScreenData,
+  infoScreenData,
   answerButtonData
 } from '../quizData';
 import {moveSection, deleteSection, addSection} from './quizElements';
@@ -97,12 +96,15 @@ export function root(state = initialState, action) {
       state = state.setIn(
         ['quiz', 'screens', newScreen],
         Immutable.fromJS(
-          dispatchScreenData({
+          infoScreenData({
             _id: newScreen,
             parent: action.screen,
             action: {
               screen: state.getIn(['quiz', 'start'])
-            }
+            },
+            text:
+              'Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige',
+            buttonText: 'Prøv igen'
           })
         )
       );
@@ -185,7 +187,7 @@ export function root(state = initialState, action) {
       state = state.setIn(
         ['quiz', 'screens', answerScreen],
         Immutable.fromJS(
-          answerScreenData({
+          infoScreenData({
             _id: answerScreen,
             parent: action.path[0],
             action: {screen: nextScreen}
