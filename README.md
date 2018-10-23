@@ -6,7 +6,7 @@
 
 In development, nothing to see here yet.
 
-Early / unfinished demo-version with dummy data is deployed to <https://dbcdk.github.io/quiz/>.
+Early / unfinished demo-version with dummy data is deployed to <https://quiz.dbc.dk/>.
 
 ## Embedding
 
@@ -28,7 +28,7 @@ The quiz is embedded like this:
 <script src="https://example.com/quiz.js" async defer></script>
 ```
 
-**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://dbcdk.github.com/quiz/widget.js> is the _unstable_ development version, which can be used for testing, but may or may not work..
+**Notice:** `example.com/` above should be replaced with the proper url where the script is distributed. This will be clarified later. Currently <https://quiz.dbc.dk/widget.js> is the _unstable_ development version, which can be used for testing, but may or may not work..
 
 Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
 

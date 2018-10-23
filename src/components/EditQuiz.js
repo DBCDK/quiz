@@ -155,7 +155,7 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
       </Typography>
       <Typography>
         Quiz id / indlejring:{' '}
-        <a href={'https://dbcdk.github.io/quiz/widget?' + settings.get('_id')}>
+        <a href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}>
           {settings.get('_id')}
         </a>
       </Typography>
