@@ -151,7 +151,9 @@ Array [
                     <img
                         alt=""
                         className={undefined}
+                        height={undefined}
                         src="some://url"
+                        style={undefined}
                         width={undefined}
                     />
                 </center>
