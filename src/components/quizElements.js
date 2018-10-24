@@ -32,7 +32,7 @@ const quizElements = {
   media: {
     view: ({url, image}, {classes, width}) => {
       url = url || image || '';
-      const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([_a-zA-Z0-9]*).*/;
+      const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([^&]*).*/;
       const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
       if (typeof url !== 'string' || url === '') {
         return;
