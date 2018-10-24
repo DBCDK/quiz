@@ -95,13 +95,14 @@ Plan:
 
 ## 2018-10-24 quiz.dbc.dk, image-upload, videos, markdown-text, fixes
 
-- quiz.dbc.dk - static pages for admin (with login) and widget
-- better data for new quiz/question/ending/...
-- Bugfixes and refactoring
-- Videoes in quiz
-- Image dialog, for uploading, deleting, browsing and selecting images stored in DÅP.
-- Implementation of widget design.
-- Text as markdown (working links, headings, etc...)
+- quiz.dbc.dk - static pages for admin (with login) and widget #74 #168 #169 #223
+- better data for new quiz/question/ending/... #213 #240 #157 #180
+- Bugfixes #201 #233 #237
+- Refactoring #215
+- Videoes in quiz #64
+- Image dialog, for uploading, deleting, browsing and selecting images stored in DÅP. #218 #230 #225 #216 #224 #130
+- Implementation of widget design incl. image buttons and background image. #138 #220 #188 #189 #197 #196
+- Text as markdown (working links, headings, etc...) #202
 
 ## 2018-10-10 Quizzes stored in OpenPlatform
 
@@ -110,7 +111,6 @@ Plan:
 - Store quizzes in backend #181, #102, #151, #162
 - Initial static page for embedding widget + link to page from admin. #194
 - Backend storage fixes: indexing #1001, #995 and timeout bug #992, wrong status response #997, refactor API #985
-
 - Start on widget design #174 incl. UX-feedback, primary/secondary colors #190
 - Start on statistics (define storage-type, and add API in embed code for submitting library info) #175, #171
 - Start on UI for searching quizzes, - not yet functional #178, #161
