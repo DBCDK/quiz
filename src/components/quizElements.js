@@ -8,16 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
 import Immutable from 'immutable';
 import marked from 'marked';
-import ImageDialog from './ImageDialog';
-
-function imageUrl({url, width, height}) {
-  if (url.startsWith('openplatform:')) {
-    url =
-      url.replace('openplatform:', 'https://openplatform.dbc.dk/v3/storage/') +
-      (width ? '?width=' + width : height ? '?height=' + height : '');
-  }
-  return url;
-}
+import {Image, ImageDialog} from './ImageDialog';
 
 marked.setOptions({sanitize: true});
 var renderer = new marked.Renderer();
@@ -79,12 +70,7 @@ const quizElements = {
         );
       } else {
         mediaTag = (
-          <img
-            alt=""
-            src={imageUrl({url, width})}
-            width={width}
-            className={classes.maxImageSize}
-          />
+          <Image url={url} width={width} className={classes.maxImageSize} />
         );
       }
       return <center>{mediaTag}</center>;
@@ -227,9 +213,9 @@ const quizElements = {
           onClick={() => onAction(action)}
         >
           {image && (
-            <img
+            <Image
+              url={image}
               style={{borderRadius: 4}}
-              src={imageUrl({url: image, height: 64})}
               height={64}
               alt={text}
             />

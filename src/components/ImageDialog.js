@@ -13,7 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import quizElements from './quizElements';
 
-export default class ImageDialog extends React.Component {
+export class ImageDialog extends React.Component {
   state = {
     open: false,
     loading: false
@@ -143,4 +143,24 @@ export default class ImageDialog extends React.Component {
       </Dialog>
     );
   }
+}
+export function imageUrl({url, width, height}) {
+  if (url.startsWith('openplatform:')) {
+    url =
+      url.replace('openplatform:', 'https://openplatform.dbc.dk/v3/storage/') +
+      (width ? '?width=' + width : height ? '?height=' + height : '');
+  }
+  return url;
+}
+export function Image({url, width, height, alt, className, style}) {
+  return (
+    <img
+      src={imageUrl({url, width, height})}
+      alt={alt || ''}
+      width={width}
+      height={height}
+      className={className}
+      style={style}
+    />
+  );
 }

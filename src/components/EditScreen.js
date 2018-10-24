@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import {Image, ImageDialog} from './ImageDialog';
 
 import {adminCurrentScreen, getScreen} from '../redux/selectors';
 import {
@@ -55,6 +56,11 @@ function editCondition(
   return (
     <Grid item xs={12} key={condition.getIn(['action', 'screen'])}>
       <Paper>
+        <Image
+          height={64}
+          url={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
+        />
+        <br />
         <TextField
           label="Mindste antal point"
           value={minScore}
@@ -79,13 +85,11 @@ function editCondition(
         >
           Rediger slutning
         </Button>
-        <TextField
-          className={classes.margin}
-          label="Url for pokalbilled"
-          value={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
-          onChange={e =>
+        <ImageDialog
+          title="Vælg pokalbillede"
+          setImageUrl={url =>
             doUpdateDispatch(o =>
-              o.setIn(['action', 'set', 'trophy', 'image'], e.target.value)
+              o.setIn(['action', 'set', 'trophy', 'image'], url)
             )
           }
         />
@@ -161,7 +165,8 @@ export class EditScreen extends Component {
             Rediger quiz-skærm
           </Typography>
           <Button onClick={() => doEditScreen(currentScreen.get('parent', ''))}>
-            <ArrowBackIcon />Tilbage
+            <ArrowBackIcon />
+            Tilbage
           </Button>
         </Grid>
         {currentScreen.get('ui')

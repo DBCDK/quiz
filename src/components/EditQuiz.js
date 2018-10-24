@@ -12,7 +12,7 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
 import style from './style';
-import ImageDialog from './ImageDialog';
+import {ImageDialog, Image} from './ImageDialog';
 import {withStyles} from '@material-ui/core/styles';
 
 import {
@@ -140,14 +140,6 @@ export class EditQuiz extends Component {
 }
 
 function renderDescriptionSettings({classes, settings, updateSetting}) {
-  let backgroundImage = settings.get('backgroundImage', '');
-  if (backgroundImage.startsWith('openplatform:')) {
-    backgroundImage =
-      backgroundImage.replace(
-        'openplatform:',
-        'https://openplatform.dbc.dk/v3/storage/'
-      ) + '?height=100';
-  }
   return (
     <Grid item xs={12}>
       <Typography variant="headline" gutterBottom>
@@ -192,7 +184,8 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
         />
       </FormControl>
       <div>
-        <img src={backgroundImage} height={100} /> <br />
+        <Image url={settings.get('backgroundImage', '')} height={100} />
+        <br />
         <ImageDialog
           classes={classes}
           imageUrl={settings.get('backgroundImage', '')}

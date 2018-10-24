@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import quizElements from './quizElements';
+import {imageUrl} from './ImageDialog';
 
 import {withStyles} from '@material-ui/core/styles';
 import style from './style';
@@ -42,15 +43,6 @@ export class Widget extends Component {
     });
     const classes = this.props.classes || undefined;
     let backgroundImage = this.props.backgroundImage;
-    if (backgroundImage && backgroundImage.startsWith('openplatform:')) {
-      backgroundImage =
-        backgroundImage.replace(
-          'openplatform:',
-          'https://openplatform.dbc.dk/v3/storage/'
-        ) +
-        '?width=' +
-        window.innerWidth;
-    }
     return (
       <MuiThemeProvider theme={theme}>
         <AppBar position="static" color="primary">
@@ -64,7 +56,10 @@ export class Widget extends Component {
           style={{
             background:
               backgroundImage &&
-              `url("${backgroundImage}") no-repeat center center fixed`,
+              `url("${imageUrl({
+                url: backgroundImage,
+                width: window.innerWidth
+              })}") no-repeat center center fixed`,
             backgroundSize: 'cover'
           }}
         >
