@@ -68,27 +68,29 @@ export class Widget extends Component {
             backgroundSize: 'cover'
           }}
         >
-          <Grid container spacing={spacing} className={classes.container}>
-            <Grid item xs={12} />
-            {this.props.ui &&
-              this.props.ui.map((o, pos) => {
-                const element = renderElement(o.toJS(), {
-                  onAction: this.props.onAction,
-                  classes,
-                  vars: this.props.vars.toJS()
-                });
-                if (!element) {
-                  return undefined;
-                }
-                return (
-                  element && (
-                    <Grid key={pos} item xs={12}>
-                      {element}
-                    </Grid>
-                  )
-                );
-              })}
-          </Grid>
+          <div style={{backgroundColor: this.props.backgroundColor}}>
+            <Grid container spacing={spacing} className={classes.container}>
+              <Grid item xs={12} />
+              {this.props.ui &&
+                this.props.ui.map((o, pos) => {
+                  const element = renderElement(o.toJS(), {
+                    onAction: this.props.onAction,
+                    classes,
+                    vars: this.props.vars.toJS()
+                  });
+                  if (!element) {
+                    return undefined;
+                  }
+                  return (
+                    element && (
+                      <Grid key={pos} item xs={12}>
+                        {element}
+                      </Grid>
+                    )
+                  );
+                })}
+            </Grid>
+          </div>
         </center>
       </MuiThemeProvider>
     );
@@ -101,6 +103,13 @@ export function mapStateToProps(state, ownProps) {
     return <div>"Quiz screen missing or loading..."</div>;
   }
   const settings = quizSettings(state);
+  let backgroundColor;
+  try {
+    const c = JSON.parse(settings.getIn(['style', 'backgroundColor']));
+    backgroundColor = `rgba(${c.r},${c.g},${c.b},${c.a})`;
+  } catch (e) {
+    backgroundColor = `rgba(255,255,255,0.7)`;
+  }
   return {
     loading: loading(state),
     vars: quizVariables(state),
@@ -108,7 +117,8 @@ export function mapStateToProps(state, ownProps) {
     ui: screen.get('ui'),
     backgroundImage: settings.getIn(['backgroundImage']),
     primaryColor: settings.getIn(['style', 'primaryColor']),
-    secondaryColor: settings.getIn(['style', 'secondaryColor'])
+    secondaryColor: settings.getIn(['style', 'secondaryColor']),
+    backgroundColor
   };
 }
 

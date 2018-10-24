@@ -278,6 +278,22 @@ function renderVisualSettings({classes, settings, updateSetting}) {
             }
           />
         </Grid>
+        <Grid item>
+          Baggrundsfarve
+          <br />
+          <ChromePicker
+            id="backgroundColor"
+            color={JSON.parse(
+              settings.getIn(
+                ['style', 'backgroundColor'],
+                '{"r":255, "g":255, "b":255, "a": 0.7}'
+              )
+            )}
+            onChangeComplete={o =>
+              updateSetting(['style', 'backgroundColor'], JSON.stringify(o.rgb))
+            }
+          />
+        </Grid>
       </Grid>
     </Grid>
   );

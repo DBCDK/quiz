@@ -36,11 +36,19 @@ Array [
     }
 >
     <div
-        className="MuiGrid-container-67 MuiGrid-spacing-xs-16-90"
+        style={
+            Object {
+                "backgroundColor": undefined,
+              }
+        }
     >
         <div
-            className="MuiGrid-item-68 MuiGrid-grid-xs-12-107"
-        />
+            className="MuiGrid-container-67 MuiGrid-spacing-xs-16-90"
+        >
+            <div
+                className="MuiGrid-item-68 MuiGrid-grid-xs-12-107"
+            />
+        </div>
     </div>
 </center>,
 ]
@@ -70,76 +78,84 @@ Array [
     }
 >
     <div
-        className="MuiGrid-container-230 MuiGrid-spacing-xs-16-253"
+        style={
+            Object {
+                "backgroundColor": undefined,
+              }
+        }
     >
         <div
-            className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
-        />
-        <div
-            className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
+            className="MuiGrid-container-230 MuiGrid-spacing-xs-16-253"
         >
             <div
-                className="MuiTypography-root-204 MuiTypography-body1-213"
-            >
-                <div
-                    dangerouslySetInnerHTML={
-                        Object {
-                            "__html": "<p>hello</p>
-                        ",
-                          }
-                    }
-                />
-            </div>
-        </div>
-        <div
-            className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
-        >
+                className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
+            />
             <div
-                className="MuiGrid-container-230 MuiGrid-spacing-xs-16-253"
+                className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
             >
                 <div
-                    className="MuiGrid-item-231 MuiGrid-grid-xs-6-264"
+                    className="MuiTypography-root-204 MuiTypography-body1-213"
                 >
-                    <button
-                        className="MuiButtonBase-root-353 MuiButton-root-327 MuiButton-contained-338 MuiButton-raised-341 MuiButton-fullWidth-352"
-                        disabled={false}
-                        onBlur={[Function]}
-                        onClick={[Function]}
-                        onFocus={[Function]}
-                        onKeyDown={[Function]}
-                        onKeyUp={[Function]}
-                        onMouseDown={[Function]}
-                        onMouseLeave={[Function]}
-                        onMouseUp={[Function]}
-                        onTouchEnd={[Function]}
-                        onTouchMove={[Function]}
-                        onTouchStart={[Function]}
-                        tabIndex="0"
-                        type="button"
-                    >
-                        <span
-                            className="MuiButton-label-328"
-                        >
-                            but
-                        </span>
-                        <span
-                            className="MuiTouchRipple-root-356"
-                        />
-                    </button>
+                    <div
+                        dangerouslySetInnerHTML={
+                            Object {
+                                "__html": "<p>hello</p>
+                            ",
+                              }
+                        }
+                    />
                 </div>
             </div>
-        </div>
-        <div
-            className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
-        >
-            <center>
-                <img
-                    alt=""
-                    className={undefined}
-                    src="some://url"
-                    width={undefined}
-                />
-            </center>
+            <div
+                className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
+            >
+                <div
+                    className="MuiGrid-container-230 MuiGrid-spacing-xs-16-253"
+                >
+                    <div
+                        className="MuiGrid-item-231 MuiGrid-grid-xs-6-264"
+                    >
+                        <button
+                            className="MuiButtonBase-root-353 MuiButton-root-327 MuiButton-contained-338 MuiButton-raised-341 MuiButton-fullWidth-352"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            tabIndex="0"
+                            type="button"
+                        >
+                            <span
+                                className="MuiButton-label-328"
+                            >
+                                but
+                            </span>
+                            <span
+                                className="MuiTouchRipple-root-356"
+                            />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-231 MuiGrid-grid-xs-12-270"
+            >
+                <center>
+                    <img
+                        alt=""
+                        className={undefined}
+                        src="some://url"
+                        width={undefined}
+                    />
+                </center>
+            </div>
         </div>
     </div>
 </center>,
