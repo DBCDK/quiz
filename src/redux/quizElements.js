@@ -18,6 +18,7 @@ export function addSection(quiz, {screenId, screens, before}) {
   let prevSet;
   do {
     prevSet = needsReplace;
+    /* eslint-disable no-loop-func */
     prevSet.forEach(screenId => {
       const children = findScreenActions(quiz.getIn(['screens', screenId]));
       children.forEach(child => {

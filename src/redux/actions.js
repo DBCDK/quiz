@@ -1,7 +1,8 @@
 import {getUser, storage} from './openplatform';
 import {searchQuery} from './selectors';
-import {quizData, infoSectionData, questionSectionData} from '../quizData';
+import {quizData, questionSectionData} from '../quizData';
 import uuidv4 from 'uuid/v4';
+import _ from 'lodash';
 
 export const adminQuizList = () => async (dispatch, getState) => {
   // TODO sync quiz to store
@@ -71,27 +72,72 @@ export const moveSection = o => {
 };
 export const editScreen = ({screen}) => ({type: 'ADMIN_EDIT_SCREEN', screen});
 export const screenAction = action => ({type: 'PAGE_ACTION', action});
-export const changeSearchQuery = query => ({
-  type: 'SEARCH_CHANGE_QUERY',
-  query
-});
-export const toggleSearchOwnOnly = query => ({type: 'SEARCH_TOGGLE_OWN_ONLY'});
-
 let quizType, quizImageType, quizStatisticsType, user;
 export const searchQuizzes = () => async (dispatch, getState) => {
+  dispatch({type: 'SEARCH_RESULTS', searchResults: []});
   const {query, ownOnly} = searchQuery(getState());
-  let result = await storage.scan({
-    reverse: true,
-    _type: quizType,
-    index: ['_owner', '_version'],
-    startsWith: [user]
-    //limit: 10
-  });
+  let result;
+  if (!query) {
+    if (ownOnly) {
+      result = await storage.scan({
+        reverse: true,
+        _type: quizType,
+        index: ['_owner', '_version'],
+        startsWith: [user]
+      });
+    } else {
+      result = await storage.scan({
+        reverse: true,
+        _type: quizType,
+        index: ['_version'],
+        startsWith: [],
+        limit: 100
+      });
+    }
+  } else {
+    result = _.flatten(
+      await Promise.all([
+        prefixScan(query, ['_version'], ownOnly && user),
+        prefixScan(query, ['title', '_version'], ownOnly && user),
+        prefixScan(query, ['tags', '_version'], ownOnly && user),
+        prefixScan(query, ['_owner', '_version']).then(result =>
+          result.filter(o => (ownOnly ? o._owner === user : true))
+        )
+      ])
+    );
+  }
   result = await Promise.all(result.map(o => storage.get({_id: o.val})));
-  dispatch({type: 'SEARCH_RESULTS', searchResults: result});
+  dispatch({type: 'SEARCH_RESULTS', searchResults: result, query, ownOnly});
   return result;
 };
-
+async function prefixScan(prefix, index, owner) {
+  const result = await storage.scan({
+    reverse: true,
+    _type: quizType,
+    index: owner ? ['_owner'].concat(index) : index,
+    startsWith: [],
+    after: owner ? [owner, prefix] : [prefix],
+    before: owner ? [owner, prefix + 'zzzzzzzzzz'] : [prefix + 'zzzzzzzzzz'],
+    limit: 100
+  });
+  return result.map(o => {
+    const obj = {};
+    index.forEach((key, i) => (obj[key] = o.key[i]));
+    obj.val = o.val;
+    return obj;
+  });
+}
+export const changeSearchQuery = query => async dispatch => {
+  dispatch({
+    type: 'SEARCH_CHANGE_QUERY',
+    query
+  });
+  dispatch(searchQuizzes());
+};
+export const toggleSearchOwnOnly = query => async dispatch => {
+  dispatch({type: 'SEARCH_TOGGLE_OWN_ONLY'});
+  dispatch(searchQuizzes());
+};
 export const addQuiz = quiz => async (dispatch, getState) => {
   const {_id} = await storage.put(
     Object.assign({}, quiz ? quiz.toJS() : quizData(), {
@@ -99,6 +145,10 @@ export const addQuiz = quiz => async (dispatch, getState) => {
       _id: undefined
     })
   );
+  dispatch({
+    type: 'SEARCH_CHANGE_QUERY',
+    query: ''
+  });
   await searchQuizzes()(dispatch, getState);
   dispatch({
     type: 'SET_QUIZ',
@@ -110,7 +160,6 @@ export const deleteQuiz = quizId => async (dispatch, getState) => {
   await storage.delete({_id: quizId});
   await searchQuizzes()(dispatch, getState);
 };
-
 export const init = ({onDone, quizId}) => async (dispatch, getState) => {
   dispatch({type: 'LOADING_STARTED'});
 
@@ -139,7 +188,6 @@ export const init = ({onDone, quizId}) => async (dispatch, getState) => {
       _type: 'openplatform.type'
     })
   ]);
-
   dispatch({
     type: 'INITIALISED',
     state: {
@@ -149,7 +197,8 @@ export const init = ({onDone, quizId}) => async (dispatch, getState) => {
       storage: {
         user,
         quizImageType,
-        quizType
+        quizType,
+        quizStatisticsType
       }
     }
   });
