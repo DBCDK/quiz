@@ -93,11 +93,17 @@ export class QuizList extends Component {
                   }
                 >
                   <ListItemText>
-                    <strong className={classes.margin}>{o.get('title')}</strong>
+                    {isOwn ? (
+                      <strong className={classes.margin}>
+                        {o.get('title')}
+                      </strong>
+                    ) : (
+                      <span className={classes.margin}>{o.get('title')}</span>
+                    )}
                     {o.get('tags', []).map(tag => (
-                      <span key={tag} className={classes.margin}>
-                        {tag}
-                      </span>
+                      <small key={tag} className={classes.margin}>
+                        {isOwn ? tag : <small>{tag}</small>}
+                      </small>
                     ))}
                     <br />
                     <small className={classes.margin}>
