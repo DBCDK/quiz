@@ -25,6 +25,7 @@ export const searchResults = state =>
 export const getScreen = (screenId, state) =>
   state.getIn(['quiz', 'screens', screenId]);
 export const searchQuery = state => state.get('searchQuery').toJS();
+export const storageUser = state => state.getIn(['storage', 'user']);
 
 export function questionList(state) {
   const start = state.getIn(['quiz', 'start']);

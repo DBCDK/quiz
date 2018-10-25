@@ -19,7 +19,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import style from './style';
 import {withStyles} from '@material-ui/core/styles';
 
-import {searchResults, searchQuery} from '../redux/selectors';
+import {storageUser, searchResults, searchQuery} from '../redux/selectors';
 import {
   addQuiz,
   setQuiz,
@@ -41,6 +41,7 @@ export class QuizList extends Component {
       ownOnly,
       toggleOwnOnly,
       doSearch,
+      userName,
       copy
     } = this.props;
     return (
@@ -77,33 +78,48 @@ export class QuizList extends Component {
         </Grid>
         <Grid item xs={12}>
           <List>
-            {searchResults.map(o => (
-              <ListItem key={o.get('_id')} button onClick={() => setQuiz(o)}>
-                <ListItemText>
-                  <strong className={classes.margin}>{o.get('title')}</strong>
-                  {o.get('tags', []).map(tag => (
-                    <span key={tag} className={classes.margin}>
-                      {tag}
-                    </span>
-                  ))}
-                  <br />
-                  <small className={classes.margin}>
-                    {o.get('_version')} {o.get('_owner')}
-                  </small>
-                </ListItemText>
-                <ListItemSecondaryAction>
-                  <IconButton aria-label="Copy" onClick={() => copy(o)}>
-                    <FileCopyIcon />
-                  </IconButton>
-                  <IconButton
-                    aria-label="Search"
-                    onClick={() => deleteQuiz(o.get('_id'))}
-                  >
-                    <DeleteIcon />
-                  </IconButton>
-                </ListItemSecondaryAction>
-              </ListItem>
-            ))}
+            {searchResults.map(o => {
+              const isOwn = o.get('_owner') === userName;
+              return (
+                <ListItem
+                  key={o.get('_id')}
+                  button
+                  onClick={() =>
+                    isOwn
+                      ? setQuiz(o)
+                      : window.open(
+                          'https://quiz.dbc.dk/widget?' + o.get('_id')
+                        )
+                  }
+                >
+                  <ListItemText>
+                    <strong className={classes.margin}>{o.get('title')}</strong>
+                    {o.get('tags', []).map(tag => (
+                      <span key={tag} className={classes.margin}>
+                        {tag}
+                      </span>
+                    ))}
+                    <br />
+                    <small className={classes.margin}>
+                      {o.get('_version')} {o.get('_owner')}
+                    </small>
+                  </ListItemText>
+                  <ListItemSecondaryAction>
+                    {isOwn && (
+                      <IconButton
+                        aria-label="Search"
+                        onClick={() => deleteQuiz(o.get('_id'))}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                    )}
+                    <IconButton aria-label="Copy" onClick={() => copy(o)}>
+                      <FileCopyIcon />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+                </ListItem>
+              );
+            })}
           </List>
         </Grid>
       </Grid>
@@ -112,7 +128,11 @@ export class QuizList extends Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  return {searchResults: searchResults(state), ...searchQuery(state)};
+  return {
+    searchResults: searchResults(state),
+    ...searchQuery(state),
+    userName: storageUser(state)
+  };
 }
 
 export function mapDispatchToProps(dispatch) {
