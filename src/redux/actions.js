@@ -106,6 +106,10 @@ export const searchQuizzes = () => async (dispatch, getState) => {
       ])
     );
   }
+
+  const visited = new Set();
+  result = result.filter(o => !visited.has(o.val) && visited.add(o.val));
+
   result = await Promise.all(result.map(o => storage.get({_id: o.val})));
   dispatch({type: 'SEARCH_RESULTS', searchResults: result, query, ownOnly});
   return result;
