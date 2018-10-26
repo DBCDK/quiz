@@ -147,7 +147,10 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
       </Typography>
       <Typography>
         Quiz id / indlejring:{' '}
-        <a href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}>
+        <a
+          target="_blank"
+          href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}
+        >
           {settings.get('_id')}
         </a>
       </Typography>
