@@ -19,6 +19,12 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import style from './style';
 import {withStyles} from '@material-ui/core/styles';
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogActions from '@material-ui/core/DialogActions';
+
 import {storageUser, searchResults, searchQuery} from '../redux/selectors';
 import {
   addQuiz,
@@ -27,6 +33,50 @@ import {
   changeSearchQuery,
   toggleSearchOwnOnly
 } from '../redux/actions';
+
+class DeleteButton extends Component {
+  constructor() {
+    super();
+    this.state = {dialog: false};
+  }
+  render() {
+    return [
+      <IconButton
+        aria-label="Search"
+        onClick={() => this.setState({dialog: true})}
+      >
+        <DeleteIcon />
+      </IconButton>,
+      <Dialog
+        open={this.state.dialog}
+        onClose={() => this.setState({dialog: false})}
+      >
+        <DialogTitle>Vil du slette quiz'en?</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <p>
+              Hvis quiz'en slettes, så vil det ikke længere være muligt at tage
+              den.
+            </p>
+            <p>Slettede quiz'er kan ikke gendannes. </p>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => this.setState({dialog: false})}>Nej</Button>
+          <Button
+            onClick={() => {
+              this.props.deleteQuiz(this.props.quizId);
+              this.setState({dialog: false});
+            }}
+            color="primary"
+          >
+            Ja
+          </Button>
+        </DialogActions>
+      </Dialog>
+    ];
+  }
+}
 
 export class QuizList extends Component {
   render() {
@@ -112,12 +162,10 @@ export class QuizList extends Component {
                   </ListItemText>
                   <ListItemSecondaryAction>
                     {isOwn && (
-                      <IconButton
-                        aria-label="Search"
-                        onClick={() => deleteQuiz(o.get('_id'))}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
+                      <DeleteButton
+                        deleteQuiz={deleteQuiz}
+                        quizId={o.get('_id')}
+                      />
                     )}
                     <IconButton aria-label="Copy" onClick={() => copy(o)}>
                       <FileCopyIcon />
