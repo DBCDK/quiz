@@ -1,4 +1,5 @@
 import sampleState from './sampleState';
+import {storage} from './openplatform';
 import {
   dispatchActionData,
   infoScreenData,
@@ -11,67 +12,75 @@ import uuidv4 from 'uuid/v4';
 const initialState = sampleState;
 
 function pageAction(state, action) {
-  while (true) {
-    let {screen, increment, set, callback} = action.action;
-    if (screen) {
-      state = state.setIn(['widget', 'currentScreen'], screen);
-      const dispatch = state.getIn(['quiz', 'screens', screen, 'dispatch']);
-      if (dispatch) {
-        for (const dispatchCase of dispatch.toJS()) {
-          if (dispatchCase.condition) {
-            let ok = true;
-            for (const conditionType in dispatchCase.condition) {
-              if (conditionType === 'atLeast') {
-                for (const variable in dispatchCase.condition.atLeast) {
-                  const value = state.getIn(['quizState', variable], 0);
-                  if (value < dispatchCase.condition.atLeast[variable]) {
-                    ok = false;
-                  }
+  let {screen, increment, set, callback} = action.action;
+
+  if (screen) {
+    state = state.setIn(['widget', 'currentScreen'], screen);
+    const dispatch = state.getIn(['quiz', 'screens', screen, 'dispatch']);
+    if (dispatch) {
+      for (const dispatchCase of dispatch.toJS()) {
+        if (dispatchCase.condition) {
+          let ok = true;
+          for (const conditionType in dispatchCase.condition) {
+            if (conditionType === 'atLeast') {
+              for (const variable in dispatchCase.condition.atLeast) {
+                const value = state.getIn(['quizState', variable], 0);
+                if (value < dispatchCase.condition.atLeast[variable]) {
+                  ok = false;
                 }
-              } else {
-                throw new Error('invalid conditionType:', conditionType);
               }
+            } else {
+              throw new Error('invalid conditionType:', conditionType);
             }
-            if (ok) {
-              return pageAction(state, {action: dispatchCase.action});
-            }
-          } else {
+          }
+          if (ok) {
             return pageAction(state, {action: dispatchCase.action});
           }
+        } else {
+          return pageAction(state, {action: dispatchCase.action});
         }
       }
     }
-
-    if (increment) {
-      for (const variable in increment) {
-        state = state.updateIn(
-          ['quizState', variable],
-          i => (i || 0) + increment[variable]
-        );
-      }
+    if (!!state.getIn(['quiz', 'screens', screen, 'log'])) {
+      storage.put({
+        _type: 'openplatform.quizStatistics',
+        date: new Date().toISOString().slice(0, 10),
+        quiz: state.getIn(['quiz', '_id']),
+        type: 'screen',
+        subtype: screen
+      });
     }
+  }
 
-    if (set) {
-      state = state.update('quizState', quizState =>
-        quizState.merge(Immutable.fromJS(set))
+  if (increment) {
+    for (const variable in increment) {
+      state = state.updateIn(
+        ['quizState', variable],
+        i => (i || 0) + increment[variable]
       );
     }
-
-    if (callback) {
-      try {
-        state.getIn(['widget', 'onDone'], () => {})(
-          state.get('quizState').toJS()
-        );
-      } catch (e) {
-        console.error(
-          'Error in quiz embedding, exception during onDone callback:',
-          e
-        );
-      }
-    }
-
-    return state;
   }
+
+  if (set) {
+    state = state.update('quizState', quizState =>
+      quizState.merge(Immutable.fromJS(set))
+    );
+  }
+
+  if (callback) {
+    try {
+      state.getIn(['widget', 'onDone'], () => {})(
+        state.get('quizState').toJS()
+      );
+    } catch (e) {
+      console.error(
+        'Error in quiz embedding, exception during onDone callback:',
+        e
+      );
+    }
+  }
+
+  return state;
 }
 function sortDispatchesByAtLeastScore(state, screen) {
   return state.updateIn(['quiz', 'screens', screen, 'dispatch'], o =>
@@ -162,7 +171,10 @@ export function root(state = initialState, action) {
       return pageAction(state, action);
     }
     case 'SET_QUIZ': {
-      return state.set('quiz', Immutable.fromJS(action.quiz));
+      const quiz = Immutable.fromJS(action.quiz);
+      return pageAction(state.set('quiz', quiz), {
+        action: {screen: quiz.get('start')}
+      });
     }
     case 'ADMIN_QUIZ_LIST': {
       return state.delete('quiz');
