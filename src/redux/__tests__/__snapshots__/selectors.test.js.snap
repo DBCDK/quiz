@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`admin selectors topNodes finds top nodes screen graph 1`] = `
-Array [
-  undefined,
-]
-`;
+exports[`admin selectors topNodes finds top nodes screen graph 1`] = `Array []`;

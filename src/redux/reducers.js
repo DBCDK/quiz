@@ -97,6 +97,9 @@ export function root(state = initialState, action) {
     case '@@INIT': {
       return state;
     }
+    case 'STATISTICS': {
+      return state.set('statistics', action.statistics);
+    }
     case 'ONDONE_CALLBACK': {
       return state.setIn(['widget', 'onDone'], action.fn);
     }

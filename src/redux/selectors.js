@@ -26,14 +26,22 @@ export const getScreen = (screenId, state) =>
   state.getIn(['quiz', 'screens', screenId]);
 export const searchQuery = state => state.get('searchQuery').toJS();
 export const storageUser = state => state.getIn(['storage', 'user']);
+export const statistics = state =>
+  state.get('statistics') && state.get('statistics').toJS();
 
-export function questionList(state) {
-  const start = state.getIn(['quiz', 'start']);
+export function quizQuestionList(quiz) {
+  if (!quiz) {
+    return [];
+  }
+  const start = quiz.get('start');
   let current = start;
   const result = [];
   do {
     result.push(current);
-    current = state.getIn(['quiz', 'screens', current, 'nextSection']);
+    current = quiz.getIn(['screens', current, 'nextSection']);
   } while (current && current !== start);
   return result;
+}
+export function questionList(state) {
+  return quizQuestionList(state.get('quiz'));
 }

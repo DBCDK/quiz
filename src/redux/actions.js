@@ -1,4 +1,5 @@
 import {getUser, storage} from './openplatform';
+import Immutable from 'immutable';
 import {searchQuery} from './selectors';
 import {quizData, questionSectionData} from '../quizData';
 import uuidv4 from 'uuid/v4';
@@ -10,6 +11,71 @@ export const adminQuizList = () => async (dispatch, getState) => {
   dispatch({
     type: 'ADMIN_QUIZ_LIST'
   });
+};
+
+export const showStatistics = quiz => async dispatch => {
+  let dayHits = {};
+  let screenHits = {};
+
+  function dispatchStat() {
+    dispatch({
+      type: 'STATISTICS',
+      statistics: Immutable.fromJS({quiz, dayHits, screenHits})
+    });
+  }
+
+  async function fetchStat(req) {
+    req = Object.assign(
+      {
+        _type: 'openplatform.quizStatistics',
+        quiz: quiz.get('_id'),
+        type: 'screen'
+      },
+      req
+    );
+    try {
+      return await storage.count(req);
+    } catch (e) {
+      console.error(e);
+      return 0;
+    }
+  }
+
+  dispatchStat();
+
+  (async () => {
+    const screenNames = Array.from(quiz.get('screens').keys());
+    const hits = await Promise.all(
+      screenNames.map(async name => fetchStat({subtype: name}))
+    );
+    screenHits = _.fromPairs(
+      _.zip(screenNames, hits).filter(([_, count]) => count > 0)
+    );
+    dispatchStat();
+  })();
+
+  (async () => {
+    const day = 24 * 60 * 60 * 1000;
+    const dayList = _.range(Date.now() - 31 * day, Date.now() + 1, day).map(d =>
+      new Date(d).toISOString().slice(0, 10)
+    );
+    const hits = await Promise.all(
+      dayList.map(async date =>
+        fetchStat({
+          date,
+          subtype: quiz.get('start')
+        })
+      )
+    );
+    dayHits = _.fromPairs(_.zip(dayList, hits));
+    dispatchStat();
+  })();
+};
+export const hideStatistics = () => {
+  return {
+    type: 'STATISTICS',
+    statistics: undefined
+  };
 };
 
 export const addDispatch = screen => {
@@ -159,7 +225,10 @@ export const addQuiz = quiz => async (dispatch, getState) => {
     quiz: await storage.get({_id})
   });
 };
-export const setQuiz = quiz => ({type: 'SET_QUIZ', quiz});
+export const setQuiz = quiz => async dispatch => {
+  quiz = Immutable.fromJS(quiz);
+  dispatch({type: 'SET_QUIZ', quiz});
+};
 export const deleteQuiz = quizId => async (dispatch, getState) => {
   await storage.delete({_id: quizId});
   await searchQuizzes()(dispatch, getState);
