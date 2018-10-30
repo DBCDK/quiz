@@ -186,16 +186,6 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           }
         />
       </FormControl>
-      <div>
-        <Image url={settings.get('backgroundImage', '')} height={100} />
-        <br />
-        <ImageDialog
-          classes={classes}
-          imageUrl={settings.get('backgroundImage', '')}
-          setImageUrl={url => updateSetting(['backgroundImage'], url)}
-          title="Vælg baggrundsbillede"
-        />
-      </div>
     </Grid>
   );
 }
@@ -246,6 +236,16 @@ function renderVisualSettings({classes, settings, updateSetting}) {
       <Typography variant="headline" gutterBottom>
         Udseende
       </Typography>
+      <div>
+        <Image url={settings.get('backgroundImage', '')} height={100} />
+        <br />
+        <ImageDialog
+          classes={classes}
+          imageUrl={settings.get('backgroundImage', '')}
+          setImageUrl={url => updateSetting(['backgroundImage'], url)}
+          title="Vælg baggrundsbillede"
+        />
+      </div>
       <Typography variant="title" gutterBottom>
         Farveskema
       </Typography>

@@ -24,6 +24,7 @@ export const storage = {
   get: o => storageFn({get: o}),
   delete: o => storageFn({delete: o}),
   put: o => storageFn({put: o}),
+  count: o => storageFn({count: o}),
   find: o => storageFn({find: o}),
   scan: o => storageFn({scan: o}),
   typeType: () => {
