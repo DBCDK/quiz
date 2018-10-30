@@ -111,7 +111,11 @@ async function selectPredefinedType() {
         indexes: [
           {
             value: '_count',
-            keys: ['date', 'quiz', 'type', 'subtype']
+            keys: ['quiz', 'date', 'type', 'subtype']
+          },
+          {
+            value: '_count',
+            keys: ['quiz', 'type', 'subtype']
           }
         ],
         permissions: {
