@@ -1,17 +1,24 @@
 let openplatformUser;
-export function getUser() {
+function sleep(t) {
+  return new Promise(resolve => setTimeout(resolve, t * 1000));
+}
+export async function getUser() {
   if (!openplatformUser) {
-    openplatformUser = Promise.resolve(
-      (async () => {
-        await ensureDbcOpenPlatform();
-        const {
-          storage: {user}
-        } = await window.dbcOpenPlatform.status({fields: ['storage']});
-        return user;
-      })()
-    );
+    openplatformUser = (async () => {
+      await ensureDbcOpenPlatform();
+      for (let i = 1; i < 10; ++i) {
+        const o = await Promise.race([
+          await window.dbcOpenPlatform.status({fields: ['storage']}),
+          sleep(i)
+        ]);
+        if (o && o.storage && o.storage.user) {
+          return o.storage.user;
+        }
+        throw new Error(o ? o : 'Error getting storage user');
+      }
+    })();
   }
-  return openplatformUser;
+  return await openplatformUser;
 }
 
 const storageFn = async o => {
