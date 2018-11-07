@@ -78,20 +78,23 @@ Major tasks remaining before preview/alpha-state:
 
 Major tasks remaining before release:
 
+- [x] Admin: quizzes by other users
+- [x] Statistics
 - [ ] User testing of widget
-- [ ] Admin: quizzes by other users
-- [ ] Statistics
 - [ ] User testing of admin, and better UX+design of admin
 
 Changelog for past sprints:
 
-## 2018-11-07 statistics + admin
+## 2018-11-21 fixes based on user feedback
 
-Plan:
+Plan: fixes based on user feedback
 
-- statistics
-- improvements in admin
-- general polish / cleanup
+## 2018-11-07 statistics, search, and minor changes
+
+- Statistics #55 #54
+- Search #263 #165 #59
+- Design / usability / cleanup: background color #248, delete-confirmation #222, emphasise own quizzes #265, quiz new window #245, others read-only #167, misc #249 #60 #104
+- Bugfixes #246 #252
 
 ## 2018-10-24 quiz.dbc.dk, image-upload, videos, markdown-text, fixes
 
