@@ -161,7 +161,7 @@ export class EditScreen extends Component {
     return (
       <Grid container spacing={16}>
         <Grid item xs={12}>
-          <Typography variant="headline" gutterBottom>
+          <Typography variant="h5" gutterBottom>
             Rediger quiz-skærm
           </Typography>
           <Button onClick={() => doEditScreen(currentScreen.get('parent', ''))}>

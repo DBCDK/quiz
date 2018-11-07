@@ -69,7 +69,7 @@ export class ImageDialog extends React.Component {
         <DialogContent>
           <Grid container spacing={16}>
             <Grid item xs={12}>
-              <Typography variant="title">
+              <Typography variant="h6">
                 <span style={{float: 'right', marginTop: 16}}>
                   <Button onClick={() => this.setState({open: false})}>
                     <CloseIcon />
