@@ -6,6 +6,7 @@ export async function getUser() {
   if (!openplatformUser) {
     openplatformUser = (async () => {
       await ensureDbcOpenPlatform();
+      let o;
       for (let i = 1; i < 10; ++i) {
         const o = await Promise.race([
           await window.dbcOpenPlatform.status({fields: ['storage']}),
@@ -14,8 +15,8 @@ export async function getUser() {
         if (o && o.storage && o.storage.user) {
           return o.storage.user;
         }
-        throw new Error(o ? o : 'Error getting storage user');
       }
+      throw new Error(o ? o : 'Error getting storage user');
     })();
   }
   return await openplatformUser;
