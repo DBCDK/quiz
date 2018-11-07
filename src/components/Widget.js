@@ -47,7 +47,7 @@ export class Widget extends Component {
       <MuiThemeProvider theme={theme}>
         <AppBar position="static" color="primary">
           <Toolbar>
-            <Typography variant="title" color="inherit">
+            <Typography variant="h6" color="inherit">
               {this.props.quizTitle}
             </Typography>
           </Toolbar>

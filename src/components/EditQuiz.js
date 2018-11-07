@@ -142,7 +142,7 @@ export class EditQuiz extends Component {
 function renderDescriptionSettings({classes, settings, updateSetting}) {
   return (
     <Grid item xs={12}>
-      <Typography variant="headline" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         Quiz beskrivelse
       </Typography>
       <Typography>
@@ -199,7 +199,7 @@ function renderQuestionList({
 }) {
   return (
     <Grid item xs={12}>
-      <Typography variant="headline" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         Spørgsmål og indhold
       </Typography>
       {!!questions.length &&
@@ -233,7 +233,7 @@ function renderQuestionList({
 function renderVisualSettings({classes, settings, updateSetting}) {
   return (
     <Grid item xs={12}>
-      <Typography variant="headline" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         Udseende
       </Typography>
       <div>
@@ -246,7 +246,7 @@ function renderVisualSettings({classes, settings, updateSetting}) {
           title="Vælg baggrundsbillede"
         />
       </div>
-      <Typography variant="title" gutterBottom>
+      <Typography variant="h6" gutterBottom>
         Farveskema
       </Typography>
       <Grid container spacing={16}>
