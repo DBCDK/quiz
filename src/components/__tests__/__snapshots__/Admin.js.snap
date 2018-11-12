@@ -30,7 +30,6 @@ exports[`renders editing of a question 1`] = `
         <svg
           aria-hidden="true"
           className="MuiSvgIcon-root-133"
-          color={undefined}
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -55,13 +54,11 @@ exports[`renders editing of a question 1`] = `
     className="MuiGrid-item-8 MuiGrid-grid-xs-12-47"
   >
     <div
-      aria-describedby={undefined}
       className="MuiFormControl-root-142 MuiFormControl-fullWidth-145"
     >
       <label
         className="MuiFormLabel-root-157 MuiInputLabel-root-146 MuiInputLabel-formControl-151 MuiInputLabel-animated-154 MuiInputLabel-outlined-156"
         data-shrink={false}
-        htmlFor={undefined}
       >
         Find quiz
       </label>
@@ -97,22 +94,12 @@ exports[`renders editing of a question 1`] = `
         </fieldset>
         <input
           aria-invalid={false}
-          autoComplete={undefined}
-          autoFocus={undefined}
           className="MuiInputBase-input-187 MuiOutlinedInput-input-172 MuiInputBase-inputAdornedEnd-193 MuiOutlinedInput-inputAdornedEnd-176"
-          defaultValue={undefined}
           disabled={false}
-          id={undefined}
-          name={undefined}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          onKeyDown={undefined}
-          onKeyUp={undefined}
-          placeholder={undefined}
-          readOnly={undefined}
           required={false}
-          rows={undefined}
           type="text"
           value=""
         />
@@ -143,7 +130,6 @@ exports[`renders editing of a question 1`] = `
               <svg
                 aria-hidden="true"
                 className="MuiSvgIcon-root-133"
-                color={undefined}
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -183,7 +169,6 @@ exports[`renders editing of a question 1`] = `
             onTouchEnd={[Function]}
             onTouchMove={[Function]}
             onTouchStart={[Function]}
-            role={undefined}
             tabIndex={null}
           >
             <span
@@ -193,18 +178,10 @@ exports[`renders editing of a question 1`] = `
                 className="MuiSwitch-icon-213 MuiSwitch-iconChecked-214"
               />
               <input
-                autoFocus={undefined}
                 checked={true}
                 className="MuiPrivateSwitchBase-input-224"
-                disabled={undefined}
-                id={undefined}
-                name={undefined}
                 onChange={[Function]}
-                readOnly={undefined}
-                required={undefined}
-                tabIndex={undefined}
                 type="checkbox"
-                value={undefined}
               />
             </span>
             <span
@@ -263,7 +240,6 @@ exports[`renders editing of a quiz 1`] = `
         <svg
           aria-hidden="true"
           className="MuiSvgIcon-root-133"
-          color={undefined}
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -288,13 +264,11 @@ exports[`renders editing of a quiz 1`] = `
     className="MuiGrid-item-8 MuiGrid-grid-xs-12-47"
   >
     <div
-      aria-describedby={undefined}
       className="MuiFormControl-root-142 MuiFormControl-fullWidth-145"
     >
       <label
         className="MuiFormLabel-root-157 MuiInputLabel-root-146 MuiInputLabel-formControl-151 MuiInputLabel-animated-154 MuiInputLabel-outlined-156"
         data-shrink={false}
-        htmlFor={undefined}
       >
         Find quiz
       </label>
@@ -330,22 +304,12 @@ exports[`renders editing of a quiz 1`] = `
         </fieldset>
         <input
           aria-invalid={false}
-          autoComplete={undefined}
-          autoFocus={undefined}
           className="MuiInputBase-input-187 MuiOutlinedInput-input-172 MuiInputBase-inputAdornedEnd-193 MuiOutlinedInput-inputAdornedEnd-176"
-          defaultValue={undefined}
           disabled={false}
-          id={undefined}
-          name={undefined}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          onKeyDown={undefined}
-          onKeyUp={undefined}
-          placeholder={undefined}
-          readOnly={undefined}
           required={false}
-          rows={undefined}
           type="text"
           value=""
         />
@@ -376,7 +340,6 @@ exports[`renders editing of a quiz 1`] = `
               <svg
                 aria-hidden="true"
                 className="MuiSvgIcon-root-133"
-                color={undefined}
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -416,7 +379,6 @@ exports[`renders editing of a quiz 1`] = `
             onTouchEnd={[Function]}
             onTouchMove={[Function]}
             onTouchStart={[Function]}
-            role={undefined}
             tabIndex={null}
           >
             <span
@@ -426,18 +388,10 @@ exports[`renders editing of a quiz 1`] = `
                 className="MuiSwitch-icon-213 MuiSwitch-iconChecked-214"
               />
               <input
-                autoFocus={undefined}
                 checked={true}
                 className="MuiPrivateSwitchBase-input-224"
-                disabled={undefined}
-                id={undefined}
-                name={undefined}
                 onChange={[Function]}
-                readOnly={undefined}
-                required={undefined}
-                tabIndex={undefined}
                 type="checkbox"
-                value={undefined}
               />
             </span>
             <span
@@ -496,7 +450,6 @@ exports[`renders editing of intro 1`] = `
         <svg
           aria-hidden="true"
           className="MuiSvgIcon-root-133"
-          color={undefined}
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -521,13 +474,11 @@ exports[`renders editing of intro 1`] = `
     className="MuiGrid-item-8 MuiGrid-grid-xs-12-47"
   >
     <div
-      aria-describedby={undefined}
       className="MuiFormControl-root-142 MuiFormControl-fullWidth-145"
     >
       <label
         className="MuiFormLabel-root-157 MuiInputLabel-root-146 MuiInputLabel-formControl-151 MuiInputLabel-animated-154 MuiInputLabel-outlined-156"
         data-shrink={false}
-        htmlFor={undefined}
       >
         Find quiz
       </label>
@@ -563,22 +514,12 @@ exports[`renders editing of intro 1`] = `
         </fieldset>
         <input
           aria-invalid={false}
-          autoComplete={undefined}
-          autoFocus={undefined}
           className="MuiInputBase-input-187 MuiOutlinedInput-input-172 MuiInputBase-inputAdornedEnd-193 MuiOutlinedInput-inputAdornedEnd-176"
-          defaultValue={undefined}
           disabled={false}
-          id={undefined}
-          name={undefined}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
-          onKeyDown={undefined}
-          onKeyUp={undefined}
-          placeholder={undefined}
-          readOnly={undefined}
           required={false}
-          rows={undefined}
           type="text"
           value=""
         />
@@ -609,7 +550,6 @@ exports[`renders editing of intro 1`] = `
               <svg
                 aria-hidden="true"
                 className="MuiSvgIcon-root-133"
-                color={undefined}
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -649,7 +589,6 @@ exports[`renders editing of intro 1`] = `
             onTouchEnd={[Function]}
             onTouchMove={[Function]}
             onTouchStart={[Function]}
-            role={undefined}
             tabIndex={null}
           >
             <span
@@ -659,18 +598,10 @@ exports[`renders editing of intro 1`] = `
                 className="MuiSwitch-icon-213 MuiSwitch-iconChecked-214"
               />
               <input
-                autoFocus={undefined}
                 checked={true}
                 className="MuiPrivateSwitchBase-input-224"
-                disabled={undefined}
-                id={undefined}
-                name={undefined}
                 onChange={[Function]}
-                readOnly={undefined}
-                required={undefined}
-                tabIndex={undefined}
                 type="checkbox"
-                value={undefined}
               />
             </span>
             <span
