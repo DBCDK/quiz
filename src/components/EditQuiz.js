@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import style from './style';
 import {ImageDialog, Image} from './ImageDialog';
 import {withStyles} from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import {
   adminCurrentScreen,
@@ -162,14 +163,16 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           onChange={o => updateSetting(['title'], o.target.value)}
         />
       </FormControl>
-      <FormControl fullWidth className={classes.margin}>
-        <InputLabel htmlFor="description">Beskrivelse</InputLabel>
-        <Input
-          id="description"
-          value={settings.get('description')}
-          onChange={o => updateSetting(['description'], o.target.value)}
-        />
-      </FormControl>
+      <Tooltip title="Beskrivelsen bruges kun i admin-grænsefladen, til at notere hvad quiz'en handler om">
+        <FormControl fullWidth className={classes.margin}>
+          <InputLabel htmlFor="description">Beskrivelse</InputLabel>
+          <Input
+            id="description"
+            value={settings.get('description')}
+            onChange={o => updateSetting(['description'], o.target.value)}
+          />
+        </FormControl>
+      </Tooltip>
       <FormControl fullWidth className={classes.margin}>
         <InputLabel htmlFor="tags">Tags</InputLabel>
         <Input
