@@ -77,14 +77,6 @@ function editCondition(
           type="number"
           className={classes.margin}
         />
-        <Button
-          variant="contained"
-          color="default"
-          onClick={() => doEditScreen(condition.getIn(['action', 'screen']))}
-          className={classes.margin}
-        >
-          Rediger slutning
-        </Button>
         <ImageDialog
           title="Vælg pokalbillede"
           setImageUrl={url =>
@@ -101,6 +93,15 @@ function editCondition(
           onClick={doDeleteDispatch}
         >
           <DeleteIcon />
+        </Button>
+        <br />
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() => doEditScreen(condition.getIn(['action', 'screen']))}
+          className={classes.margin}
+        >
+          Rediger slutning
         </Button>
       </Paper>
     </Grid>
@@ -135,6 +136,7 @@ function editDispatch({
         >
           <AddIcon /> Mulig slutning
         </Button>
+        <br />
         <Button
           variant="contained"
           color="default"
@@ -172,8 +174,8 @@ export class EditScreen extends Component {
         {currentScreen.get('ui')
           ? editUI(this.props)
           : currentScreen.get('dispatch')
-            ? editDispatch(this.props)
-            : 'Error: unsupported screen'}
+          ? editDispatch(this.props)
+          : 'Error: unsupported screen'}
       </Grid>
     );
   }
