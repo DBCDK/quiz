@@ -18,7 +18,7 @@
     "react-dom": "^16.6.0",
     "react-jss": "^8.6.1",
     "react-redux": "^5.1.0",
-    "react-scripts": "^2.1.1",
+    "react-scripts": "^1.1.5",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "uuid": "^3.3.2"
@@ -44,7 +44,7 @@
     "deploy": "gh-pages -d build",
     "prettier": "lint-staged",
     "start": "react-scripts start",
-    "build": "rm build/static/js/main.*.js; react-scripts build; cd build; ln -sf ./static/js/main.*.js widget.js; ln -sf ./static/js/main.*.js admin.js",
+    "build": "rm build/static/js/main.*.js; react-scripts build; sh -c \"cd build; ln -sf ./static/js/main.*.js widget.js; ln -sf ./static/js/main.*.js admin.js\"",
     "test": "react-scripts test --env=jsdom",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   }
