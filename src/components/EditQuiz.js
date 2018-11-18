@@ -72,7 +72,25 @@ function quizSection({screen, doEdit, doDelete, classes}) {
   const notDraggable = !!(
     screen.get('dispatch', false) || screen.get('start', false)
   );
-  return (
+  return notDraggable ? (
+    <Grid container spacing={8} className={classes.margin}>
+      <Grid item xs={11}>
+        <Button
+          className={classes.button}
+          variant="outlined"
+          fullWidth={true}
+          onClick={doEdit}
+        >
+          <Typography variant="button" noWrap>
+            {screen
+              .get('ui', [])
+              .map(uiElem => uiElem.get('text', ''))
+              .join(' ') + (notDraggable ? 'Quiz-afslutninger' : '')}
+          </Typography>
+        </Button>
+      </Grid>
+    </Grid>
+  ) : (
     <Grid container spacing={8}>
       <Grid item xs={1}>
         {!notDraggable && <DragIndicatorIcon />}
@@ -80,7 +98,7 @@ function quizSection({screen, doEdit, doDelete, classes}) {
       <Grid item xs={10}>
         <Button
           className={classes.button}
-          variant="contained"
+          variant="outlined"
           fullWidth={true}
           onClick={doEdit}
         >
