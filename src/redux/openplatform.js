@@ -7,10 +7,10 @@ export async function getUser() {
     openplatformUser = (async () => {
       await ensureDbcOpenPlatform();
       let o;
-      for (let i = 1; i < 10; ++i) {
+      for (let i = 1; i < 30; ++i) {
         const o = await Promise.race([
-          await window.dbcOpenPlatform.status({fields: ['storage']}),
-          sleep(i)
+          window.dbcOpenPlatform.status({fields: ['storage']}),
+          sleep(i * 0.5)
         ]);
         if (o && o.storage && o.storage.user) {
           return o.storage.user;
