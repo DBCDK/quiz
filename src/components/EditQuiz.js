@@ -146,24 +146,28 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
       <Typography variant="h5" gutterBottom>
         Quiz beskrivelse
       </Typography>
-      <Typography>
-        Quiz id / indlejring:{' '}
-        <a
-          target="_blank"
-          href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}
-        >
-          {settings.get('_id')}
-        </a>
-      </Typography>
-      <FormControl fullWidth className={classes.margin}>
-        <InputLabel htmlFor="title">Titel</InputLabel>
-        <Input
-          id="title"
-          value={settings.get('title')}
-          onChange={o => updateSetting(['title'], o.target.value)}
-        />
-      </FormControl>
-      <Tooltip title="Beskrivelsen bruges kun i admin-grænsefladen, til at notere hvad quiz'en handler om">
+      <Tooltip title="Hjælpetekst1">
+        <Typography>
+          Quiz id / indlejring:{' '}
+          <a
+            target="_blank"
+            href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}
+          >
+            {settings.get('_id')}
+          </a>
+        </Typography>
+      </Tooltip>
+      <Tooltip title="Hjælpetekst2">
+        <FormControl fullWidth className={classes.margin}>
+          <InputLabel htmlFor="title">Titel</InputLabel>
+          <Input
+            id="title"
+            value={settings.get('title')}
+            onChange={o => updateSetting(['title'], o.target.value)}
+          />
+        </FormControl>
+      </Tooltip>
+      <Tooltip title="Hjælpetekst3">
         <FormControl fullWidth className={classes.margin}>
           <InputLabel htmlFor="description">Beskrivelse</InputLabel>
           <Input
@@ -173,22 +177,24 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           />
         </FormControl>
       </Tooltip>
-      <FormControl fullWidth className={classes.margin}>
-        <InputLabel htmlFor="tags">Tags</InputLabel>
-        <Input
-          id="tags"
-          value={settings
-            .get('tags')
-            .toJS()
-            .join(' ')}
-          onChange={o =>
-            updateSetting(
-              ['tags'],
-              o.target.value.replace(/[,]/g, '').split(/ +/)
-            )
-          }
-        />
-      </FormControl>
+      <Tooltip title="Hjælpetekst4">
+        <FormControl fullWidth className={classes.margin}>
+          <InputLabel htmlFor="tags">Tags</InputLabel>
+          <Input
+            id="tags"
+            value={settings
+              .get('tags')
+              .toJS()
+              .join(' ')}
+            onChange={o =>
+              updateSetting(
+                ['tags'],
+                o.target.value.replace(/[,]/g, '').split(/ +/)
+              )
+            }
+          />
+        </FormControl>
+      </Tooltip>
     </Grid>
   );
 }
@@ -239,61 +245,68 @@ function renderVisualSettings({classes, settings, updateSetting}) {
       <Typography variant="h5" gutterBottom>
         Udseende
       </Typography>
-      <div>
-        <Image url={settings.get('backgroundImage', '')} height={100} />
-        <br />
-        <ImageDialog
-          classes={classes}
-          imageUrl={settings.get('backgroundImage', '')}
-          setImageUrl={url => updateSetting(['backgroundImage'], url)}
-          title="Vælg baggrundsbillede"
-        />
-      </div>
+      <Tooltip title="Hjælpetekst5">
+        <div>
+          <Image url={settings.get('backgroundImage', '')} height={100} />
+          <br />
+          <ImageDialog
+            classes={classes}
+            imageUrl={settings.get('backgroundImage', '')}
+            setImageUrl={url => updateSetting(['backgroundImage'], url)}
+            title="Vælg baggrundsbillede"
+          />
+        </div>
+      </Tooltip>
       <Typography variant="h6" gutterBottom>
         Farveskema
       </Typography>
-      <Grid container spacing={16}>
-        <Grid item>
-          Primærfarve
-          <br />
-          <ChromePicker
-            disableAlpha
-            id="primaryColor"
-            color={settings.getIn(['style', 'primaryColor'], '#C0FFEE')}
-            onChangeComplete={o =>
-              updateSetting(['style', 'primaryColor'], o.hex)
-            }
-          />
+      <Tooltip title="Hjælpetekst5">
+        <Grid container spacing={16}>
+          <Grid item>
+            Primærfarve
+            <br />
+            <ChromePicker
+              disableAlpha
+              id="primaryColor"
+              color={settings.getIn(['style', 'primaryColor'], '#C0FFEE')}
+              onChangeComplete={o =>
+                updateSetting(['style', 'primaryColor'], o.hex)
+              }
+            />
+          </Grid>
+          <Grid item>
+            Sekundærfarve
+            <br />
+            <ChromePicker
+              disableAlpha
+              id="buttonColor"
+              color={settings.getIn(['style', 'secondaryColor'], '#BA0BAB')}
+              onChangeComplete={o =>
+                updateSetting(['style', 'secondaryColor'], o.hex)
+              }
+            />
+          </Grid>
+          <Grid item>
+            Baggrundsfarve
+            <br />
+            <ChromePicker
+              id="backgroundColor"
+              color={JSON.parse(
+                settings.getIn(
+                  ['style', 'backgroundColor'],
+                  '{"r":255, "g":255, "b":255, "a": 0.7}'
+                )
+              )}
+              onChangeComplete={o =>
+                updateSetting(
+                  ['style', 'backgroundColor'],
+                  JSON.stringify(o.rgb)
+                )
+              }
+            />
+          </Grid>
         </Grid>
-        <Grid item>
-          Sekundærfarve
-          <br />
-          <ChromePicker
-            disableAlpha
-            id="buttonColor"
-            color={settings.getIn(['style', 'secondaryColor'], '#BA0BAB')}
-            onChangeComplete={o =>
-              updateSetting(['style', 'secondaryColor'], o.hex)
-            }
-          />
-        </Grid>
-        <Grid item>
-          Baggrundsfarve
-          <br />
-          <ChromePicker
-            id="backgroundColor"
-            color={JSON.parse(
-              settings.getIn(
-                ['style', 'backgroundColor'],
-                '{"r":255, "g":255, "b":255, "a": 0.7}'
-              )
-            )}
-            onChangeComplete={o =>
-              updateSetting(['style', 'backgroundColor'], JSON.stringify(o.rgb))
-            }
-          />
-        </Grid>
-      </Grid>
+      </Tooltip>
     </Grid>
   );
 }
