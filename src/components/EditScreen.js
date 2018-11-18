@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Image, ImageDialog} from './ImageDialog';
@@ -61,30 +62,36 @@ function editCondition(
           url={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
         />
         <br />
-        <TextField
-          label="Mindste antal point"
-          value={minScore}
-          onChange={e =>
-            doUpdateDispatch(o =>
-              o.set(
-                'condition',
-                Immutable.fromJS({
-                  atLeast: {score: Math.max(0, e.target.value)}
-                })
+        <Tooltip title="Hjælpetekst6. Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises.">
+          <TextField
+            label="Mindste antal point"
+            value={minScore}
+            onChange={e =>
+              doUpdateDispatch(o =>
+                o.set(
+                  'condition',
+                  Immutable.fromJS({
+                    atLeast: {score: Math.max(0, e.target.value)}
+                  })
+                )
               )
-            )
-          }
-          type="number"
-          className={classes.margin}
-        />
-        <ImageDialog
-          title="Vælg pokalbillede"
-          setImageUrl={url =>
-            doUpdateDispatch(o =>
-              o.setIn(['action', 'set', 'trophy', 'image'], url)
-            )
-          }
-        />
+            }
+            type="number"
+            className={classes.margin}
+          />
+        </Tooltip>
+        <Tooltip title="Hjælpetekst7. Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises ">
+          <span>
+            <ImageDialog
+              title="Vælg pokalbillede"
+              setImageUrl={url =>
+                doUpdateDispatch(o =>
+                  o.setIn(['action', 'set', 'trophy', 'image'], url)
+                )
+              }
+            />
+          </span>
+        </Tooltip>
         <Button
           className={classes.margin}
           variant="fab"
