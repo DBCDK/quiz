@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Widget, mapStateToProps, mapDispatchToProps} from '../Widget';
 import renderer from 'react-test-renderer';
-import sampleState from '../../redux/sampleState';
+import {sampleState} from '../../redux/sampleState';
 import Immutable from 'immutable';
 
 it('maps state to props', () => {

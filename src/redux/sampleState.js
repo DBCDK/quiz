@@ -1,6 +1,7 @@
 import Immutable from 'immutable';
+import {quizData} from '../quizData.js';
 
-const sampleState = Immutable.fromJS({
+export const sampleState = Immutable.fromJS({
   admin: {
     // edit a single screen if currentScreen is set
     currentScreen: undefined
@@ -37,5 +38,4 @@ const sampleState = Immutable.fromJS({
     page: {}
   }
 });
-
-export default sampleState;
+export const newQuiz = sampleState.set('quiz', Immutable.fromJS(quizData()));

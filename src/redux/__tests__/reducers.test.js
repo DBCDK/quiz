@@ -1,6 +1,6 @@
 import {root} from '../reducers';
 import Immutable from 'immutable';
-import sampleState from '../sampleState.js';
+import {sampleState} from '../sampleState.js';
 import {quizData} from '../../quizData.js';
 const stateWithQuiz = sampleState.set('quiz', Immutable.fromJS(quizData));
 
