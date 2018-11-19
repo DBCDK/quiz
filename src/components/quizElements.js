@@ -3,6 +3,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Tooltip from '@material-ui/core/Tooltip';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import mustache from 'mustache';
@@ -115,16 +116,38 @@ const quizElements = {
     edit: ({text}, {updateQuizElement, classes, vars}) => (
       <Grid container spacing={16}>
         <Grid item xs={6}>
-          <TextField
-            label="Tekst"
-            fullWidth
-            multiline
-            rowsMax="8"
-            value={text}
-            onChange={e =>
-              updateQuizElement(ui => ui.set('text', e.target.value))
+          <Tooltip
+            title={
+              <div>
+                Hjælpetekst8
+                <p>
+                  Teksten man skriver her kan indeholde variable i dobbelte
+                  krøllede paranteser: <em>{'{{questionCount}}'}</em> er
+                  antallet af spørgsmål brugeren har besvaret,{' '}
+                  <em>{'{{correct}}'}</em> er antallet af korrekte besvarede
+                  spørgsmål og <em>{'{{score}}'}</em> er antallet af point.
+                </p>
+                <p>
+                  {' '}
+                  Teksten kan formateres med markdown: URL'er bliver lavet om
+                  til links. Linjer der starter med et antal havelåger(#) bliver
+                  lavet til overskrifter, og så videre. Søg efter "Markdown"
+                  online, for at finde yderligere vejledning til formattering.
+                </p>
+              </div>
             }
-          />
+          >
+            <TextField
+              label="Tekst"
+              fullWidth
+              multiline
+              rowsMax="8"
+              value={text}
+              onChange={e =>
+                updateQuizElement(ui => ui.set('text', e.target.value))
+              }
+            />
+          </Tooltip>
         </Grid>
         <Grid item xs={6}>
           {quizElements.text.view({text}, {vars})}
