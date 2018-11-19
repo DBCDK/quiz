@@ -216,7 +216,7 @@ const quizElements = {
             <Image
               url={image}
               style={{borderRadius: 4}}
-              height={64}
+              height={128}
               alt={text}
             />
           )}
