@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import AddIcon from '@material-ui/icons/Add';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from '@material-ui/core/Button';
 import {ChromePicker} from 'react-color';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -141,6 +142,7 @@ export class EditQuiz extends Component {
           fullWidth={true}
           onClick={adminQuizList}
         >
+          <ArrowBackIcon />
           Vælg quiz
         </Button>
         {renderDescriptionSettings({classes, settings, updateSetting})}
