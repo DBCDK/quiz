@@ -33,7 +33,7 @@ export const answerButtonData = ({nextScreen, score, text}) => ({
   text: text || 'Tekst på svarknap',
   action: {
     screen: nextScreen,
-    increment: {score: score || 0, correct: score ? 1 : 0, questionCount: 1}
+    increment: {score: score || 0, correct: score || 0, questionCount: 1}
   }
 });
 export const questionSectionData = ({id, nextScreen, questionText}) => ({
@@ -49,11 +49,11 @@ export const questionSectionData = ({id, nextScreen, questionText}) => ({
       {
         type: 'buttonGroup',
         ui: [
-          answerButtonData({nextScreen: id + 'answer1', text: 'Forkert svar'}),
+          answerButtonData({nextScreen: id + 'answer1', text: 'Svar A'}),
           answerButtonData({
             nextScreen: id + 'answer2',
             score: 1,
-            text: 'Rigtigt svar'
+            text: 'Svar B'
           })
         ]
       },
@@ -76,13 +76,13 @@ export const questionSectionData = ({id, nextScreen, questionText}) => ({
     _id: id + 'answer1',
     parent: id,
     action: {screen: nextScreen},
-    text: '# Forkert svar\n\nDet rigtige svar er ... fordi...'
+    text: '# Forkert/Rigtigt svar\n\nDet rigtige svar er ... fordi...'
   }),
   [id + 'answer2']: infoScreenData({
     _id: id + 'answer2',
     parent: id,
     action: {screen: nextScreen},
-    text: '# Rigtigt svar\n\nDet var rigtigt fordi...'
+    text: '# Rigtigt/Forkert svar\n\nDet var rigtigt fordi...'
   })
 });
 export const quizData = () => ({
