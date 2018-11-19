@@ -180,7 +180,8 @@ const quizElements = {
                         ['ui', pos, 'action', 'increment'],
                         Immutable.fromJS({
                           score: Math.max(+e.target.value, 0),
-                          correct: +e.target.value ? 1 : 0
+                          correct: +e.target.value ? 1 : 0,
+                          questionCount: 1
                         })
                       )
                     )
