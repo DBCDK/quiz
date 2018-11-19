@@ -1,3 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`admin selectors findMaxState finds maximum state values 1`] = `
+Object {
+  "correct": 2,
+  "questionCount": 2,
+  "score": 2,
+  "trophy": NaN,
+}
+`;
+
 exports[`admin selectors topNodes finds top nodes screen graph 1`] = `Array []`;
+
+exports[`admin selectors topNodes finds top nodes screen graph 2`] = `
+Array [
+  "quizIntro",
+  "quizQuestion1",
+  "quizQuestion2",
+  "quizDone",
+]
+`;
