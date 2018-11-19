@@ -1,4 +1,4 @@
-import sampleState from './sampleState';
+import {sampleState} from './sampleState';
 import {storage} from './openplatform';
 import {
   dispatchActionData,

@@ -14,7 +14,7 @@ import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Image, ImageDialog} from './ImageDialog';
 
-import {adminCurrentScreen, getScreen} from '../redux/selectors';
+import {adminCurrentScreen, getScreen, findMaxState} from '../redux/selectors';
 import {
   editScreen,
   updateScreenElement,
@@ -116,6 +116,7 @@ function editCondition(
 }
 function editDispatch({
   currentScreen,
+  maxState,
   classes,
   doEditScreen,
   doUpdateDispatch,
@@ -124,6 +125,17 @@ function editDispatch({
 }) {
   return (
     <Grid container spacing={16}>
+      <Grid item xs={12}>
+        <Typography paragraph>
+          Hver svarmulighed blandt spørgsmålene giver et antal point. Når
+          quiz'en slutter, vises den første af nedenstående slutninger, hvor
+          antallet af point er opfyldt. Slutningerne herunder sorteres
+          automatisk efter det angivne mindste antal point.
+        </Typography>
+        <Typography paragraph>
+          Som denne quiz er nu, kan man få op til {maxState.score} point.
+        </Typography>
+      </Grid>
       {currentScreen
         .get('dispatch')
         .butLast()
@@ -187,8 +199,14 @@ export class EditScreen extends Component {
 }
 
 export function mapStateToProps(state, ownProps) {
+  const currentScreen = getScreen(adminCurrentScreen(state), state);
+  let maxState;
+  if (currentScreen.get('dispatch')) {
+    maxState = findMaxState(state.get('quiz'));
+  }
   return {
-    currentScreen: getScreen(adminCurrentScreen(state), state)
+    currentScreen,
+    maxState
   };
 }
 export function mapDispatchToProps(dispatch) {

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Admin from '../Admin';
 import renderer from 'react-test-renderer';
-import sampleState from '../../redux/sampleState';
+import {sampleState} from '../../redux/sampleState';
 import Immutable from 'immutable';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';

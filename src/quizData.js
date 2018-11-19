@@ -95,17 +95,17 @@ export const quizData = () => ({
     primaryColor: '#0b6f9f',
     secondaryColor: '#768e87'
   },
-  start: 'intro',
+  start: 'quizIntro',
   screens: {
-    intro: {
+    quizIntro: {
       start: true,
-      nextSection: 'question1',
+      nextSection: 'quizQuestion1',
       ...infoScreenData({
-        _id: 'intro',
+        _id: 'quizIntro',
         text: '# Velkommen til quizzen\n\n Tilføj mere intro-tekst her...',
         buttonText: 'Start',
         action: {
-          screen: 'question1',
+          screen: 'quizQuestion1',
           set: {
             score: 0,
             correct: 0,
@@ -115,18 +115,18 @@ export const quizData = () => ({
       })
     },
     ...questionSectionData({
-      id: 'question1',
-      nextScreen: 'question2',
+      id: 'quizQuestion1',
+      nextScreen: 'quizQuestion2',
       questionText: 'Hvad er svaret på spørgsmål 1?'
     }),
     ...questionSectionData({
-      id: 'question2',
-      nextScreen: 'done',
+      id: 'quizQuestion2',
+      nextScreen: 'quizDone',
       questionText: 'Hvad er svaret på spørgsmål 2?'
     }),
-    done: {
-      _id: 'done',
-      nextSection: 'intro',
+    quizDone: {
+      _id: 'quizDone',
+      nextSection: 'quizIntro',
       dispatch: [
         dispatchActionData({
           score: 1,
@@ -138,16 +138,16 @@ export const quizData = () => ({
     },
     won: infoScreenData({
       _id: 'won',
-      parent: 'done',
+      parent: 'quizDone',
       text: 'Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige',
-      action: {screen: 'intro'},
+      action: {screen: 'quizIntro'},
       buttonText: 'Prøv igen'
     }),
     retry: infoScreenData({
       _id: 'won',
-      parent: 'done',
+      parent: 'quizDone',
       text: 'Prøv igen...',
-      action: {screen: 'intro'},
+      action: {screen: 'quizIntro'},
       buttonText: 'Prøv igen'
     })
   }
