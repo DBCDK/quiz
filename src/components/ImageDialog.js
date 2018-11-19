@@ -34,11 +34,16 @@ export class ImageDialog extends React.Component {
   }
   render() {
     if (!this.state.open) {
-      return (
+      return [
         <Button onClick={() => this.openDialog()}>
           {this.props.title || 'Vælg billede'}
-        </Button>
-      );
+        </Button>,
+        this.props.imageUrl && (
+          <IconButton onClick={() => this.props.setImageUrl('')}>
+            <DeleteIcon />
+          </IconButton>
+        )
+      ];
     }
     return (
       <Dialog open={true} onClose={() => this.setState({open: false})}>

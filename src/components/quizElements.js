@@ -181,7 +181,7 @@ const quizElements = {
                 <br />
                 <Button
                   className={classes.margin}
-                  variant="fab"
+                  variant="contained"
                   aria-label="Delete"
                   mini
                   onClick={() =>
@@ -189,6 +189,7 @@ const quizElements = {
                   }
                 >
                   <DeleteIcon />
+                  Slet svarknap
                 </Button>
               </Grid>
             );
@@ -254,9 +255,6 @@ const quizElements = {
             updateQuizElement(ui => ui.set('image', imageUrl));
           }}
         />
-        <Button onClick={() => updateQuizElement(ui => ui.set('image', ''))}>
-          Fjen knap-billede
-        </Button>
       </div>
     )
   }
