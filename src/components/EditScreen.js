@@ -170,9 +170,7 @@ export class EditScreen extends Component {
     return (
       <Grid container spacing={16}>
         <Grid item xs={12}>
-          <Typography variant="h5" gutterBottom>
-            Rediger quiz-skærm
-          </Typography>
+          {/* <Typography variant="h5" gutterBottom> Rediger quiz-skærm </Typography> */}
           <Button onClick={() => doEditScreen(currentScreen.get('parent', ''))}>
             <ArrowBackIcon />
             Tilbage
