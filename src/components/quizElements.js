@@ -160,17 +160,6 @@ const quizElements = {
                     updateQuizElement: f =>
                       updateQuizElement(o => o.updateIn(['ui', pos], f))
                   })}
-                <Button
-                  className={classes.margin}
-                  variant="fab"
-                  aria-label="Delete"
-                  mini
-                  onClick={() =>
-                    updateQuizElement(o => o.deleteIn(['ui', pos]))
-                  }
-                >
-                  <DeleteIcon />
-                </Button>
                 <TextField
                   label="Point for svar"
                   value={scoreIncrement}
@@ -189,6 +178,18 @@ const quizElements = {
                   type="number"
                   className={classes.margin}
                 />
+                <br />
+                <Button
+                  className={classes.margin}
+                  variant="fab"
+                  aria-label="Delete"
+                  mini
+                  onClick={() =>
+                    updateQuizElement(o => o.deleteIn(['ui', pos]))
+                  }
+                >
+                  <DeleteIcon />
+                </Button>
               </Grid>
             );
           })}
