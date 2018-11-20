@@ -1,5 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`a quiz 1`] = `
+Array [
+  <header
+    className="MuiPaper-root-1056 MuiPaper-elevation4-1062 MuiAppBar-root-1047 MuiAppBar-positionStatic-1051 MuiAppBar-colorPrimary-1054"
+>
+    <div
+        className="MuiToolbar-root-1083 MuiToolbar-regular-1085 MuiToolbar-gutters-1084"
+    >
+        <h6
+            className="MuiTypography-root-1087 MuiTypography-h6-1104 MuiTypography-colorInherit-1116"
+        >
+            Quiz test eksempel
+        </h6>
+    </div>
+</header>,
+  <center
+    style={
+        Object {
+            "background": "url(\\"https://openplatform.dbc.dk/v3/storage/ce096071-b6ab-4a0d-8b81-93cfa8ee0a40?width=1024\\") no-repeat center center fixed",
+            "backgroundSize": "cover",
+          }
+    }
+>
+    <div
+        style={
+            Object {
+                "backgroundColor": "rgba(196,200,206,0.7)",
+              }
+        }
+    >
+        <div
+            className="MuiGrid-container-1122 MuiGrid-spacing-xs-16-1145 Connect-Widget--container-2"
+        >
+            <div
+                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+            />
+            <div
+                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+            >
+                <center>
+                    <img
+                        alt=""
+                        className="Connect-Widget--maxImageSize-3"
+                        height={undefined}
+                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
+                        style={undefined}
+                        width={undefined}
+                    />
+                </center>
+            </div>
+            <div
+                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+            >
+                <div
+                    className="MuiTypography-root-1087 MuiTypography-body1-1096"
+                >
+                    <div
+                        dangerouslySetInnerHTML={
+                            Object {
+                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
+                            <p>Ud i det blå</p>
+                            ",
+                              }
+                        }
+                    />
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+            >
+                <button
+                    className="MuiButtonBase-root-1245 MuiButton-root-1219 MuiButton-contained-1230 MuiButton-containedPrimary-1231 MuiButton-raised-1233 MuiButton-raisedPrimary-1234 MuiButton-fullWidth-1244"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="0"
+                    type="button"
+                >
+                    <span
+                        className="MuiButton-label-1220"
+                    >
+                        Start
+                    </span>
+                    <span
+                        className="MuiTouchRipple-root-1248"
+                    />
+                </button>
+            </div>
+        </div>
+    </div>
+</center>,
+]
+`;
+
 exports[`maps dispatch to props 1`] = `
 Object {
   "onAction": [Function],
@@ -12,25 +115,25 @@ exports[`maps state to props 1`] = `
 </div>
 `;
 
-exports[`renders 1`] = `
+exports[`renders a question 1`] = `
 Array [
   <header
-    className="MuiPaper-root-10 MuiPaper-elevation4-16 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-8"
+    className="MuiPaper-root-848 MuiPaper-elevation4-854 MuiAppBar-root-839 MuiAppBar-positionStatic-843 MuiAppBar-colorPrimary-846"
 >
     <div
-        className="MuiToolbar-root-37 MuiToolbar-regular-39 MuiToolbar-gutters-38"
+        className="MuiToolbar-root-875 MuiToolbar-regular-877 MuiToolbar-gutters-876"
     >
         <h6
-            className="MuiTypography-root-41 MuiTypography-h6-58 MuiTypography-colorInherit-70"
+            className="MuiTypography-root-879 MuiTypography-h6-896 MuiTypography-colorInherit-908"
         >
-            Titel for Quiz
+            Quiz test eksempel
         </h6>
     </div>
 </header>,
   <center
     style={
         Object {
-            "background": undefined,
+            "background": "url(\\"https://openplatform.dbc.dk/v3/storage/ce096071-b6ab-4a0d-8b81-93cfa8ee0a40?width=1024\\") no-repeat center center fixed",
             "backgroundSize": "cover",
           }
     }
@@ -38,68 +141,41 @@ Array [
     <div
         style={
             Object {
-                "backgroundColor": undefined,
+                "backgroundColor": "rgba(196,200,206,0.7)",
               }
         }
     >
         <div
-            className="MuiGrid-container-76 MuiGrid-spacing-xs-16-99"
+            className="MuiGrid-container-914 MuiGrid-spacing-xs-16-937 Connect-Widget--container-2"
         >
             <div
-                className="MuiGrid-item-77 MuiGrid-grid-xs-12-116"
-            />
-        </div>
-    </div>
-</center>,
-]
-`;
-
-exports[`renders page 1`] = `
-Array [
-  <header
-    className="MuiPaper-root-182 MuiPaper-elevation4-188 MuiAppBar-root-173 MuiAppBar-positionStatic-177 MuiAppBar-colorPrimary-180"
->
-    <div
-        className="MuiToolbar-root-209 MuiToolbar-regular-211 MuiToolbar-gutters-210"
-    >
-        <h6
-            className="MuiTypography-root-213 MuiTypography-h6-230 MuiTypography-colorInherit-242"
-        >
-            Titel for Quiz
-        </h6>
-    </div>
-</header>,
-  <center
-    style={
-        Object {
-            "background": undefined,
-            "backgroundSize": "cover",
-          }
-    }
->
-    <div
-        style={
-            Object {
-                "backgroundColor": undefined,
-              }
-        }
-    >
-        <div
-            className="MuiGrid-container-248 MuiGrid-spacing-xs-16-271"
-        >
-            <div
-                className="MuiGrid-item-249 MuiGrid-grid-xs-12-288"
+                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
             />
             <div
-                className="MuiGrid-item-249 MuiGrid-grid-xs-12-288"
+                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
+            >
+                <center>
+                    <img
+                        alt=""
+                        className="Connect-Widget--maxImageSize-3"
+                        height={undefined}
+                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
+                        style={undefined}
+                        width={undefined}
+                    />
+                </center>
+            </div>
+            <div
+                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
             >
                 <div
-                    className="MuiTypography-root-213 MuiTypography-body1-222"
+                    className="MuiTypography-root-879 MuiTypography-body1-888"
                 >
                     <div
                         dangerouslySetInnerHTML={
                             Object {
-                                "__html": "<p>hello</p>
+                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
+                            <p>Ud i det blå</p>
                             ",
                               }
                         }
@@ -107,56 +183,446 @@ Array [
                 </div>
             </div>
             <div
-                className="MuiGrid-item-249 MuiGrid-grid-xs-12-288"
+                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
             >
-                <div
-                    className="MuiGrid-container-248 MuiGrid-spacing-xs-16-271"
+                <button
+                    className="MuiButtonBase-root-1037 MuiButton-root-1011 MuiButton-contained-1022 MuiButton-containedPrimary-1023 MuiButton-raised-1025 MuiButton-raisedPrimary-1026 MuiButton-fullWidth-1036"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="0"
+                    type="button"
                 >
-                    <div
-                        className="MuiGrid-item-249 MuiGrid-grid-xs-6-282"
+                    <span
+                        className="MuiButton-label-1012"
                     >
-                        <button
-                            className="MuiButtonBase-root-371 MuiButton-root-345 MuiButton-contained-356 MuiButton-raised-359 MuiButton-fullWidth-370"
-                            disabled={false}
-                            onBlur={[Function]}
-                            onClick={[Function]}
-                            onFocus={[Function]}
-                            onKeyDown={[Function]}
-                            onKeyUp={[Function]}
-                            onMouseDown={[Function]}
-                            onMouseLeave={[Function]}
-                            onMouseUp={[Function]}
-                            onTouchEnd={[Function]}
-                            onTouchMove={[Function]}
-                            onTouchStart={[Function]}
-                            tabIndex="0"
-                            type="button"
-                        >
-                            <span
-                                className="MuiButton-label-346"
-                            >
-                                but
-                            </span>
-                            <span
-                                className="MuiTouchRipple-root-374"
-                            />
-                        </button>
-                    </div>
-                </div>
+                        Start
+                    </span>
+                    <span
+                        className="MuiTouchRipple-root-1040"
+                    />
+                </button>
             </div>
+        </div>
+    </div>
+</center>,
+]
+`;
+
+exports[`renders different endings 1`] = `
+Array [
+  <header
+    className="MuiPaper-root-432 MuiPaper-elevation4-438 MuiAppBar-root-423 MuiAppBar-positionStatic-427 MuiAppBar-colorPrimary-430"
+>
+    <div
+        className="MuiToolbar-root-459 MuiToolbar-regular-461 MuiToolbar-gutters-460"
+    >
+        <h6
+            className="MuiTypography-root-463 MuiTypography-h6-480 MuiTypography-colorInherit-492"
+        >
+            Quiz test eksempel
+        </h6>
+    </div>
+</header>,
+  <center
+    style={
+        Object {
+            "background": "url(\\"https://openplatform.dbc.dk/v3/storage/ce096071-b6ab-4a0d-8b81-93cfa8ee0a40?width=1024\\") no-repeat center center fixed",
+            "backgroundSize": "cover",
+          }
+    }
+>
+    <div
+        style={
+            Object {
+                "backgroundColor": "rgba(196,200,206,0.7)",
+              }
+        }
+    >
+        <div
+            className="MuiGrid-container-498 MuiGrid-spacing-xs-16-521 Connect-Widget--container-2"
+        >
             <div
-                className="MuiGrid-item-249 MuiGrid-grid-xs-12-288"
+                className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
+            />
+            <div
+                className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
             >
                 <center>
                     <img
                         alt=""
-                        className={undefined}
+                        className="Connect-Widget--maxImageSize-3"
                         height={undefined}
-                        src="some://url"
+                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
                         style={undefined}
                         width={undefined}
                     />
                 </center>
+            </div>
+            <div
+                className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
+            >
+                <div
+                    className="MuiTypography-root-463 MuiTypography-body1-472"
+                >
+                    <div
+                        dangerouslySetInnerHTML={
+                            Object {
+                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
+                            <p>Ud i det blå</p>
+                            ",
+                              }
+                        }
+                    />
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
+            >
+                <button
+                    className="MuiButtonBase-root-621 MuiButton-root-595 MuiButton-contained-606 MuiButton-containedPrimary-607 MuiButton-raised-609 MuiButton-raisedPrimary-610 MuiButton-fullWidth-620"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="0"
+                    type="button"
+                >
+                    <span
+                        className="MuiButton-label-596"
+                    >
+                        Start
+                    </span>
+                    <span
+                        className="MuiTouchRipple-root-624"
+                    />
+                </button>
+            </div>
+        </div>
+    </div>
+</center>,
+]
+`;
+
+exports[`renders different endings 2`] = `
+Array [
+  <header
+    className="MuiPaper-root-640 MuiPaper-elevation4-646 MuiAppBar-root-631 MuiAppBar-positionStatic-635 MuiAppBar-colorPrimary-638"
+>
+    <div
+        className="MuiToolbar-root-667 MuiToolbar-regular-669 MuiToolbar-gutters-668"
+    >
+        <h6
+            className="MuiTypography-root-671 MuiTypography-h6-688 MuiTypography-colorInherit-700"
+        >
+            Quiz test eksempel
+        </h6>
+    </div>
+</header>,
+  <center
+    style={
+        Object {
+            "background": "url(\\"https://openplatform.dbc.dk/v3/storage/ce096071-b6ab-4a0d-8b81-93cfa8ee0a40?width=1024\\") no-repeat center center fixed",
+            "backgroundSize": "cover",
+          }
+    }
+>
+    <div
+        style={
+            Object {
+                "backgroundColor": "rgba(196,200,206,0.7)",
+              }
+        }
+    >
+        <div
+            className="MuiGrid-container-706 MuiGrid-spacing-xs-16-729 Connect-Widget--container-2"
+        >
+            <div
+                className="MuiGrid-item-707 MuiGrid-grid-xs-12-746"
+            />
+            <div
+                className="MuiGrid-item-707 MuiGrid-grid-xs-12-746"
+            >
+                <center>
+                    <img
+                        alt=""
+                        className="Connect-Widget--maxImageSize-3"
+                        height={undefined}
+                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
+                        style={undefined}
+                        width={undefined}
+                    />
+                </center>
+            </div>
+            <div
+                className="MuiGrid-item-707 MuiGrid-grid-xs-12-746"
+            >
+                <div
+                    className="MuiTypography-root-671 MuiTypography-body1-680"
+                >
+                    <div
+                        dangerouslySetInnerHTML={
+                            Object {
+                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
+                            <p>Ud i det blå</p>
+                            ",
+                              }
+                        }
+                    />
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-707 MuiGrid-grid-xs-12-746"
+            >
+                <button
+                    className="MuiButtonBase-root-829 MuiButton-root-803 MuiButton-contained-814 MuiButton-containedPrimary-815 MuiButton-raised-817 MuiButton-raisedPrimary-818 MuiButton-fullWidth-828"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="0"
+                    type="button"
+                >
+                    <span
+                        className="MuiButton-label-804"
+                    >
+                        Start
+                    </span>
+                    <span
+                        className="MuiTouchRipple-root-832"
+                    />
+                </button>
+            </div>
+        </div>
+    </div>
+</center>,
+]
+`;
+
+exports[`renders info pages 1`] = `
+Array [
+  <header
+    className="MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionStatic-11 MuiAppBar-colorPrimary-14"
+>
+    <div
+        className="MuiToolbar-root-43 MuiToolbar-regular-45 MuiToolbar-gutters-44"
+    >
+        <h6
+            className="MuiTypography-root-47 MuiTypography-h6-64 MuiTypography-colorInherit-76"
+        >
+            Quiz test eksempel
+        </h6>
+    </div>
+</header>,
+  <center
+    style={
+        Object {
+            "background": "url(\\"https://openplatform.dbc.dk/v3/storage/ce096071-b6ab-4a0d-8b81-93cfa8ee0a40?width=1024\\") no-repeat center center fixed",
+            "backgroundSize": "cover",
+          }
+    }
+>
+    <div
+        style={
+            Object {
+                "backgroundColor": "rgba(196,200,206,0.7)",
+              }
+        }
+    >
+        <div
+            className="MuiGrid-container-82 MuiGrid-spacing-xs-16-105 Connect-Widget--container-2"
+        >
+            <div
+                className="MuiGrid-item-83 MuiGrid-grid-xs-12-122"
+            />
+            <div
+                className="MuiGrid-item-83 MuiGrid-grid-xs-12-122"
+            >
+                <center>
+                    <img
+                        alt=""
+                        className="Connect-Widget--maxImageSize-3"
+                        height={undefined}
+                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
+                        style={undefined}
+                        width={undefined}
+                    />
+                </center>
+            </div>
+            <div
+                className="MuiGrid-item-83 MuiGrid-grid-xs-12-122"
+            >
+                <div
+                    className="MuiTypography-root-47 MuiTypography-body1-56"
+                >
+                    <div
+                        dangerouslySetInnerHTML={
+                            Object {
+                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
+                            <p>Ud i det blå</p>
+                            ",
+                              }
+                        }
+                    />
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-83 MuiGrid-grid-xs-12-122"
+            >
+                <button
+                    className="MuiButtonBase-root-205 MuiButton-root-179 MuiButton-contained-190 MuiButton-containedPrimary-191 MuiButton-raised-193 MuiButton-raisedPrimary-194 MuiButton-fullWidth-204"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="0"
+                    type="button"
+                >
+                    <span
+                        className="MuiButton-label-180"
+                    >
+                        Start
+                    </span>
+                    <span
+                        className="MuiTouchRipple-root-208"
+                    />
+                </button>
+            </div>
+        </div>
+    </div>
+</center>,
+]
+`;
+
+exports[`renders info pages 2`] = `
+Array [
+  <header
+    className="MuiPaper-root-224 MuiPaper-elevation4-230 MuiAppBar-root-215 MuiAppBar-positionStatic-219 MuiAppBar-colorPrimary-222"
+>
+    <div
+        className="MuiToolbar-root-251 MuiToolbar-regular-253 MuiToolbar-gutters-252"
+    >
+        <h6
+            className="MuiTypography-root-255 MuiTypography-h6-272 MuiTypography-colorInherit-284"
+        >
+            Quiz test eksempel
+        </h6>
+    </div>
+</header>,
+  <center
+    style={
+        Object {
+            "background": "url(\\"https://openplatform.dbc.dk/v3/storage/ce096071-b6ab-4a0d-8b81-93cfa8ee0a40?width=1024\\") no-repeat center center fixed",
+            "backgroundSize": "cover",
+          }
+    }
+>
+    <div
+        style={
+            Object {
+                "backgroundColor": "rgba(196,200,206,0.7)",
+              }
+        }
+    >
+        <div
+            className="MuiGrid-container-290 MuiGrid-spacing-xs-16-313 Connect-Widget--container-2"
+        >
+            <div
+                className="MuiGrid-item-291 MuiGrid-grid-xs-12-330"
+            />
+            <div
+                className="MuiGrid-item-291 MuiGrid-grid-xs-12-330"
+            >
+                <center>
+                    <img
+                        alt=""
+                        className="Connect-Widget--maxImageSize-3"
+                        height={undefined}
+                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
+                        style={undefined}
+                        width={undefined}
+                    />
+                </center>
+            </div>
+            <div
+                className="MuiGrid-item-291 MuiGrid-grid-xs-12-330"
+            >
+                <div
+                    className="MuiTypography-root-255 MuiTypography-body1-264"
+                >
+                    <div
+                        dangerouslySetInnerHTML={
+                            Object {
+                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
+                            <p>Ud i det blå</p>
+                            ",
+                              }
+                        }
+                    />
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-291 MuiGrid-grid-xs-12-330"
+            >
+                <button
+                    className="MuiButtonBase-root-413 MuiButton-root-387 MuiButton-contained-398 MuiButton-containedPrimary-399 MuiButton-raised-401 MuiButton-raisedPrimary-402 MuiButton-fullWidth-412"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex="0"
+                    type="button"
+                >
+                    <span
+                        className="MuiButton-label-388"
+                    >
+                        Start
+                    </span>
+                    <span
+                        className="MuiTouchRipple-root-416"
+                    />
+                </button>
             </div>
         </div>
     </div>

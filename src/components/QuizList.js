@@ -55,12 +55,14 @@ class DeleteButton extends Component {
   render() {
     return [
       <IconButton
+        key="button"
         aria-label="Search"
         onClick={() => this.setState({dialog: true})}
       >
         <DeleteIcon />
       </IconButton>,
       <Dialog
+        key="dialog"
         open={this.state.dialog}
         onClose={() => this.setState({dialog: false})}
       >
@@ -148,7 +150,7 @@ class StatisticsDialog extends Component {
                       .map(o => o.getIn(['action', 'screen'])));
 
                 return (
-                  <p>
+                  <p key={questionId}>
                     {screenHits[questionId] && (
                       <strong>{screenHits[questionId] || 0}× </strong>
                     )}{' '}
@@ -178,7 +180,7 @@ class StatisticsDialog extends Component {
                 .sort()
                 .reverse()
                 .map(date => (
-                  <small>
+                  <small key={date}>
                     {' '}
                     {date}:{' '}
                     <span
