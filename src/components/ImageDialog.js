@@ -35,11 +35,14 @@ export class ImageDialog extends React.Component {
   render() {
     if (!this.state.open) {
       return [
-        <Button onClick={() => this.openDialog()}>
+        <Button key="button" onClick={() => this.openDialog()}>
           {this.props.title || 'Vælg billede'}
         </Button>,
         this.props.imageUrl && (
-          <IconButton onClick={() => this.props.setImageUrl('')}>
+          <IconButton
+            key="iconbutton"
+            onClick={() => this.props.setImageUrl('')}
+          >
             <DeleteIcon />
           </IconButton>
         )
@@ -115,7 +118,10 @@ export class ImageDialog extends React.Component {
               <div style={{textAlign: 'justify'}}>
                 <Typography>Mine billeder:</Typography>
                 {this.state.images.map(uuid => [
-                  <span style={{display: 'inline-block', position: 'relative'}}>
+                  <span
+                    key={uuid}
+                    style={{display: 'inline-block', position: 'relative'}}
+                  >
                     <span style={{position: 'absolute', right: -8, top: -8}}>
                       <IconButton
                         aria-label="Delete"
