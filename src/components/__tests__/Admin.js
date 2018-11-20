@@ -68,3 +68,7 @@ it('renders editing of a quiz', () => {
   const tree = renderFromState(testState);
   expect(tree).toMatchSnapshot();
 });
+it('renders search when no quiz', () => {
+  const tree = renderFromState(sampleState);
+  expect(tree).toMatchSnapshot();
+});
