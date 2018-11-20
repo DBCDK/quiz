@@ -50,6 +50,14 @@ it('renders different endings', () => {
       )
     )
   ).toMatchSnapshot();
+  expect(
+    renderFromState(
+      testState.setIn(
+        ['admin', 'currentScreen'],
+        '57b4bccd-1bfe-471b-87e4-6bb6a642fd66'
+      )
+    )
+  ).toMatchSnapshot();
 });
 
 it('renders editing of a question', () => {

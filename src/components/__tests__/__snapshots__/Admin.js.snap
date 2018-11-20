@@ -1029,6 +1029,312 @@ exports[`renders different endings 2`] = `
 </div>
 `;
 
+exports[`renders different endings 3`] = `
+<div
+  className="MuiGrid-container-7 MuiGrid-spacing-xs-16-30"
+>
+  <div
+    className="MuiGrid-item-8 MuiGrid-grid-xs-12-47"
+  >
+    <button
+      className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-105"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-133"
+          color={undefined}
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+        Tilbage
+      </span>
+      <span
+        className="MuiTouchRipple-root-245"
+      />
+    </button>
+  </div>
+  <div
+    className="MuiGrid-item-8 MuiGrid-grid-xs-12-47"
+  >
+    <div>
+      <center>
+        <iframe
+          allow="autoplay; encrypted-media"
+          allowFullScreen={true}
+          frameborder="0"
+          height={432}
+          src="https://player.vimeo.com/video/218885093?autoplay=0"
+          title="Vimeo Video"
+          width={768}
+        />
+      </center>
+      <br />
+      <button
+        className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-105"
+        >
+          Vælg billede
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
+      <button
+        className="MuiButtonBase-root-130 MuiIconButton-root-142"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label-147"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-133"
+            color={undefined}
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-8 MuiGrid-grid-xs-12-47"
+  >
+    <div
+      className="MuiGrid-container-7 MuiGrid-spacing-xs-16-30"
+    >
+      <div
+        className="MuiGrid-item-8 MuiGrid-grid-xs-6-41"
+      >
+        <div
+          aria-describedby={null}
+          className="MuiFormControl-root-155 MuiFormControl-fullWidth-158"
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          title={null}
+        >
+          <label
+            className="MuiFormLabel-root-170 MuiFormLabel-filled-174 MuiInputLabel-root-159 MuiInputLabel-formControl-164 MuiInputLabel-animated-167 MuiInputLabel-shrink-166"
+            data-shrink={true}
+            htmlFor={undefined}
+          >
+            Tekst
+          </label>
+          <div
+            className="MuiInputBase-root-190 MuiInput-root-177 MuiInput-underline-181 MuiInputBase-fullWidth-199 MuiInput-fullWidth-184 MuiInputBase-formControl-191 MuiInput-formControl-178 MuiInputBase-multiline-198 MuiInput-multiline-183"
+            onClick={[Function]}
+          >
+            <div
+              className="MuiPrivateTextarea-root-207"
+            >
+              <textarea
+                aria-hidden="true"
+                className="MuiPrivateTextarea-textarea-208 MuiPrivateTextarea-shadow-209"
+                readOnly={true}
+                rows="1"
+                tabIndex={-1}
+                value=""
+              />
+              <textarea
+                aria-hidden="true"
+                className="MuiPrivateTextarea-textarea-208 MuiPrivateTextarea-shadow-209"
+                defaultValue={undefined}
+                readOnly={true}
+                rows={1}
+                tabIndex={-1}
+                value="Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige, yeah... fejl: {{ hello"
+              />
+              <textarea
+                aria-invalid={false}
+                autoComplete={undefined}
+                autoFocus={undefined}
+                className="MuiPrivateTextarea-textarea-208 MuiInputBase-input-200 MuiInput-input-185 MuiInputBase-inputMultiline-202 MuiInput-inputMultiline-187"
+                defaultValue={undefined}
+                disabled={false}
+                id={undefined}
+                name={undefined}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={undefined}
+                onKeyUp={undefined}
+                placeholder={undefined}
+                readOnly={undefined}
+                required={false}
+                rows={1}
+                style={
+                  Object {
+                    "height": 19,
+                  }
+                }
+                value="Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige, yeah... fejl: {{ hello"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-item-8 MuiGrid-grid-xs-6-41"
+      >
+        <div
+          className="MuiTypography-root-210 MuiTypography-body1-219"
+        >
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p><strong>Error: Unclosed tag at 86</strong></p>
+              <p>Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige, yeah... fejl: {{ hello</p>
+              ",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-8 MuiGrid-grid-xs-12-47"
+  >
+    <div>
+      <br />
+      <div
+        aria-describedby={undefined}
+        className="MuiFormControl-root-155 MuiFormControl-fullWidth-158 Connect-EditScreen--margin-5"
+      >
+        <label
+          className="MuiFormLabel-root-170 MuiInputLabel-root-159 MuiInputLabel-formControl-164 MuiInputLabel-animated-167"
+          data-shrink={false}
+          htmlFor={undefined}
+        >
+          Tekst til knap
+        </label>
+        <div
+          className="MuiInputBase-root-190 MuiInput-root-177 MuiInput-underline-181 MuiInputBase-fullWidth-199 MuiInput-fullWidth-184 MuiInputBase-formControl-191 MuiInput-formControl-178"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            autoComplete={undefined}
+            autoFocus={undefined}
+            className="MuiInputBase-input-200 MuiInput-input-185"
+            defaultValue={undefined}
+            disabled={false}
+            id={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={undefined}
+            onKeyUp={undefined}
+            placeholder={undefined}
+            readOnly={undefined}
+            required={false}
+            rows={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-105"
+        >
+          Vælg Knap-billede
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders editing of a question 1`] = `
 <div
   className="MuiGrid-container-7 MuiGrid-spacing-xs-16-30"

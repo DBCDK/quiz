@@ -34,11 +34,11 @@ const renderFromState = state =>
 
 it('renders info pages', () => {
   expect(
-    renderFromState(testState.setIn(['admin', 'currentScreen'], 'intro'))
+    renderFromState(testState.setIn(['widget', 'currentScreen'], 'intro'))
   ).toMatchSnapshot();
   expect(
     renderFromState(
-      testState.setIn(['admin', 'currentScreen'], 'question1help')
+      testState.setIn(['widget', 'currentScreen'], 'question1help')
     )
   ).toMatchSnapshot();
 });
@@ -46,7 +46,7 @@ it('renders different endings', () => {
   expect(
     renderFromState(
       testState.setIn(
-        ['admin', 'currentScreen'],
+        ['widget', 'currentScreen'],
         '82e6df55-a1f8-4cd6-9ced-4ad8a997b04b'
       )
     )
@@ -54,8 +54,16 @@ it('renders different endings', () => {
   expect(
     renderFromState(
       testState.setIn(
-        ['admin', 'currentScreen'],
+        ['widget', 'currentScreen'],
         'd485421a-b9c4-43f6-a52e-bc1984381e66'
+      )
+    )
+  ).toMatchSnapshot();
+  expect(
+    renderFromState(
+      testState.setIn(
+        ['widget', 'currentScreen'],
+        '57b4bccd-1bfe-471b-87e4-6bb6a642fd66'
       )
     )
   ).toMatchSnapshot();
@@ -63,7 +71,7 @@ it('renders different endings', () => {
 
 it('renders a question', () => {
   expect(
-    renderFromState(testState.setIn(['admin', 'currentScreen'], 'question1'))
+    renderFromState(testState.setIn(['widget', 'currentScreen'], 'question1'))
   ).toMatchSnapshot();
 });
 
