@@ -102,11 +102,17 @@ const quizElements = {
       if (!text) {
         return;
       }
+      try {
+        text = mustache.render(text, vars || {});
+      } catch (e) {
+        console.log(e);
+        text = '**' + String(e) + '**\n\n' + text;
+      }
       return (
         <Typography headlineMapping={{body1: 'div'}}>
           <div
             dangerouslySetInnerHTML={{
-              __html: marked(mustache.render(text, vars || {}), {renderer})
+              __html: marked(text, {renderer})
             }}
           />
         </Typography>
