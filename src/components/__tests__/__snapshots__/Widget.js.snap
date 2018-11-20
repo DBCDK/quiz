@@ -3,13 +3,13 @@
 exports[`a quiz 1`] = `
 Array [
   <header
-    className="MuiPaper-root-1056 MuiPaper-elevation4-1062 MuiAppBar-root-1047 MuiAppBar-positionStatic-1051 MuiAppBar-colorPrimary-1054"
+    className="MuiPaper-root-1228 MuiPaper-elevation4-1234 MuiAppBar-root-1219 MuiAppBar-positionStatic-1223 MuiAppBar-colorPrimary-1226"
 >
     <div
-        className="MuiToolbar-root-1083 MuiToolbar-regular-1085 MuiToolbar-gutters-1084"
+        className="MuiToolbar-root-1255 MuiToolbar-regular-1257 MuiToolbar-gutters-1256"
     >
         <h6
-            className="MuiTypography-root-1087 MuiTypography-h6-1104 MuiTypography-colorInherit-1116"
+            className="MuiTypography-root-1259 MuiTypography-h6-1276 MuiTypography-colorInherit-1288"
         >
             Quiz test eksempel
         </h6>
@@ -31,13 +31,13 @@ Array [
         }
     >
         <div
-            className="MuiGrid-container-1122 MuiGrid-spacing-xs-16-1145 Connect-Widget--container-2"
+            className="MuiGrid-container-1294 MuiGrid-spacing-xs-16-1317 Connect-Widget--container-2"
         >
             <div
-                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+                className="MuiGrid-item-1295 MuiGrid-grid-xs-12-1334"
             />
             <div
-                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+                className="MuiGrid-item-1295 MuiGrid-grid-xs-12-1334"
             >
                 <center>
                     <img
@@ -51,10 +51,10 @@ Array [
                 </center>
             </div>
             <div
-                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+                className="MuiGrid-item-1295 MuiGrid-grid-xs-12-1334"
             >
                 <div
-                    className="MuiTypography-root-1087 MuiTypography-body1-1096"
+                    className="MuiTypography-root-1259 MuiTypography-body1-1268"
                 >
                     <div
                         dangerouslySetInnerHTML={
@@ -68,10 +68,10 @@ Array [
                 </div>
             </div>
             <div
-                className="MuiGrid-item-1123 MuiGrid-grid-xs-12-1162"
+                className="MuiGrid-item-1295 MuiGrid-grid-xs-12-1334"
             >
                 <button
-                    className="MuiButtonBase-root-1245 MuiButton-root-1219 MuiButton-contained-1230 MuiButton-containedPrimary-1231 MuiButton-raised-1233 MuiButton-raisedPrimary-1234 MuiButton-fullWidth-1244"
+                    className="MuiButtonBase-root-1417 MuiButton-root-1391 MuiButton-contained-1402 MuiButton-containedPrimary-1403 MuiButton-raised-1405 MuiButton-raisedPrimary-1406 MuiButton-fullWidth-1416"
                     disabled={false}
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -88,12 +88,12 @@ Array [
                     type="button"
                 >
                     <span
-                        className="MuiButton-label-1220"
+                        className="MuiButton-label-1392"
                     >
                         Start
                     </span>
                     <span
-                        className="MuiTouchRipple-root-1248"
+                        className="MuiTouchRipple-root-1420"
                     />
                 </button>
             </div>
@@ -118,13 +118,13 @@ exports[`maps state to props 1`] = `
 exports[`renders a question 1`] = `
 Array [
   <header
-    className="MuiPaper-root-848 MuiPaper-elevation4-854 MuiAppBar-root-839 MuiAppBar-positionStatic-843 MuiAppBar-colorPrimary-846"
+    className="MuiPaper-root-1020 MuiPaper-elevation4-1026 MuiAppBar-root-1011 MuiAppBar-positionStatic-1015 MuiAppBar-colorPrimary-1018"
 >
     <div
-        className="MuiToolbar-root-875 MuiToolbar-regular-877 MuiToolbar-gutters-876"
+        className="MuiToolbar-root-1047 MuiToolbar-regular-1049 MuiToolbar-gutters-1048"
     >
         <h6
-            className="MuiTypography-root-879 MuiTypography-h6-896 MuiTypography-colorInherit-908"
+            className="MuiTypography-root-1051 MuiTypography-h6-1068 MuiTypography-colorInherit-1080"
         >
             Quiz test eksempel
         </h6>
@@ -146,36 +146,21 @@ Array [
         }
     >
         <div
-            className="MuiGrid-container-914 MuiGrid-spacing-xs-16-937 Connect-Widget--container-2"
+            className="MuiGrid-container-1086 MuiGrid-spacing-xs-16-1109 Connect-Widget--container-2"
         >
             <div
-                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
+                className="MuiGrid-item-1087 MuiGrid-grid-xs-12-1126"
             />
             <div
-                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
-            >
-                <center>
-                    <img
-                        alt=""
-                        className="Connect-Widget--maxImageSize-3"
-                        height={undefined}
-                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
-                        style={undefined}
-                        width={undefined}
-                    />
-                </center>
-            </div>
-            <div
-                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
+                className="MuiGrid-item-1087 MuiGrid-grid-xs-12-1126"
             >
                 <div
-                    className="MuiTypography-root-879 MuiTypography-body1-888"
+                    className="MuiTypography-root-1051 MuiTypography-body1-1060"
                 >
                     <div
                         dangerouslySetInnerHTML={
                             Object {
-                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
-                            <p>Ud i det blå</p>
+                                "__html": "<p>Hvad er svaret</p>
                             ",
                               }
                         }
@@ -183,10 +168,178 @@ Array [
                 </div>
             </div>
             <div
-                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
+                className="MuiGrid-item-1087 MuiGrid-grid-xs-12-1126"
+            >
+                <div
+                    className="MuiGrid-container-1086 MuiGrid-spacing-xs-16-1109"
+                >
+                    <div
+                        className="MuiGrid-item-1087 MuiGrid-grid-xs-6-1120"
+                    >
+                        <button
+                            className="MuiButtonBase-root-1209 MuiButton-root-1183 MuiButton-contained-1194 MuiButton-containedPrimary-1195 MuiButton-raised-1197 MuiButton-raisedPrimary-1198 MuiButton-fullWidth-1208"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            tabIndex="0"
+                            type="button"
+                        >
+                            <span
+                                className="MuiButton-label-1184"
+                            >
+                                
+                                
+                                Svar A
+                            </span>
+                            <span
+                                className="MuiTouchRipple-root-1212"
+                            />
+                        </button>
+                    </div>
+                    <div
+                        className="MuiGrid-item-1087 MuiGrid-grid-xs-6-1120"
+                    >
+                        <button
+                            className="MuiButtonBase-root-1209 MuiButton-root-1183 MuiButton-contained-1194 MuiButton-containedPrimary-1195 MuiButton-raised-1197 MuiButton-raisedPrimary-1198 MuiButton-fullWidth-1208"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            tabIndex="0"
+                            type="button"
+                        >
+                            <span
+                                className="MuiButton-label-1184"
+                            >
+                                Svar B
+                            </span>
+                            <span
+                                className="MuiTouchRipple-root-1212"
+                            />
+                        </button>
+                    </div>
+                    <div
+                        className="MuiGrid-item-1087 MuiGrid-grid-xs-6-1120"
+                    >
+                        <button
+                            className="MuiButtonBase-root-1209 MuiButton-root-1183 MuiButton-contained-1194 MuiButton-containedPrimary-1195 MuiButton-raised-1197 MuiButton-raisedPrimary-1198 MuiButton-fullWidth-1208"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            tabIndex="0"
+                            type="button"
+                        >
+                            <span
+                                className="MuiButton-label-1184"
+                            >
+                                <img
+                                    alt="Svar C"
+                                    className={undefined}
+                                    height={128}
+                                    src="https://openplatform.dbc.dk/v3/storage/a6c4aa8f-8f42-4d97-a184-933c899885ab?height=128"
+                                    style={
+                                        Object {
+                                            "borderRadius": 4,
+                                          }
+                                    }
+                                    width={undefined}
+                                />
+                                <span>
+                                     
+                                </span>
+                                Svar C
+                            </span>
+                            <span
+                                className="MuiTouchRipple-root-1212"
+                            />
+                        </button>
+                    </div>
+                    <div
+                        className="MuiGrid-item-1087 MuiGrid-grid-xs-6-1120"
+                    />
+                    <div
+                        className="MuiGrid-item-1087 MuiGrid-grid-xs-6-1120"
+                    >
+                        <button
+                            className="MuiButtonBase-root-1209 MuiButton-root-1183 MuiButton-contained-1194 MuiButton-containedPrimary-1195 MuiButton-raised-1197 MuiButton-raisedPrimary-1198 MuiButton-fullWidth-1208"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            tabIndex="0"
+                            type="button"
+                        >
+                            <span
+                                className="MuiButton-label-1184"
+                            >
+                                <img
+                                    alt=""
+                                    className={undefined}
+                                    height={128}
+                                    src="https://openplatform.dbc.dk/v3/storage/d228c861-6d6c-4629-afa4-49b01bb04a52?height=128"
+                                    style={
+                                        Object {
+                                            "borderRadius": 4,
+                                          }
+                                    }
+                                    width={undefined}
+                                />
+                                <span>
+                                     
+                                </span>
+                                
+                            </span>
+                            <span
+                                className="MuiTouchRipple-root-1212"
+                            />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-1087 MuiGrid-grid-xs-12-1126"
+            >
+                <p />
+            </div>
+            <div
+                className="MuiGrid-item-1087 MuiGrid-grid-xs-12-1126"
             >
                 <button
-                    className="MuiButtonBase-root-1037 MuiButton-root-1011 MuiButton-contained-1022 MuiButton-containedPrimary-1023 MuiButton-raised-1025 MuiButton-raisedPrimary-1026 MuiButton-fullWidth-1036"
+                    className="MuiButtonBase-root-1209 MuiButton-root-1183 MuiButton-contained-1194 MuiButton-containedSecondary-1196 MuiButton-raised-1197 MuiButton-raisedSecondary-1199 MuiButton-fullWidth-1208"
                     disabled={false}
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -203,12 +356,12 @@ Array [
                     type="button"
                 >
                     <span
-                        className="MuiButton-label-1012"
+                        className="MuiButton-label-1184"
                     >
-                        Start
+                        hjælp
                     </span>
                     <span
-                        className="MuiTouchRipple-root-1040"
+                        className="MuiTouchRipple-root-1212"
                     />
                 </button>
             </div>
@@ -257,28 +410,13 @@ Array [
             <div
                 className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
             >
-                <center>
-                    <img
-                        alt=""
-                        className="Connect-Widget--maxImageSize-3"
-                        height={undefined}
-                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
-                        style={undefined}
-                        width={undefined}
-                    />
-                </center>
-            </div>
-            <div
-                className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
-            >
                 <div
                     className="MuiTypography-root-463 MuiTypography-body1-472"
                 >
                     <div
                         dangerouslySetInnerHTML={
                             Object {
-                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
-                            <p>Ud i det blå</p>
+                                "__html": "<p>Spørgsmål?</p>
                             ",
                               }
                         }
@@ -288,8 +426,81 @@ Array [
             <div
                 className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
             >
+                <div
+                    className="MuiGrid-container-498 MuiGrid-spacing-xs-16-521"
+                >
+                    <div
+                        className="MuiGrid-item-499 MuiGrid-grid-xs-6-532"
+                    >
+                        <button
+                            className="MuiButtonBase-root-621 MuiButton-root-595 MuiButton-contained-606 MuiButton-containedPrimary-607 MuiButton-raised-609 MuiButton-raisedPrimary-610 MuiButton-fullWidth-620"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            tabIndex="0"
+                            type="button"
+                        >
+                            <span
+                                className="MuiButton-label-596"
+                            >
+                                Svar A
+                            </span>
+                            <span
+                                className="MuiTouchRipple-root-624"
+                            />
+                        </button>
+                    </div>
+                    <div
+                        className="MuiGrid-item-499 MuiGrid-grid-xs-6-532"
+                    >
+                        <button
+                            className="MuiButtonBase-root-621 MuiButton-root-595 MuiButton-contained-606 MuiButton-containedPrimary-607 MuiButton-raised-609 MuiButton-raisedPrimary-610 MuiButton-fullWidth-620"
+                            disabled={false}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            tabIndex="0"
+                            type="button"
+                        >
+                            <span
+                                className="MuiButton-label-596"
+                            >
+                                Svar B
+                            </span>
+                            <span
+                                className="MuiTouchRipple-root-624"
+                            />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
+            >
+                <p />
+            </div>
+            <div
+                className="MuiGrid-item-499 MuiGrid-grid-xs-12-538"
+            >
                 <button
-                    className="MuiButtonBase-root-621 MuiButton-root-595 MuiButton-contained-606 MuiButton-containedPrimary-607 MuiButton-raised-609 MuiButton-raisedPrimary-610 MuiButton-fullWidth-620"
+                    className="MuiButtonBase-root-621 MuiButton-root-595 MuiButton-contained-606 MuiButton-containedSecondary-608 MuiButton-raised-609 MuiButton-raisedSecondary-611 MuiButton-fullWidth-620"
                     disabled={false}
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -308,7 +519,7 @@ Array [
                     <span
                         className="MuiButton-label-596"
                     >
-                        Start
+                        hjælp
                     </span>
                     <span
                         className="MuiTouchRipple-root-624"
@@ -361,13 +572,14 @@ Array [
                 className="MuiGrid-item-707 MuiGrid-grid-xs-12-746"
             >
                 <center>
-                    <img
-                        alt=""
-                        className="Connect-Widget--maxImageSize-3"
-                        height={undefined}
-                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
-                        style={undefined}
-                        width={undefined}
+                    <iframe
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen={true}
+                        frameborder="0"
+                        height={432}
+                        src="https://www.youtube.com/embed/JkMwq1aAAfE?autoplay=0"
+                        title="YouTube Video"
+                        width={768}
                     />
                 </center>
             </div>
@@ -380,8 +592,7 @@ Array [
                     <div
                         dangerouslySetInnerHTML={
                             Object {
-                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
-                            <p>Ud i det blå</p>
+                                "__html": "<p>Tillykke, du havde  ud af  rigtige. Total: </p>
                             ",
                               }
                         }
@@ -411,12 +622,86 @@ Array [
                     <span
                         className="MuiButton-label-804"
                     >
-                        Start
+                        Prøv igen
                     </span>
                     <span
                         className="MuiTouchRipple-root-832"
                     />
                 </button>
+            </div>
+        </div>
+    </div>
+</center>,
+]
+`;
+
+exports[`renders different endings 3`] = `
+Array [
+  <header
+    className="MuiPaper-root-848 MuiPaper-elevation4-854 MuiAppBar-root-839 MuiAppBar-positionStatic-843 MuiAppBar-colorPrimary-846"
+>
+    <div
+        className="MuiToolbar-root-875 MuiToolbar-regular-877 MuiToolbar-gutters-876"
+    >
+        <h6
+            className="MuiTypography-root-879 MuiTypography-h6-896 MuiTypography-colorInherit-908"
+        >
+            Quiz test eksempel
+        </h6>
+    </div>
+</header>,
+  <center
+    style={
+        Object {
+            "background": "url(\\"https://openplatform.dbc.dk/v3/storage/ce096071-b6ab-4a0d-8b81-93cfa8ee0a40?width=1024\\") no-repeat center center fixed",
+            "backgroundSize": "cover",
+          }
+    }
+>
+    <div
+        style={
+            Object {
+                "backgroundColor": "rgba(196,200,206,0.7)",
+              }
+        }
+    >
+        <div
+            className="MuiGrid-container-914 MuiGrid-spacing-xs-16-937 Connect-Widget--container-2"
+        >
+            <div
+                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
+            />
+            <div
+                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
+            >
+                <center>
+                    <iframe
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen={true}
+                        frameborder="0"
+                        height={432}
+                        src="https://player.vimeo.com/video/218885093?autoplay=0"
+                        title="Vimeo Video"
+                        width={768}
+                    />
+                </center>
+            </div>
+            <div
+                className="MuiGrid-item-915 MuiGrid-grid-xs-12-954"
+            >
+                <div
+                    className="MuiTypography-root-879 MuiTypography-body1-888"
+                >
+                    <div
+                        dangerouslySetInnerHTML={
+                            Object {
+                                "__html": "<p><strong>Error: Unclosed tag at 86</strong></p>
+                            <p>Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige, yeah... fejl: {{ hello</p>
+                            ",
+                              }
+                        }
+                    />
+                </div>
             </div>
         </div>
     </div>
@@ -566,28 +851,13 @@ Array [
             <div
                 className="MuiGrid-item-291 MuiGrid-grid-xs-12-330"
             >
-                <center>
-                    <img
-                        alt=""
-                        className="Connect-Widget--maxImageSize-3"
-                        height={undefined}
-                        src="https://openplatform.dbc.dk/v3/storage/3ac3d6ce-3c19-427c-88b3-ce11931186e1"
-                        style={undefined}
-                        width={undefined}
-                    />
-                </center>
-            </div>
-            <div
-                className="MuiGrid-item-291 MuiGrid-grid-xs-12-330"
-            >
                 <div
                     className="MuiTypography-root-255 MuiTypography-body1-264"
                 >
                     <div
                         dangerouslySetInnerHTML={
                             Object {
-                                "__html": "<h1 id=\\"velkommen-til-quizzen\\">Velkommen til quizzen</h1>
-                            <p>Ud i det blå</p>
+                                "__html": "<p>Der er ikke mere <del>mælk</del> hjælp</p>
                             ",
                               }
                         }
@@ -617,7 +887,7 @@ Array [
                     <span
                         className="MuiButton-label-388"
                     >
-                        Start
+                        Tilbage
                     </span>
                     <span
                         className="MuiTouchRipple-root-416"

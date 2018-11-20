@@ -416,11 +416,11 @@ export const testQuiz1 = {
       _id: '57b4bccd-1bfe-471b-87e4-6bb6a642fd66',
       parent: 'done',
       ui: [
-        {type: 'media', url: ''},
+        {type: 'media', url: 'https://vimeo.com/218885093'},
         {
           type: 'text',
           text:
-            'Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige, yeah... fejl: {{'
+            'Tillykke, du havde {{correct}} ud af {{questionCount}} rigtige, yeah... fejl: {{ hello'
         },
         {type: 'button', color: 'primary', text: '', action: {screen: 'intro'}}
       ],

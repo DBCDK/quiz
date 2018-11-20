@@ -105,7 +105,6 @@ const quizElements = {
       try {
         text = mustache.render(text, vars || {});
       } catch (e) {
-        console.log(e);
         text = '**' + String(e) + '**\n\n' + text;
       }
       return (

@@ -50,25 +50,34 @@ it('renders different endings', () => {
       )
     )
   ).toMatchSnapshot();
+  expect(
+    renderFromState(
+      testState.setIn(
+        ['admin', 'currentScreen'],
+        '57b4bccd-1bfe-471b-87e4-6bb6a642fd66'
+      )
+    )
+  ).toMatchSnapshot();
 });
-
 it('renders editing of a question', () => {
   expect(
     renderFromState(testState.setIn(['admin', 'currentScreen'], 'question1'))
   ).toMatchSnapshot();
 });
-
 it('renders editing of dispatch', () => {
   expect(
     renderFromState(testState.setIn(['admin', 'currentScreen'], 'done'))
   ).toMatchSnapshot();
 });
-
 it('renders editing of a quiz', () => {
   const tree = renderFromState(testState);
   expect(tree).toMatchSnapshot();
 });
 it('renders search when no quiz', () => {
-  const tree = renderFromState(sampleState);
-  expect(tree).toMatchSnapshot();
+  expect(renderFromState(sampleState)).toMatchSnapshot();
+  expect(
+    renderFromState(
+      sampleState.set('searchResults', Immutable.fromJS([testQuiz1]))
+    )
+  ).toMatchSnapshot();
 });
