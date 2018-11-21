@@ -6,7 +6,6 @@ import uuidv4 from 'uuid/v4';
 import _ from 'lodash';
 
 export const adminQuizList = () => async (dispatch, getState) => {
-  // TODO sync quiz to store
   await searchQuizzes()(dispatch, getState);
   dispatch({
     type: 'ADMIN_QUIZ_LIST'
@@ -129,6 +128,14 @@ export const addQuestionSection = ({before}) => {
   });
 };
 
+export const back = () => async (dispatch, getState) => {
+  if (getState().getIn(['admin', 'currentScreen'])) {
+    return dispatch(editScreen({screen: ''}));
+  } else {
+    dispatch({type: 'ADMIN_QUIZ_LIST'});
+    return dispatch(adminQuizList());
+  }
+};
 export const deleteSection = screenId => ({
   type: 'ADMIN_DELETE_SECTION',
   screenId
