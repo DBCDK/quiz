@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import QuizWidget from './components/Widget';
 import QuizAdmin from './components/Admin';
 import store from './redux/store';
-import {init} from './redux/actions';
+import {init, back} from './redux/actions';
 import {} from './redux/autosave';
 import {Provider} from 'react-redux';
 import openplatform from './redux/openplatform';
@@ -35,8 +35,25 @@ class Widget {
   }
 }
 
+let historyCaptured = false;
 class Admin {
   constructor(args) {
+    if (!historyCaptured) {
+      window.history.replaceState({current: false}, '', '');
+      window.history.pushState({current: true}, '', '');
+      window.addEventListener('popstate', ({state}) => {
+        state = state || {};
+        if (!state.current) {
+          if (store.getState().get('quiz')) {
+            store.dispatch(back());
+            window.history.forward();
+          } else {
+            window.history.back();
+          }
+        }
+      });
+      historyCaptured = true;
+    }
     mount(QuizAdmin, args);
   }
 }
