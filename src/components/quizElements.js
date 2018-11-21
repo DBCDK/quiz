@@ -209,7 +209,6 @@ const quizElements = {
                 <br />
                 <Button
                   className={classes.margin}
-                  variant="contained"
                   aria-label="Delete"
                   mini
                   onClick={() =>
