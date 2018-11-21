@@ -323,7 +323,7 @@ exports[`renders different endings 1`] = `
         <br />
         <button
           aria-label="Delete"
-          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-contained-115 MuiButton-raised-118 Connect-EditScreen--margin-5"
+          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -502,7 +502,7 @@ exports[`renders different endings 1`] = `
         <br />
         <button
           aria-label="Delete"
-          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-contained-115 MuiButton-raised-118 Connect-EditScreen--margin-5"
+          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -1661,7 +1661,7 @@ exports[`renders editing of a question 1`] = `
         <br />
         <button
           aria-label="Delete"
-          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-contained-115 MuiButton-raised-118 Connect-EditScreen--margin-5"
+          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -1840,7 +1840,7 @@ exports[`renders editing of a question 1`] = `
         <br />
         <button
           aria-label="Delete"
-          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-contained-115 MuiButton-raised-118 Connect-EditScreen--margin-5"
+          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -2075,7 +2075,7 @@ exports[`renders editing of a question 1`] = `
         <br />
         <button
           aria-label="Delete"
-          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-contained-115 MuiButton-raised-118 Connect-EditScreen--margin-5"
+          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -2228,7 +2228,7 @@ exports[`renders editing of a question 1`] = `
         <br />
         <button
           aria-label="Delete"
-          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-contained-115 MuiButton-raised-118 Connect-EditScreen--margin-5"
+          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -2463,7 +2463,7 @@ exports[`renders editing of a question 1`] = `
         <br />
         <button
           aria-label="Delete"
-          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-contained-115 MuiButton-raised-118 Connect-EditScreen--margin-5"
+          className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
