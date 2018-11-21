@@ -217,7 +217,7 @@ const quizElements = {
                   }
                 >
                   <DeleteIcon />
-                  Slet svarknap
+                  Slet svar
                 </Button>
               </Grid>
             );
@@ -275,6 +275,17 @@ const quizElements = {
             updateQuizElement(ui => ui.set('text', e.target.value))
           }
         />
+        {(text || image) && (
+          <Button
+            className={classes.margin}
+            onClick={() =>
+              updateQuizElement(ui => ui.set('text', '').set('image', ''))
+            }
+          >
+            <DeleteIcon />
+            Skjul knap
+          </Button>
+        )}
         <ImageDialog
           classes={classes}
           imageUrl={image}
