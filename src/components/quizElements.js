@@ -174,6 +174,11 @@ const quizElements = {
       const {updateQuizElement, classes, addQuestionAnswer} = props;
       return (
         <Grid container spacing={16}>
+          <Grid item xs={12}>
+            {' '}
+            <br />
+            <br />{' '}
+          </Grid>
           {ui.map((answer, pos) => {
             const scoreIncrement =
               (answer.action &&
