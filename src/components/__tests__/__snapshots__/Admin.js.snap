@@ -256,6 +256,48 @@ exports[`renders different endings 1`] = `
             </div>
           </div>
           <button
+            className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-105"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-133"
+                color={undefined}
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+              Skjul knap
+            </span>
+            <span
+              className="MuiTouchRipple-root-245"
+            />
+          </button>
+          <button
             className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
             disabled={false}
             onBlur={[Function]}
@@ -358,7 +400,7 @@ exports[`renders different endings 1`] = `
                 fill="none"
               />
             </svg>
-            Slet svarknap
+            Slet svar
           </span>
           <span
             className="MuiTouchRipple-root-245"
@@ -434,6 +476,48 @@ exports[`renders different endings 1`] = `
               />
             </div>
           </div>
+          <button
+            className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-105"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-133"
+                color={undefined}
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+              Skjul knap
+            </span>
+            <span
+              className="MuiTouchRipple-root-245"
+            />
+          </button>
           <button
             className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
             disabled={false}
@@ -537,7 +621,7 @@ exports[`renders different endings 1`] = `
                 fill="none"
               />
             </svg>
-            Slet svarknap
+            Slet svar
           </span>
           <span
             className="MuiTouchRipple-root-245"
@@ -667,6 +751,48 @@ exports[`renders different endings 1`] = `
           />
         </div>
       </div>
+      <button
+        className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-105"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-133"
+            color={undefined}
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          Skjul knap
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
       <button
         className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
         disabled={false}
@@ -998,6 +1124,48 @@ exports[`renders different endings 2`] = `
           />
         </div>
       </div>
+      <button
+        className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-105"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-133"
+            color={undefined}
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          Skjul knap
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
       <button
         className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
         disabled={false}
@@ -1593,6 +1761,48 @@ exports[`renders editing of a question 1`] = `
             </div>
           </div>
           <button
+            className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-105"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-133"
+                color={undefined}
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+              Skjul knap
+            </span>
+            <span
+              className="MuiTouchRipple-root-245"
+            />
+          </button>
+          <button
             className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
             disabled={false}
             onBlur={[Function]}
@@ -1696,7 +1906,7 @@ exports[`renders editing of a question 1`] = `
                 fill="none"
               />
             </svg>
-            Slet svarknap
+            Slet svar
           </span>
           <span
             className="MuiTouchRipple-root-245"
@@ -1772,6 +1982,48 @@ exports[`renders editing of a question 1`] = `
               />
             </div>
           </div>
+          <button
+            className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-105"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-133"
+                color={undefined}
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+              Skjul knap
+            </span>
+            <span
+              className="MuiTouchRipple-root-245"
+            />
+          </button>
           <button
             className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
             disabled={false}
@@ -1875,7 +2127,7 @@ exports[`renders editing of a question 1`] = `
                 fill="none"
               />
             </svg>
-            Slet svarknap
+            Slet svar
           </span>
           <span
             className="MuiTouchRipple-root-245"
@@ -1966,6 +2218,48 @@ exports[`renders editing of a question 1`] = `
               />
             </div>
           </div>
+          <button
+            className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-105"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-133"
+                color={undefined}
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+              Skjul knap
+            </span>
+            <span
+              className="MuiTouchRipple-root-245"
+            />
+          </button>
           <button
             className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
             disabled={false}
@@ -2110,7 +2404,7 @@ exports[`renders editing of a question 1`] = `
                 fill="none"
               />
             </svg>
-            Slet svarknap
+            Slet svar
           </span>
           <span
             className="MuiTouchRipple-root-245"
@@ -2263,7 +2557,7 @@ exports[`renders editing of a question 1`] = `
                 fill="none"
               />
             </svg>
-            Slet svarknap
+            Slet svar
           </span>
           <span
             className="MuiTouchRipple-root-245"
@@ -2354,6 +2648,48 @@ exports[`renders editing of a question 1`] = `
               />
             </div>
           </div>
+          <button
+            className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-105"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-133"
+                color={undefined}
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+              Skjul knap
+            </span>
+            <span
+              className="MuiTouchRipple-root-245"
+            />
+          </button>
           <button
             className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
             disabled={false}
@@ -2498,7 +2834,7 @@ exports[`renders editing of a question 1`] = `
                 fill="none"
               />
             </svg>
-            Slet svarknap
+            Slet svar
           </span>
           <span
             className="MuiTouchRipple-root-245"
@@ -2628,6 +2964,48 @@ exports[`renders editing of a question 1`] = `
           />
         </div>
       </div>
+      <button
+        className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-105"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-133"
+            color={undefined}
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          Skjul knap
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
       <button
         className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
         disabled={false}
@@ -5869,6 +6247,48 @@ exports[`renders editing of info pages 1`] = `
         </div>
       </div>
       <button
+        className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-105"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-133"
+            color={undefined}
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          Skjul knap
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
+      <button
         className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
         disabled={false}
         onBlur={[Function]}
@@ -6148,6 +6568,48 @@ exports[`renders editing of info pages 2`] = `
           />
         </div>
       </div>
+      <button
+        className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109 Connect-EditScreen--margin-5"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-105"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-133"
+            color={undefined}
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          Skjul knap
+        </span>
+        <span
+          className="MuiTouchRipple-root-245"
+        />
+      </button>
       <button
         className="MuiButtonBase-root-130 MuiButton-root-104 MuiButton-text-106 MuiButton-flat-109"
         disabled={false}
