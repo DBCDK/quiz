@@ -56,7 +56,7 @@ function editCondition(
   const minScore = condition.getIn(['condition', 'atLeast', 'score']);
   return (
     <Grid item xs={12} key={condition.getIn(['action', 'screen'])}>
-      <Paper>
+      <Paper className={classes.margin}>
         <Image
           height={64}
           url={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
