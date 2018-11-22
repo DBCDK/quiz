@@ -18,6 +18,11 @@ const style = theme => ({
   margin: {
     margin: 8
   },
+  paper: {
+    marginTop: 8,
+    marginBottom: 8,
+    padding: 16
+  },
   input: {
     display: 'none'
   }

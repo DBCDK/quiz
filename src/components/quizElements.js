@@ -2,6 +2,7 @@ import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import TextField from '@material-ui/core/TextField';
@@ -76,22 +77,31 @@ const quizElements = {
       }
       return <center>{mediaTag}</center>;
     },
-    edit: ({url, image}, {updateQuizElement, classes}) => {
+    editor: ({url, image}, {updateQuizElement, classes}) => {
       url = url || image || '';
       return (
-        <div>
-          {quizElements.media.view({url}, {classes})}
-          <br />
-          <ImageDialog
-            classes={classes}
-            imageUrl={url}
-            setImageUrl={imageUrl =>
-              updateQuizElement(ui => ui.set('url', imageUrl))
-            }
-          />
-        </div>
+        <ImageDialog
+          classes={classes}
+          imageUrl={url}
+          setImageUrl={imageUrl =>
+            updateQuizElement(ui => ui.set('url', imageUrl))
+          }
+        />
       );
-    }
+    },
+    edit: (o, p) => (
+      <Grid container spacing={16}>
+        <Grid item xs={6}>
+          {quizElements.media.view(o, {
+            width: (window.innerWidth * 0.4) | 0,
+            ...p
+          })}
+        </Grid>
+        <Grid item xs={6}>
+          {quizElements.media.editor(o, p)}
+        </Grid>
+      </Grid>
+    )
   },
   spacing: {
     view: () => <p />,
@@ -120,6 +130,9 @@ const quizElements = {
 
     edit: ({text}, {updateQuizElement, classes, vars}) => (
       <Grid container spacing={16}>
+        <Grid item xs={6}>
+          {quizElements.text.view({text}, {vars})}
+        </Grid>
         <Grid item xs={6}>
           <Tooltip
             title={
@@ -154,9 +167,6 @@ const quizElements = {
             />
           </Tooltip>
         </Grid>
-        <Grid item xs={6}>
-          {quizElements.text.view({text}, {vars})}
-        </Grid>
       </Grid>
     )
   },
@@ -175,9 +185,8 @@ const quizElements = {
       return (
         <Grid container spacing={16}>
           <Grid item xs={12}>
-            {' '}
             <br />
-            <br />{' '}
+            <br />
           </Grid>
           {ui.map((answer, pos) => {
             const scoreIncrement =
@@ -186,50 +195,68 @@ const quizElements = {
                 +answer.action.increment.score) ||
               0;
             return (
-              <Grid item key={pos} xs={6}>
-                {answer.type === 'button' &&
-                  quizElements.button.edit(answer, {
-                    ...props,
-                    updateQuizElement: f =>
-                      updateQuizElement(o => o.updateIn(['ui', pos], f))
-                  })}
-                <TextField
-                  label="Point for svar"
-                  value={scoreIncrement}
-                  onChange={e =>
-                    updateQuizElement(o =>
-                      o.setIn(
-                        ['ui', pos, 'action', 'increment'],
-                        Immutable.fromJS({
-                          score: Math.max(+e.target.value, 0),
-                          correct: +e.target.value ? 1 : 0,
-                          questionCount: 1
-                        })
-                      )
-                    )
-                  }
-                  type="number"
-                  className={classes.margin}
-                />
-                <br />
-                <Button
-                  className={classes.margin}
-                  aria-label="Delete"
-                  mini
-                  onClick={() =>
-                    updateQuizElement(o => o.deleteIn(['ui', pos]))
-                  }
-                >
-                  <DeleteIcon />
-                  Slet svar
-                </Button>
+              <Grid item key={pos} xs={12}>
+                <Paper className={classes.paper}>
+                  <Grid
+                    container
+                    justify="center"
+                    alignItems="center"
+                    spacing={16}
+                  >
+                    <Grid item xs={6}>
+                      {answer.type === 'button' &&
+                        quizElements.button.view(answer, {
+                          ...props,
+                          onAction: () => props.editScreen(answer.action.screen)
+                        })}
+                    </Grid>
+                    <Grid item xs={6}>
+                      {answer.type === 'button' &&
+                        quizElements.button.editor(answer, {
+                          ...props,
+                          updateQuizElement: f =>
+                            updateQuizElement(o => o.updateIn(['ui', pos], f))
+                        })}
+                      <TextField
+                        label="Point for svar"
+                        value={scoreIncrement}
+                        onChange={e =>
+                          updateQuizElement(o =>
+                            o.setIn(
+                              ['ui', pos, 'action', 'increment'],
+                              Immutable.fromJS({
+                                score: Math.max(+e.target.value, 0),
+                                correct: +e.target.value ? 1 : 0,
+                                questionCount: 1
+                              })
+                            )
+                          )
+                        }
+                        type="number"
+                      />
+                      <br />
+                      <Button
+                        aria-label="Delete"
+                        mini
+                        onClick={() =>
+                          updateQuizElement(o => o.deleteIn(['ui', pos]))
+                        }
+                      >
+                        <DeleteIcon />
+                        Slet svar
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </Paper>
               </Grid>
             );
           })}
           <Grid item xs={12}>
-            <Button aria-label="Add" mini onClick={addQuestionAnswer}>
-              <AddIcon /> svar
-            </Button>
+            <center>
+              <Button aria-label="Add" mini onClick={addQuestionAnswer}>
+                <AddIcon /> svar
+              </Button>
+            </center>
           </Grid>
         </Grid>
       );
@@ -260,19 +287,13 @@ const quizElements = {
         </Button>
       );
     },
-    edit: (
+    editor: (
       {text, action, color, image},
       {updateQuizElement, editScreen, classes}
     ) => (
       <div>
-        {quizElements.button.view(
-          {text, action, color, image},
-          {onAction: () => editScreen(action.screen), classes}
-        )}
-        <br />
         <TextField
           fullWidth
-          className={classes.margin}
           label="Tekst til knap"
           value={text}
           onChange={e =>
@@ -281,7 +302,6 @@ const quizElements = {
         />
         {(text || image) && (
           <Button
-            className={classes.margin}
             onClick={() =>
               updateQuizElement(ui => ui.set('text', '').set('image', ''))
             }
@@ -299,6 +319,19 @@ const quizElements = {
           }}
         />
       </div>
+    ),
+    edit: (o, p) => (
+      <Grid container spacing={16}>
+        <Grid item xs={6}>
+          {quizElements.button.view(o, {
+            onAction: () => p.editScreen(o.action.screen),
+            ...p
+          })}
+        </Grid>
+        <Grid item xs={6}>
+          {quizElements.button.editor(o, p)}
+        </Grid>
+      </Grid>
     )
   }
 };
