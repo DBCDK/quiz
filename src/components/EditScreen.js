@@ -54,14 +54,10 @@ function editCondition(
   {classes, doEditScreen, doUpdateDispatch, doDeleteDispatch}
 ) {
   const minScore = condition.getIn(['condition', 'atLeast', 'score']);
+  const screen = condition.getIn(['action', 'screen']);
   return (
-    <Grid item xs={12} key={condition.getIn(['action', 'screen'])}>
+    <Grid item xs={12} key={screen}>
       <Paper className={classes.margin}>
-        <Image
-          height={64}
-          url={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
-        />
-        <br />
         <Tooltip title="Hjælpetekst6. Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises.">
           <TextField
             label="Mindste antal point"
@@ -80,6 +76,20 @@ function editCondition(
             className={classes.margin}
           />
         </Tooltip>
+        <Button
+          className={classes.margin}
+          aria-label="Delete"
+          mini
+          onClick={doDeleteDispatch}
+        >
+          Slet denne afslutning
+          <DeleteIcon />
+        </Button>
+        <br />
+        <Image
+          height={64}
+          url={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
+        />
         <Tooltip title="Hjælpetekst7. Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises ">
           <span>
             <ImageDialog
@@ -92,24 +102,19 @@ function editCondition(
             />
           </span>
         </Tooltip>
-        <Button
-          className={classes.margin}
-          variant="fab"
-          aria-label="Delete"
-          mini
-          onClick={doDeleteDispatch}
-        >
-          <DeleteIcon />
-        </Button>
+        <hr />
+        <Typography>Redigér afslutningsskærm:</Typography>
         <br />
+        <EditScreenComponent screen={screen} hideBackButton={true} />
+        {/*
         <Button
           variant="contained"
           color="default"
-          onClick={() => doEditScreen(condition.getIn(['action', 'screen']))}
+          onClick={() => doEditScreen(screen)}
           className={classes.margin}
         >
           Rediger slutning
-        </Button>
+        </Button>*/}
       </Paper>
     </Grid>
   );
@@ -183,10 +188,16 @@ export class EditScreen extends Component {
       <Grid container spacing={16}>
         <Grid item xs={12}>
           {/* <Typography variant="h5" gutterBottom> Rediger quiz-skærm </Typography> */}
-          <Button onClick={() => doEditScreen(currentScreen.get('parent', ''))}>
-            <ArrowBackIcon />
-            Tilbage
-          </Button>
+          {this.props.hideBackButton ? (
+            ''
+          ) : (
+            <Button
+              onClick={() => doEditScreen(currentScreen.get('parent', ''))}
+            >
+              <ArrowBackIcon />
+              Tilbage
+            </Button>
+          )}
         </Grid>
         {currentScreen.get('ui')
           ? editUI(this.props)
@@ -199,14 +210,18 @@ export class EditScreen extends Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const currentScreen = getScreen(adminCurrentScreen(state), state);
+  const currentScreen = getScreen(
+    ownProps.screen || adminCurrentScreen(state),
+    state
+  );
   let maxState;
   if (currentScreen.get('dispatch')) {
     maxState = findMaxState(state.get('quiz'));
   }
   return {
     currentScreen,
-    maxState
+    maxState,
+    hideBackButton: ownProps.hideBackButton
   };
 }
 export function mapDispatchToProps(dispatch) {
@@ -224,9 +239,10 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withStyles(style)(
+const EditScreenComponent = withStyles(style)(
   connect(
     mapStateToProps,
     mapDispatchToProps
   )(EditScreen)
 );
+export default EditScreenComponent;
