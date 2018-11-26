@@ -66,6 +66,8 @@ export class Widget extends Component {
           <div style={{backgroundColor: this.props.backgroundColor}}>
             <Grid container spacing={spacing} className={classes.container}>
               <Grid item xs={12} />
+              <Grid item xs={12} />
+              <Grid item xs={12} />
               {this.props.ui &&
                 this.props.ui.map((o, pos) => {
                   const element = renderElement(o.toJS(), {
@@ -84,6 +86,9 @@ export class Widget extends Component {
                     )
                   );
                 })}
+              <Grid item xs={12} />
+              <Grid item xs={12} />
+              <Grid item xs={12} />
             </Grid>
           </div>
         </center>
