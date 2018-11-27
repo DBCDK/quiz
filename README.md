@@ -59,9 +59,20 @@ Code style is enforced using prettier.
 
 ## Changelog
 
-### 2018-11-28 Planned: Version 0.1.0 release.
+### 2018-11-28 Changes based on user feedback
 
-Plan: fixes based on user feedback
+Changes based on user feedback, and various fixes. Ready for release when help-texts are updated.
+
+- browser back button #285
+- show maximum possible score when editing quiz endings #306
+- admin in two columns with edit and preview #210 #282
+- extra spacing in top/bottom of widget #290
+- inline editing of quiz endings #287
+- layout and quiz-templates #279 #280 #277 #275 #278 #286
+- delete button improvements (delete question, button, background-image, ...) #289 #328 #279 #281
+- refactoring / updates / test #238 #163 #292 #297
+- bugfixes #321 #304 #296 #301 #295
+- tooltips and documentation #284 #273 #293 #336 #291 #308 #274
 
 ### 2018-11-07 statistics, search, and minor changes
 
