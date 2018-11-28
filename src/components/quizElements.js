@@ -137,20 +137,19 @@ const quizElements = {
           <Tooltip
             title={
               <div>
-                Hjælpetekst8
+                <p>
+                  Teksten kan formateres med markdown: URL'er bliver lavet om
+                  til links. Linjer der starter med et antal havelåger(#) samt
+                  et mellemrum bliver lavet til overskrifter, og så videre. Søg
+                  efter "Markdown" online, for at finde yderligere vejledning
+                  til formattering.
+                </p>
                 <p>
                   Teksten man skriver her kan indeholde variable i dobbelte
                   krøllede paranteser: <em>{'{{questionCount}}'}</em> er
-                  antallet af spørgsmål brugeren har besvaret,{' '}
+                  antallet af spørgsmål brugeren har besvaret indtil nu,
                   <em>{'{{correct}}'}</em> er antallet af korrekte besvarede
                   spørgsmål og <em>{'{{score}}'}</em> er antallet af point.
-                </p>
-                <p>
-                  {' '}
-                  Teksten kan formateres med markdown: URL'er bliver lavet om
-                  til links. Linjer der starter med et antal havelåger(#) bliver
-                  lavet til overskrifter, og så videre. Søg efter "Markdown"
-                  online, for at finde yderligere vejledning til formattering.
                 </p>
               </div>
             }

@@ -167,7 +167,7 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
       <Typography variant="h5" gutterBottom>
         Quiz beskrivelse
       </Typography>
-      <Tooltip title="Hjælpetekst1">
+      <Tooltip title="Link til quizzen.">
         <Typography>
           Quiz id / indlejring:{' '}
           <a
@@ -178,7 +178,7 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           </a>
         </Typography>
       </Tooltip>
-      <Tooltip title="Hjælpetekst2">
+      <Tooltip title="Quizzens navn.">
         <FormControl fullWidth className={classes.margin}>
           <InputLabel htmlFor="title">Titel</InputLabel>
           <Input
@@ -188,7 +188,7 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           />
         </FormControl>
       </Tooltip>
-      <Tooltip title="Hjælpetekst3">
+      <Tooltip title="Beskrivelse af quizzen. Vises kun her.">
         <FormControl fullWidth className={classes.margin}>
           <InputLabel htmlFor="description">Beskrivelse</InputLabel>
           <Input
@@ -198,7 +198,7 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
           />
         </FormControl>
       </Tooltip>
-      <Tooltip title="Hjælpetekst4">
+      <Tooltip title="Hvad handler quizzen om? Tags hjælper med at søge efter quizzer indenfor et særligt emne.">
         <FormControl fullWidth className={classes.margin}>
           <InputLabel htmlFor="tags">Tags</InputLabel>
           <Input
@@ -266,68 +266,61 @@ function renderVisualSettings({classes, settings, updateSetting}) {
       <Typography variant="h5" gutterBottom>
         Udseende
       </Typography>
-      <Tooltip title="Hjælpetekst5">
-        <div>
-          <Image url={settings.get('backgroundImage', '')} height={100} />
-          <br />
-          <ImageDialog
-            classes={classes}
-            imageUrl={settings.get('backgroundImage', '')}
-            setImageUrl={url => updateSetting(['backgroundImage'], url)}
-            title="Vælg baggrundsbillede"
-          />
-        </div>
-      </Tooltip>
+      <div>
+        <Image url={settings.get('backgroundImage', '')} height={100} />
+        <br />
+        <ImageDialog
+          classes={classes}
+          imageUrl={settings.get('backgroundImage', '')}
+          setImageUrl={url => updateSetting(['backgroundImage'], url)}
+          title="Vælg baggrundsbillede"
+        />
+      </div>
       <Typography variant="h6" gutterBottom>
         Farveskema
       </Typography>
-      <Tooltip title="Hjælpetekst5">
-        <Grid container spacing={16}>
-          <Grid item>
-            Primærfarve
-            <br />
-            <ChromePicker
-              disableAlpha
-              id="primaryColor"
-              color={settings.getIn(['style', 'primaryColor'], '#C0FFEE')}
-              onChangeComplete={o =>
-                updateSetting(['style', 'primaryColor'], o.hex)
-              }
-            />
-          </Grid>
-          <Grid item>
-            Sekundærfarve
-            <br />
-            <ChromePicker
-              disableAlpha
-              id="buttonColor"
-              color={settings.getIn(['style', 'secondaryColor'], '#BA0BAB')}
-              onChangeComplete={o =>
-                updateSetting(['style', 'secondaryColor'], o.hex)
-              }
-            />
-          </Grid>
-          <Grid item>
-            Baggrundsfarve
-            <br />
-            <ChromePicker
-              id="backgroundColor"
-              color={JSON.parse(
-                settings.getIn(
-                  ['style', 'backgroundColor'],
-                  '{"r":255, "g":255, "b":255, "a": 0.7}'
-                )
-              )}
-              onChangeComplete={o =>
-                updateSetting(
-                  ['style', 'backgroundColor'],
-                  JSON.stringify(o.rgb)
-                )
-              }
-            />
-          </Grid>
+      <Grid container spacing={16}>
+        <Grid item>
+          Primærfarve
+          <br />
+          <ChromePicker
+            disableAlpha
+            id="primaryColor"
+            color={settings.getIn(['style', 'primaryColor'], '#C0FFEE')}
+            onChangeComplete={o =>
+              updateSetting(['style', 'primaryColor'], o.hex)
+            }
+          />
         </Grid>
-      </Tooltip>
+        <Grid item>
+          Sekundærfarve
+          <br />
+          <ChromePicker
+            disableAlpha
+            id="buttonColor"
+            color={settings.getIn(['style', 'secondaryColor'], '#BA0BAB')}
+            onChangeComplete={o =>
+              updateSetting(['style', 'secondaryColor'], o.hex)
+            }
+          />
+        </Grid>
+        <Grid item>
+          Baggrundsfarve
+          <br />
+          <ChromePicker
+            id="backgroundColor"
+            color={JSON.parse(
+              settings.getIn(
+                ['style', 'backgroundColor'],
+                '{"r":255, "g":255, "b":255, "a": 0.7}'
+              )
+            )}
+            onChangeComplete={o =>
+              updateSetting(['style', 'backgroundColor'], JSON.stringify(o.rgb))
+            }
+          />
+        </Grid>
+      </Grid>
     </Grid>
   );
 }
