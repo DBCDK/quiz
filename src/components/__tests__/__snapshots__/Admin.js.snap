@@ -3297,7 +3297,7 @@ exports[`renders editing of a quiz 1`] = `
       onMouseOver={[Function]}
       onTouchEnd={[Function]}
       onTouchStart={[Function]}
-      title="Hjælpetekst1"
+      title="Link til quizzen."
     >
       Quiz id / indlejring:
        
@@ -3317,7 +3317,7 @@ exports[`renders editing of a quiz 1`] = `
       onMouseOver={[Function]}
       onTouchEnd={[Function]}
       onTouchStart={[Function]}
-      title="Hjælpetekst2"
+      title="Quizzens navn."
     >
       <label
         className="MuiFormLabel-root-206 MuiFormLabel-filled-210 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-shrink-202"
@@ -3362,7 +3362,7 @@ exports[`renders editing of a quiz 1`] = `
       onMouseOver={[Function]}
       onTouchEnd={[Function]}
       onTouchStart={[Function]}
-      title="Hjælpetekst3"
+      title="Beskrivelse af quizzen. Vises kun her."
     >
       <label
         className="MuiFormLabel-root-206 MuiFormLabel-filled-210 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-shrink-202"
@@ -3407,7 +3407,7 @@ exports[`renders editing of a quiz 1`] = `
       onMouseOver={[Function]}
       onTouchEnd={[Function]}
       onTouchStart={[Function]}
-      title="Hjælpetekst4"
+      title="Hvad handler quizzen om? Tags hjælper med at søge efter quizzer indenfor et særligt emne."
     >
       <label
         className="MuiFormLabel-root-206 MuiFormLabel-filled-210 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-shrink-202"
@@ -3504,16 +3504,7 @@ exports[`renders editing of a quiz 1`] = `
     >
       Udseende
     </h5>
-    <div
-      aria-describedby={null}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      title="Hjælpetekst5"
-    >
+    <div>
       <img
         alt=""
         className={undefined}
@@ -3597,15 +3588,7 @@ exports[`renders editing of a quiz 1`] = `
       Farveskema
     </h6>
     <div
-      aria-describedby={null}
       className="MuiGrid-container-8 MuiGrid-spacing-xs-16-31"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      title="Hjælpetekst5"
     >
       <div
         className="MuiGrid-item-9"
@@ -5742,7 +5725,7 @@ exports[`renders editing of dispatch 1`] = `
           onMouseOver={[Function]}
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
-          title="Hjælpetekst6. Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises."
+          title="Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises."
         >
           <label
             className="MuiFormLabel-root-206 MuiFormLabel-filled-210 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-shrink-202"
@@ -5838,7 +5821,7 @@ exports[`renders editing of dispatch 1`] = `
           onMouseOver={[Function]}
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
-          title="Hjælpetekst7. Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises "
+          title="Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises "
         >
           <button
             className="MuiButtonBase-root-131 MuiButton-root-105 MuiButton-text-107 MuiButton-flat-110"
@@ -6170,7 +6153,7 @@ exports[`renders editing of dispatch 1`] = `
           onMouseOver={[Function]}
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
-          title="Hjælpetekst6. Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises."
+          title="Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises."
         >
           <label
             className="MuiFormLabel-root-206 MuiFormLabel-filled-210 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-shrink-202"
@@ -6266,7 +6249,7 @@ exports[`renders editing of dispatch 1`] = `
           onMouseOver={[Function]}
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
-          title="Hjælpetekst7. Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises "
+          title="Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises "
         >
           <button
             className="MuiButtonBase-root-131 MuiButton-root-105 MuiButton-text-107 MuiButton-flat-110"

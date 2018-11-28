@@ -58,7 +58,7 @@ function editCondition(
   return (
     <Grid item xs={12} key={screen}>
       <Paper className={classes.margin}>
-        <Tooltip title="Hjælpetekst6. Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises.">
+        <Tooltip title="Mindste antal point / rigtige svar for at denne slutning vises. Slutningen med det største tilstrækkelige minimumsantal vises.">
           <TextField
             label="Mindste antal point"
             value={minScore}
@@ -90,7 +90,7 @@ function editCondition(
           height={64}
           url={condition.getIn(['action', 'set', 'trophy', 'image'], '')}
         />
-        <Tooltip title="Hjælpetekst7. Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises ">
+        <Tooltip title="Pokalbillede bruges kun til indlejringen, - rediger slutning for at vælg hvordan slutningen vises ">
           <span>
             <ImageDialog
               title="Vælg pokalbillede"
