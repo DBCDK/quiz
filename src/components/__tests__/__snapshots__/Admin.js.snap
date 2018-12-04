@@ -3504,6 +3504,44 @@ exports[`renders editing of a quiz 1`] = `
     >
       Udseende
     </h5>
+    <div
+      aria-describedby={undefined}
+      className="MuiFormControl-root-191 Connect-EditQuiz--margin-284"
+    >
+      <label
+        className="MuiFormLabel-root-206 MuiFormLabel-filled-210 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-shrink-202"
+        data-shrink={true}
+        htmlFor={undefined}
+      >
+        Skriftstørrelse
+      </label>
+      <div
+        className="MuiInputBase-root-226 MuiInput-root-213 MuiInput-underline-217 MuiInputBase-formControl-227 MuiInput-formControl-214"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoComplete={undefined}
+          autoFocus={undefined}
+          className="MuiInputBase-input-236 MuiInput-input-221 MuiInputBase-inputType-239 MuiInput-inputType-224"
+          defaultValue={undefined}
+          disabled={false}
+          id={undefined}
+          name={undefined}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={undefined}
+          onKeyUp={undefined}
+          placeholder={undefined}
+          readOnly={undefined}
+          required={false}
+          rows={undefined}
+          type="number"
+          value={14}
+        />
+      </div>
+    </div>
     <div>
       <img
         alt=""
