@@ -39,6 +39,9 @@ export class Widget extends Component {
         secondary: {
           main: this.props.secondaryColor || '#ccc'
         }
+      },
+      typography: {
+        fontSize: this.props.fontSize || 18
       }
     });
     const classes = this.props.classes || undefined;
@@ -118,6 +121,7 @@ export function mapStateToProps(state, ownProps) {
     backgroundImage: settings.getIn(['backgroundImage']),
     primaryColor: settings.getIn(['style', 'primaryColor']),
     secondaryColor: settings.getIn(['style', 'secondaryColor']),
+    fontSize: settings.getIn(['style', 'fontSize']),
     backgroundColor
   };
 }

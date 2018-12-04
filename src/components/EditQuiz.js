@@ -10,6 +10,7 @@ import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
@@ -266,6 +267,15 @@ function renderVisualSettings({classes, settings, updateSetting}) {
       <Typography variant="h5" gutterBottom>
         Udseende
       </Typography>
+      <TextField
+        label="Skriftstørrelse"
+        value={settings.getIn(['style', 'fontSize'], 14)}
+        onChange={e =>
+          updateSetting(['style', 'fontSize'], Math.max(4, e.target.value | 0))
+        }
+        type="number"
+        className={classes.margin}
+      />
       <div>
         <Image url={settings.get('backgroundImage', '')} height={100} />
         <br />
@@ -276,6 +286,7 @@ function renderVisualSettings({classes, settings, updateSetting}) {
           title="Vælg baggrundsbillede"
         />
       </div>
+
       <Typography variant="h6" gutterBottom>
         Farveskema
       </Typography>
