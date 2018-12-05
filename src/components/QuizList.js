@@ -234,7 +234,6 @@ export class QuizList extends Component {
         <Grid item xs={12}>
           <TextField
             fullWidth
-            variant="outlined"
             label="Find quiz"
             value={query}
             onChange={e => changeQuery(e.target.value)}

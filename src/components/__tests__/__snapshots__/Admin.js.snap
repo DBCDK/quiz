@@ -7549,47 +7549,22 @@ exports[`renders search when no quiz 1`] = `
       className="MuiFormControl-root-191 MuiFormControl-fullWidth-194"
     >
       <label
-        className="MuiFormLabel-root-206 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-outlined-205"
+        className="MuiFormLabel-root-206 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203"
         data-shrink={false}
         htmlFor={undefined}
       >
         Find quiz
       </label>
       <div
-        className="MuiInputBase-root-226 MuiOutlinedInput-root-294 MuiInputBase-fullWidth-235 MuiInputBase-formControl-227 MuiInputBase-adornedEnd-231 MuiOutlinedInput-adornedEnd-298"
+        className="MuiInputBase-root-226 MuiInput-root-213 MuiInput-underline-217 MuiInputBase-fullWidth-235 MuiInput-fullWidth-220 MuiInputBase-formControl-227 MuiInput-formControl-214 MuiInputBase-adornedEnd-231"
+        labelWidth={64}
         onClick={[Function]}
       >
-        <fieldset
-          aria-hidden={true}
-          className="MuiPrivateNotchedOutline-root-307 MuiOutlinedInput-notchedOutline-301"
-          style={
-            Object {
-              "paddingLeft": 36,
-            }
-          }
-        >
-          <legend
-            className="MuiPrivateNotchedOutline-legend-308"
-            style={
-              Object {
-                "width": 0.01,
-              }
-            }
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "&#8203;",
-                }
-              }
-            />
-          </legend>
-        </fieldset>
         <input
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInputBase-input-236 MuiOutlinedInput-input-302 MuiInputBase-inputAdornedEnd-242 MuiOutlinedInput-inputAdornedEnd-306"
+          className="MuiInputBase-input-236 MuiInput-input-221 MuiInputBase-inputAdornedEnd-242"
           defaultValue={undefined}
           disabled={false}
           id={undefined}
@@ -7607,7 +7582,7 @@ exports[`renders search when no quiz 1`] = `
           value=""
         />
         <div
-          className="MuiInputAdornment-root-309 MuiInputAdornment-positionEnd-312"
+          className="MuiInputAdornment-root-294 MuiInputAdornment-positionEnd-297"
         >
           <button
             aria-label="Search"
@@ -7656,13 +7631,13 @@ exports[`renders search when no quiz 1`] = `
     </div>
     <div>
       <label
-        className="MuiFormControlLabel-root-313"
+        className="MuiFormControlLabel-root-298"
       >
         <span
-          className="MuiSwitch-root-319"
+          className="MuiSwitch-root-304"
         >
           <span
-            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-328 MuiSwitch-switchBase-322 MuiSwitch-colorSecondary-325 MuiPrivateSwitchBase-checked-329 MuiSwitch-checked-323"
+            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-313 MuiSwitch-switchBase-307 MuiSwitch-colorSecondary-310 MuiPrivateSwitchBase-checked-314 MuiSwitch-checked-308"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -7680,12 +7655,12 @@ exports[`renders search when no quiz 1`] = `
               className="MuiIconButton-label-148"
             >
               <span
-                className="MuiSwitch-icon-320 MuiSwitch-iconChecked-321"
+                className="MuiSwitch-icon-305 MuiSwitch-iconChecked-306"
               />
               <input
                 autoFocus={undefined}
                 checked={true}
-                className="MuiPrivateSwitchBase-input-331"
+                className="MuiPrivateSwitchBase-input-316"
                 disabled={undefined}
                 id={undefined}
                 name={undefined}
@@ -7702,11 +7677,11 @@ exports[`renders search when no quiz 1`] = `
             />
           </span>
           <span
-            className="MuiSwitch-bar-327"
+            className="MuiSwitch-bar-312"
           />
         </span>
         <span
-          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-318"
+          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-303"
         >
           Kun egne quizzer
         </span>
@@ -7717,7 +7692,7 @@ exports[`renders search when no quiz 1`] = `
     className="MuiGrid-item-9 MuiGrid-grid-xs-12-48"
   >
     <ul
-      className="MuiList-root-332 MuiList-padding-333"
+      className="MuiList-root-317 MuiList-padding-318"
     />
   </div>
 </div>
@@ -7782,47 +7757,22 @@ exports[`renders search when no quiz 2`] = `
       className="MuiFormControl-root-191 MuiFormControl-fullWidth-194"
     >
       <label
-        className="MuiFormLabel-root-206 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203 MuiInputLabel-outlined-205"
+        className="MuiFormLabel-root-206 MuiInputLabel-root-195 MuiInputLabel-formControl-200 MuiInputLabel-animated-203"
         data-shrink={false}
         htmlFor={undefined}
       >
         Find quiz
       </label>
       <div
-        className="MuiInputBase-root-226 MuiOutlinedInput-root-294 MuiInputBase-fullWidth-235 MuiInputBase-formControl-227 MuiInputBase-adornedEnd-231 MuiOutlinedInput-adornedEnd-298"
+        className="MuiInputBase-root-226 MuiInput-root-213 MuiInput-underline-217 MuiInputBase-fullWidth-235 MuiInput-fullWidth-220 MuiInputBase-formControl-227 MuiInput-formControl-214 MuiInputBase-adornedEnd-231"
+        labelWidth={64}
         onClick={[Function]}
       >
-        <fieldset
-          aria-hidden={true}
-          className="MuiPrivateNotchedOutline-root-307 MuiOutlinedInput-notchedOutline-301"
-          style={
-            Object {
-              "paddingLeft": 36,
-            }
-          }
-        >
-          <legend
-            className="MuiPrivateNotchedOutline-legend-308"
-            style={
-              Object {
-                "width": 0.01,
-              }
-            }
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "&#8203;",
-                }
-              }
-            />
-          </legend>
-        </fieldset>
         <input
           aria-invalid={false}
           autoComplete={undefined}
           autoFocus={undefined}
-          className="MuiInputBase-input-236 MuiOutlinedInput-input-302 MuiInputBase-inputAdornedEnd-242 MuiOutlinedInput-inputAdornedEnd-306"
+          className="MuiInputBase-input-236 MuiInput-input-221 MuiInputBase-inputAdornedEnd-242"
           defaultValue={undefined}
           disabled={false}
           id={undefined}
@@ -7840,7 +7790,7 @@ exports[`renders search when no quiz 2`] = `
           value=""
         />
         <div
-          className="MuiInputAdornment-root-309 MuiInputAdornment-positionEnd-312"
+          className="MuiInputAdornment-root-294 MuiInputAdornment-positionEnd-297"
         >
           <button
             aria-label="Search"
@@ -7889,13 +7839,13 @@ exports[`renders search when no quiz 2`] = `
     </div>
     <div>
       <label
-        className="MuiFormControlLabel-root-313"
+        className="MuiFormControlLabel-root-298"
       >
         <span
-          className="MuiSwitch-root-319"
+          className="MuiSwitch-root-304"
         >
           <span
-            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-328 MuiSwitch-switchBase-322 MuiSwitch-colorSecondary-325 MuiPrivateSwitchBase-checked-329 MuiSwitch-checked-323"
+            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-313 MuiSwitch-switchBase-307 MuiSwitch-colorSecondary-310 MuiPrivateSwitchBase-checked-314 MuiSwitch-checked-308"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -7913,12 +7863,12 @@ exports[`renders search when no quiz 2`] = `
               className="MuiIconButton-label-148"
             >
               <span
-                className="MuiSwitch-icon-320 MuiSwitch-iconChecked-321"
+                className="MuiSwitch-icon-305 MuiSwitch-iconChecked-306"
               />
               <input
                 autoFocus={undefined}
                 checked={true}
-                className="MuiPrivateSwitchBase-input-331"
+                className="MuiPrivateSwitchBase-input-316"
                 disabled={undefined}
                 id={undefined}
                 name={undefined}
@@ -7935,11 +7885,11 @@ exports[`renders search when no quiz 2`] = `
             />
           </span>
           <span
-            className="MuiSwitch-bar-327"
+            className="MuiSwitch-bar-312"
           />
         </span>
         <span
-          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-318"
+          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-303"
         >
           Kun egne quizzer
         </span>
@@ -7950,13 +7900,13 @@ exports[`renders search when no quiz 2`] = `
     className="MuiGrid-item-9 MuiGrid-grid-xs-12-48"
   >
     <ul
-      className="MuiList-root-332 MuiList-padding-333"
+      className="MuiList-root-317 MuiList-padding-318"
     >
       <li
-        className="MuiListItem-container-337"
+        className="MuiListItem-container-322"
       >
         <div
-          className="MuiButtonBase-root-131 MuiListItem-root-336 MuiListItem-default-339 MuiListItem-gutters-343 MuiListItem-button-344 MuiListItem-secondaryAction-345"
+          className="MuiButtonBase-root-131 MuiListItem-root-321 MuiListItem-default-324 MuiListItem-gutters-328 MuiListItem-button-329 MuiListItem-secondaryAction-330"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -7972,10 +7922,10 @@ exports[`renders search when no quiz 2`] = `
           tabIndex="0"
         >
           <div
-            className="MuiListItemText-root-347"
+            className="MuiListItemText-root-332"
           >
             <span
-              className="MuiTypography-root-149 MuiTypography-subheading-156 MuiListItemText-primary-350"
+              className="MuiTypography-root-149 MuiTypography-subheading-156 MuiListItemText-primary-335"
             >
               <span
                 className="Connect-QuizList--margin-291"
@@ -8011,7 +7961,7 @@ exports[`renders search when no quiz 2`] = `
           />
         </div>
         <div
-          className="MuiListItemSecondaryAction-root-353"
+          className="MuiListItemSecondaryAction-root-338"
         >
           <button
             aria-label="Copy"
