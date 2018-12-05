@@ -18,6 +18,10 @@ import style from './style';
 import {ImageDialog, Image} from './ImageDialog';
 import {withStyles} from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import {
   adminCurrentScreen,
@@ -168,17 +172,76 @@ function renderDescriptionSettings({classes, settings, updateSetting}) {
       <Typography variant="h5" gutterBottom>
         Quiz beskrivelse
       </Typography>
-      <Tooltip title="Link til quizzen.">
-        <Typography>
-          Quiz id / indlejring:{' '}
-          <a
-            target="_blank"
-            href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}
-          >
-            {settings.get('_id')}
-          </a>
-        </Typography>
-      </Tooltip>
+
+      <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography>
+            Quiz id / link :{' '}
+            <Tooltip title="Link til quizzen.">
+              <a
+                target="_blank"
+                href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}
+              >
+                {settings.get('_id')}
+              </a>
+            </Tooltip>
+            &nbsp; (ekspandér for detaljer om indlejring)
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <p>
+              Quiz'en kan testes på{' '}
+              <a
+                target="_blank"
+                href={'https://quiz.dbc.dk/widget?' + settings.get('_id')}
+              >
+                <code>
+                  {'https://quiz.dbc.dk/widget?' + settings.get('_id')}
+                </code>
+              </a>
+              . Den kan indlejres i HTML med følgende kode:
+            </p>
+            <p>
+              <small>
+                <code>
+                  &lt;div id="quizElem">&lt;/div>
+                  <br />
+                  &lt;script>function initOpenPlatformQuiz() {'{'}
+                  <br />
+                  new openPlatformQuiz.Widget({'{'}
+                  <br />
+                  &nbsp; elemId: "quizElem",
+                  <br />
+                  &nbsp; openPlatformToken: "
+                </code>
+                <em>INDSÆT OPENPLATFORM TOKEN HER</em>
+                <code>
+                  ",
+                  <br />
+                  &nbsp; quizId: "{settings.get('_id')}"});
+                  <br />
+                  }&lt;/script>
+                  <br />
+                  &lt;script src="https://quiz.dbc.dk/widget.js" async
+                  defer>&lt;/script>
+                  <br />
+                </code>
+              </small>
+            </p>
+            <p>
+              Bemærk at embednings-koden også skal have et token til den åbne
+              platform, som kan hentes via clientId/clientSecret. Flere detaljer
+              om hvordan quiz'en indlejres kan ses i README'en for quiz-koden på{' '}
+              <a target="_blank" href="https://github.com/dbcdk/quiz">
+                github.com/dbcdk/quiz
+              </a>
+              .
+            </p>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+
       <Tooltip title="Quizzens navn.">
         <FormControl fullWidth className={classes.margin}>
           <InputLabel htmlFor="title">Titel</InputLabel>
