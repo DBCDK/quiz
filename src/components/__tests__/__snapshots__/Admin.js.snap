@@ -3288,26 +3288,175 @@ exports[`renders editing of a quiz 1`] = `
     >
       Quiz beskrivelse
     </h5>
-    <p
-      aria-describedby={null}
-      className="MuiTypography-root-149 MuiTypography-body1-158"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      title="Link til quizzen."
+    <div
+      className="MuiPaper-root-253 MuiPaper-elevation1-256 MuiExpansionPanel-root-287"
     >
-      Quiz id / indlejring:
-       
-      <a
-        href="https://quiz.dbc.dk/widget?78087084-efa1-44ac-b6cf-83d7b5d8c255"
-        target="_blank"
+      <div
+        aria-expanded={false}
+        className="MuiButtonBase-root-131 MuiExpansionPanelSummary-root-290"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="0"
       >
-        78087084-efa1-44ac-b6cf-83d7b5d8c255
-      </a>
-    </p>
+        <div
+          className="MuiExpansionPanelSummary-content-294"
+        >
+          <p
+            className="MuiTypography-root-149 MuiTypography-body1-158"
+          >
+            Quiz id / link :
+             
+            <a
+              aria-describedby={null}
+              href="https://quiz.dbc.dk/widget?78087084-efa1-44ac-b6cf-83d7b5d8c255"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              target="_blank"
+              title="Link til quizzen."
+            >
+              78087084-efa1-44ac-b6cf-83d7b5d8c255
+            </a>
+              (ekspandér for detaljer om indlejring)
+          </p>
+        </div>
+        <div
+          aria-hidden="true"
+          className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiExpansionPanelSummary-expandIcon-295"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={-1}
+        >
+          <span
+            className="MuiIconButton-label-148"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root-134"
+              color={undefined}
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root-246"
+          />
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        className="MuiCollapse-container-296"
+        style={
+          Object {
+            "minHeight": "0px",
+          }
+        }
+      >
+        <div
+          className="MuiCollapse-wrapper-298"
+        >
+          <div
+            className="MuiCollapse-wrapperInner-299"
+          >
+            <div
+              className="MuiExpansionPanelDetails-root-300"
+            >
+              <p
+                className="MuiTypography-root-149 MuiTypography-body1-158"
+              >
+                <p>
+                  Quiz'en kan testes på
+                   
+                  <a
+                    href="https://quiz.dbc.dk/widget?78087084-efa1-44ac-b6cf-83d7b5d8c255"
+                    target="_blank"
+                  >
+                    <code>
+                      https://quiz.dbc.dk/widget?78087084-efa1-44ac-b6cf-83d7b5d8c255
+                    </code>
+                  </a>
+                  . Den kan indlejres i HTML med følgende kode:
+                </p>
+                <p>
+                  <small>
+                    <code>
+                      &lt;div id="quizElem"&gt;&lt;/div&gt;
+                      <br />
+                      &lt;script&gt;function initOpenPlatformQuiz() 
+                      {
+                      <br />
+                      new openPlatformQuiz.Widget(
+                      {
+                      <br />
+                        elemId: "quizElem",
+                      <br />
+                        openPlatformToken: "
+                    </code>
+                    <em>
+                      INDSÆT OPENPLATFORM TOKEN HER
+                    </em>
+                    <code>
+                      ",
+                      <br />
+                        quizId: "
+                      78087084-efa1-44ac-b6cf-83d7b5d8c255
+                      "});
+                      <br />
+                      }&lt;/script&gt;
+                      <br />
+                      &lt;script src="https://quiz.dbc.dk/widget.js" async defer&gt;&lt;/script&gt;
+                      <br />
+                    </code>
+                  </small>
+                </p>
+                <p>
+                  Bemærk at embednings-koden også skal have et token til den åbne platform, som kan hentes via clientId/clientSecret. Flere detaljer om hvordan quiz'en indlejres kan ses i README'en for quiz-koden på
+                   
+                  <a
+                    href="https://github.com/dbcdk/quiz"
+                    target="_blank"
+                  >
+                    github.com/dbcdk/quiz
+                  </a>
+                  .
+                </p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       aria-describedby={null}
       className="MuiFormControl-root-191 MuiFormControl-fullWidth-194 Connect-EditQuiz--margin-284"
@@ -7582,7 +7731,7 @@ exports[`renders search when no quiz 1`] = `
           value=""
         />
         <div
-          className="MuiInputAdornment-root-294 MuiInputAdornment-positionEnd-297"
+          className="MuiInputAdornment-root-308 MuiInputAdornment-positionEnd-311"
         >
           <button
             aria-label="Search"
@@ -7631,13 +7780,13 @@ exports[`renders search when no quiz 1`] = `
     </div>
     <div>
       <label
-        className="MuiFormControlLabel-root-298"
+        className="MuiFormControlLabel-root-312"
       >
         <span
-          className="MuiSwitch-root-304"
+          className="MuiSwitch-root-318"
         >
           <span
-            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-313 MuiSwitch-switchBase-307 MuiSwitch-colorSecondary-310 MuiPrivateSwitchBase-checked-314 MuiSwitch-checked-308"
+            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-327 MuiSwitch-switchBase-321 MuiSwitch-colorSecondary-324 MuiPrivateSwitchBase-checked-328 MuiSwitch-checked-322"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -7655,12 +7804,12 @@ exports[`renders search when no quiz 1`] = `
               className="MuiIconButton-label-148"
             >
               <span
-                className="MuiSwitch-icon-305 MuiSwitch-iconChecked-306"
+                className="MuiSwitch-icon-319 MuiSwitch-iconChecked-320"
               />
               <input
                 autoFocus={undefined}
                 checked={true}
-                className="MuiPrivateSwitchBase-input-316"
+                className="MuiPrivateSwitchBase-input-330"
                 disabled={undefined}
                 id={undefined}
                 name={undefined}
@@ -7677,11 +7826,11 @@ exports[`renders search when no quiz 1`] = `
             />
           </span>
           <span
-            className="MuiSwitch-bar-312"
+            className="MuiSwitch-bar-326"
           />
         </span>
         <span
-          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-303"
+          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-317"
         >
           Kun egne quizzer
         </span>
@@ -7692,7 +7841,7 @@ exports[`renders search when no quiz 1`] = `
     className="MuiGrid-item-9 MuiGrid-grid-xs-12-48"
   >
     <ul
-      className="MuiList-root-317 MuiList-padding-318"
+      className="MuiList-root-331 MuiList-padding-332"
     />
   </div>
 </div>
@@ -7790,7 +7939,7 @@ exports[`renders search when no quiz 2`] = `
           value=""
         />
         <div
-          className="MuiInputAdornment-root-294 MuiInputAdornment-positionEnd-297"
+          className="MuiInputAdornment-root-308 MuiInputAdornment-positionEnd-311"
         >
           <button
             aria-label="Search"
@@ -7839,13 +7988,13 @@ exports[`renders search when no quiz 2`] = `
     </div>
     <div>
       <label
-        className="MuiFormControlLabel-root-298"
+        className="MuiFormControlLabel-root-312"
       >
         <span
-          className="MuiSwitch-root-304"
+          className="MuiSwitch-root-318"
         >
           <span
-            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-313 MuiSwitch-switchBase-307 MuiSwitch-colorSecondary-310 MuiPrivateSwitchBase-checked-314 MuiSwitch-checked-308"
+            className="MuiButtonBase-root-131 MuiIconButton-root-143 MuiPrivateSwitchBase-root-327 MuiSwitch-switchBase-321 MuiSwitch-colorSecondary-324 MuiPrivateSwitchBase-checked-328 MuiSwitch-checked-322"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -7863,12 +8012,12 @@ exports[`renders search when no quiz 2`] = `
               className="MuiIconButton-label-148"
             >
               <span
-                className="MuiSwitch-icon-305 MuiSwitch-iconChecked-306"
+                className="MuiSwitch-icon-319 MuiSwitch-iconChecked-320"
               />
               <input
                 autoFocus={undefined}
                 checked={true}
-                className="MuiPrivateSwitchBase-input-316"
+                className="MuiPrivateSwitchBase-input-330"
                 disabled={undefined}
                 id={undefined}
                 name={undefined}
@@ -7885,11 +8034,11 @@ exports[`renders search when no quiz 2`] = `
             />
           </span>
           <span
-            className="MuiSwitch-bar-312"
+            className="MuiSwitch-bar-326"
           />
         </span>
         <span
-          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-303"
+          className="MuiTypography-root-149 MuiTypography-body1-158 MuiFormControlLabel-label-317"
         >
           Kun egne quizzer
         </span>
@@ -7900,13 +8049,13 @@ exports[`renders search when no quiz 2`] = `
     className="MuiGrid-item-9 MuiGrid-grid-xs-12-48"
   >
     <ul
-      className="MuiList-root-317 MuiList-padding-318"
+      className="MuiList-root-331 MuiList-padding-332"
     >
       <li
-        className="MuiListItem-container-322"
+        className="MuiListItem-container-336"
       >
         <div
-          className="MuiButtonBase-root-131 MuiListItem-root-321 MuiListItem-default-324 MuiListItem-gutters-328 MuiListItem-button-329 MuiListItem-secondaryAction-330"
+          className="MuiButtonBase-root-131 MuiListItem-root-335 MuiListItem-default-338 MuiListItem-gutters-342 MuiListItem-button-343 MuiListItem-secondaryAction-344"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -7922,25 +8071,25 @@ exports[`renders search when no quiz 2`] = `
           tabIndex="0"
         >
           <div
-            className="MuiListItemText-root-332"
+            className="MuiListItemText-root-346"
           >
             <span
-              className="MuiTypography-root-149 MuiTypography-subheading-156 MuiListItemText-primary-335"
+              className="MuiTypography-root-149 MuiTypography-subheading-156 MuiListItemText-primary-349"
             >
               <span
-                className="Connect-QuizList--margin-291"
+                className="Connect-QuizList--margin-305"
               >
                 Quiz test eksempel
               </span>
               <small
-                className="Connect-QuizList--margin-291"
+                className="Connect-QuizList--margin-305"
               >
                 <small>
                   nøgleord1
                 </small>
               </small>
               <small
-                className="Connect-QuizList--margin-291"
+                className="Connect-QuizList--margin-305"
               >
                 <small>
                   nøgleord2
@@ -7948,7 +8097,7 @@ exports[`renders search when no quiz 2`] = `
               </small>
               <br />
               <small
-                className="Connect-QuizList--margin-291"
+                className="Connect-QuizList--margin-305"
               >
                 2018-11-20T11:46:41.458Z
                  
@@ -7961,7 +8110,7 @@ exports[`renders search when no quiz 2`] = `
           />
         </div>
         <div
-          className="MuiListItemSecondaryAction-root-338"
+          className="MuiListItemSecondaryAction-root-352"
         >
           <button
             aria-label="Copy"
