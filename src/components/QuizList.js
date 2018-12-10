@@ -95,7 +95,7 @@ class DeleteButton extends Component {
 
 class StatisticsDialog extends Component {
   render() {
-    let {quiz, hideStatistics, screenHits, dayHits} = this.props;
+    let {quiz, hideStatistics, screenHits, agencyHits, dayHits} = this.props;
     quiz = Immutable.fromJS(quiz);
     const questions = quizQuestionList(quiz);
     const screenStat = {};
@@ -199,6 +199,22 @@ class StatisticsDialog extends Component {
                 ))
             )}
           </Typography>
+          {Object.keys(agencyHits).length > 0 && (
+            <Typography>
+              <strong>Totalt antal hits per agency:</strong> <br />
+              {Object.keys(agencyHits)
+                .sort()
+                .reverse()
+                .map(agency => (
+                  <small key={agency}>
+                    {' '}
+                    {agency}: &nbsp;
+                    {agencyHits[agency]}
+                    <br />
+                  </small>
+                ))}
+            </Typography>
+          )}
         </DialogContent>
       </Dialog>
     );
@@ -261,6 +277,7 @@ export class QuizList extends Component {
               quiz={statistics.quiz}
               dayHits={statistics.dayHits}
               screenHits={statistics.screenHits}
+              agencyHits={statistics.agencyHits}
               hideStatistics={hideStatistics}
             />
           )}
