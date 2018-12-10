@@ -15,11 +15,12 @@ export const adminQuizList = () => async (dispatch, getState) => {
 export const showStatistics = quiz => async dispatch => {
   let dayHits = {};
   let screenHits = {};
+  let agencyHits = {};
 
   function dispatchStat() {
     dispatch({
       type: 'STATISTICS',
-      statistics: Immutable.fromJS({quiz, dayHits, screenHits})
+      statistics: Immutable.fromJS({quiz, dayHits, screenHits, agencyHits})
     });
   }
 
@@ -69,7 +70,18 @@ export const showStatistics = quiz => async dispatch => {
     dayHits = _.fromPairs(_.zip(dayList, hits));
     dispatchStat();
   })();
+
+  const agencyStat = await storage.scan({
+    _type: 'openplatform.quizStatistics',
+    index: ['quiz', 'type', 'subtype'],
+    startsWith: [quiz.get('_id'), 'agency']
+  });
+  for (const {key, val} of agencyStat) {
+    agencyHits[key[2]] = val;
+  }
+  dispatchStat();
 };
+
 export const hideStatistics = () => {
   return {
     type: 'STATISTICS',
