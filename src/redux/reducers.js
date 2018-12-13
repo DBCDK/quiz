@@ -180,6 +180,11 @@ export function root(state = initialState, action) {
     case 'ONDONE_CALLBACK': {
       return state.setIn(['widget', 'onDone'], action.fn);
     }
+    case 'QUIZ_WIDTH': {
+      return state.getIn(['widget', 'width']) === action.width
+        ? state
+        : state.setIn(['widget', 'width'], action.width);
+    }
     case 'ADD_DISPATCH': {
       const newScreen = uuidv4();
       state = state.setIn(

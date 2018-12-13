@@ -121,6 +121,7 @@ Array [
 exports[`maps dispatch to props 1`] = `
 Object {
   "onAction": [Function],
+  "setQuizWidth": [Function],
 }
 `;
 
