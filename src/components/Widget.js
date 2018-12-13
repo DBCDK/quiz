@@ -44,7 +44,7 @@ export class Widget extends Component {
         fontSize: this.props.fontSize || 18
       }
     });
-    const classes = this.props.classes || undefined;
+    const {classes, widgetWidth} = this.props;
     let backgroundImage = this.props.backgroundImage;
     return (
       <MuiThemeProvider theme={theme}>
@@ -56,6 +56,7 @@ export class Widget extends Component {
           </Toolbar>
         </AppBar>
         <center
+          ref={node => node && this.props.setQuizWidth(node.offsetWidth)}
           style={{
             background:
               backgroundImage &&
@@ -75,6 +76,7 @@ export class Widget extends Component {
                 this.props.ui.map((o, pos) => {
                   const element = renderElement(o.toJS(), {
                     onAction: this.props.onAction,
+                    widgetWidth,
                     classes,
                     vars: this.props.vars.toJS()
                   });
@@ -122,13 +124,15 @@ export function mapStateToProps(state, ownProps) {
     primaryColor: settings.getIn(['style', 'primaryColor']),
     secondaryColor: settings.getIn(['style', 'secondaryColor']),
     fontSize: settings.getIn(['style', 'fontSize']),
+    widgetWidth: state.getIn(['widget', 'width']) || window.innerWidth,
     backgroundColor
   };
 }
 
 export function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onAction: action => dispatch(screenAction(action))
+    onAction: action => dispatch(screenAction(action)),
+    setQuizWidth: width => dispatch({type: 'QUIZ_WIDTH', width})
   };
 }
 

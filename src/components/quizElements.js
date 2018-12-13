@@ -23,7 +23,7 @@ renderer.link = function(href, title, text) {
 
 const quizElements = {
   media: {
-    view: ({url, image}, {classes, width}) => {
+    view: ({url, image}, {classes, width, widgetWidth}) => {
       url = url || image || '';
       const ytRegEx = /https?:[/][/][^/]*youtube.com[/].*v=([^&]*).*/;
       const vimeoRegEx = /https?:[/][/][^/]*vimeo.com[/].*?([0-9][0-9][0-9][0-9]+).*/;
@@ -34,7 +34,7 @@ const quizElements = {
       let mediaTag;
 
       const calculatedWidth = Math.floor(
-        width || Math.min(window.innerWidth * 0.95, 960) * 0.8
+        width || Math.min(widgetWidth * 1.1, 960) * 0.8
       );
       if (url.match(ytRegEx)) {
         const height = calculatedWidth * 0.5625;
