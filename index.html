@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Quiz</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div style="text-align:center;font-family:sans-serif"><div style="display:inline-block;text-align:left;font-size:18px;margin-top:36px">quiz.dbc.dk<ul><li><a href="https://quiz.dbc.dk/admin">Redigér quizzer</a></li><li><a href="https://quiz.dbc.dk/widget?68131356-0d4e-4b27-b063-1ef762929ece">Eksempelquiz (lavet af bibliotekerne)</a></li></ul></div></div><div style="margin:5%"><div id="adminElem"></div></div><div id="quizElem"></div><script>var quiz, admin;
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Quiz</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div style="text-align:center;font-family:sans-serif"><div style="display:inline-block;text-align:left;font-size:18px;margin-top:36px">quiz.dbc.dk<ul><li><a href="https://quiz.dbc.dk/admin">Redigér quizzer</a></li><li><a href="https://quiz.dbc.dk/widget?68131356-0d4e-4b27-b063-1ef762929ece">Eksempelquiz (lavet af bibliotekerne)</a></li></ul></div></div><div id="quizElem"></div><div style="margin:5%"><div id="adminElem"></div></div><script>var quiz, admin;
 async function initOpenPlatformQuiz() {
   const {access_token} = await (await fetch('https://auth.dbc.dk/oauth/token', {
     method: 'POST',
@@ -9,6 +9,7 @@ async function initOpenPlatformQuiz() {
   })).json()
 
   quiz = new openPlatformQuiz.Widget({
+    extraSpacing: false,
     elemId: 'quizElem',
     openPlatformToken: access_token,
     // quizId: '3455bb3c-005b-4846-9761-13b941e85b1a',
@@ -16,8 +17,9 @@ async function initOpenPlatformQuiz() {
   });
 
   admin = new openPlatformQuiz.Admin({
+    extraSpacing: false,
     elemId: 'adminElem',
     openPlatformToken: access_token,
     // quizId: '3455bb3c-005b-4846-9761-13b941e85b1a',
   });
-}</script><script type="text/javascript" src="/quiz/static/js/main.25dd607f.js"></script></body></html>
+}</script><script type="text/javascript" src="/quiz/static/js/main.1e338b50.js"></script></body></html>
