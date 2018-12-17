@@ -29,7 +29,7 @@ export class ImageDialog extends React.Component {
     this.setState({loading: false, images: result.map(o => o.val)});
   }
   chooseImage(id) {
-    this.props.setImageUrl('openplatform:' + id);
+    this.props.setImageUrl('https://openplatform.dbc.dk/v3/storage/' + id);
     this.setState({open: false});
   }
   render() {
