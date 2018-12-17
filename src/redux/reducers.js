@@ -177,8 +177,13 @@ export function root(state = initialState, action) {
     case 'STATISTICS': {
       return state.set('statistics', action.statistics);
     }
-    case 'ONDONE_CALLBACK': {
-      return state.setIn(['widget', 'onDone'], action.fn);
+    case 'WIDGET_SETTINGS': {
+      for (const key in action) {
+        if (key !== 'type') {
+          state = state.setIn(['widget', key], action[key]);
+        }
+      }
+      return state;
     }
     case 'QUIZ_WIDTH': {
       return state.getIn(['widget', 'width']) === action.width

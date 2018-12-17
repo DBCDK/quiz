@@ -4,6 +4,10 @@ const style = theme => ({
   },
   container: {
     maxWidth: Math.min(window.innerWidth * 0.95, 960),
+    textAlign: 'left'
+  },
+  containerSpacing: {
+    maxWidth: Math.min(window.innerWidth * 0.95, 960),
     minHeight: window.innerHeight - 64,
     textAlign: 'left'
   },

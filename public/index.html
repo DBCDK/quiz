@@ -21,10 +21,10 @@
     </div>
     </div>
     
+    <div id="quizElem"></div>
     <div style="margin: 5%">
     <div id="adminElem"></div>
     </div>
-    <div id="quizElem"></div>
     <script>
 var quiz, admin;
 async function initOpenPlatformQuiz() {
@@ -37,6 +37,7 @@ async function initOpenPlatformQuiz() {
   })).json()
 
   quiz = new openPlatformQuiz.Widget({
+    extraSpacing: false,
     elemId: 'quizElem',
     openPlatformToken: access_token,
     // quizId: '3455bb3c-005b-4846-9761-13b941e85b1a',
@@ -44,6 +45,7 @@ async function initOpenPlatformQuiz() {
   });
 
   admin = new openPlatformQuiz.Admin({
+    extraSpacing: false,
     elemId: 'adminElem',
     openPlatformToken: access_token,
     // quizId: '3455bb3c-005b-4846-9761-13b941e85b1a',

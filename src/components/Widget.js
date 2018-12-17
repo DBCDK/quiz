@@ -44,7 +44,7 @@ export class Widget extends Component {
         fontSize: this.props.fontSize || 18
       }
     });
-    const {classes, widgetWidth} = this.props;
+    const {classes, widgetWidth, extraSpacing} = this.props;
     let backgroundImage = this.props.backgroundImage;
     return (
       <MuiThemeProvider theme={theme}>
@@ -68,10 +68,16 @@ export class Widget extends Component {
           }}
         >
           <div style={{backgroundColor: this.props.backgroundColor}}>
-            <Grid container spacing={spacing} className={classes.container}>
-              <Grid item xs={12} />
-              <Grid item xs={12} />
-              <Grid item xs={12} />
+            <Grid
+              container
+              spacing={spacing}
+              className={
+                extraSpacing ? classes.containerSpacing : classes.container
+              }
+            >
+              {extraSpacing && <Grid item xs={12} />}
+              {extraSpacing && <Grid item xs={12} />}
+              {extraSpacing && <Grid item xs={12} />}
               {this.props.ui &&
                 this.props.ui.map((o, pos) => {
                   const element = renderElement(o.toJS(), {
@@ -91,9 +97,9 @@ export class Widget extends Component {
                     )
                   );
                 })}
-              <Grid item xs={12} />
-              <Grid item xs={12} />
-              <Grid item xs={12} />
+              {extraSpacing && <Grid item xs={12} />}
+              {extraSpacing && <Grid item xs={12} />}
+              {extraSpacing && <Grid item xs={12} />}
             </Grid>
           </div>
         </center>
@@ -124,6 +130,7 @@ export function mapStateToProps(state, ownProps) {
     primaryColor: settings.getIn(['style', 'primaryColor']),
     secondaryColor: settings.getIn(['style', 'secondaryColor']),
     fontSize: settings.getIn(['style', 'fontSize']),
+    extraSpacing: state.getIn(['widget', 'extraSpacing'], false),
     widgetWidth: state.getIn(['widget', 'width']) || window.innerWidth,
     backgroundColor
   };
