@@ -81,6 +81,7 @@ const quizElements = {
       url = url || image || '';
       return (
         <ImageDialog
+          title="Vælg billede / video"
           classes={classes}
           imageUrl={url}
           setImageUrl={imageUrl =>

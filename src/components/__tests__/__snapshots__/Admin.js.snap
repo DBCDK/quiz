@@ -82,7 +82,7 @@ exports[`renders different endings 1`] = `
           <span
             className="MuiButton-label-106"
           >
-            Vælg billede
+            Vælg billede / video
           </span>
           <span
             className="MuiTouchRipple-root-246"
@@ -975,7 +975,7 @@ exports[`renders different endings 2`] = `
           <span
             className="MuiButton-label-106"
           >
-            Vælg billede
+            Vælg billede / video
           </span>
           <span
             className="MuiTouchRipple-root-246"
@@ -1368,7 +1368,7 @@ exports[`renders different endings 3`] = `
           <span
             className="MuiButton-label-106"
           >
-            Vælg billede
+            Vælg billede / video
           </span>
           <span
             className="MuiTouchRipple-root-246"
@@ -1681,7 +1681,7 @@ exports[`renders editing of a question 1`] = `
           <span
             className="MuiButton-label-106"
           >
-            Vælg billede
+            Vælg billede / video
           </span>
           <span
             className="MuiTouchRipple-root-246"
@@ -6096,7 +6096,7 @@ exports[`renders editing of dispatch 1`] = `
                   <span
                     className="MuiButton-label-106"
                   >
-                    Vælg billede
+                    Vælg billede / video
                   </span>
                   <span
                     className="MuiTouchRipple-root-246"
@@ -6524,7 +6524,7 @@ exports[`renders editing of dispatch 1`] = `
                   <span
                     className="MuiButton-label-106"
                   >
-                    Vælg billede
+                    Vælg billede / video
                   </span>
                   <span
                     className="MuiTouchRipple-root-246"
@@ -6994,7 +6994,7 @@ exports[`renders editing of info pages 1`] = `
           <span
             className="MuiButton-label-106"
           >
-            Vælg billede
+            Vælg billede / video
           </span>
           <span
             className="MuiTouchRipple-root-246"
@@ -7380,7 +7380,7 @@ exports[`renders editing of info pages 2`] = `
           <span
             className="MuiButton-label-106"
           >
-            Vælg billede
+            Vælg billede / video
           </span>
           <span
             className="MuiTouchRipple-root-246"
