@@ -18,9 +18,12 @@ window.addEventListener('load', () => {
   }
 });
 
-async function mount(Cls, {elemId, onDone, openPlatformToken, quizId}) {
+async function mount(
+  Cls,
+  {elemId, onDone, openPlatformToken, quizId, extraSpacing}
+) {
   openPlatformToken && (await openplatform.connect(openPlatformToken));
-  store.dispatch(init({quizId, onDone}));
+  store.dispatch(init({quizId, onDone, extraSpacing}));
   ReactDOM.render(
     <Provider store={store}>
       <Cls />

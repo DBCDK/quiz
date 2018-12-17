@@ -23,6 +23,7 @@
         })).json()
 
         new openPlatformQuiz.Widget({
+          extraSpacing: true,
           elemId: 'quizElem',
           openPlatformToken: access_token,
           quizId: location.hash.slice(1) || location.search.slice(1),

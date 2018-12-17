@@ -18,6 +18,7 @@ The quiz can be embedded in other websites like this:
   function initOpenPlatformQuiz() {
     quiz = new openPlatformQuiz.Widget({
       elemId: 'quizElem',
+      extraSpacing: true,
       openPlatformToken: 'fd9e275eeb36295971719a77df354f84e9f21ab3',
       quizId: 'ffdfa65b-4b14-4bec-a4bb-5f2938eca897',
       onDone: function(result) {
@@ -30,6 +31,8 @@ The quiz can be embedded in other websites like this:
 ```
 
 The `openPlatformToken` has to be retrieved dynamically, as usual for openplatform access.
+
+If `extraSpacing` is true, extra spacing is added to the embedded quiz, so it has at least the same height as the screen.
 
 Approach to embedding is inspired by how [YouTube](https://developers.google.com/youtube/player_parameters#IFrame_Player_API) and [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial#HelloWorld) are embedded.
 With regard to IFrame vs JavaScript approach, - embedding via JavaScript is choosen as this allows a more responsive view.

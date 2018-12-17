@@ -252,16 +252,17 @@ export const deleteQuiz = quizId => async (dispatch, getState) => {
   await storage.delete({_id: quizId});
   await searchQuizzes()(dispatch, getState);
 };
-export const init = ({onDone, quizId}) => async (dispatch, getState) => {
+export const init = ({onDone, quizId, extraSpacing}) => async (
+  dispatch,
+  getState
+) => {
   dispatch({type: 'LOADING_STARTED'});
 
   user = await getUser();
   if (!user) {
     return dispatch({type: 'LOADING_DONE'});
   }
-  if (onDone) {
-    dispatch({type: 'ONDONE_CALLBACK', fn: onDone});
-  }
+  dispatch({type: 'WIDGET_SETTINGS', onDone, extraSpacing});
 
   [[quizType], [quizImageType], [quizStatisticsType]] = await Promise.all([
     storage.find({
