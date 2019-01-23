@@ -195,7 +195,17 @@ export const searchQuizzes = () => async (dispatch, getState) => {
   const visited = new Set();
   result = result.filter(o => !visited.has(o.val) && visited.add(o.val));
 
-  result = await Promise.all(result.map(o => storage.get({_id: o.val})));
+  result = await Promise.all(
+    result.map(async o => {
+      try {
+        return await storage.get({_id: o.val});
+      } catch (e) {
+        console.error('Could not `storage.get` ' + o.val);
+      }
+    })
+  );
+  result = result.filter(o => !!o);
+
   dispatch({type: 'SEARCH_RESULTS', searchResults: result, query, ownOnly});
   return result;
 };
