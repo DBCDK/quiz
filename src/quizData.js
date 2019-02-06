@@ -144,7 +144,7 @@ export const quizData = () => ({
       buttonText: 'Prøv igen'
     }),
     retry: infoScreenData({
-      _id: 'won',
+      _id: 'retry',
       parent: 'quizDone',
       text: 'Prøv igen...',
       action: {screen: 'quizIntro'},

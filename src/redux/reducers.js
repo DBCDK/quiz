@@ -255,6 +255,12 @@ export function root(state = initialState, action) {
       return state.updateIn(['widget', 'loading'], i => i - 1);
     }
     case 'ADMIN_EDIT_SCREEN': {
+      // Bugfix: fix screen data with wrong _id when switching to them
+      state = state.setIn(
+        ['quiz', 'screens', action.screen, '_id'],
+        action.screen
+      );
+
       return state.setIn(['admin', 'currentScreen'], action.screen);
     }
     case 'PAGE_ACTION': {
